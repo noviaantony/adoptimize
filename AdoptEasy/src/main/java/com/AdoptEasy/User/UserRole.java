@@ -1,4 +1,4 @@
-package com.example.AdoptEasy.User;
+package com.AdoptEasy.User;
 
 public enum UserRole {
     USER,

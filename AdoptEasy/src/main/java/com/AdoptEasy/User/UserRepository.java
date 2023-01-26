@@ -1,4 +1,4 @@
-package com.example.AdoptEasy.User;
+package com.AdoptEasy.User;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,5 +20,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "SET a.enabled = TRUE WHERE a.email = ?1")
     int enableAppUser(String email);
 
-    User findByResetPasswordToken(String token);
+//    User findByResetPasswordToken(String token);
 }
