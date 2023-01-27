@@ -1,7 +1,10 @@
 import React from 'react'
 import PetCard from '../components/mypets/PetCard'
+import PetCard2 from '../components/mypets/PetCard2'
 import Searchbar from  '../components/mypets/Searchbar'
 import Carousel from  '../components/mypets/Slider'
+import Header from "../components/misc/Header";
+import {motion} from "framer-motion";
 
 const MyPets = () => {
 
@@ -16,15 +19,32 @@ const MyPets = () => {
         </svg>
       </button>
     </div> */}
-    <Searchbar/>
+    <Header
+    Title="Project Luni's Pet Gallery"
+    Description="browse all listed pets and edit your pet gallery here!"
+    />
+    {/* <Searchbar/> */}
     
 
-    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-      <PetCard/>
-      {/* <PetCard/>
-      <PetCard/>
-      <PetCard/> */}
-    </div>
+    {/* <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      
+
+    </div> */}
+
+    <div class="container my-12 mx-auto px-4 md:px-12">
+                        <motion.div
+                            className="text-center lg:text-left actions flex flex-wrap -mx-1 lg:-mx-4"
+                            animate={{opacity: 1}}
+                            initial={{opacity: 0}}
+                        >
+                          <PetCard2/>
+                          <PetCard2/>
+                          <PetCard2/>
+                          <PetCard2/>
+                          <PetCard2/>
+
+                        </motion.div>
+                        </div>
 
     </>
   )

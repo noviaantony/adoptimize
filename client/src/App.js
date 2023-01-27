@@ -14,12 +14,11 @@ function App() {
     <div className="App">
       <Sidebar/>
       {/* <Home/> */}
-      <MyPets/>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/MyPets" element={<MyPets />} />
-      </Routes> */}
-      {/* <Footer/> */}
+      </Routes> 
+      <Footer/>
     </div>
   );
 }

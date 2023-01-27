@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from './Slider'
 import { Button, Space } from 'antd';
 
-const PetCard = () => {
+const PetCard = ({Name, Breed, Sex, Age}) => {
   return (
     <>
     <div class="rounded-lg overflow-hidden shadow-lg bg-white w-3/6">
