@@ -77,7 +77,7 @@ const MyPets = () => {
                                 <input
                                     type="search"
                                     id="default-search"
-                                    className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border  shadow-2xl"
+                                    className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border font-nunito"
                                     placeholder="Search for foods,snacks,etc"
                                     required=""
                                     onChange={(event) => {
@@ -85,7 +85,7 @@ const MyPets = () => {
                                     }}
                                 />
                                 <button
-                                    className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#562349] rounded-lg  focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-700 hover:text-white" data-tooltip-target="tooltip-default" 
+                                    className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#CDBBA7] rounded-lg  focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-700 hover:text-white" data-tooltip-target="tooltip-default" 
                                     type="button"
                         
                                 >

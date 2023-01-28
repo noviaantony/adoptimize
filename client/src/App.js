@@ -7,6 +7,8 @@ import Footer from "./components/footer/Footer";
 
 import Home from "./screens/Home";
 import MyPets from "./screens/MyPets";
+import Prescreening from './screens/Prescreening';
+import AdoptionContract from './screens/AdoptionContract';
 
 
 
@@ -18,6 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/OurPets" element={<MyPets />} />
+        <Route path="/Prescreening" element={<Prescreening />} />
+        <Route path="/AdoptionContract" element={<AdoptionContract />} />
       </Routes> 
       <Footer/>
     </div>

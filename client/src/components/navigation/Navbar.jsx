@@ -14,12 +14,12 @@ const AuthNavbar = () => {
   // };
 
   return (
-    <nav className="shadow bg-[#AD6989] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
+    <nav className="shadow bg-[#DAD0C2] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link
-              class="toggleColour text-black my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-[#FFA299]"
+              class="toggleColour text-black my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-black font-nunito"
               to=""
             >
               {/* <img src={require("./Logo.png")} width="90rem" alt="" /> */}
@@ -72,7 +72,7 @@ const AuthNavbar = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <div>
                 <Link
-                  className="text-black font-bold hover:font-bolder text-sm"
+                  className="text-black font-bold hover:font-bolder text-sm font-nunito"
                   to="/"
                 >
                   <a href="javascript:void(0)">Dashboard</a>
@@ -81,25 +81,25 @@ const AuthNavbar = () => {
 
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
+                  className="text-black text-sm hover:font-bolder font-nunito"
                   to="/About Us"
                 >
                   <a href="javascript:void(0)">About Us</a>
                 </Link>
               </div>
 
-              <div>
+              {/* <div>
                 <Link
                   className="text-black text-sm hover:font-bolder"
                   to="/AdoptionProcess"
                 >
                   <a href="javascript:void(0)">Adoption Process</a>
                 </Link>
-              </div>
+              </div> */}
 
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
+                  className="text-black text-sm hover:font-bolder font-nunito"
                   to="/OurPets"
                 >
                   <a href="javascript:void(0)">Our Pets</a>
@@ -107,31 +107,31 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
-                  to="/Donate"
+                  className="text-black text-sm hover:font-bolder font-nunito"
+                  to="/Prescreening"
                 >
                   <a href="javascript:void(0)">Pre-Screening</a>
                 </Link>
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
-                  to="/Donate"
+                  className="text-black text-sm hover:font-bolder font-nunito"
+                  to="/AdoptionContract"
                 >
                   <a href="javascript:void(0)">Adoption Contract</a>
                 </Link>
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
+                  className="text-black text-sm hover:font-bolder font-nunito"
                   to="/Donate"
                 >
-                  <a href="javascript:void(0)">Pending Adoption</a>
+                  <a href="javascript:void(0)">Adoption Management</a>
                 </Link>
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
+                  className="text-black text-sm hover:font-bolder font-nunito"
                   to="/Donate"
                 >
                   <a href="javascript:void(0)">Payments</a>
@@ -139,7 +139,7 @@ const AuthNavbar = () => {
               </div>
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
-                px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-primary-700"
+                px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-primary-700 font-nunito"
                 // onClick={logout}
                 type="button"
               >

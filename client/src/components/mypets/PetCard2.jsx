@@ -12,7 +12,7 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
     };
 
     return (
-        <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default">
+        <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default font-nunito">
           <article class="overflow-hidden rounded-lg bg-white shadow-xl">
             <Slider/>
               <header class="flex items-left leading-tight p-2 md:p-4 ">
@@ -28,6 +28,15 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
 
                 <footer class="flex items-center justify-between leading-none p-2 md:p-4 bg-white">
                     <div class="flex items-center no-underline  text-black" href="#">
+                        <button
+                            href="#"
+                            className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-[#562349] text-white rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#562349] border-2 border-solid hover:bg-gray-700 hover:border-gray-700
+          "
+                            type="button"
+                            onClick={() => setshowDishInfo(true)}
+                        >
+                            View Information
+                        </button>
                         <button
                             href="#"
                             className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-[#562349] rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#562349] border-2 border-solid hover:bg-gray-100
@@ -107,6 +116,13 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
                                                 onClick={() => setshowDishInfo(false)}
                                             >
                                                 Close
+                                            </button>
+                                            <button
+                                                className="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                type="button"
+                                                // onClick={() => setshowDishInfo(false)}
+                                            >
+                                                Save
                                             </button>
                                         </div>
                                     </div>

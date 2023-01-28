@@ -7,6 +7,7 @@ module.exports = {
 
       fontFamily: {
         default: ['Open Sans', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif']
       },
     },
   },
