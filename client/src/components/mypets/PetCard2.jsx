@@ -13,7 +13,7 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
 
     return (
         <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default">
-          <article class="overflow-hidden rounded-lg bg-white">
+          <article class="overflow-hidden rounded-lg bg-white shadow-xl">
             <Slider/>
               <header class="flex items-left leading-tight p-2 md:p-4 ">
                   <h1 class="text-2xl font-bold">{Name}</h1>
@@ -30,7 +30,7 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
                     <div class="flex items-center no-underline  text-black" href="#">
                         <button
                             href="#"
-                            className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-[#5E9387] rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#5E9387] border-2 border-solid hover:bg-gray-100
+                            className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-[#562349] rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#562349] border-2 border-solid hover:bg-gray-100
           "
                             type="button"
                             onClick={() => setshowDishInfo(true)}

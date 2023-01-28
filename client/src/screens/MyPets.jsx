@@ -5,6 +5,7 @@ import Searchbar from  '../components/mypets/Searchbar'
 import Carousel from  '../components/mypets/Slider'
 import Header from "../components/misc/Header";
 import {motion} from "framer-motion";
+import { IoAdd } from "react-icons/io5";
 
 const MyPets = () => {
 
@@ -54,7 +55,7 @@ const MyPets = () => {
                         >
                             Search
                         </label>
-                        <div className="relative ">
+                        <div className="relative">
                             <div className="flex items-center absolute inset-y-0 left-0 pl-3 pointer-events-none">
                                 <svg
                                     aria-hidden="true"
@@ -76,7 +77,7 @@ const MyPets = () => {
                                 <input
                                     type="search"
                                     id="default-search"
-                                    className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border"
+                                    className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border  shadow-2xl"
                                     placeholder="Search for foods,snacks,etc"
                                     required=""
                                     onChange={(event) => {
@@ -84,11 +85,15 @@ const MyPets = () => {
                                     }}
                                 />
                                 <button
-                                    className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#5E9387] rounded-lg  focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-700 hover:text-white"
+                                    className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#562349] rounded-lg  focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-700 hover:text-white" data-tooltip-target="tooltip-default" 
                                     type="button"
                         
                                 >
-                                    {/* <MdQrCodeScanner size={50} className="rounded-lg"/> */}
+                                    <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                        Add Pet
+                                    </div>
+                                    <IoAdd size = {40}/>
+                                    
                                 </button>
                             </div>
                         </div>
