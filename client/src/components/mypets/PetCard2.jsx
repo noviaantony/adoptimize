@@ -11,19 +11,18 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
         setOpen(open === value ? 0 : value);
     };
 
-
     return (
         <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default">
           <article class="overflow-hidden rounded-lg bg-white">
             <Slider/>
               <header class="flex items-left leading-tight p-2 md:p-4 ">
-                  <h1 class="text-2xl font-bold">Timothee</h1>
+                  <h1 class="text-2xl font-bold">{Name}</h1>
               </header>
         <div>
         <div class="px-6 pt-2 pb-2">
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Ragdoll</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Kitten</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Male</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Breed}</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Age} years</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Sex}</span>
         </div>
                 </div>
 
@@ -36,7 +35,7 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
                             type="button"
                             onClick={() => setshowDishInfo(true)}
                         >
-                            Edit About Me
+                            Edit Information
                         </button>
                     </div>
 
