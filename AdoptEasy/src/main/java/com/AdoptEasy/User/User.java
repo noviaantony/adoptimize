@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,6 +22,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -34,22 +36,14 @@ public class User implements UserDetails {
             generator = "user_sequence"
     )
     private Long id;
-
     private String firstName;
-
-
     private String lastName;
-
     private String email;
-
     private String password;
-
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
-
     private Boolean locked = false;
-
-    private Boolean enabled = false; //temporarily set to true
+    private Boolean enabled = true; //temporarily set to true
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
@@ -57,10 +51,6 @@ public class User implements UserDetails {
 
     @Column(length = 45)
     private String resetPasswordToken;
-
-    public User() {
-
-    }
 
     public User(String firstName, String lastName, String email, String password, UserRole userRole) {
         this.firstName = firstName;

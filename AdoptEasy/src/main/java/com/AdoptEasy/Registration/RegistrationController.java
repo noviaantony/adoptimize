@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/adopteasy/user/registration")
+@RequestMapping(path = "api/v1/AdoptEasy/user/registration")
 @AllArgsConstructor
 public class RegistrationController {
     private final RegistrationService registrationService;

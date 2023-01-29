@@ -2,8 +2,11 @@ package com.AdoptEasy.User;
 
 import com.AdoptEasy.Registration.Token.ConfirmationToken;
 import com.AdoptEasy.Registration.Token.ConfirmationTokenService;
+import com.AdoptEasy.Security.JwtService;
 import com.AdoptEasy.User.Exception.UserNotFoundException;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +18,7 @@ import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
 
@@ -24,6 +27,9 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     private final ConfirmationTokenService confirmationTokenService;
+
+    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
     public List<User> getUsers(){
         return userRepository.findAll();
@@ -84,5 +90,14 @@ public class UserService implements UserDetailsService {
 
         user.setResetPasswordToken(null);
         userRepository.save(user);
+    }
+
+    public String authenticateUser(String email, String password) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(email, password)
+        );
+        User user = userRepository.findByEmail(email).orElseThrow(() ->
+                new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+        return jwtService.generateToken(user); //generate and return the jwt token to the user
     }
 }
