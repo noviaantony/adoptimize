@@ -14,7 +14,7 @@ const AuthNavbar = () => {
   // };
 
   return (
-    <nav className="shadow bg-[#DAD0C2] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
+    <nav className="shadow bg-[#826F66] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -22,8 +22,7 @@ const AuthNavbar = () => {
               class="toggleColour text-black my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-black font-nunito"
               to=""
             >
-              {/* <img src={require("./Logo.png")} width="90rem" alt="" /> */}
-              Adoptsy 
+              <img src={require("./Logo.png")} width="100rem" alt="" />
             </Link>
             <div className="md:hidden">
               <button
@@ -72,7 +71,7 @@ const AuthNavbar = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <div>
                 <Link
-                  className="text-black font-bold hover:font-bolder text-sm font-nunito"
+                  className="text-white font-bold hover:font-bolder text-sm font-nunito"
                   to="/"
                 >
                   <a href="javascript:void(0)">Dashboard</a>
@@ -81,7 +80,7 @@ const AuthNavbar = () => {
 
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder font-nunito"
+                  className="text-white text-sm hover:font-bolder font-nunito"
                   to="/About Us"
                 >
                   <a href="javascript:void(0)">About Us</a>
@@ -124,7 +123,7 @@ const AuthNavbar = () => {
               <div>
                 <Link
                   className="text-black text-sm hover:font-bolder font-nunito"
-                  to="/Donate"
+                  to="/AdoptionManagement"
                 >
                   <a href="javascript:void(0)">Adoption Management</a>
                 </Link>
@@ -132,7 +131,7 @@ const AuthNavbar = () => {
               <div>
                 <Link
                   className="text-black text-sm hover:font-bolder font-nunito"
-                  to="/Donate"
+                  to="/Payments"
                 >
                   <a href="javascript:void(0)">Payments</a>
                 </Link>

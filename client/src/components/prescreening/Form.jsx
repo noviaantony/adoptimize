@@ -55,11 +55,6 @@ const Form = () => {
     }
     return (
         <div className='flex flex-col justify-between items-center px-4 h-screen w-full mt-20 font-nunito'>
-            {/* <div className='flex flex-col px-4 bg-white rounded-md justify-center item-start w-full shadow-sm border-indigo-800 border-t-8 space-y-2 h-24'>
-                <h1 className='text-3xl font-semibold'>Form Header</h1>
-                <p className='text-gray-500/80 capitalize'>Form Description</p>
-            </div> */}
-
             <div className='relative flex flex-col w-full space-y-4'>
                 {formContent.map((field) => {
                     return (
@@ -112,17 +107,24 @@ const Form = () => {
                 })}
                 <button
                 className="hover:bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
-                px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold bg-gray-700 text-white hover:text-primary-700"
-                // onClick={logout}
+                px-7 py-2 w-full text-center rounded-md block sm:w-auto font-bold bg-gray-700 text-white hover:text-primary-700"
                 type="button"
               >
                 Save Questions
               </button>
-                <div className='absolute top-0 -right-16 flex flex-col items-center bg-white p-2 rounded-md shadow-md'>
-                    <button onClick={() => addQuestion()}>
+              <button
+                className="hover:bg-primary-500 focus:bg-primary-700  focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold text-gray-700 hover:text-primary-700"
+                 onClick={() => addQuestion()}
+                type="button"
+              >
+                Add Question
+              </button>
+                {/* <div className='absolute top-0 -right-16 flex flex-col items-center bg-white p-2 rounded-md shadow-md'>
+                    <button>
                         <IoAdd className="w-8 h-8 text-gray-400 hover:text-indigo-500" />
                     </button>
-                </div>
+                </div> */}
             </div>
 
         </div>

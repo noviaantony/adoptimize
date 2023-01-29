@@ -9,7 +9,7 @@ import Home from "./screens/Home";
 import MyPets from "./screens/MyPets";
 import Prescreening from './screens/Prescreening';
 import AdoptionContract from './screens/AdoptionContract';
-
+import AdoptionManagement from './screens/AdoptionManagement'
 
 
 function App() {
@@ -18,10 +18,11 @@ function App() {
       <Navbar/>
       {/* <Home/> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/OurPets" element={<MyPets />} />
         <Route path="/Prescreening" element={<Prescreening />} />
         <Route path="/AdoptionContract" element={<AdoptionContract />} />
+        <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
       </Routes> 
       <Footer/>
     </div>
