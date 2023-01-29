@@ -15,10 +15,10 @@ import java.io.UnsupportedEncodingException;
 @Service
 @Transactional
 public class MailingService {
-    @Autowired
-    private JavaMailSender javaMailSender;
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private JavaMailSender javaMailSender;
+//    @Autowired
+//    private UserService userService;
 
 //    public void sendResetEmail(String recipientEmail, String link) throws MessagingException, UnsupportedEncodingException {
 //        MimeMessage message = javaMailSender.createMimeMessage();

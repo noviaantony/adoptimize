@@ -1,10 +1,9 @@
 package com.AdoptEasy.User;
 
 
-import javax.persistence.*;
-
 import com.AdoptEasy.Registration.Token.ConfirmationToken;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,10 +17,12 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "adopteasy_user")
 @Getter
 @Setter
 @AllArgsConstructor
 public class User implements UserDetails {
+
     @Id
     @SequenceGenerator(
             name = "user_sequence",

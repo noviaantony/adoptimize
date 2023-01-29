@@ -6,6 +6,7 @@ import com.AdoptEasy.User.User;
 import com.AdoptEasy.User.UserRepository;
 import com.AdoptEasy.User.UserRole;
 import com.AdoptEasy.User.UserService;
+import com.AdoptEasy.Registration.EmailValidator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
