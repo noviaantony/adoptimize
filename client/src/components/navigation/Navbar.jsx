@@ -71,7 +71,7 @@ const AuthNavbar = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <div>
                 <Link
-                  className="text-white font-bold hover:font-bolder text-sm font-nunito"
+                  className="text-white hover:font-bolder text-sm font-nunito"
                   to="/"
                 >
                   <a href="javascript:void(0)">Dashboard</a>
@@ -98,7 +98,7 @@ const AuthNavbar = () => {
 
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder font-nunito"
+                  className="text-white text-sm hover:font-bolder font-nunito"
                   to="/OurPets"
                 >
                   <a href="javascript:void(0)">Our Pets</a>
@@ -106,7 +106,7 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder font-nunito"
+                  className="text-white text-sm hover:font-bolder font-nunito"
                   to="/Prescreening"
                 >
                   <a href="javascript:void(0)">Pre-Screening</a>
@@ -114,7 +114,7 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder font-nunito"
+                  className="text-white text-sm hover:font-bolder font-nunito"
                   to="/AdoptionContract"
                 >
                   <a href="javascript:void(0)">Adoption Contract</a>
@@ -122,20 +122,20 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder font-nunito"
+                  className="text-white text-sm hover:font-bolder font-nunito"
                   to="/AdoptionManagement"
                 >
                   <a href="javascript:void(0)">Adoption Management</a>
                 </Link>
               </div>
-              <div>
+              {/* <div>
                 <Link
                   className="text-black text-sm hover:font-bolder font-nunito"
                   to="/Payments"
                 >
                   <a href="javascript:void(0)">Payments</a>
                 </Link>
-              </div>
+              </div> */}
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
                 px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-primary-700 font-nunito"
