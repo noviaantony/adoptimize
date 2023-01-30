@@ -10,6 +10,7 @@ import MyPets from "./screens/MyPets";
 import Prescreening from './screens/Prescreening';
 import AdoptionContract from './screens/AdoptionContract';
 import AdoptionManagement from './screens/AdoptionManagement'
+import AboutUs from './screens/AboutUs';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path="/Prescreening" element={<Prescreening />} />
         <Route path="/AdoptionContract" element={<AdoptionContract />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
+        <Route path="/AboutUs" element ={<AboutUs/>} />
+
       </Routes> 
       <Footer/>
     </div>

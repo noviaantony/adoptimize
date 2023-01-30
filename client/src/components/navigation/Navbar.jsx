@@ -20,7 +20,7 @@ const AuthNavbar = () => {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link
               class="toggleColour text-black my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-black font-nunito"
-              to=""
+              to="/AboutUs"
             >
               <img src={require("./Logo.png")} width="100rem" alt="" />
             </Link>
@@ -69,19 +69,19 @@ const AuthNavbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <div>
+              {/* <div>
                 <Link
                   className="text-white hover:font-bolder text-sm font-nunito"
                   to="/"
                 >
                   <a href="javascript:void(0)">Dashboard</a>
                 </Link>
-              </div>
+              </div> */}
 
               <div>
                 <Link
                   className="text-white text-sm hover:font-bolder font-nunito"
-                  to="/About Us"
+                  to="/AboutUs"
                 >
                   <a href="javascript:void(0)">About Us</a>
                 </Link>
