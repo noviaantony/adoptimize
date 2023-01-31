@@ -16,11 +16,11 @@ const EditableTable2 = () => {
 
   const [shelterData, setShelterData] = useState(data)
 
-  const onChangeInput = (e, employeeId) => {
+  const onChangeInput = (e, id) => {
     const { Name, value } = e.target
 
     const editData = shelterData.map((item) =>
-      item.employeeId === employeeId && Name ? { ...item, [Name]: value } : item
+      item.id === id && Name ? { ...item, [Name]: value } : item
     )
 
     setShelterData(editData)
