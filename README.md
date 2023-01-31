@@ -1,6 +1,4 @@
-# CarbonO
-
-
+# Adoptsy
 
 > Project By: SMU CS203 G2T2
 > - [Zhao Xing](https://github.com/Newbieshine/)
