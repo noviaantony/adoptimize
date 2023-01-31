@@ -39,7 +39,7 @@ Code submission for [SMU CS203]
 ## Local Deployment
 ### Cloning The Repository
 ```base
-$ git clone https://github.com/Chen-ZhaoXing/CarbonO.git 
+$ git clone https://github.com/Chen-ZhaoXing/CS206-Group7-Project.git
 ```
 
 ### React Application
