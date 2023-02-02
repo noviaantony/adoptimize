@@ -14,19 +14,19 @@ const AuthNavbar = () => {
   // };
 
   return (
-    <nav className="shadow bg-[#826F66] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
+    <nav className="shadow bg-[#F7F9F9] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link
-              class="toggleColour text-black my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-black font-nunito"
+              class="toggleColour text-[#050a30] my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-[#050a30] font-nunito"
               to="/AboutUs"
             >
               <img src={require("./Logo.png")} width="100rem" alt="" />
             </Link>
             <div className="md:hidden">
               <button
-                className="p-2 text-white font-bold rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2 text-[#050a30] font-bold rounded-md outline-none focus:border-gray-400 focus:border"
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -71,7 +71,7 @@ const AuthNavbar = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               {/* <div>
                 <Link
-                  className="text-white hover:font-bolder text-sm font-nunito"
+                  className="text-[#050a30] hover:font-bolder text-sm font-nunito"
                   to="/"
                 >
                   <a href="javascript:void(0)">Dashboard</a>
@@ -80,7 +80,7 @@ const AuthNavbar = () => {
 
               <div>
                 <Link
-                  className="text-white text-sm hover:font-bolder font-nunito"
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/AboutUs"
                 >
                   <a href="javascript:void(0)">About Us</a>
@@ -89,7 +89,7 @@ const AuthNavbar = () => {
 
               {/* <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder"
+                  className="text-[#050a30] text-sm hover:font-bolder"
                   to="/AdoptionProcess"
                 >
                   <a href="javascript:void(0)">Adoption Process</a>
@@ -98,7 +98,7 @@ const AuthNavbar = () => {
 
               <div>
                 <Link
-                  className="text-white text-sm hover:font-bolder font-nunito"
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/OurPets"
                 >
                   <a href="javascript:void(0)">Our Pets</a>
@@ -106,7 +106,7 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-white text-sm hover:font-bolder font-nunito"
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/Prescreening"
                 >
                   <a href="javascript:void(0)">Pre-Screening</a>
@@ -114,7 +114,7 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-white text-sm hover:font-bolder font-nunito"
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/AdoptionContract"
                 >
                   <a href="javascript:void(0)">Adoption Contract</a>
@@ -122,7 +122,7 @@ const AuthNavbar = () => {
               </div>
               <div>
                 <Link
-                  className="text-white text-sm hover:font-bolder font-nunito"
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/AdoptionManagement"
                 >
                   <a href="javascript:void(0)">Adoption Management</a>
@@ -130,7 +130,7 @@ const AuthNavbar = () => {
               </div>
               {/* <div>
                 <Link
-                  className="text-black text-sm hover:font-bolder font-nunito"
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/Payments"
                 >
                   <a href="javascript:void(0)">Payments</a>
@@ -138,7 +138,7 @@ const AuthNavbar = () => {
               </div> */}
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
-                px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-primary-700 font-nunito"
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-white font-nunito"
                 // onClick={logout}
                 type="button"
               >
