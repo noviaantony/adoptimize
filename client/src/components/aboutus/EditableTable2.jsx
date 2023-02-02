@@ -30,7 +30,7 @@ const EditableTable2 = () => {
     <div className="mt-20">
       <div className = "grid grid-cols-2 gap-4">
         <div class="mb-6 ml-32 font-nunito">
-            <label for="base-input" class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white font-bold">Shelter Name:</label>
+            <label for="base-input" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white font-bold">Shelter Name:</label>
             {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess }) => ( 
               <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Your Shleter's Name"
               onChange={(e) => onChangeInput(e, shelterId)}
@@ -40,7 +40,7 @@ const EditableTable2 = () => {
             
         </div> 
         <div class="mb-6 mr-32 font-nunito">
-            <label for="base-input" class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white font-bold">Contact:</label>
+            <label for="base-input" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white font-bold">Contact:</label>
             {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess  }) => ( 
               <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" 
               placeholder="Enter Your Shleter's Contact Number"
@@ -53,14 +53,14 @@ const EditableTable2 = () => {
 
       <div className = "grid grid-cols-2 gap-4">
         <div class="mb-6 ml-32 font-nunito">
-          <label for="base-input" class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white font-bold">Address:</label>
+          <label for="base-input" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white font-bold">Address:</label>
           {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess  }) => ( 
           <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Your Shleter's Address" onChange={(e) => onChangeInput(e, shelterId)}
           value = {Address}/>
           ))}
         </div> 
         <div class="mb-6 mr-32 font-nunito">
-            <label for="base-input" class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white font-bold">Website URL:</label>
+            <label for="base-input" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white font-bold">Website URL:</label>
             {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess  }) => ( 
             <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Your Shelter's Website URL"onChange={(e) => onChangeInput(e, shelterId)}
             value = {Website}/>
@@ -71,14 +71,14 @@ const EditableTable2 = () => {
       
          
       <div class="mb-12 mx-32 font-nunito">
-          <label for="large-input" class="block mb-2 text-sm text-2xl text-gray-900 dark:text-white font-bold">About Us:</label>
+          <label for="large-input" class="block mb-2 text-xl text-gray-900 dark:text-white font-bold">About Us:</label>
           {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess  }) => ( 
           <input type="text" id="large-input" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Description About Your Shelter" onChange={(e) => onChangeInput(e, shelterId)}
           value = {Description}/>
           ))}
       </div>
       <div class="mb-12 mx-32 font-nunito">
-          <label for="large-input" class="block mb-2 text-sm text-2xl text-gray-900 dark:text-white font-bold">Adoption Process:</label>
+          <label for="large-input" class="block mb-2 text-xl text-gray-900 dark:text-white font-bold">Adoption Process:</label>
           {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess  }) => ( 
           <input type="text" id="large-input" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Detailed Description About Adoption Process For Your Shelter" onChange={(e) => onChangeInput(e, shelterId)}
           value = {AdoptionProcess}/>

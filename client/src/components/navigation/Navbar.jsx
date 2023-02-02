@@ -14,12 +14,12 @@ const AuthNavbar = () => {
   // };
 
   return (
-    <nav className="shadow bg-[#F7F9F9] px-2 sm:px-4 py-2.5 w-full z-20 sticky top-0 left-0 font-default">
+    <nav className="bg-[#F7F9F9] px-2 sm:px-4 w-full z-20 sticky top-0 left-0 font-default">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+          <div className="flex items-center justify-between py-2 md:py-1 md:block">
             <Link
-              class="toggleColour text-[#050a30] my-4 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-[#050a30] font-nunito"
+              class="toggleColour text-[#050a30] my-2 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-[#050a30] font-nunito"
               to="/AboutUs"
             >
               <img src={require("./Logo.png")} width="100rem" alt="" />
@@ -69,15 +69,7 @@ const AuthNavbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {/* <div>
-                <Link
-                  className="text-[#050a30] hover:font-bolder text-sm font-nunito"
-                  to="/"
-                >
-                  <a href="javascript:void(0)">Dashboard</a>
-                </Link>
-              </div> */}
-
+  
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
@@ -86,22 +78,12 @@ const AuthNavbar = () => {
                   <a href="javascript:void(0)">About Us</a>
                 </Link>
               </div>
-
-              {/* <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder"
-                  to="/AdoptionProcess"
-                >
-                  <a href="javascript:void(0)">Adoption Process</a>
-                </Link>
-              </div> */}
-
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/OurPets"
+                  to="/PetCare"
                 >
-                  <a href="javascript:void(0)">Our Pets</a>
+                  <a href="javascript:void(0)">Pet Care</a>
                 </Link>
               </div>
               <div>
@@ -112,6 +94,14 @@ const AuthNavbar = () => {
                   <a href="javascript:void(0)">Pre-Screening</a>
                 </Link>
               </div>
+              <div>
+                <Link
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
+                  to="/OurPets"
+                >
+                  <a href="javascript:void(0)">Our Pets</a>
+                </Link>
+              </div>  
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
@@ -128,14 +118,15 @@ const AuthNavbar = () => {
                   <a href="javascript:void(0)">Adoption Management</a>
                 </Link>
               </div>
-              {/* <div>
+              <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Payments"
+                  to="/Tutorial"
                 >
-                  <a href="javascript:void(0)">Payments</a>
+                  <a href="javascript:void(0)">Tutorial</a>
                 </Link>
-              </div> */}
+              </div>
+
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
                 px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-white font-nunito"
