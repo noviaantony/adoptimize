@@ -58,7 +58,7 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
                         
                         <button
                             href="#"
-                            className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-[#826F66] rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#826F66] border-2 border-solid hover:bg-gray-100
+                            className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-gray-500 rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#826F66] border-2 border-solid hover:bg-gray-100
           "
                             type="button"
                             onClick={() => setshowDishInfo(true)}

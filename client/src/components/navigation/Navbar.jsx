@@ -14,13 +14,13 @@ const AuthNavbar = () => {
   // };
 
   return (
-    <nav className="bg-[#F7F9F9] px-2 sm:px-4 w-full z-20 sticky top-0 left-0 font-default">
+    <nav className="bg-[#F6F7FA] px-2 sm:px-4 w-full z-20 sticky top-0 left-0 font-default">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-2 md:py-1 md:block">
             <Link
               class="toggleColour text-[#050a30] my-2 leading-tight no-underline hover:no-underline font-bold text-xl lg:text-3xl text-[#050a30] font-nunito"
-              to="/AboutUs"
+              to="/"
             >
               <img src={require("./Logo.png")} width="100rem" alt="" />
             </Link>
@@ -84,6 +84,14 @@ const AuthNavbar = () => {
                   to="/PetCare"
                 >
                   <a href="javascript:void(0)">Pet Care</a>
+                </Link>
+              </div>
+              <div>
+                <Link
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
+                  to="/Quiz"
+                >
+                  <a href="javascript:void(0)">Quiz</a>
                 </Link>
               </div>
               <div>

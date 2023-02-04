@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 
 // import Sidebar from './components/navigation/Sidebar'
 import Navbar from './components/navigation/Navbar'
-import Navbar2 from './components/navigation/Navbar2'
 import Footer from "./components/footer/Footer";
 
 import Home from "./screens/Home";
@@ -14,6 +13,9 @@ import AdoptionContract from './screens/AdoptionContract';
 import AdoptionManagement from './screens/AdoptionManagement'
 import AboutUs from './screens/AboutUs';
 import Landing from './screens/Landing';
+import Quiz from './screens/Quiz';
+import PetCare from './screens/PetCare';
+
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/AdoptionContract" element={<AdoptionContract />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
         <Route path="/AboutUs" element ={<AboutUs/>} />
+        <Route path="/Quiz" element ={<Quiz/>} />
+        <Route path="/PetCare" element ={<PetCare/>} />
         <Route path = "/" element = {<Landing/>}/>
 
       </Routes> 

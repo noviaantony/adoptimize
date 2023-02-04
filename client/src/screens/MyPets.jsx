@@ -85,11 +85,11 @@ const MyPets = () => {
                                     }}
                                 />
                                 <button
-                                    className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#CDBBA7] rounded-lg  focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-700 hover:text-white" data-tooltip-target="tooltip-default" 
+                                    className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#050a30] rounded-lg focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-500 hover:text-white" data-tooltip-target="tooltip-default" 
                                     type="button"
                         
                                 >
-                                    <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                    <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-500 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                         Add Pet
                                     </div>
                                     <IoAdd size = {40}/>
