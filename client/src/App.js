@@ -16,7 +16,7 @@ import Landing from './screens/Landing';
 import Quiz from './screens/Quiz';
 import PetCare from './screens/PetCare';
 import LogIn from './screens/LogIn';
-
+import SignUp from './screens/SignUp';
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
         <Route path="/Quiz" element ={<Quiz/>} />
         <Route path="/PetCare" element ={<PetCare/>} />
         <Route path="/LogIn" element ={<LogIn/>} />
+        <Route path="/SignUp" element ={<SignUp/>} />
         <Route path = "/" element = {<Landing/>}/>
       
 
