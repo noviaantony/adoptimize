@@ -1,15 +1,16 @@
 import React from 'react'
 
+
 const Footer = () => {
   return (
     <>
-      <footer className="bg-[#CDBBA7] font-nunito static bottom-0">
+      <footer className="bg-blue-100 font-nunito static bottom-0">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
           <nav class="flex flex-wrap justify-center -mx-5 -my-2">
             <div class="px-5 py-2">
               <a
                 href="#"
-                class="text-base leading-6 text-white first-letter: hover:text-gray-700"
+                class="text-base leading-6 text-blue-900 first-letter: hover:text-gray-700"
               >
                 About
               </a>
@@ -18,7 +19,7 @@ const Footer = () => {
             <div class="px-5 py-2">
               <a
                 href="#"
-                class="text-base leading-6 text-white first-letter: hover:text-gray-700"
+                class="text-base leading-6 text-blue-900 first-letter: hover:text-gray-700"
               >
                 Team
               </a>
@@ -27,7 +28,7 @@ const Footer = () => {
             <div class="px-5 py-2">
               <a
                 href="#"
-                class="text-base leading-6 text-white first-letter: hover:text-gray-700"
+                class="text-base leading-6 text-blue-900 first-letter: hover:text-gray-700"
               >
                 Contact
               </a>
@@ -35,14 +36,14 @@ const Footer = () => {
             <div class="px-5 py-2">
               <a
                 href="#"
-                class="text-base leading-6 text-white first-letter hover:text-gray-700"
+                class="text-base leading-6 text-blue-900 first-letter hover:text-gray-700"
               >
                 Privacy Policy
               </a>
             </div>
           </nav>
           <div class="flex justify-center mt-8 space-x-6">
-            <a href="#" class="text-white hover:text-gray-700">
+            <a href="#" class="text-blue-900 hover:text-gray-700">
               <span class="sr-only">Facebook</span>
               <svg
                 class="w-6 h-6"
@@ -57,7 +58,7 @@ const Footer = () => {
                 ></path>
               </svg>
             </a>
-            <a href="#" class="text-white hover:text-gray-700">
+            <a href="#" class="text-blue-900 hover:text-gray-700">
               <span class="sr-only">Instagram</span>
               <svg
                 class="w-6 h-6"
@@ -72,7 +73,7 @@ const Footer = () => {
                 ></path>
               </svg>
             </a>
-            <a href="#" class="text-white hover:text-gray-700">
+            <a href="#" class="text-blue-900 hover:text-gray-700">
               <span class="sr-only">Twitter</span>
               <svg
                 class="w-6 h-6"
@@ -84,7 +85,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              class="text-white hover:text-gray-700"
+              class="text-blue-900 hover:text-gray-700"
             >
               <span class="sr-only">GitHub</span>
               <svg
@@ -101,11 +102,18 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          <p class="mt-8 text-base leading-6 text-center text-white">
+          <p class="mt-8 text-base leading-6 text-center text-blue-900">
             © 2023 Adoptsy, Inc. All rights reserved.
           </p>
         </div>
       </footer>
+
+
+
+
+
+
+
     </>
   );
 }

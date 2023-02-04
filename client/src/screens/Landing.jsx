@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // import { ReactComponent as HeroSvg } from "./Hero.svg";
 import { motion } from "framer-motion";
 import Hero from '../components/landing/Hero';
+import Contact from '../components/landing/Contact';
 import '../index.css'
 const Landing = () => {
 
@@ -83,6 +84,7 @@ const Landing = () => {
 
     <div>
       <Hero/>
+      {/* <Contact/> */}
     </div>
 
  

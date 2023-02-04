@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
 // import AuthContext from "../../hooks/AuthContext";
 
-const Navbar = () => {
+const AuthNavbar = () => {
   // const { auth } = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
 
@@ -71,7 +70,7 @@ const Navbar = () => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
   
-              {/* <div>
+              <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/AboutUs"
@@ -134,17 +133,16 @@ const Navbar = () => {
                 >
                   <a href="javascript:void(0)">Tutorial</a>
                 </Link>
-              </div> */}
+              </div>
 
-              <Link
+              <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
                 px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-white font-nunito"
                 // onClick={logout}
                 type="button"
-                to = "/LogIn"
               >
-                Log In
-              </Link>
+                Log Out
+              </button>
             </ul>
           </div>
         </div>
@@ -153,4 +151,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default AuthNavbar;
