@@ -7,7 +7,7 @@
 > - [Ariff](http://github.com/KimmyChanga/)
 > - [Chloe]
 
-Code submission for [SMU CS203]
+Code submission for [SMU CS206 Product Management]
 
 ---
 ##  What is Adoptsy?
