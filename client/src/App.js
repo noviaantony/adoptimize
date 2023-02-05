@@ -25,8 +25,8 @@ import ShelterLogIn from './screens/ShelterLogIn';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      {/* <AuthNavbar/> */}
+      {/* <Navbar/> */}
+      <AuthNavbar/>
  
 
       <Routes>
