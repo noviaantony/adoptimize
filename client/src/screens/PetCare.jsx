@@ -22,11 +22,11 @@ const PetCare = () => {
     } 
   ]
   return (
-    <div className="bg-white">
+    <div >
       <Header Title = "Cat Care" Description="a full guide for adopters about cats and how to care for them! if you wish to add more details to this page please email us" className="mb-12"/>
       {articleCards.map((article) => {
         return(
-        <PetCareCards Title = {article.Title} Date = {article.Date} Description={article.Description}/>
+        <PetCareCards Title = {article.Title} Date = {article.Date} Description={article.Description} />
         );
       })}
       {/* <Article/> */}

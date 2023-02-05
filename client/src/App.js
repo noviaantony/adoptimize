@@ -13,7 +13,7 @@ import AdoptionContract from './screens/AdoptionContract';
 import AdoptionManagement from './screens/AdoptionManagement'
 import AboutUs from './screens/AboutUs';
 import Landing from './screens/Landing';
-import Quiz from './screens/Quiz';
+import PetQuiz from './screens/PetQuiz';
 import PetCare from './screens/PetCare';
 import AdopterLogIn from './screens/AdopterLogIn';
 import AdopterSignUp from './screens/AdopterSignUp';
@@ -36,7 +36,7 @@ function App() {
         <Route path="/AdoptionContract" element={<AdoptionContract />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
         <Route path="/AboutUs" element ={<AboutUs/>} />
-        <Route path="/Quiz" element ={<Quiz/>} />
+        <Route path="/Quiz" element ={<PetQuiz/>} />
         <Route path="/PetCare" element ={<PetCare/>} />
         <Route path="/LogIn" element ={<AdopterLogIn/>} />
         <Route path="/SignUp" element ={<AdopterSignUp/>} />
