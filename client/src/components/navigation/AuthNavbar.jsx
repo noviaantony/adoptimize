@@ -137,7 +137,7 @@ const AuthNavbar = () => {
 
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
-                px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-white font-nunito"
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito"
                 // onClick={logout}
                 type="button"
               >

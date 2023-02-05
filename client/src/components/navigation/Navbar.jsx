@@ -70,80 +70,23 @@ const Navbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-  
-              {/* <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AboutUs"
-                >
-                  <a href="javascript:void(0)">About Us</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/PetCare"
-                >
-                  <a href="javascript:void(0)">Pet Care</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Quiz"
-                >
-                  <a href="javascript:void(0)">Quiz</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Prescreening"
-                >
-                  <a href="javascript:void(0)">Pre-Screening</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/OurPets"
-                >
-                  <a href="javascript:void(0)">Our Pets</a>
-                </Link>
-              </div>  
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptionContract"
-                >
-                  <a href="javascript:void(0)">Adoption Contract</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptionManagement"
-                >
-                  <a href="javascript:void(0)">Adoption Management</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Tutorial"
-                >
-                  <a href="javascript:void(0)">Tutorial</a>
-                </Link>
-              </div> */}
-
               <Link
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
                 px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-white font-nunito"
                 // onClick={logout}
                 type="button"
-                to = "/LogIn"
+                to = "/ShelterSignUp"
               >
-                Log In
+                Shelter Sign Up
+              </Link>
+              <Link
+                className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md block sm:w-auto font-bold hover:bg-gray-700 hover:text-white text-white font-nunito"
+                // onClick={logout}
+                type="button"
+                to = "/SignUp"
+              >
+                Adopter Sign Up
               </Link>
             </ul>
           </div>

@@ -15,8 +15,11 @@ import AboutUs from './screens/AboutUs';
 import Landing from './screens/Landing';
 import Quiz from './screens/Quiz';
 import PetCare from './screens/PetCare';
-import LogIn from './screens/LogIn';
-import SignUp from './screens/SignUp';
+import AdopterLogIn from './screens/AdopterLogIn';
+import AdopterSignUp from './screens/AdopterSignUp';
+import ShelterSignUp from './screens/ShelterSignUp'
+import ShelterLogIn from './screens/ShelterLogIn';
+
 
 
 function App() {
@@ -35,8 +38,10 @@ function App() {
         <Route path="/AboutUs" element ={<AboutUs/>} />
         <Route path="/Quiz" element ={<Quiz/>} />
         <Route path="/PetCare" element ={<PetCare/>} />
-        <Route path="/LogIn" element ={<LogIn/>} />
-        <Route path="/SignUp" element ={<SignUp/>} />
+        <Route path="/LogIn" element ={<AdopterLogIn/>} />
+        <Route path="/SignUp" element ={<AdopterSignUp/>} />
+        <Route path="/ShelterSignUp" element ={<ShelterSignUp/>} />
+        <Route path="/ShelterLogIn" element ={<ShelterLogIn/>} />
         <Route path = "/" element = {<Landing/>}/>
       
 

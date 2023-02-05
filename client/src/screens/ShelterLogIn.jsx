@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { HiMail, HiLockClosed } from "react-icons/hi";
-import { ReactComponent as SignInSvg } from "./SignInSvg.svg";
+import { ReactComponent as SignInSvg } from "./ShelterLogIn.svg";
 import { Navigate, Link } from "react-router-dom";
 // import AuthContext from "../../hooks/AuthContext";
 // import axios from "axios";
@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 // const LOGIN_URL = "https://carbonoapp.net/api/v1/carbonO/user/login";
 // const USER_ID_URL = "https://carbonoapp.net/api/v1/carbonO/user/getUser";
 
-const LogInForm = () => {
+const ShelterLogIn = () => {
   // const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
@@ -94,7 +94,7 @@ const LogInForm = () => {
               <div className="w-3/5 p-5">
                 <div className="py-10">
                   <h2 className="text-2xl font-bold text-gray-700 mb-2">
-                    Sign in to your account
+                    Sign in as a Shelter
                   </h2>
                   <div className="border-2 w-10 border-gray-700 bg-gray-700 inline-block mb-2"></div>
                   <p
@@ -163,7 +163,7 @@ const LogInForm = () => {
                       Sign In
                     </button>
                     <Link
-                      to="/Signup"
+                      to="/ShelterSignup"
                       className="text-xs font-bold text-gray-700 hover:text-blue-100 transition duration-300 mt-6 hover:underline-offset-4"
                     >
                       Don't have an account? Sign up here
@@ -184,4 +184,4 @@ const LogInForm = () => {
 
 // rgb(30 58 138)
 
-export default LogInForm;
+export default ShelterLogIn;

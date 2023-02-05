@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {HiMail, HiLockClosed, HiUser} from "react-icons/hi";
-import { ReactComponent as SignUpSvg } from "./SignUpSvg.svg";
+import { ReactComponent as SignUpSvg } from "./AdopterSignUpSvg.svg";
 import PasswordChecklist from "react-password-checklist"
 import {Link, Navigate} from "react-router-dom";
 // import axios from "axios";
