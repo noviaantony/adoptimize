@@ -2,6 +2,10 @@ import React from 'react'
 import Link from 'antd/es/typography/Link'
 
 const PetCareCards = ({Date, Title, Description}) => {
+
+
+
+
   return (
     <>
     <div className="dark:bg-gray-800 dark:text-gray-100 mb-10">
@@ -11,8 +15,8 @@ const PetCareCards = ({Date, Title, Description}) => {
           {/* <a rel="noopener noreferrer" href="#" className="px-2 py-1 font-bold rounded dark:bg-violet-400 dark:text-gray-900">Javascript</a> */}
         </div>
         <div className="mt-3">
-          <a rel="noopener noreferrer" href="#" className="text-2xl font-bold hover:underline">Title {Title}</a>
-          <p className="mt-2">Tamquam ita veritas res equidem. Ea in ad expertus paulatim poterunt. Imo volo aspi novi tur. Ferre hic neque vulgo hae athei spero. Tantumdem naturales excaecant notaverim etc cau perfacile occurrere. Loco visa to du huic at in dixi aër. {Description} </p>
+          <a rel="noopener noreferrer" href="#" className="text-2xl font-bold hover:underline">{Title}</a>
+          <p className="mt-2">{Description} </p>
         </div>
         <div className="flex items-center justify-between mt-4">
           {/* <a rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-400">Read more</a> */}
