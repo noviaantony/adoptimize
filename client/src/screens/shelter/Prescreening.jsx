@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from  '../components/prescreening/Form'
-import Header from '../components/misc/Header'
+
 import {motion} from "framer-motion";
 
 const Prescreening = () => {
