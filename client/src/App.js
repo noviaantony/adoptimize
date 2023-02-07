@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 
 
-import AuthNavbar from './components/common/navigation/AuthNavbar'
+import AuthShelterNavbar from "./components/common/navigation/AuthShelterNavbar";
 import Navbar from './components/common/navigation/Navbar';
 import Footer from "./components/common/footer/Footer";
 
@@ -26,10 +26,8 @@ import UserProfile from './screens/adopter/UserProfile';
 function App() {
   return (
     <div className="App">
-
-
       {/* <Navbar/> */}
-      <AuthNavbar/>
+      <AuthShelterNavbar />
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
@@ -37,20 +35,18 @@ function App() {
         <Route path="/Prescreening" element={<Prescreening />} />
         <Route path="/AdoptionContract" element={<AdoptionContract />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
-        <Route path="/AboutUs" element ={<AboutUs/>} />
-        <Route path="/Quiz" element ={<PetQuiz/>} />
-        <Route path="/PetCare" element ={<PetCare/>} />
-        <Route path="/LogIn" element ={<AdopterLogIn/>} />
-        <Route path="/SignUp" element ={<AdopterSignUp/>} />
-        <Route path="/ShelterSignUp" element ={<ShelterSignUp/>} />
-        <Route path="/ShelterLogIn" element ={<ShelterLogIn/>} />
-        <Route path = "/Article" element = {<Article/>} />
-        <Route path="/AdoptedPets" element ={<AdoptedPets/>} />
-        <Route path="/UserProfile" element={<UserProfile/>} />
-        <Route path = "/" element = {<Landing/>}/>
-      
-
-      </Routes> 
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Quiz" element={<PetQuiz />} />
+        <Route path="/PetCare" element={<PetCare />} />
+        <Route path="/LogIn" element={<AdopterLogIn />} />
+        <Route path="/SignUp" element={<AdopterSignUp />} />
+        <Route path="/ShelterSignUp" element={<ShelterSignUp />} />
+        <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
+        <Route path="/Article" element={<Article />} />
+        <Route path="/AdoptedPets" element={<AdoptedPets />} />
+        <Route path="/UserProfile" element={<UserProfile />} />
+        <Route path="/" element={<Landing />} />
+      </Routes>
       {/* <Footer/> */}
     </div>
   );

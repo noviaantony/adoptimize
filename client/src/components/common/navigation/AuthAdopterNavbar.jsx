@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // import AuthContext from "../../hooks/AuthContext";
 
-const AuthNavbar = () => {
+const AuthShelterNavbar = () => {
   // const { auth } = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
 
@@ -69,7 +69,6 @@ const AuthNavbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-  
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
@@ -109,7 +108,7 @@ const AuthNavbar = () => {
                 >
                   <a href="javascript:void(0)">Our Pets</a>
                 </Link>
-              </div>  
+              </div>
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
@@ -134,22 +133,6 @@ const AuthNavbar = () => {
                   <a href="javascript:void(0)">Tutorial</a>
                 </Link>
               </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptedPets"
-                >
-                  <a href="javascript:void(0)">My Pets</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/UserProfile"
-                >
-                  <a href="javascript:void(0)">Profile</a>
-                </Link>
-              </div>
 
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
@@ -167,4 +150,4 @@ const AuthNavbar = () => {
   );
 };
 
-export default AuthNavbar;
+export default AuthShelterNavbar;
