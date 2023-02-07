@@ -1,14 +1,27 @@
 import React, {Fragment, useContext, useEffect, useState} from "react";
 import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
-import Slider from './Slider'
+// import Slider from './Slider'
+import { Carousel } from 'antd';
 
-const PetCard2 = ({Name, Breed, Sex, Age}) => {
+const contentStyle = {
+  margin: 0,
+  height: '200px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',  
+};
+
+const PetCard2 = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
 
     const [open, setOpen] = useState(1);
     const [showDishInfo, setshowDishInfo] = React.useState(false);
 
     const handleOpen = (value) => {
         setOpen(open === value ? 0 : value);
+    };
+
+    const onChange = (currentSlide) => {
+        console.log(currentSlide);
     };
 
 
@@ -41,7 +54,22 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
     return (
         <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default font-nunito">
           <article class="overflow-hidden rounded-lg bg-white shadow-xl">
-            <Slider/>
+            <Carousel afterChange={onChange}>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image2})` ,   backgroundSize: 'cover', height: '200px'}} >
+
+                    </div>
+                </div>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image4})`,   backgroundSize: 'cover', height: '200px'}} ></div>
+                </div>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image3})`,   backgroundSize: 'cover', height: '200px'}} ></div>
+                </div>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image1})` ,   backgroundSize: 'cover', height: '200px'}} ></div>
+                </div>
+            </Carousel>
               <header class="flex items-left leading-tight p-2 md:p-4 ">
                   <h1 class="text-2xl font-bold">{Name}</h1>
               </header>
