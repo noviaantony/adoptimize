@@ -20,6 +20,8 @@ import AdopterSignUp from './screens/AdopterSignUp';
 import ShelterSignUp from './screens/ShelterSignUp'
 import ShelterLogIn from './screens/ShelterLogIn';
 import Article from './screens/Article';
+import AdoptedPets from './screens/AdoptedPets';
+import UserProfile from './screens/UserProfile';
 
 
 
@@ -44,6 +46,8 @@ function App() {
         <Route path="/ShelterSignUp" element ={<ShelterSignUp/>} />
         <Route path="/ShelterLogIn" element ={<ShelterLogIn/>} />
         <Route path = "/Article" element = {<Article/>} />
+        <Route path="/AdoptedPets" element ={<AdoptedPets/>} />
+        <Route path="/UserProfile" element={<UserProfile/>} />
         <Route path = "/" element = {<Landing/>}/>
       
 
