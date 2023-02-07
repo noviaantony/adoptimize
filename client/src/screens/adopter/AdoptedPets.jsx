@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../components/misc/Header' 
-import PetsTable from '../components/adoptedpets/PetsTable'
+import Header from '../../components/common/misc/Header' 
+import PetsTable from '../../components/adopter/adoptedpets/PetsTable'
 
 const AdoptedPets = () => {
     return (

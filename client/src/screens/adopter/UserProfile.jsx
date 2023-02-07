@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import Header from '../components/misc/Header' 
-import '../App.css'
+import Header from '../../components/common/misc/Header' 
+import '../../App.css'
 
 const UserProfile = () =>{
     const [user, setUser] = useState({

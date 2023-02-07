@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import PetCard from '../components/mypets/PetCard'
-import PetCard2 from '../components/mypets/PetCard2'
-import Searchbar from  '../components/mypets/Searchbar'
-import Carousel from  '../components/mypets/Slider'
-import Header from "../components/misc/Header";
+import PetCard from '../../components/shelter/mypets/PetCard'
+import PetCard2 from '../../components/shelter/mypets/PetCard2'
+import Searchbar from  '../../components/shelter/mypets/Searchbar'
+import Carousel from  '../../components/shelter/mypets/Slider'
+import Header from "../../components/common/misc/Header";
 import {motion} from "framer-motion";
 import { IoAdd } from "react-icons/io5";
 

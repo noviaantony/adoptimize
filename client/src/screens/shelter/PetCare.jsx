@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from "../components/misc/Header";
-import PetCareCards from '../components/petcare/PetCareCards';
+import Header from "../../components/common/misc/Header";
+import PetCareCards from '../../components/shelter/petcare/PetCareCards';
 import Article from './Article';
-import Pagination from '../components/petcare/Pagination';
+import Pagination from '../../components/shelter/petcare/Pagination';
 
 const PetCare = () => {
   const articleCards = [

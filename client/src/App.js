@@ -2,17 +2,15 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 
 
-// import Sidebar from './components/navigation/Sidebar'
-import AuthNavbar from './components/navigation/AuthNavbar'
-import Navbar from './components/navigation/Navbar';
-import Footer from "./components/footer/Footer";
+import AuthNavbar from './components/common/navigation/AuthNavbar'
+import Navbar from './components/common/navigation/Navbar';
+import Footer from "./components/common/footer/Footer";
 
 import MyPets from "./screens/shelter/MyPets";
 import Prescreening from './screens/shelter/Prescreening';
 import AdoptionContract from './screens/shelter/AdoptionContract';
 import AdoptionManagement from './screens/shelter/AdoptionManagement'
 import AboutUs from './screens/shelter/AboutUs';
-
 import PetQuiz from './screens/shelter/PetQuiz';
 import PetCare from './screens/shelter/PetCare';
 import AdopterLogIn from './screens/common/AdopterLogIn';
@@ -22,10 +20,8 @@ import ShelterLogIn from './screens/common/ShelterLogIn';
 import Article from './screens/shelter/Article';
 import Landing from './screens/common/Landing';
 
-import AdoptedPets from './screens/AdoptedPets';
-import UserProfile from './screens/UserProfile';
-
-
+import AdoptedPets from './screens/adopter/AdoptedPets';
+import UserProfile from './screens/adopter/UserProfile';
 
 function App() {
   return (

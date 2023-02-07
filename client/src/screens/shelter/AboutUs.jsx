@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../components/misc/Header'
-import EditableTable from '../components/aboutus/EditableTable'
-import EditableTable2 from '../components/aboutus/EditableTable2'
+import Header from '../../components/common/misc/Header'
+import EditableTable from '../../components/shelter/aboutus/EditableTable'
+import EditableTable2 from '../../components/shelter/aboutus/EditableTable2'
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';

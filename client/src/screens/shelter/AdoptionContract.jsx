@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import Header from '../components/misc/Header'
+import Header from '../../components/common/misc/Header'
 
 // Import Worker
 import { Worker } from '@react-pdf-viewer/core';

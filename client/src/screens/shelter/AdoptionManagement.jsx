@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../components/misc/Header' 
-import Table from '../components/adoptionmanagement/Table'
+import Header from '../../components/common/misc/Header' 
+import Table from '../../components/shelter/adoptionmanagement/Table'
 
 const AdoptionManagement = () => {
   return (

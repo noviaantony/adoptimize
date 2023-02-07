@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../components/misc/Header'
-import Quiz from '../components/petquiz/Quiz'
-import { QuizProvider } from "../components/petquiz/QuizContext";
+import Header from '../../components/common/misc/Header'
+import Quiz from '../../components/common/petquiz/Quiz'
+import { QuizProvider } from "../../components/common/petquiz/QuizContext";
 
 const PetQuiz = () => {
 
