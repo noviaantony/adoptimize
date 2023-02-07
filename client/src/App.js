@@ -7,19 +7,21 @@ import AuthNavbar from './components/navigation/AuthNavbar'
 import Navbar from './components/navigation/Navbar';
 import Footer from "./components/footer/Footer";
 
-import MyPets from "./screens/MyPets";
-import Prescreening from './screens/Prescreening';
-import AdoptionContract from './screens/AdoptionContract';
-import AdoptionManagement from './screens/AdoptionManagement'
-import AboutUs from './screens/AboutUs';
-import Landing from './screens/Landing';
-import PetQuiz from './screens/PetQuiz';
-import PetCare from './screens/PetCare';
-import AdopterLogIn from './screens/AdopterLogIn';
-import AdopterSignUp from './screens/AdopterSignUp';
-import ShelterSignUp from './screens/ShelterSignUp'
-import ShelterLogIn from './screens/ShelterLogIn';
-import Article from './screens/Article';
+import MyPets from "./screens/shelter/MyPets";
+import Prescreening from './screens/shelter/Prescreening';
+import AdoptionContract from './screens/shelter/AdoptionContract';
+import AdoptionManagement from './screens/shelter/AdoptionManagement'
+import AboutUs from './screens/shelter/AboutUs';
+
+import PetQuiz from './screens/shelter/PetQuiz';
+import PetCare from './screens/shelter/PetCare';
+import AdopterLogIn from './screens/common/AdopterLogIn';
+import AdopterSignUp from './screens/common/AdopterSignUp';
+import ShelterSignUp from './screens/common/ShelterSignUp'
+import ShelterLogIn from './screens/common/ShelterLogIn';
+import Article from './screens/shelter/Article';
+import Landing from './screens/common/Landing';
+
 import AdoptedPets from './screens/AdoptedPets';
 import UserProfile from './screens/UserProfile';
 
@@ -28,9 +30,10 @@ import UserProfile from './screens/UserProfile';
 function App() {
   return (
     <div className="App">
+
+
       {/* <Navbar/> */}
       <AuthNavbar/>
- 
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}

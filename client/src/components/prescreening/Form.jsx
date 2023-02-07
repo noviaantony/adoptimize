@@ -13,6 +13,8 @@ const Form = () => {
     const [textField, setTextField] = useState("");
     const [editedField, setEditedField] = useState("");
 
+
+
     const addQuestion = () => {
         const field = {
             "name": `question_${formContent.length}`,
@@ -106,20 +108,22 @@ const Form = () => {
                     )
                 })}
                 <button
-                className="hover:bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
-                px-7 py-2 w-full text-center rounded-md block sm:w-auto font-bold bg-gray-700 text-white hover:text-primary-700"
+                className="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-xl px-10 py-2" 
                 type="button"
               >
                 Save Questions
               </button>
               <button
-                className="hover:bg-primary-500 focus:bg-primary-700  focus:shadow-outline focus:outline-none transition duration-300
-                px-7 py-2 w-full bg-white text-center rounded-md block sm:w-auto font-bold text-gray-700 hover:text-primary-700"
+                className="text-gray-700 hover:bg-gray-700 hover:text-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-xl px-10 py-2" 
                  onClick={() => addQuestion()}
                 type="button"
               >
                 Add Question
               </button>
+
+              {/* <button class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-xl px-10 py-2" onClick={handleClickOpen}>
+        Save Document
+      </button> */}
                 {/* <div className='absolute top-0 -right-16 flex flex-col items-center bg-white p-2 rounded-md shadow-md'>
                     <button>
                         <IoAdd className="w-8 h-8 text-gray-400 hover:text-indigo-500" />
