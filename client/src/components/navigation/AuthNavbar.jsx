@@ -134,6 +134,14 @@ const AuthNavbar = () => {
                   <a href="javascript:void(0)">Tutorial</a>
                 </Link>
               </div>
+              <div>
+                <Link
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
+                  to="/AdoptedPets"
+                >
+                  <a href="javascript:void(0)">My Pets</a>
+                </Link>
+              </div>
 
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300

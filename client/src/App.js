@@ -19,6 +19,7 @@ import AdopterLogIn from './screens/AdopterLogIn';
 import AdopterSignUp from './screens/AdopterSignUp';
 import ShelterSignUp from './screens/ShelterSignUp'
 import ShelterLogIn from './screens/ShelterLogIn';
+import AdoptedPets from './screens/AdoptedPets';
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/SignUp" element ={<AdopterSignUp/>} />
         <Route path="/ShelterSignUp" element ={<ShelterSignUp/>} />
         <Route path="/ShelterLogIn" element ={<ShelterLogIn/>} />
+        <Route path="/AdoptedPets" element ={<AdoptedPets/>} />
         <Route path = "/" element = {<Landing/>}/>
       
 
