@@ -48,8 +48,6 @@ const PetCard2 = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
         setPetData(editData)
     } 
 
-    
-
 
     return (
         <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default font-nunito">
