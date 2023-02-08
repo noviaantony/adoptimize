@@ -1,14 +1,32 @@
 import React, {Fragment, useContext, useEffect, useState} from "react";
 import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
-import Slider from './Slider'
+// import Slider from './Slider'
+import { Carousel } from 'antd';
 
-const PetCard2 = ({Name, Breed, Sex, Age}) => {
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Slide from '@mui/material/Slide';
+
+const contentStyle = {
+  margin: 0,
+  height: '200px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',  
+};
+
+const PetCard2 = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
 
     const [open, setOpen] = useState(1);
     const [showDishInfo, setshowDishInfo] = React.useState(false);
 
     const handleOpen = (value) => {
         setOpen(open === value ? 0 : value);
+    };
+
+    const onChange = (currentSlide) => {
+        console.log(currentSlide);
     };
 
 
@@ -35,21 +53,48 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
         setPetData(editData)
     } 
 
-    
+    const Transition = React.forwardRef(function Transition(props, ref) {
+        return <Slide direction="up" ref={ref} {...props} />;
+    });
+
+    const [open2, setOpen2] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen2(true);
+    };
+
+    const handleClose = () => {
+        setOpen2(false);
+    };
 
 
     return (
         <div class="my-1 px-1 w-4/6 md:w-full lg:my-4 lg:px-4 lg:w-1/3 font-default font-nunito">
           <article class="overflow-hidden rounded-lg bg-white shadow-xl">
-            <Slider/>
+            <Carousel afterChange={onChange}>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image2})` ,   backgroundSize: 'cover', height: '200px'}} >
+
+                    </div>
+                </div>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image4})`,   backgroundSize: 'cover', height: '200px'}} ></div>
+                </div>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image3})`,   backgroundSize: 'cover', height: '200px'}} ></div>
+                </div>
+                <div>
+                    <div style={contentStyle} style = {{ backgroundImage:`url(${Image1})` ,   backgroundSize: 'cover', height: '200px'}} ></div>
+                </div>
+            </Carousel>
               <header class="flex items-left leading-tight p-2 md:p-4 ">
                   <h1 class="text-2xl font-bold">{Name}</h1>
               </header>
         <div>
-        <div class="px-6 pt-2 pb-2">
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Breed}</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Age} years</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Sex}</span>
+        <div class="px-6 pt-2 pb-2 flex justify-start">
+          <span class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Breed}</span>
+          <span class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Age} years</span>
+          <span class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{Sex}</span>
         </div>
                 </div>
 
@@ -65,6 +110,39 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
                         >
                             Edit Information
                         </button>
+                        <button
+                            href="#"
+                            className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-red-600  rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-red-600 border-2 border-solid hover:bg-gray-100
+          "
+                            type="button"
+                            onClick={handleClickOpen}
+                        >
+                            Delete Pet
+                        </button>
+
+                        {/* confirmation modal */}
+                        <Dialog
+                            open={open2}
+                            TransitionComponent={Transition}
+                            keepMounted
+                            onClose={handleClose}
+                            aria-describedby="alert-dialog-slide-description"
+                        >
+                            <DialogContent>
+                            <div class="p-3 text-center">
+                                <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <h3 class="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400 font-nunito">Are you sure you want to delete this pet?</h3>
+                            </div>
+                            </DialogContent>
+                            <DialogActions class="p-3 text-center">
+                            <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2" onClick={handleClose}>
+                                        Yes, I'm sure
+                                    </button>
+                                    <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600" onClick={handleClose}>No, cancel</button>
+
+                            </DialogActions>
+                        </Dialog>
+
                     </div>
 
                     {/* more info modal */}
@@ -184,6 +262,13 @@ const PetCard2 = ({Name, Breed, Sex, Age}) => {
                             <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                         </>
                     ) : null}
+
+                       
+
+
+
+
+
                 </footer>
             </article>
         </div>

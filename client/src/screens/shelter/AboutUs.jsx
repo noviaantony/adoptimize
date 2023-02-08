@@ -1,14 +1,10 @@
 import React from 'react'
 import Header from '../../components/common/misc/Header'
-import EditableTable from '../../components/shelter/aboutus/EditableTable'
 import EditableTable2 from '../../components/shelter/aboutus/EditableTable2'
 
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 
 const AboutUs = () => {
@@ -33,7 +29,7 @@ const AboutUs = () => {
   return (
     <div className="mb-20">
       <Header Title="About Us" Description = "edit your shelter's information and decription here! if you would like to include any other information kindly contact us at adoptsy@gmail.com"/>
-      {/* <EditableTable/> */}
+
       <EditableTable2/>
       <button class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-sm px-10 py-2" onClick={handleClickOpen}>
         Save Information
@@ -50,7 +46,7 @@ const AboutUs = () => {
         <DialogContent>
           <div class="p-3 text-center">
             <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <h3 class="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400 font-nunito">Are you sure you want to delete this product?</h3>
+            <h3 class="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400 font-nunito">Are you sure you want to save this information?</h3>
           </div>
         </DialogContent>
         <DialogActions class="p-3 text-center">

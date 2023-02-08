@@ -13,6 +13,8 @@ const Searchbar = () => {
             
         </div>
     </form>
+
+  
     </>
     
   )
