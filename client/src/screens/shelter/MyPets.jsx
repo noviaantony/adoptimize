@@ -1,11 +1,27 @@
-import React, {useState, useEffect} from 'react'
-// import PetCard from '../../components/shelter/mypets/PetCard'
+import React, {Fragment, useState, useEffect} from 'react'
 import PetCard2 from '../../components/shelter/mypets/PetCard2'
-// import Searchbar from  '../../components/shelter/mypets/Searchbar'
-// import Carousel from  '../../components/shelter/mypets/Slider'
 import Header from "../../components/common/misc/Header";
 import {motion} from "framer-motion";
 import { IoAdd } from "react-icons/io5";
+
+import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
+import { Carousel } from 'antd';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Slide from '@mui/material/Slide';
+
+
+const contentStyle = {
+  margin: 0,
+  height: '200px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',  
+};
+
+
 
 const MyPets = () => {
 
@@ -75,6 +91,59 @@ const MyPets = () => {
     }
   ];
 
+    const [open, setOpen] = useState(1);
+    const [showDishInfo, setshowDishInfo] = React.useState(false);
+
+    const handleOpen = (value) => {
+        setOpen(open === value ? 0 : value);
+    };
+
+    const onChange = (currentSlide) => {
+        console.log(currentSlide);
+    };
+
+
+    const data = [
+        {
+            petId: 1,
+            name: 'Add New Pet',
+            breed: 'Siamese-Persian Mix',
+            age: '1 year old',
+            description: 'I was rescued from yishun with my sister! I enjoy eating tuna and wet food, and I love belly rubs. I hate being carried when I want to sleep :< I will bite if I dont wanna be touched. I am shy to strangers, but I love my humans. ',
+            medical: 'Full Vacinated, Sterilised, De-flead, FIV Negative, Microchipped, De-wormed. Slight PICA',
+            requirements: 'Timothee requires lots of love and attention, hence adopters will be required to play with him everyday. Timothee does try to eat foreign objects and will require extra attention. Timothee also only eats wet food and will need that too. To ensure the safety of all cats, interested adopters must FULLY mesh their windows as most cats would be tempted to go to the ledge. This is extremely important to ensure that our cats will not be injured.'
+        }
+    ];
+
+    const [petData, setPetData] = useState(data)
+    const onChangeInput = (e, id) => {
+    const { Name, value } = e.target
+
+    const editData = petData.map((item) =>
+      item.id === id && Name ? { ...item, [Name]: value } : item
+    )
+
+        setPetData(editData)
+    } 
+
+    const Transition = React.forwardRef(function Transition(props, ref) {
+        return <Slide direction="up" ref={ref} {...props} />;
+    });
+
+    const [open2, setOpen2] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen2(true);
+    };
+
+    const handleClose = () => {
+        setOpen2(false);
+    };
+
+
+
+
+
   return (
     <>
       <Header
@@ -83,6 +152,8 @@ const MyPets = () => {
       />
 
       <div className="items-center">
+
+
         {/* searchbar start */}
         <form className="m-10 mx-50">
           <label
@@ -120,133 +191,174 @@ const MyPets = () => {
                   setSearchTerm(event.target.value);
                 }}
               />
+              
+              
+              <select class="ui dropdown rounded-xl ml-3">
+                <option value="1">Domestic Shorthair</option>
+                <option value="0">Ginger</option>
+                <option value="2">British Shorthair</option>
+                <option value="3">Siamese</option>
+                <option value="4">Ragdoll</option>
+                <option value="5">Bengal</option>
+              </select>
+
+              <select class="ui dropdown rounded-xl ml-3">
+                <option value="1">Small</option>
+                <option value="0">Medium</option>
+                <option value="2">Large</option>
+              </select>
+              
+
+              <select class="ui dropdown rounded-xl ml-3">
+                <option value="1">Below 1 year</option>
+                <option value="0">1-5 years</option>
+                <option value="2">More than 6 years</option>
+              </select>
+
+
+              
+
               <button
                 className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-white bg-[#050a30] rounded-lg focus:outline-none transition duration-300 mr-3 font-semibold hover:bg-gray-500 hover:text-white"
                 data-tooltip-target="tooltip-default"
-                type="button"
+                type="button" onClick={() => setshowDishInfo(true)}
               >
                 <div
                   id="tooltip-default"
                   role="tooltip"
-                  class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-500 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+                  class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-500 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700" 
                 >
+
                   Add Pet
                 </div>
                 <IoAdd size={40} />
               </button>
+
+
+              {/* add new pet modal */}
+
+                 {showDishInfo ? (
+                        <>
+                            <div
+                                className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                                    {/*content*/}
+                                    <div
+                                        className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                        {/*header*/}
+                                        <div
+                                            className="text-center items-start justify-between p-3 border-b border-solid border-slate-200 rounded-t mt-5">
+                                            <h3 className="text-3xl font-semibold mx-32">Add New Pet to Adoptsy!</h3>
+                                            <button
+                                                className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                                onClick={() => setshowDishInfo(false)}
+                                            >
+                                            </button>
+                                        </div>
+                                        {/*body*/}
+                                        <div className="relative p-6 flex-auto">
+                                            <p className="my-4 text-gray-700 text-lg leading-relaxed">
+                                                <Fragment>
+                                                    <Accordion open={open === 1}>
+                                                        <AccordionHeader onClick={() => handleOpen(1)}>
+                                                            Name, Breed, Age
+                                                        </AccordionHeader>
+                                                        <AccordionBody>
+                                                          <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Name, Breed and Age with commas"
+                                                          />
+                                                        </AccordionBody>
+                                                    </Accordion>
+                                               
+                                                    <Accordion open={open === 4}>
+                                                        <AccordionHeader onClick={() => handleOpen(4)}>
+                                                            My Purrsonality
+                                                        </AccordionHeader>
+                                                        <AccordionBody>
+                                                          <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Add a detailed description about the pet's personality"
+                                                          />
+                                                        </AccordionBody>
+                                                    </Accordion>
+                                                    <Accordion open={open === 5}>
+                                                        <AccordionHeader onClick={() => handleOpen(5)}>
+                                                        Medical Details
+                                                        </AccordionHeader>
+                                                        <AccordionBody>
+                                                          <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Add information on the pet's medical history (eg: Vaccinated/Mircochipped"
+                                                          />
+                                                        </AccordionBody>
+                                                    </Accordion>
+                                                    <Accordion open={open === 6}>
+                                                        <AccordionHeader onClick={() => handleOpen(6)}>
+                                                        Adopter Requirements
+                                                        </AccordionHeader>
+                                                        <AccordionBody>
+                                                          <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter specific requiements for adopters"
+                                                          />
+                                                        </AccordionBody>
+                                                    </Accordion>
+
+
+                                                    <Accordion open={open === 7}>
+                                                        <AccordionHeader onClick={() => handleOpen(7)}>
+                                                        Adoption Fee
+                                                        </AccordionHeader>
+                                                        <AccordionBody>
+                                                          <input type="number" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter full adoption fee"
+                                                          />
+                                                        </AccordionBody>
+                                                    </Accordion>
+                                                   
+
+                                                  
+                                                    <p className="my-4 text-gray-700 text-lg leading-relaxed font-bold">Upload Pet Pictures:</p>
+                                                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+
+                                                </Fragment>
+                                            </p>
+                                        </div>
+                                        {/*footer*/}
+                                        <div
+                                            className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                                            <button
+                                                className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                type="button"
+                                                onClick={() => setshowDishInfo(false)}
+                                            >
+                                                Close
+                                            </button>
+                                            <button
+                                                className="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                type="button"
+                                                onClick={() => setshowDishInfo(false)}
+                                            >
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                        </>
+                    ) : null}
+
+              {/* add new pet modal */}
+
+
             </div>
           </div>
         </form>
         {/* searchbar end */}
 
-        {/* <button>Ragdoll</button> */}
+
+
 
         <div className="mx-96">
-          <ul
-            className="flex mb-0 list-none pt-3 pb-4 mt-12"
-            // role="tablist"
-          >
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded-xl leading-normal font-nunito text-black " +
-                  (openTab === 1
-                    ? "text-white bg-blue-100"
-                    : "text-grey-700 bg-white")
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenTab(1);
-                }}
-                data-toggle="tab"
-                href="#link1"
-                role="tablist"
-              >
-                All
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded-xl leading-normal font-nunito text-black " +
-                  (openTab === 2
-                    ? "text-white bg-blue-100"
-                    : "text-grey-700 bg-white")
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenTab(2);
-                }}
-                data-toggle="tab"
-                href="#link2"
-                role="tablist"
-              >
-                Bengal
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded-xl leading-normal font-nunito text-black " +
-                  (openTab === 3
-                    ? "text-white bg-blue-100"
-                    : "text-grey-700 bg-white")
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenTab(3);
-                }}
-                data-toggle="tab"
-                href="#link3"
-                role="tablist"
-              >
-                British Shorthair
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded-xl leading-normal font-nunito text-black " +
-                  (openTab === 4
-                    ? "text-white bg-blue-100"
-                    : "text-grey-700 bg-white")
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenTab(1);
-                }}
-                data-toggle="tab"
-                href="#link1"
-                role="tablist"
-              >
-                Munchkin
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded-xl leading-normal font-nunito text-black " +
-                  (openTab === 5
-                    ? "text-white bg-blue-100"
-                    : "text-grey-700 bg-white")
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenTab(1);
-                }}
-                data-toggle="tab"
-                href="#link1"
-                role="tablist"
-              >
-                Ginger
-              </a>
-            </li>
-          </ul>
-
+        
+            
           <div className="relative flex flex-col min-w-0 break-words  w-full mb-6  rounded">
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+
                   <motion.div class="container my-12 mx-auto px-4 md:px-12">
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
                       {petList
@@ -277,45 +389,10 @@ const MyPets = () => {
                         })}
                     </div>
                   </motion.div>
-                </div>
 
-                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <div class="container my-12 mx-auto px-4 md:px-12">
-                    <div className="flex flex-wrap -mx-1 lg:-mx-4">
-                      {petList
-                        .filter((pet) => {
-                          if (pet.Breed == "Bengal") {
-                            return pet;
-                          }
-                        })
-                        .filter((pet) => {
-                          if (searchTerm == "") {
-                            return pet;
-                          } else if (
-                            pet.Name.toLowerCase().includes(
-                              searchTerm.toLowerCase()
-                            )
-                          ) {
-                            return pet;
-                          }
-                        })
-                        .map((pet) => {
-                          return (
-                            <PetCard2
-                              Name={pet.Name}
-                              Age={pet.Age}
-                              Breed={pet.Breed}
-                              Sex={pet.Sex}
-                              Image1={pet.Image1}
-                              Image2={pet.Image2}
-                              Image3={pet.Image3}
-                              Image4={pet.Image4}
-                            />
-                          );
-                        })}
-                    </div>
-                  </div>
-                </div>
+
+                
+    
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                   <div class="container my-12 mx-auto px-4 md:px-12">
                     <div className="flex flex-wrap -mx-1 lg:-mx-4">
@@ -393,7 +470,7 @@ const MyPets = () => {
                   </motion.div>
                 </div>
                 <div className={openTab === 5 ? "block" : "hidden"} id="link1">
-                  {/* Fashion pets */}
+
                   <motion.div class="container my-12 mx-auto px-4 md:px-12">
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
                       {petList
@@ -434,7 +511,16 @@ const MyPets = () => {
             </div>
           </div>
         </div>
+
+
+
+
       </div>
+
+
+
+
+      
     </>
   );
 }
