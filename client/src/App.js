@@ -8,7 +8,7 @@ import Footer from "./components/common/footer/Footer";
 
 import MyPets from "./screens/shelter/MyPets";
 import Prescreening from './screens/shelter/Prescreening';
-import AdoptionContract from './screens/shelter/AdoptionContract';
+import DocumentUpload from './screens/shelter/DocumentUpload';
 import AdoptionManagement from './screens/shelter/AdoptionManagement'
 import AboutUs from './screens/shelter/AboutUs';
 import PetQuiz from './screens/shelter/PetQuiz';
@@ -33,7 +33,7 @@ function App() {
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/OurPets" element={<MyPets />} />
         <Route path="/Prescreening" element={<Prescreening />} />
-        <Route path="/AdoptionContract" element={<AdoptionContract />} />
+        <Route path="/DocumentUpload" element={<DocumentUpload />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Quiz" element={<PetQuiz />} />

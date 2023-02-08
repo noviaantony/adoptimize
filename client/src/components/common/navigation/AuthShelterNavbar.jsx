@@ -113,9 +113,9 @@ const AuthShelterNavbar = () => {
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptionContract"
+                  to="/DocumentUpload"
                 >
-                  <a href="javascript:void(0)">Adoption Contract</a>
+                  <a href="javascript:void(0)">Document Upload</a>
                 </Link>
               </div>
               <div>
