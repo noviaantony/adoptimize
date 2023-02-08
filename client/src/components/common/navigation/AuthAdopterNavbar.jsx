@@ -69,12 +69,20 @@ const AuthShelterNavbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <div>
+                <Link
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
+                  to="/PetSearch"
+                >
+                  <a href="javascript:void(0)">Search for Pets</a>
+                </Link>
+              </div>
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AboutUs"
+                  to="/AdoptedPets"
                 >
-                  <a href="javascript:void(0)">About Us</a>
+                  <a href="javascript:void(0)">Pets History</a>
                 </Link>
               </div>
               <div>
@@ -96,41 +104,9 @@ const AuthShelterNavbar = () => {
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Prescreening"
+                  to="/UserProfile"
                 >
-                  <a href="javascript:void(0)">Pre-Screening</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/OurPets"
-                >
-                  <a href="javascript:void(0)">Our Pets</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptionContract"
-                >
-                  <a href="javascript:void(0)">Adoption Contract</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptionManagement"
-                >
-                  <a href="javascript:void(0)">Adoption Management</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Tutorial"
-                >
-                  <a href="javascript:void(0)">Tutorial</a>
+                  <a href="javascript:void(0)">Profile</a>
                 </Link>
               </div>
 

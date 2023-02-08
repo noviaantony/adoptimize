@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 
 import AuthShelterNavbar from "./components/common/navigation/AuthShelterNavbar";
+import AuthAdopterNavbar from "./components/common/navigation/AuthAdopterNavbar";
 import Navbar from './components/common/navigation/Navbar';
 import Footer from "./components/common/footer/Footer";
 
@@ -22,13 +23,14 @@ import Landing from './screens/common/Landing';
 
 import AdoptedPets from './screens/adopter/AdoptedPets';
 import UserProfile from './screens/adopter/UserProfile';
+import PetSearch from './screens/adopter/PetSearch'
 
 function App() {
   return (
     <div className="App">
       {/* <Navbar/> */}
       <AuthShelterNavbar />
-
+      {/*<AuthAdopterNavbar />*/}
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/OurPets" element={<MyPets />} />
@@ -45,6 +47,7 @@ function App() {
         <Route path="/Article" element={<Article />} />
         <Route path="/AdoptedPets" element={<AdoptedPets />} />
         <Route path="/UserProfile" element={<UserProfile />} />
+        <Route path="/PetSearch" element={<PetSearch />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       {/* <Footer/> */}
