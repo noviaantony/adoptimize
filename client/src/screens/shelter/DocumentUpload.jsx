@@ -269,7 +269,7 @@ const DocumentUpload = () => {
   return (
 
     <>
-    <Header Title = "Adoption Contract" Description = "edit and upload your adoption contract that adopters would need to sign prior to adoption!"/>
+    <Header Title = "Adoption Contract" Description = "upload your adoption contract or any other document that adopters would need to sign prior to adoption! Please upload all document as a single pdf. To change the existing document, simply reupload your new document."/>
     
 
     <div>
