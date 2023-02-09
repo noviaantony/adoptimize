@@ -71,7 +71,7 @@ const MyPets = () => {
     },
     {
       Name: 'Catti B',
-      Breed: 'British Shorthair',
+      Breed: 'British SH',
       Sex: 'Female',
       Age: 8,
       Image1:'https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
@@ -352,7 +352,7 @@ const MyPets = () => {
 
 
 
-        <div className="mx-96">
+        <div className="mx-32">
         
             
           <div className="relative flex flex-col min-w-0 break-words  w-full mb-6  rounded">

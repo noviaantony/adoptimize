@@ -72,17 +72,9 @@ const AuthShelterNavbar = () => {
             <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/PetSearch"
+                  to="/AllPets"
                 >
-                  <a href="javascript:void(0)">Search for Pets</a>
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/AdoptedPets"
-                >
-                  <a href="javascript:void(0)">Pets History</a>
+                  <a href="javascript:void(0)">All Pets</a>
                 </Link>
               </div>
               <div>
@@ -104,9 +96,18 @@ const AuthShelterNavbar = () => {
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
+                  to="/MyAdoptions"
+                >
+                  <a href="javascript:void(0)">My Adoptions</a>
+                </Link>
+              </div>
+              
+              <div>
+                <Link
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
                   to="/UserProfile"
                 >
-                  <a href="javascript:void(0)">Profile</a>
+                  <a href="javascript:void(0)">Settings</a>
                 </Link>
               </div>
 

@@ -16,7 +16,7 @@ const Hero = () => {
           {/* text */}
           <div className='flex-2'>
             <motion.div
-            className="md:-mt-20"
+            className="md:-mt-20 mx-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
