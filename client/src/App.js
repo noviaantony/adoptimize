@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       {/* <Navbar/> */}
-      {/* <AuthShelterNavbar /> */}
+      <AuthShelterNavbar />
       <AuthAdopterNavbar />
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}

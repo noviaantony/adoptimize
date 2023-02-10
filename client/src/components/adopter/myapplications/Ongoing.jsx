@@ -1,67 +1,147 @@
 import React, {useState} from 'react'
+
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 
+import "react-modern-calendar-datepicker/lib/DatePicker.css";
+import { Calendar } from "react-modern-calendar-datepicker";
+
+
+import { PDFDownloadLink, Document, Page } from "@react-pdf/renderer";
+import { Viewer, Worker } from "@react-pdf-viewer/core";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import Slide from "@mui/material/Slide";
+
 
 const Ongoing = () => {
-
   const [value, setValue] = React.useState(null);
 
-
   const steps = [
-  'Apply',
-  'Quiz & Pre-Screening Question',
-  'Document Checks',
-  'Zoom Interview & Homecheck',
-   'Approval',
-  'Schedule Collection',
-  'Payment',
-  'Trial Week',
-  'Post-Adoption Follow-Up',
-  'Adoption Complete'
+    "Apply",
+    "Quiz & Pre-Screening Question",
+    "Document Checks",
+    "Zoom Interview & Homecheck",
+    "Approval",
+    "Schedule Collection",
+    "Payment",
+    "Trial Week",
+    "Post-Adoption Follow-Up",
+    "Adoption Complete",
+  ];
 
-];
+  const countries = ["China", "Russia", "UK"];
+  const [menu, setMenu] = useState(false);
+  const [country, setCountry] = useState("Singapore");
 
-const countries = ["China", "Russia", "UK"];
-    const [menu, setMenu] = useState(false);
-    const [country, setCountry] = useState("Singapore");
+  const changeText = (e) => {
+    setMenu(false);
+    setCountry(e.target.textContent);
+  };
 
-    const changeText = (e) => {
-        setMenu(false);
-        setCountry(e.target.textContent);
-    };
+  const [selectedDay, setSelectedDay] = useState(null);
 
+  const MyDoc = () => (
+    <Document>
+      <Page>// My document data</Page>
+    </Document>
+  );
+
+  const [pdfFile, setPdfFile] = useState(null);
+  const [viewPdf, setViewPdf] = useState(null);
+
+  const fileType = ["application/pdf"];
+  const handleChange = (e) => {
+    let selectedFile = e.target.files[0];
+    if (selectedFile) {
+      if (selectedFile && fileType.includes(selectedFile.type)) {
+        let reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onload = (e) => {
+          setPdfFile(e.target.result);
+        };
+      } else {
+        setPdfFile(null);
+      }
+    } else {
+      console.log("please select");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (pdfFile !== null) {
+      setViewPdf(pdfFile);
+    } else {
+      setViewPdf(null);
+    }
+  };
+
+  const newplugin = defaultLayoutPlugin();
+
+  // confirmation modal functions & useStates
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
+  //
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <div  className = "mt-12 mb-32 font-nunito">
-      
-      <Box sx={{ width: '100%', font: 'nunito'}}>
-      <Stepper activeStep={6} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    </Box>
+    <div className="mt-12 mb-32 font-nunito">
+      <Box sx={{ width: "100%", font: "nunito" }}>
+        <Stepper activeStep={6} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Box>
 
-
-    {/* pet you are adopting */}
-    <div className="flex justify-center mt-16">
-      <div href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg md:flex-row  w-6/6 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      {/* <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/docs/images/blog/image-4.jpg" alt=""/> */}
-      <img class="w-32 h-32 my-5 mx-5 rounded-full shadow-lg" src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Bonnie image"/>
-      <div class="flex flex-col justify-between p-4 leading-normal">
-          <h1 class="mb-2 text-4xl font-bold  text-gray-900 dark:text-white">Your are giving Timothee Catlamet a forever home!</h1>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus consequatur tempore dignissimos quae eos facilis voluptate ipsam corrupti provident fugit.</p>
+      {/* pet you are adopting */}
+      <div className="flex justify-center mt-16">
+        <div
+          href="#"
+          class="flex flex-col items-center bg-white border border-gray-200 rounded-lg md:flex-row  w-6/6 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          {/* <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/docs/images/blog/image-4.jpg" alt=""/> */}
+          <img
+            class="w-32 h-32 my-5 mx-5 rounded-full shadow-lg"
+            src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+            alt="Bonnie image"
+          />
+          <div class="flex flex-col justify-between p-4 leading-normal">
+            <h1 class="mb-2 text-4xl font-bold  text-gray-900 dark:text-white">
+              Your are giving Timothee Catlamet a forever home!
+            </h1>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+              consequatur tempore dignissimos quae eos facilis voluptate ipsam
+              corrupti provident fugit.
+            </p>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
 
-  {/* payment form */}  
-    {/* <div className="flex flex-col justify-start items-start w-full space-y-9 ml-96">
+      {/* payment form */}
+      {/* <div className="flex flex-col justify-start items-start w-full space-y-9 ml-96">
         <div className="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
           <div className="p-8 flex flex-col lg:w-full xl:w-3/5">
                 <div className="mt-8">
@@ -114,27 +194,177 @@ const countries = ["China", "Russia", "UK"];
             </div>
         </div>
     </div> */}
-    {/* payment form end */} 
+      {/* payment form end */}
 
+      {/* pre-screening questions */}
+      {/* <div className="mt-20">
+        <div class="mb-12 mx-64 font-nunito">
+          <label
+            for="large-input"
+            class="block mb-2 text-xl text-gray-900 dark:text-white font-bold"
+          >
+            Sample Screening Question 1:
+          </label>
+          <input
+            type="text"
+            id="large-input"
+            class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito"
+            placeholder="Enter Description About Your Shelter"
+          />
+        </div>
+        <div class="mb-12 mx-64 font-nunito">
+          <label
+            for="large-input"
+            class="block mb-2 text-xl text-gray-900 dark:text-white font-bold"
+          >
+            Sample Screening Question 2:
+          </label>
 
+          <input
+            type="text"
+            id="large-input"
+            class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito"
+            placeholder="Enter Detailed Description About Adoption Process For Your Shelter"
+          />
+        </div>
+        <div class="mb-12 mx-64 font-nunito">
+          <button className="mt-8 border border-transparent hover:border-gray-300 bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex flex-col justify-center items-center py-4 rounded w-4/6 ml-96">
+            <div>
+              <p className="text-base leading-4 font-bold">Submit Questions</p>
+            </div>
+          </button>
+        </div>
+      </div> */}
+      {/* pre-screening questions end */}
 
+      {/* zoom scheduler */}
+      {/* <div className="flex justify-start mt-16 ml-96">
+        <div
+          href="#"
+          class="flex flex-col items-center ml-52 bg-white border border-gray-200 rounded-lg md:flex-row  w-6/6 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800"
+        >
+          <Calendar
+            value={selectedDay}
+            onChange={setSelectedDay}
+            shouldHighlightWeekends
+          />
+          <div className="ml-40 grid-cols-3">
+            <div className="text-3xl mb-5">
+              Choose a timing for your zoom meeting with the shelter:
+            </div>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              8.30 AM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              9.30 AM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              10.30 AM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              11.30 AM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              12.30 AM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              2.30 PM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              3.30 PM
+            </button>
+            <button
+              className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
+                px-7 py-2 w-full bg-[#050a30] text-center rounded-md sm:w-auto font-bold hover:bg-blue-900 hover:text-white text-white font-nunito mx-5"
+            >
+              4.30 PM
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12 mx-96 font-nunito">
+        <button className="mt-8 border border-transparent hover:border-gray-300 bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex flex-col justify-center items-center py-4 rounded w-4/6 ml-96">
+          <div>
+            <p className="text-base leading-4 font-bold">Schedule Zoom Meeting</p>
+          </div>
+        </button>
+      </div> */}
+      {/* zoom scheduler end */}
 
+      {/* document download & upload */}
+      <div className="mt-16">
+        <PDFDownloadLink
+          document={<MyDoc />}
+          fileName="somename.pdf"
+          className="bg-gray-700 ml-3 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-md font-nunito text-sm text-2xl"
+        >
+          {({ blob, url, loading, error }) =>
+            loading ? "Loading document..." : "Download Adoption Documents"
+          }
+        </PDFDownloadLink>
 
+        <form onSubmit={handleSubmit} className="font-nunito mb-6">
+          <input
+            class="w-62 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-xl"
+            id="file_input"
+            type="file"
+            onChange={handleChange}
+          />
+          <button
+            type="submit"
+            className="bg-gray-700 ml-3 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold text-xl rounded-md font-nunito px-10 py-2 text-md mt-10"
+          >
+            Upload PDF
+          </button>
+        </form>
 
+        {/* <h2>View PDF</h2> */}
+        <div className="pdf-container mt-20 mr-12">
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+            {viewPdf && (
+              <>
+                <Viewer fileUrl={viewPdf} plugins={[newplugin]} />
+              </>
+            )}
+            {!viewPdf && <>No PDF Uploaded</>}
+          </Worker>
+        </div>
+      </div>
 
-
-
-   
-
-  
-
-
-    
-    
-
-
+      <button
+        class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-sm px-10 py-2 text-xl mt-8"
+        onClick={handleClickOpen}
+      >
+        Save Information
+      </button>
+      {/* document download & upload end */}
     </div>
-  )
+
+
+     
+
+  );
 }
 
 export default Ongoing;

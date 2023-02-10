@@ -210,7 +210,7 @@ const Table = () => {
         {/* phase*/}
         <td class="px-6 py-4">
           <span
-            class=" inline-flex justify-center pl-8 gap-1 rounded-full bg-blue-50 px-1  text-xs font-semibold text-blue-600 uppercase"
+            class=" inline-flex justify-center gap-1 rounded-full bg-blue-50 px-6 py-2 text-xs font-semibold text-blue-600 uppercase"
           > 
 
             {data.phase}
