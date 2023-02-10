@@ -317,7 +317,7 @@ const Ongoing = () => {
         <PDFDownloadLink
           document={<MyDoc />}
           fileName="somename.pdf"
-          className="bg-gray-700 ml-3 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-md font-nunito text-sm text-2xl"
+          className="bg-gray-700 ml-3 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-md font-nunito text-2xl"
         >
           {({ blob, url, loading, error }) =>
             loading ? "Loading document..." : "Download Adoption Documents"
@@ -326,7 +326,7 @@ const Ongoing = () => {
 
         <form onSubmit={handleSubmit} className="font-nunito mb-6">
           <input
-            class="w-62 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-xl"
+            class="w-62 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-xl"
             id="file_input"
             type="file"
             onChange={handleChange}

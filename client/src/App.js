@@ -18,7 +18,7 @@ import AdopterLogIn from './screens/common/AdopterLogIn';
 import AdopterSignUp from './screens/common/AdopterSignUp';
 import ShelterSignUp from './screens/common/ShelterSignUp'
 import ShelterLogIn from './screens/common/ShelterLogIn';
-import Article from './screens/common/Landing';
+import Article from './screens/shelter/Article';
 import Landing from './screens/common/Landing';
 import Tutorial from './screens/shelter/Tutorial';
 
@@ -29,9 +29,11 @@ import AllPets from './screens/adopter/AllPets'
 function App() {
   return (
     <div className="App">
+      
       {/* <Navbar/> */}
-      <AuthShelterNavbar />
+      {/* <AuthShelterNavbar /> */}
       <AuthAdopterNavbar />
+
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/OurPets" element={<MyPets />} />

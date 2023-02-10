@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import { HiMail, HiLockClosed } from "react-icons/hi";
+import { HiMail, HiUserCircle } from "react-icons/hi";
 import { ReactComponent as SignUpSvg } from "./ShelterSignUp.svg";
 import { Navigate, Link } from "react-router-dom";
 // import AuthContext from "../../hooks/AuthContext";
@@ -79,9 +79,7 @@ const ShelterSignUp = () => {
       {success ? (
         <section>
           <br />
-          <p>
-            
-          </p>
+          <p></p>
         </section>
       ) : (
         <motion.div
@@ -93,13 +91,12 @@ const ShelterSignUp = () => {
             <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
               <div className="w-3/5 p-5">
                 <div className="py-10">
-                  
                   <h2 className="text-2xl font-bold text-gray-700 mb-2">
                     Sign up as a Shelter
                   </h2>
-                  <div className="border-2 w-10 border-gray-700 bg-gray-700 inline-block mb-2"></div>
-                  {/* <p className="text-sm font-bold text-green-700 mb-2" >We will email you in a week and get in touch with you!</p> */} 
-                  {/* <p className="text-sm font-bold text-red-700 mb-2" >You already have an account with us!</p> */} 
+                  <div className=" w-10  bg-gray-700 inline-block mb-2"></div>
+                  {/* <p className="text-sm font-bold text-green-700 mb-2" >We will email you in a week and get in touch with you!</p> */}
+                  {/* <p className="text-sm font-bold text-red-700 mb-2" >You already have an account with us!</p> */}
                   <p
                     ref={errRef}
                     className={
@@ -117,13 +114,13 @@ const ShelterSignUp = () => {
                     {/* email section */}
                     <div className="bg-gray-100 w-64 p-2 flex items-center rounded mb-3">
                       <div className="bg-gray-100 w-64 p-2">
-                        <HiMail className="text-grey-100 m-2" />
+                        <HiUserCircle className="text-grey-100 m-2" />
                       </div>
                       <input
                         type="email"
                         name="email"
                         placeholder="enter shelter's name"
-                        className="bg-gray-100 outline-none text-m flex-1"
+                        className="bg-gray-100 text-m flex-1"
                         ref={userRef}
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
@@ -143,13 +140,12 @@ const ShelterSignUp = () => {
                         placeholder="enter your email"
                         className="bg-gray-100 outline-none text-m flex-1"
                         ref={userRef}
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                         required
                       />
                     </div>
                     {/* email section */}
-
 
                     <button
                       // href=""

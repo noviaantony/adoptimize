@@ -212,7 +212,6 @@ const Table = () => {
           <span
             class=" inline-flex justify-center gap-1 rounded-full bg-blue-50 px-6 py-2 text-xs font-semibold text-blue-600 uppercase"
           > 
-
             {data.phase}
           </span>
         </td>

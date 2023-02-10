@@ -17,7 +17,7 @@ const Quiz = () => {
             <div>You have completed the quiz.</div>
             <div>
               You've got {quizState.correctAnswersCount} of &nbsp;
-              {quizState.questions.length} right. You need {quizState.questions.length} correct answers to qualify for adoption, your high score is ?
+              {quizState.questions.length} right. You need {quizState.questions.length} correct answers to qualify for adoption, your high score is 5 and has been recorded to our system.
             </div>
           </div>
           <div
