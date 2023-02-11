@@ -1,5 +1,8 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { GrowthBook } from "@growthbook/growthbook-react";
+import { useEffect } from "react";
+
 
 
 import AuthShelterNavbar from "./components/common/navigation/AuthShelterNavbar";
@@ -26,7 +29,13 @@ import MyApplications from './screens/adopter/MyApplications';
 import UserProfile from './screens/adopter/UserProfile';
 import AllPets from './screens/adopter/AllPets'
 
+
+
 function App() {
+  useEffect(() => {
+    // Load features asynchronously when the app renders
+    growthbook.loadFeatures();
+  }, []);
   return (
     <div className="App">
       

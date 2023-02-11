@@ -5,6 +5,7 @@ import {motion} from "framer-motion";
 import { IoAdd } from "react-icons/io5";
 import { hotjar} from "react-hotjar";
 
+
 import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
 import { Carousel } from 'antd';
 
@@ -24,6 +25,16 @@ import Slide from '@mui/material/Slide';
         a.appendChild(r);
       })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     `;
+
+  const mouseflowScript = `
+    window._mfq = window._mfq || [];
+    (function() {
+      var mf = document.createElement("script");
+      mf.type = "text/javascript"; mf.defer = true;
+      mf.src = "//cdn.mouseflow.com/projects/d0e76ce5-08d1-4d0e-a9a3-1d5ed90d9b3b.js";
+      document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+  `;
 
 
 const contentStyle = {
@@ -166,6 +177,10 @@ const MyPets = () => {
       <div
           style={{ display: 'none' }}
           dangerouslySetInnerHTML={{ __html: hotjarScript }}
+      />
+      <div
+          style={{ display: 'none' }}
+          dangerouslySetInnerHTML={{ __html: mouseflowScript }}
       />
       <div className="items-center">
 
