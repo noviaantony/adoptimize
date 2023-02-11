@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { IoAdd } from "react-icons/io5";
 
+import { Link } from "react-router-dom";
+
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -261,14 +263,15 @@ const Form = () => {
               </div>
             </DialogContent>
             <DialogActions class="p-3 text-center">
-              <button
+              <Link
                 data-modal-hide="popup-modal"
                 type="button"
                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 onClick={handleClose}
+                to = "/ThankYou"
               >
                 Yes, I'm sure
-              </button>
+              </Link>
               <button
                 data-modal-hide="popup-modal"
                 type="button"

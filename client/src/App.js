@@ -9,6 +9,7 @@ import Footer from "./components/common/footer/Footer";
 
 import MyPets from "./screens/shelter/MyPets";
 import MyPetsDummy from "./screens/shelter/MyPetsDummy"; // DUMMY
+import DummyScreen from "./screens/shelter/DummyScreen"; // DUMMY
 import Prescreening from './screens/shelter/Prescreening';
 import DocumentUpload from './screens/shelter/DocumentUpload';
 import AdoptionManagement from './screens/shelter/AdoptionManagement'
@@ -52,8 +53,12 @@ function App() {
         <Route path="/WhatIsAdoptsy" element={<Tutorial />} />
         <Route path="/MyApplications" element={<MyApplications />} />
         <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/AllPets" element={<AllPets />} />
         <Route path="/" element={<Landing />} />
+
+        {/* DUMMY ROUTES */}
+        <Route path="/AllPets" element={<AllPets />} />
+        <Route path="/ThankYou" element={<DummyScreen />} />
+        {/* DUMMY ROUTES */}
       </Routes>
       <Footer />
     </div>
