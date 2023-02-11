@@ -207,7 +207,7 @@ const Form = () => {
                       <input
                         type="text"
                         className="px-5 shadow-sm h-10 rounded-md block w-full"
-                        placeholder={field.label}
+                        placeholder={field.expected}
                       />
                     }
                   </div>

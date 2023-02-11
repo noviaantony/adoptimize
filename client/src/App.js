@@ -8,6 +8,7 @@ import Navbar from './components/common/navigation/Navbar';
 import Footer from "./components/common/footer/Footer";
 
 import MyPets from "./screens/shelter/MyPets";
+import MyPetsDummy from "./screens/shelter/MyPetsDummy"; // DUMMY
 import Prescreening from './screens/shelter/Prescreening';
 import DocumentUpload from './screens/shelter/DocumentUpload';
 import AdoptionManagement from './screens/shelter/AdoptionManagement'
@@ -29,14 +30,14 @@ import AllPets from './screens/adopter/AllPets'
 function App() {
   return (
     <div className="App">
-      
       {/* <Navbar/> */}
-      {/* <AuthShelterNavbar /> */}
-      <AuthAdopterNavbar />
+      <AuthShelterNavbar />
+      {/* <AuthAdopterNavbar /> */}
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/OurPets" element={<MyPets />} />
+        <Route path="/OurPetss" element={<MyPetsDummy />} />
         <Route path="/Prescreening" element={<Prescreening />} />
         <Route path="/DocumentUpload" element={<DocumentUpload />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
@@ -51,10 +52,10 @@ function App() {
         <Route path="/WhatIsAdoptsy" element={<Tutorial />} />
         <Route path="/MyApplications" element={<MyApplications />} />
         <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/AllPets" element={<AllPets/>} />
+        <Route path="/AllPets" element={<AllPets />} />
         <Route path="/" element={<Landing />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
