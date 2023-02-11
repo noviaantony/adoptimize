@@ -147,12 +147,11 @@ const MyPets = () => {
   return (
     <>
       <Header
-        Title="Project Luni's Pet Gallery"
+        Title="Wulf's Cat Rescue"
         Description="browse all listed pets and edit your pet gallery here!"
       />
 
       <div className="items-center">
-
 
         {/* searchbar start */}
         <form className="m-10 mx-50">
@@ -185,7 +184,7 @@ const MyPets = () => {
                 type="search"
                 id="default-search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border font-nunito"
-                placeholder="Search for foods,snacks,etc"
+                placeholder="Search for pet by name"
                 required=""
                 onChange={(event) => {
                   setSearchTerm(event.target.value);

@@ -69,7 +69,15 @@ const AuthShelterNavbar = () => {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-  
+              <div>
+                <Link
+                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
+                  to="/WhatIsAdoptsy"
+                >
+                  <a href="javascript:void(0)">What is Adoptsy</a>
+                </Link>
+              </div>
+
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
@@ -109,7 +117,7 @@ const AuthShelterNavbar = () => {
                 >
                   <a href="javascript:void(0)">Our Pets</a>
                 </Link>
-              </div>  
+              </div>
               <div>
                 <Link
                   className="text-[#050a30] text-sm hover:font-bolder font-nunito"
@@ -126,15 +134,6 @@ const AuthShelterNavbar = () => {
                   <a href="javascript:void(0)">Adoption Management</a>
                 </Link>
               </div>
-              <div>
-                <Link
-                  className="text-[#050a30] text-sm hover:font-bolder font-nunito"
-                  to="/Tutorial"
-                >
-                  <a href="javascript:void(0)">Tutorial</a>
-                </Link>
-              </div>
-           
 
               <button
                 className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300

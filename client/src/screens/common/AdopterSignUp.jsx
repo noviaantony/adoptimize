@@ -115,8 +115,8 @@ const SignUp = () => {
                 <div className="border-2 w-10 border-gray-700 bg-gray-700 inline-block mb-2"></div>
               </div>
               <div className='mb-8'>
-                <span className=" text-red-800 text-sm mr-2 px-2.5 py-0.5 rounded font-bold mb-8">
-                  {errMsg}
+                <span className=" text-green-800 text-sm mr-2 px-2.5 py-0.5 rounded font-bold mb-8">
+                  You have successfully signed up for an account! Check your email for a confirmation email to activate your account.
                 </span>
               </div>
 

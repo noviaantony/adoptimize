@@ -25,8 +25,8 @@ const Ongoing = () => {
   const [value, setValue] = React.useState(null);
 
   const steps = [
-    "Apply",
-    "Quiz & Pre-Screening Question",
+    "Quiz",
+    "Pre-Screening Questions",
     "Document Checks",
     "Zoom Interview & Homecheck",
     "Approval",
@@ -106,7 +106,7 @@ const Ongoing = () => {
   return (
     <div className="mt-12 mb-32 font-nunito">
       <Box sx={{ width: "100%", font: "nunito" }}>
-        <Stepper activeStep={6} alternativeLabel>
+        <Stepper activeStep={2} alternativeLabel>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
@@ -132,9 +132,7 @@ const Ongoing = () => {
               Your are giving Timothee Catlamet a forever home!
             </h1>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-              consequatur tempore dignissimos quae eos facilis voluptate ipsam
-              corrupti provident fugit.
+               you are going through the adoption trial week now :)
             </p>
           </div>
         </div>
@@ -142,7 +140,7 @@ const Ongoing = () => {
 
       {/* payment form */}
       {/* <div className="flex flex-col justify-start items-start w-full space-y-9 ml-96">
-        <div className="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
+        <div className="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full ml-28">
           <div className="p-8 flex flex-col lg:w-full xl:w-3/5">
                 <div className="mt-8">
                   <label className="mt-8 text-base leading-4 text-gray-800">Email</label>
@@ -250,7 +248,7 @@ const Ongoing = () => {
           />
           <div className="ml-40 grid-cols-3">
             <div className="text-3xl mb-5">
-              Choose a timing for your zoom meeting with the shelter:
+              Choose a timing for your zoom meeting with the shelter to do a homecheck:
             </div>
             <button
               className="bg-primary-500 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300
@@ -313,7 +311,7 @@ const Ongoing = () => {
       {/* zoom scheduler end */}
 
       {/* document download & upload */}
-      <div className="mt-16">
+      {/* <div className="mt-16">
         <PDFDownloadLink
           document={<MyDoc />}
           fileName="somename.pdf"
@@ -339,9 +337,8 @@ const Ongoing = () => {
           </button>
         </form>
 
-        {/* <h2>View PDF</h2> */}
-        <div className="pdf-container mt-20 mr-12">
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+        <div className="pdf-container mt-20 ml-64">
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.2.146/build/pdf.worker.min.js">
             {viewPdf && (
               <>
                 <Viewer fileUrl={viewPdf} plugins={[newplugin]} />
@@ -357,13 +354,9 @@ const Ongoing = () => {
         onClick={handleClickOpen}
       >
         Save Information
-      </button>
+      </button> */}
       {/* document download & upload end */}
     </div>
-
-
-     
-
   );
 }
 

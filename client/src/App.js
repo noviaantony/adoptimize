@@ -48,7 +48,7 @@ function App() {
         <Route path="/ShelterSignUp" element={<ShelterSignUp />} />
         <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
         <Route path="/Article" element={<Article />} />
-        <Route path="/Tutorial" element={<Tutorial />} />
+        <Route path="/WhatIsAdoptsy" element={<Tutorial />} />
         <Route path="/MyApplications" element={<MyApplications />} />
         <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/AllPets" element={<AllPets/>} />

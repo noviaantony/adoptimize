@@ -29,7 +29,7 @@ const PetCare = () => {
   ]
   return (
     <div >
-      <Header Title = "Cat Care" Description="a full guide for adopters about cats and how to care for them! if you wish to add more details to this page please email us" className="mb-12"/>
+      <Header Title = "Cat Care" Description="a full guide for adopters about cats and how to care for them! this page will help you alot in passing the pre-adoption quiz and being a new pet parent :)" className="mb-12"/>
       {articleCards.map((article) => {
         return(
         <PetCareCards Title = {article.Title} Date = {article.Date} Description={article.Description} />
