@@ -15,7 +15,16 @@ const Prescreening = () => {
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
-  //
+  const hotjarScript = `
+        (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3361643,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    `;
 
   const [open, setOpen] = React.useState(false);
 
@@ -29,6 +38,10 @@ const Prescreening = () => {
 
   return (
     <>
+      <div
+          style={{display: 'none'}}
+          dangerouslySetInnerHTML={{__html: hotjarScript}}
+      />
       <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
         <div>
           <Header

@@ -146,6 +146,7 @@ const Form = () => {
                             setOnEdit(false);
                             setEditedField("");
                           }}
+                            className="border-2 border-black"
                         />
                       ) : (
                         <label
@@ -218,18 +219,18 @@ const Form = () => {
             );
           })}
           <button
+              className="text-gray-700 hover:bg-gray-700 hover:text-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-xl px-10 py-2"
+              onClick={() => addQuestion()}
+              type="button"
+          >
+            Add New Question
+          </button>
+          <button
             className="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-xl px-10 py-2"
             type="button"
             onClick={handleClickOpen}
           >
             Save Questions
-          </button>
-          <button
-            className="text-gray-700 hover:bg-gray-700 hover:text-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-xl px-10 py-2"
-            onClick={() => addQuestion()}
-            type="button"
-          >
-            Add Question
           </button>
 
           {/* confirmation modal */}
