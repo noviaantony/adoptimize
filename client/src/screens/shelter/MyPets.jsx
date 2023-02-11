@@ -15,25 +15,27 @@ import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 
 
-  const hotjarScript = `
-        (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:3361643,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    `;
+  // const hotjarScript = `
+  //       (function(h,o,t,j,a,r){
+  //       h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+  //       h._hjSettings={hjid:3361643,hjsv:6};
+  //       a=o.getElementsByTagName('head')[0];
+  //       r=o.createElement('script');r.async=1;
+  //       r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  //       a.appendChild(r);
+  //     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  //   `;
 
   const mouseflowScript = `
-    window._mfq = window._mfq || [];
-    (function() {
-      var mf = document.createElement("script");
-      mf.type = "text/javascript"; mf.defer = true;
-      mf.src = "//cdn.mouseflow.com/projects/d0e76ce5-08d1-4d0e-a9a3-1d5ed90d9b3b.js";
-      document.getElementsByTagName("head")[0].appendChild(mf);
-    })();
+      <script type="text/javascript">
+        window._mfq = window._mfq || [];
+        (function() {
+          var mf = document.createElement("script");
+          mf.type = "text/javascript"; mf.defer = true;
+          mf.src = "//cdn.mouseflow.com/projects/d0e76ce5-08d1-4d0e-a9a3-1d5ed90d9b3b.js";
+          document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+    </script>
   `;
 
 
@@ -174,10 +176,10 @@ const MyPets = () => {
         Title="Wulf's Cat Rescue"
         Description="browse all listed pets and edit your pet gallery here!"
       />
-      <div
-          style={{ display: 'none' }}
-          dangerouslySetInnerHTML={{ __html: hotjarScript }}
-      />
+      {/*<div*/}
+      {/*    style={{ display: 'none' }}*/}
+      {/*    dangerouslySetInnerHTML={{ __html: hotjarScript }}*/}
+      {/*/>*/}
       <div
           style={{ display: 'none' }}
           dangerouslySetInnerHTML={{ __html: mouseflowScript }}
