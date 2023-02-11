@@ -32,7 +32,9 @@ const AboutUs = () => {
 
       <EditableTable2/>
       
-      <button class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-sm px-10 py-2" onClick={handleClickOpen}>
+      <button class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-sm px-10 py-2" 
+      // onClick={handleClickOpen}
+      >
         Save Information
       </button>
 
