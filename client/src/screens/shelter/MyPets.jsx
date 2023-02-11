@@ -4,7 +4,7 @@ import Header from "../../components/common/misc/Header";
 import {motion} from "framer-motion";
 import { IoAdd } from "react-icons/io5";
 import { hotjar} from "react-hotjar";
-
+import  Mouseflow from "./Mouseflow.jsx";
 
 import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
 import { Carousel } from 'antd';
@@ -26,17 +26,17 @@ import Slide from '@mui/material/Slide';
   //     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   //   `;
 
-  const mouseflowScript = `
-      <script type="text/javascript">
-        window._mfq = window._mfq || [];
-        (function() {
-          var mf = document.createElement("script");
-          mf.type = "text/javascript"; mf.defer = true;
-          mf.src = "//cdn.mouseflow.com/projects/d0e76ce5-08d1-4d0e-a9a3-1d5ed90d9b3b.js";
-          document.getElementsByTagName("head")[0].appendChild(mf);
-        })();
-    </script>
-  `;
+  // const mouseflowScript = `
+  //     <script type="text/javascript">
+  //       window._mfq = window._mfq || [];
+  //       (function() {
+  //         var mf = document.createElement("script");
+  //         mf.type = "text/javascript"; mf.defer = true;
+  //         mf.src = "//cdn.mouseflow.com/projects/d0e76ce5-08d1-4d0e-a9a3-1d5ed90d9b3b.js";
+  //         document.getElementsByTagName("head")[0].appendChild(mf);
+  //       })();
+  //   </script>
+  // `;
 
 
 const contentStyle = {
@@ -180,10 +180,10 @@ const MyPets = () => {
       {/*    style={{ display: 'none' }}*/}
       {/*    dangerouslySetInnerHTML={{ __html: hotjarScript }}*/}
       {/*/>*/}
-      <div
-          style={{ display: 'none' }}
-          dangerouslySetInnerHTML={{ __html: mouseflowScript }}
-      />
+      {/*<div*/}
+      {/*    style={{ display: 'none' }}*/}
+      {/*    dangerouslySetInnerHTML={{ __html: mouseflowScript }}*/}
+      {/*/>*/}
       <div className="items-center">
 
         {/* searchbar start */}
@@ -552,7 +552,7 @@ const MyPets = () => {
 
 
 
-      
+      <Mouseflow />
     </>
   );
 }
