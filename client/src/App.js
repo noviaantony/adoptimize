@@ -32,10 +32,6 @@ import AllPets from './screens/adopter/AllPets'
 
 
 function App() {
-  useEffect(() => {
-    // Load features asynchronously when the app renders
-    growthbook.loadFeatures();
-  }, []);
   return (
     <div className="App">
       
