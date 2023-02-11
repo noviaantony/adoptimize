@@ -3,6 +3,7 @@ import PetCard2 from '../../components/shelter/mypets/PetCard2'
 import Header from "../../components/common/misc/Header";
 import {motion} from "framer-motion";
 import { IoAdd } from "react-icons/io5";
+import { hotjar} from "react-hotjar";
 
 import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
 import { Carousel } from 'antd';
@@ -13,6 +14,18 @@ import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 
 
+  const hotjarScript = `
+        (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3361643,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    `;
+
+
 const contentStyle = {
   margin: 0,
   height: '200px',
@@ -21,7 +34,7 @@ const contentStyle = {
   textAlign: 'center',  
 };
 
-
+hotjar.initialize(3361643, 6);
 
 const MyPets = () => {
 
@@ -150,7 +163,10 @@ const MyPets = () => {
         Title="Wulf's Cat Rescue"
         Description="browse all listed pets and edit your pet gallery here!"
       />
-
+      <div
+          style={{ display: 'none' }}
+          dangerouslySetInnerHTML={{ __html: hotjarScript }}
+      />
       <div className="items-center">
 
         {/* searchbar start */}

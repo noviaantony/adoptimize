@@ -31,8 +31,8 @@ function App() {
     <div className="App">
       
       {/* <Navbar/> */}
-      {/* <AuthShelterNavbar /> */}
-      <AuthAdopterNavbar />
+       <AuthShelterNavbar />
+      {/*<AuthAdopterNavbar />*/}
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
