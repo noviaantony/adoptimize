@@ -119,7 +119,8 @@ const MyPetsDummy = () => {
       Name: "Sam",
       Breed: "Ragdoll",
       Age: 3,
-      
+      Sex: "Male"
+  
     },
   ];
 

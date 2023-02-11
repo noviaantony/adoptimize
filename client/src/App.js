@@ -38,7 +38,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/OurPets" element={<MyPets />} />
-        <Route path="/OurPetss" element={<MyPetsDummy />} />
+
         <Route path="/Prescreening" element={<Prescreening />} />
         <Route path="/DocumentUpload" element={<DocumentUpload />} />
         <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
@@ -53,10 +53,12 @@ function App() {
         <Route path="/WhatIsAdoptsy" element={<Tutorial />} />
         <Route path="/MyApplications" element={<MyApplications />} />
         <Route path="/UserProfile" element={<UserProfile />} />
+        <Route path="/AllPets" element={<AllPets />} />
         <Route path="/" element={<Landing />} />
 
         {/* DUMMY ROUTES */}
-        <Route path="/AllPets" element={<AllPets />} />
+
+        <Route path="/OurPetss" element={<MyPetsDummy />} />
         <Route path="/ThankYou" element={<DummyScreen />} />
         {/* DUMMY ROUTES */}
       </Routes>
