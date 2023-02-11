@@ -260,7 +260,7 @@ const Form = () => {
                   ></path>
                 </svg>
                 <h3 class="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400 font-nunito">
-                  Are you sure you want to delete this question?
+                  Are you sure you want to add this question?
                 </h3>
               </div>
             </DialogContent>
