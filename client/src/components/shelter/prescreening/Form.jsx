@@ -146,9 +146,10 @@ const Form = () => {
                             setOnEdit(false);
                             setEditedField("");
                           }}
-                            className="border-2 border-black"
+                          className="px-5 shadow-sm h-10 rounded-md block w-full"
                         />
-                      ) : (
+                      ) 
+                      : (
                         <label
                           onClick={() => {
                             setOnEdit(true);

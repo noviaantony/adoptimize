@@ -46,7 +46,7 @@ const Prescreening = () => {
         <div>
           <Header
             Title="Pre-Screening Questions"
-            Description="Add, delete and edit questions for your pre-screening form. Add the question and provide the expected response so that we n auto-evaluate the adopters. If there is no specific expected response, put 'NONE' in the expected response field."
+            Description="Add, delete and edit questions for your pre-screening form. Add the question and provide the expected response so that we can auto-evaluate the adopters. If there is no specific expected response, put 'NONE' in the expected response field."
           />
           <Form classname="mt-20" />
           {/* <Form2 classname="mt-20" /> */}
