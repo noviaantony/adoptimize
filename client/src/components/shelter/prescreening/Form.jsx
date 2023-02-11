@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { IoAdd } from "react-icons/io5";
 
+import { Link } from "react-router-dom";
+
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -207,7 +209,7 @@ const Form = () => {
                       <input
                         type="text"
                         className="px-5 shadow-sm h-10 rounded-md block w-full"
-                        placeholder={field.label}
+                        placeholder={field.expected}
                       />
                     }
                   </div>
@@ -261,22 +263,24 @@ const Form = () => {
               </div>
             </DialogContent>
             <DialogActions class="p-3 text-center">
-              <button
+              <Link
                 data-modal-hide="popup-modal"
                 type="button"
                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 onClick={handleClose}
+                to="/ThankYou"
               >
                 Yes, I'm sure
-              </button>
-              <button
+              </Link>
+              {/* <button
                 data-modal-hide="popup-modal"
                 type="button"
                 class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-                onClick={handleClose}
+                // onClick={handleClose}
+                to="/ThankYou"
               >
                 No, cancel
-              </button>
+              </button> */}
             </DialogActions>
           </Dialog>
         </div>

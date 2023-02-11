@@ -1,174 +1,178 @@
-import React, {Fragment, useState, useEffect} from 'react'
-import PetCard2 from '../../components/shelter/mypets/PetCard2'
+import React, { Fragment, useState, useEffect } from "react";
+import PetCard2 from "../../components/shelter/mypets/PetCard2";
 import Header from "../../components/common/misc/Header";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import { IoAdd } from "react-icons/io5";
-import { hotjar} from "react-hotjar";
-import  Mouseflow from "./Mouseflow.jsx";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
-import { Carousel } from 'antd';
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+} from "@material-tailwind/react";
+import { Carousel } from "antd";
 
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import Slide from '@mui/material/Slide';
-
-
-  // const hotjarScript = `
-  //       (function(h,o,t,j,a,r){
-  //       h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-  //       h._hjSettings={hjid:3361643,hjsv:6};
-  //       a=o.getElementsByTagName('head')[0];
-  //       r=o.createElement('script');r.async=1;
-  //       r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-  //       a.appendChild(r);
-  //     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  //   `;
-
-  // const mouseflowScript = `
-  //     <script type="text/javascript">
-  //       window._mfq = window._mfq || [];
-  //       (function() {
-  //         var mf = document.createElement("script");
-  //         mf.type = "text/javascript"; mf.defer = true;
-  //         mf.src = "//cdn.mouseflow.com/projects/d0e76ce5-08d1-4d0e-a9a3-1d5ed90d9b3b.js";
-  //         document.getElementsByTagName("head")[0].appendChild(mf);
-  //       })();
-  //   </script>
-  // `;
-
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import Slide from "@mui/material/Slide";
 
 const contentStyle = {
   margin: 0,
-  height: '200px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',  
+  height: "200px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
 };
 
-hotjar.initialize(3361643, 6);
-
-const MyPets = () => {
-
+const MyPetsDummy = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [openTab, setOpenTab] = React.useState(1);
 
   const petList = [
     {
-      Name: 'Timothee Catlamet',
-      Breed: 'Ragdoll',
-      Sex: 'Male',
+      Name: "Timothee Catlamet",
+      Breed: "Ragdoll",
+      Sex: "Male",
       Age: 1,
-      Image1: 'https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image2: 'https://images.unsplash.com/photo-1620933288385-b2f6f1931d9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image3: 'https://images.unsplash.com/photo-1568470010257-111aa304d53b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image4: 'https://images.unsplash.com/photo-1586417752912-b0389b445a20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+      Image1:
+        "https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image2:
+        "https://images.unsplash.com/photo-1620933288385-b2f6f1931d9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image3:
+        "https://images.unsplash.com/photo-1568470010257-111aa304d53b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image4:
+        "https://images.unsplash.com/photo-1586417752912-b0389b445a20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
     },
     {
-      Name: 'Catmilla Cabello',
-      Breed: 'Bengal',
-      Sex: 'Female',
+      Name: "Catmilla Cabello",
+      Breed: "Bengal",
+      Sex: "Female",
       Age: 4,
-      Image1: 'https://images.unsplash.com/photo-1603277160434-df7471138363?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVuZ2FsJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-      Image2: 'https://images.unsplash.com/photo-1496806195556-91bdded94209?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmVuZ2FsJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-      Image3: 'https://images.unsplash.com/photo-1598463166228-c0f90d180918?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVuZ2FsJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-      Image4: 'https://images.unsplash.com/photo-1516750484197-6b28d10c91ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJlbmdhbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+      Image1:
+        "https://images.unsplash.com/photo-1603277160434-df7471138363?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVuZ2FsJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      Image2:
+        "https://images.unsplash.com/photo-1496806195556-91bdded94209?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmVuZ2FsJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      Image3:
+        "https://images.unsplash.com/photo-1598463166228-c0f90d180918?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVuZ2FsJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      Image4:
+        "https://images.unsplash.com/photo-1516750484197-6b28d10c91ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJlbmdhbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
     },
     {
-      Name: 'Sir Meowington',
-      Breed: 'Ginger',
-      Sex: 'Male',
+      Name: "Sir Meowington",
+      Breed: "Ginger",
+      Sex: "Male",
       Age: 10,
-      Image1: 'https://images.unsplash.com/photo-1594367031514-3aee0295ec98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2luZ2VyJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-      Image2: 'https://images.unsplash.com/photo-1583687534963-565854a3d6d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z2luZ2VyJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-      Image3: 'https://images.unsplash.com/photo-1577980906127-4ea7faa2c6f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGdpbmdlciUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image4: 'https://images.unsplash.com/photo-1577981013335-2a43c0f0cce5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGdpbmdlciUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+      Image1:
+        "https://images.unsplash.com/photo-1594367031514-3aee0295ec98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2luZ2VyJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      Image2:
+        "https://images.unsplash.com/photo-1583687534963-565854a3d6d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z2luZ2VyJTIwY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      Image3:
+        "https://images.unsplash.com/photo-1577980906127-4ea7faa2c6f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGdpbmdlciUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image4:
+        "https://images.unsplash.com/photo-1577981013335-2a43c0f0cce5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGdpbmdlciUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
     },
     {
-      Name: 'Pawl',
-      Breed: 'Siamese',
-      Sex: 'Male',
+      Name: "Pawl",
+      Breed: "Siamese",
+      Sex: "Male",
       Age: 3,
-      Image1:'https://images.unsplash.com/photo-1572590603603-f828f6682212?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2lhbWVzZSUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image2: 'https://media.istockphoto.com/id/1394116178/photo/siamese-kitten-standing-on-lawn.jpg?b=1&s=170667a&w=0&k=20&c=QbxxA-rgwyuDDz6iTmOTyYJW215qMq33sFt4P2KzELA=',
-      Image3: 'https://images.unsplash.com/photo-1613064504039-bb89104af499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNpYW1lc2UlMjBjYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-      Image4: 'https://media.istockphoto.com/id/1394116178/photo/siamese-kitten-standing-on-lawn.jpg?b=1&s=170667a&w=0&k=20&c=QbxxA-rgwyuDDz6iTmOTyYJW215qMq33sFt4P2KzELA='
+      Image1:
+        "https://images.unsplash.com/photo-1572590603603-f828f6682212?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2lhbWVzZSUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image2:
+        "https://media.istockphoto.com/id/1394116178/photo/siamese-kitten-standing-on-lawn.jpg?b=1&s=170667a&w=0&k=20&c=QbxxA-rgwyuDDz6iTmOTyYJW215qMq33sFt4P2KzELA=",
+      Image3:
+        "https://images.unsplash.com/photo-1613064504039-bb89104af499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNpYW1lc2UlMjBjYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      Image4:
+        "https://media.istockphoto.com/id/1394116178/photo/siamese-kitten-standing-on-lawn.jpg?b=1&s=170667a&w=0&k=20&c=QbxxA-rgwyuDDz6iTmOTyYJW215qMq33sFt4P2KzELA=",
     },
     {
-      Name: 'Catti B',
-      Breed: 'British SH',
-      Sex: 'Female',
+      Name: "Catti B",
+      Breed: "British SH",
+      Sex: "Female",
       Age: 8,
-      Image1:'https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image2: 'https://images.unsplash.com/photo-1636278697015-a5592cfa04d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJyaXRpc2glMjBzaG9ydCUyMGhhaXIlMjBjYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-      Image3: 'https://images.unsplash.com/photo-1568470010257-111aa304d53b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image4: 'https://images.unsplash.com/photo-1636278697015-a5592cfa04d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJyaXRpc2glMjBzaG9ydCUyMGhhaXIlMjBjYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
+      Image1:
+        "https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image2:
+        "https://images.unsplash.com/photo-1636278697015-a5592cfa04d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJyaXRpc2glMjBzaG9ydCUyMGhhaXIlMjBjYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      Image3:
+        "https://images.unsplash.com/photo-1568470010257-111aa304d53b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image4:
+        "https://images.unsplash.com/photo-1636278697015-a5592cfa04d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJyaXRpc2glMjBzaG9ydCUyMGhhaXIlMjBjYXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     },
     {
-      Name: 'Kitty Purry',
-      Breed: 'Maine Coon',
-      Sex: 'Female',
+      Name: "Kitty Purry",
+      Breed: "Maine Coon",
+      Sex: "Female",
       Age: 6,
-      Image1:'https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image2: 'https://images.unsplash.com/photo-1602779717445-b15fa367c13d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG1haW5lJTIwY29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image3: 'https://images.unsplash.com/photo-1568470010257-111aa304d53b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      Image4: 'https://images.unsplash.com/photo-1586417752912-b0389b445a20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-    }
+      Image1:
+        "https://images.unsplash.com/photo-1585373683920-671438c82bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image2:
+        "https://images.unsplash.com/photo-1602779717445-b15fa367c13d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG1haW5lJTIwY29vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image3:
+        "https://images.unsplash.com/photo-1568470010257-111aa304d53b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      Image4:
+        "https://images.unsplash.com/photo-1586417752912-b0389b445a20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    },
+    {
+      Name: "Sam",
+      Breed: "Ragdoll",
+      Age: 3,
+      
+    },
   ];
 
-    const [open, setOpen] = useState(1);
-    const [showDishInfo, setshowDishInfo] = React.useState(false);
+  const [open, setOpen] = useState(1);
+  const [showDishInfo, setshowDishInfo] = React.useState(false);
 
-    const handleOpen = (value) => {
-        setOpen(open === value ? 0 : value);
-    };
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
 
-    const onChange = (currentSlide) => {
-        console.log(currentSlide);
-    };
+  const onChange = (currentSlide) => {
+    console.log(currentSlide);
+  };
 
+  const data = [
+    {
+      petId: 1,
+      name: "Add New Pet",
+      breed: "Siamese-Persian Mix",
+      age: "1 year old",
+      description:
+        "I was rescued from yishun with my sister! I enjoy eating tuna and wet food, and I love belly rubs. I hate being carried when I want to sleep :< I will bite if I dont wanna be touched. I am shy to strangers, but I love my humans. ",
+      medical:
+        "Full Vacinated, Sterilised, De-flead, FIV Negative, Microchipped, De-wormed. Slight PICA",
+      requirements:
+        "Timothee requires lots of love and attention, hence adopters will be required to play with him everyday. Timothee does try to eat foreign objects and will require extra attention. Timothee also only eats wet food and will need that too. To ensure the safety of all cats, interested adopters must FULLY mesh their windows as most cats would be tempted to go to the ledge. This is extremely important to ensure that our cats will not be injured.",
+    },
+  ];
 
-    const data = [
-        {
-            petId: 1,
-            name: 'Add New Pet',
-            breed: 'Siamese-Persian Mix',
-            age: '1 year old',
-            description: 'I was rescued from yishun with my sister! I enjoy eating tuna and wet food, and I love belly rubs. I hate being carried when I want to sleep :< I will bite if I dont wanna be touched. I am shy to strangers, but I love my humans. ',
-            medical: 'Full Vacinated, Sterilised, De-flead, FIV Negative, Microchipped, De-wormed. Slight PICA',
-            requirements: 'Timothee requires lots of love and attention, hence adopters will be required to play with him everyday. Timothee does try to eat foreign objects and will require extra attention. Timothee also only eats wet food and will need that too. To ensure the safety of all cats, interested adopters must FULLY mesh their windows as most cats would be tempted to go to the ledge. This is extremely important to ensure that our cats will not be injured.'
-        }
-    ];
-
-    const [petData, setPetData] = useState(data)
-    const onChangeInput = (e, id) => {
-    const { Name, value } = e.target
+  const [petData, setPetData] = useState(data);
+  const onChangeInput = (e, id) => {
+    const { Name, value } = e.target;
 
     const editData = petData.map((item) =>
       item.id === id && Name ? { ...item, [Name]: value } : item
-    )
+    );
 
-        setPetData(editData)
-    } 
+    setPetData(editData);
+  };
 
-    const Transition = React.forwardRef(function Transition(props, ref) {
-        return <Slide direction="up" ref={ref} {...props} />;
-    });
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
 
-    const [open2, setOpen2] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
 
-    const handleClickOpen = () => {
-        setOpen2(true);
-    };
+  const handleClickOpen = () => {
+    setOpen2(true);
+  };
 
-    const handleClose = () => {
-        setOpen2(false);
-    };
-
-
+  const handleClose = () => {
+    setOpen2(false);
+  };
 
   return (
     <>
@@ -176,14 +180,7 @@ const MyPets = () => {
         Title="Wulf's Cat Rescue"
         Description="browse all listed pets and edit your pet gallery here!"
       />
-      {/*<div*/}
-      {/*    style={{ display: 'none' }}*/}
-      {/*    dangerouslySetInnerHTML={{ __html: hotjarScript }}*/}
-      {/*/>*/}
-      {/*<div*/}
-      {/*    style={{ display: 'none' }}*/}
-      {/*    dangerouslySetInnerHTML={{ __html: mouseflowScript }}*/}
-      {/*/>*/}
+
       <div className="items-center">
         {/* searchbar start */}
         <form className="m-10 mx-50">
@@ -284,53 +281,14 @@ const MyPets = () => {
                             <Fragment>
                               <Accordion open={open === 1}>
                                 <AccordionHeader onClick={() => handleOpen(1)}>
-                                  Name
+                                  Name, Breed, Age
                                 </AccordionHeader>
                                 <AccordionBody>
                                   <input
                                     type="text"
                                     id="base-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito"
-                                    placeholder="Enter Name"
-                                  />
-                                </AccordionBody>
-                              </Accordion>
-                              <Accordion open={open === 2}>
-                                <AccordionHeader onClick={() => handleOpen(2)}>
-                                  Gender
-                                </AccordionHeader>
-                                <AccordionBody>
-                                  <input
-                                    type="text"
-                                    id="base-input"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito"
-                                    placeholder="Enter Gender"
-                                  />
-                                </AccordionBody>
-                              </Accordion>
-                              <Accordion open={open === 3}>
-                                <AccordionHeader onClick={() => handleOpen(3)}>
-                                  Breed
-                                </AccordionHeader>
-                                <AccordionBody>
-                                  <input
-                                    type="text"
-                                    id="base-input"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito"
-                                    placeholder="Enter Breed"
-                                  />
-                                </AccordionBody>
-                              </Accordion>
-                              <Accordion open={open === 8}>
-                                <AccordionHeader onClick={() => handleOpen(8)}>
-                                  Age
-                                </AccordionHeader>
-                                <AccordionBody>
-                                  <input
-                                    type="text"
-                                    id="base-input"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito"
-                                    placeholder="Enter Age"
+                                    placeholder="Enter Name, Breed and Age with commas"
                                   />
                                 </AccordionBody>
                               </Accordion>
@@ -374,6 +332,7 @@ const MyPets = () => {
                                   />
                                 </AccordionBody>
                               </Accordion>
+
                               <Accordion open={open === 7}>
                                 <AccordionHeader onClick={() => handleOpen(7)}>
                                   Adoption Fee
@@ -412,7 +371,7 @@ const MyPets = () => {
                             className="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                             type="button"
                             onClick={() => setshowDishInfo(false)}
-                            to="/OurPetss"
+                            to="/Article"
                           >
                             Save
                           </Link>
@@ -583,13 +542,8 @@ const MyPets = () => {
           </div>
         </div>
       </div>
-
-
-
-
-      <Mouseflow />
     </>
   );
-}
+};
 
-export default MyPets
+export default MyPetsDummy;
