@@ -2,6 +2,7 @@ import React, {Fragment, useContext, useEffect, useState} from "react";
 import {Accordion, AccordionBody, AccordionHeader,} from "@material-tailwind/react";
 // import Slider from './Slider'
 import { Carousel } from 'antd';
+import { Link } from "react-router-dom";
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -106,19 +107,19 @@ const PetCard2 = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
                             className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-gray-500 rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-[#826F66] border-2 border-solid hover:bg-gray-100
           "
                             type="button"
-                            // onClick={() => setshowDishInfo(true)}
+                            onClick={() => setshowDishInfo(true)}
                         >
                             Edit Information
                         </button>
-                        <button
-                            href="#"
+                        <Link
+                
                             className="inline-flex items-center py-1.5 px-3 text-xs font-xs text-center bg-white text-red-600  rounded-md focus:outline-none transition duration-300 mr-3 font-semibold border-red-600 border-2 border-solid hover:bg-gray-100
           "
                             type="button"
-                            // onClick={handleClickOpen}
+                            onClick={handleClickOpen}
                         >
                             Delete Pet
-                        </button>
+                        </Link>
 
                         {/* confirmation modal */}
                         <Dialog

@@ -195,6 +195,25 @@ const Table = () => {
               Rejected
             </a>
           </li>
+          <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a
+              className={
+                "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
+                (openTab === 4
+                  ? "text-black bg-blue-100"
+                  : "text-grey-700 bg-white")
+              }
+              onClick={(e) => {
+                e.preventDefault();
+                setOpenTab(4);
+              }}
+              data-toggle="tab"
+              href="#link1"
+              role="tablist"
+            >
+              Zoom Scheduler
+            </a>
+          </li>
         </ul>
       </div>
 

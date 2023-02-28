@@ -50,7 +50,7 @@ const Ongoing = () => {
 
   const MyDoc = () => (
     <Document>
-      <Page>// My document data</Page>
+      <Page> My document data</Page>
     </Document>
   );
 
@@ -106,7 +106,7 @@ const Ongoing = () => {
   return (
     <div className="mt-12 mb-32 font-nunito">
       <Box sx={{ width: "100%", font: "nunito" }}>
-        <Stepper activeStep={2} alternativeLabel>
+        <Stepper activeStep={7} alternativeLabel>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
@@ -121,7 +121,6 @@ const Ongoing = () => {
           href="#"
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg md:flex-row  w-6/6 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
         >
-          {/* <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/docs/images/blog/image-4.jpg" alt=""/> */}
           <img
             class="w-32 h-32 my-5 mx-5 rounded-full shadow-lg"
             src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFnZG9sbCUyMGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
@@ -132,8 +131,9 @@ const Ongoing = () => {
               Your are giving Timothee Catlamet a forever home!
             </h1>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-xl">
-               you are going through the adoption trial week now :)
+              you are going through the trial week!
             </p>
+            <button className='text-blue-500 underline'>Cancel Adoption</button>
           </div>
         </div>
       </div>
@@ -307,8 +307,8 @@ const Ongoing = () => {
             <p className="text-base leading-4 font-bold">Schedule Zoom Meeting</p>
           </div>
         </button>
-      </div> */}
-      {/* zoom scheduler end */}
+      </div>  */}
+      {/* zoom scheduler end}
 
       {/* document download & upload */}
       {/* <div className="mt-16">

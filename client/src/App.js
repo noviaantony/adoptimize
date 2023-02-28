@@ -27,13 +27,14 @@ import Tutorial from './screens/shelter/Tutorial';
 import MyApplications from './screens/adopter/MyApplications';
 import UserProfile from './screens/adopter/UserProfile';
 import AllPets from './screens/adopter/AllPets'
+import PetCareHomePage from './screens/adopter/PetCareHomePage';
 
 function App() {
   return (
     <div className="App">
       {/* <Navbar/> */}
-      <AuthShelterNavbar />
-      {/* <AuthAdopterNavbar /> */}
+      {/* <AuthShelterNavbar /> */}
+      <AuthAdopterNavbar />
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
@@ -54,10 +55,10 @@ function App() {
         <Route path="/MyApplications" element={<MyApplications />} />
         <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/AllPets" element={<AllPets />} />
+        <Route path="/PetCareHome" element={<PetCareHomePage />} />
         <Route path="/" element={<Landing />} />
 
         {/* DUMMY ROUTES */}
-
         <Route path="/OurPetss" element={<MyPetsDummy />} />
         <Route path="/ThankYou" element={<DummyScreen />} />
         {/* DUMMY ROUTES */}

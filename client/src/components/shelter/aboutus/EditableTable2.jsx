@@ -34,7 +34,7 @@ const EditableTable2 = () => {
             {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess }) => ( 
               <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Your Shleter's Name"
               onChange={(e) => onChangeInput(e, shelterId)}
-              value = {Name}
+              // value = {Name}
             />
             ))}
             
@@ -45,7 +45,7 @@ const EditableTable2 = () => {
               <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" 
               placeholder="Enter Your Shleter's Contact Number"
               onChange={(e) => onChangeInput(e, shelterId)}
-              value = {Contact}
+              // value = {Contact}
               />
             ))}
         </div> 
@@ -56,7 +56,8 @@ const EditableTable2 = () => {
           <label for="base-input" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white font-bold">Address:</label>
           {shelterData.map(({ shelterId, Name, Contact, Address, Website, Description,AdoptionProcess  }) => ( 
           <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-nunito" placeholder="Enter Your Shleter's Address" onChange={(e) => onChangeInput(e, shelterId)}
-          value = {Address}/>
+          value = {Address}
+          />
           ))}
         </div> 
         <div class="mb-6 mr-32 font-nunito">
