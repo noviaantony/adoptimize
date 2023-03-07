@@ -29,12 +29,12 @@ function Header() {
           alt="AdoptimizeLogo"
           className="mt-5"
         ></Image>
-        <Image
+        {/* <Image
           width={150}
           src={require("./Shelter.png")}
           alt="ShelterLogo"
           className="mt-5"
-        ></Image>
+        ></Image> */}
       </div>
 
       {/* <Typography.Title>Novia's Dashboard</Typography.Title> */}

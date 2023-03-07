@@ -44,21 +44,22 @@ const Sidebar = () => {
     console.log("click ", e);
   };
   return (
-    <div className="SideMenu">
-      <Menu
-
-        onClick={onClick}
-        style={{
-          width: 256,
-        }}
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
-        mode="inline"
-        items={items}
-      />
+    <div className="SideMenuAndPageContent">
+      <div className="SideMenu">
+        <Menu
+          className="SideMenuVertical"
+          mode="vertical"
+          // onClick={onClick}
+          style={{
+            width: 256,
+            height: 1000,
+          }}
+          defaultSelectedKeys={["1"]}
+          defaultOpenKeys={["sub1"]}
+          items={items}
+        />
+      </div>
     </div>
-
-   
   );
 
 
