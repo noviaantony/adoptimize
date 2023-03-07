@@ -1,6 +1,6 @@
 import { Menu } from "antd";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
   MdPets,
   MdDashboard,
@@ -37,17 +37,36 @@ const items = [
 ];
 
 
+
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+
+
+
 
   const onClick = (e) => {
     console.log("click ", e);
+    if (e.key == "1") {
+      navigate("/");
+    } else if (e.key == "2") {
+      navigate("/Adoptions");
+    } else if (e.key == "3") {
+      navigate("/PreScreeningQuestions");
+    } else if (e.key == "4") {
+      navigate("/AdoptionContract");
+    } else if (e.key == "5") {
+      navigate("/Settings");
+    } 
+
   };
+
   return (
     <div className="SideMenu">
       <Menu
         className="SideMenuVertical"
         mode="vertical"
-        // onClick={onClick}
+        onClick={onClick}
         style={{
           width: 256,
           height: 1000,
