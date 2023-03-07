@@ -4,9 +4,11 @@ import Adoptions from '../../screens/Adoptions'
 
 const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Adoptions />}></Route> 
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Adoptions />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

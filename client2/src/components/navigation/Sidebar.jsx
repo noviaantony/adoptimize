@@ -1,7 +1,6 @@
-
 import { Menu } from "antd";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   MdPets,
   MdDashboard,
@@ -44,21 +43,19 @@ const Sidebar = () => {
     console.log("click ", e);
   };
   return (
-    <div className="SideMenuAndPageContent">
-      <div className="SideMenu">
-        <Menu
-          className="SideMenuVertical"
-          mode="vertical"
-          // onClick={onClick}
-          style={{
-            width: 256,
-            height: 1000,
-          }}
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
-          items={items}
-        />
-      </div>
+    <div className="SideMenu">
+      <Menu
+        className="SideMenuVertical"
+        mode="vertical"
+        // onClick={onClick}
+        style={{
+          width: 256,
+          height: 1000,
+        }}
+        defaultSelectedKeys={["1"]}
+        defaultOpenKeys={["sub1"]}
+        items={items}
+      />
     </div>
   );
 

@@ -14,12 +14,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Sidebar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Adoptions />}/>
-        </Routes>
-      </BrowserRouter>
+      <div className="SideMenuAndPageContent">
+        <Sidebar />
+        <PageContent />
+      </div>
+ 
 
       <Footer />
     </div>
