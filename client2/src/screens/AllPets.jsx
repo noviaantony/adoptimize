@@ -196,6 +196,10 @@ const items = [
     label: "Delete Pet",
     key: "5",
   },
+  {
+    label: "View Pet Listing",
+    key: "6",
+  },
 ];
 
 const AllPets = () => {
