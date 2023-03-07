@@ -24,17 +24,17 @@ import Article from './screens/shelter/Article';
 import Landing from './screens/common/Landing';
 import Tutorial from './screens/shelter/Tutorial';
 
-import MyApplications from './screens/adopter/MyApplications';
-import UserProfile from './screens/adopter/UserProfile';
-import AllPets from './screens/adopter/AllPets'
-import PetCareHomePage from './screens/adopter/PetCareHomePage';
+// import MyApplications from './screens/adopter/MyApplications';
+// import UserProfile from './screens/adopter/UserProfile';
+// import AllPets from './screens/adopter/AllPets'
+// import PetCareHomePage from './screens/adopter/PetCareHomePage';
 
 function App() {
   return (
     <div className="App">
       {/* <Navbar/> */}
       {/* <AuthShelterNavbar /> */}
-      <AuthAdopterNavbar />
+      {/* <AuthAdopterNavbar /> */}
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
@@ -52,10 +52,6 @@ function App() {
         <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
         <Route path="/Article" element={<Article />} />
         <Route path="/WhatIsAdoptsy" element={<Tutorial />} />
-        <Route path="/MyApplications" element={<MyApplications />} />
-        <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/AllPets" element={<AllPets />} />
-        <Route path="/PetCareHome" element={<PetCareHomePage />} />
         <Route path="/" element={<Landing />} />
 
         {/* DUMMY ROUTES */}
