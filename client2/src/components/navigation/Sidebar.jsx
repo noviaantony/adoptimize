@@ -1,4 +1,4 @@
-import { Menu } from "antd";
+import { Menu, Image } from "antd";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
@@ -39,12 +39,8 @@ const items = [
 
 
 const Sidebar = () => {
+
   const navigate = useNavigate();
-
-
-
-
-
   const onClick = (e) => {
     console.log("click ", e);
     if (e.key == "1") {
@@ -62,6 +58,7 @@ const Sidebar = () => {
   };
 
   return (
+  
     <div className="SideMenu">
       <Menu
         className="SideMenuVertical"
@@ -69,7 +66,7 @@ const Sidebar = () => {
         onClick={onClick}
         style={{
           width: 256,
-          height: 1000,
+          height: 2000,
         }}
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}

@@ -12,7 +12,6 @@ import {
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
-import { StyleProvider } from "@ant-design/cssinjs";
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -203,7 +202,10 @@ const items = [
 ];
 
 const AllPets = () => {
+
   const [searchTerm, setSearchTerm] = useState("");
+
+
 
   return (
     <Space direction="vertical table">
@@ -216,10 +218,9 @@ const AllPets = () => {
 
       <div class="w-full md:w-1/2 lg:my-4 lg:w-1/3 font-default">
         <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30">
-          {/* <FaWallet size={80} /> */}
           <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700">
             <h1 class="text-2xl text-center font-bold"> 300 </h1>
-            <h5 class="text-xs text-center"> Currently In-Progres </h5>
+            <h5 class="text-xs text-center">Currently In-Progres </h5>
           </div>
         </div>
       </div>
@@ -287,6 +288,9 @@ const AllPets = () => {
         })}
         className="font-nunito text-grey-700 shadow-md rounded-2xl "
       />
+
+     
+
     </Space>
   );
 };
