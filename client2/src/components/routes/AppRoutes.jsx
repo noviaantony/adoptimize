@@ -5,6 +5,7 @@ import AllPets from '../../screens/AllPets'
 import Prescreening from '../../screens/Prescreening';
 import Contract from '../../screens/Contract';
 import PetDetails from '../../screens/PetDetails';
+import AdoptionDetail from '../../screens/AdoptionDetail';
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       <Route path="/PreScreeningQuestions" element={<Prescreening />} />
       <Route path="/AdoptionContract" element={<Contract />} />
       <Route path="/PetDetails" element={<PetDetails />} />
+      <Route path="/AdoptionDetails" element={<AdoptionDetail />} />
     </Routes>
   );
 }
