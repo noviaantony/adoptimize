@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Avatar,
   Rate,
@@ -17,6 +18,66 @@ const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
 
+// const columns = [
+//   {
+//     title: "RowHead",
+//     dataIndex: "key",
+//     rowScope: "row",
+//   },
+//   {
+//     title: "Name",
+//     dataIndex: "name",
+//     render: (text) => <a>{text}</a>,
+//     onCell: (_, index) => ({
+//       colSpan: index === 1 ? 5 : 1,
+//     }),
+//   },
+//   {
+//     title: "Age",
+//     dataIndex: "age",
+//     onCell: sharedOnCell,
+//   },
+//   {
+//     title: "Home phone",
+//     colSpan: 2,
+//     dataIndex: "tel",
+//     onCell: (_, index) => {
+//       if (index === 3) {
+//         return {
+//           rowSpan: 2,
+//         };
+//       }
+//       // These two are merged into above cell
+//       if (index === 4) {
+//         return {
+//           rowSpan: 0,
+//         };
+//       }
+//       if (index === 1) {
+//         return {
+//           colSpan: 0,
+//         };
+//       }
+//       return {};
+//     },
+//   },
+//   {
+//     title: "Phone",
+//     colSpan: 0,
+//     dataIndex: "phone",
+//     onCell: sharedOnCell,
+//   },
+//   {
+//     title: "Address",
+//     dataIndex: "address",
+//     onCell: sharedOnCell,
+//   },
+// ];
+
+
+
+
+
 const columns = [
   {
     title: "Pet Id",
@@ -27,7 +88,7 @@ const columns = [
   {
     title: "Name",
     dataIndex: "name",
-    key: "name",
+    render: (text) => <Link to = "/PetDetails">{text}</Link>,
   },
   {
     title: "Breed",
@@ -200,6 +261,16 @@ const items = [
     key: "6",
   },
 ];
+
+
+const sharedOnCell = (_, index) => {
+  if (index === 1) {
+    return {
+      colSpan: 0,
+    };
+  }
+  return {};
+};
 
 const AllPets = () => {
 

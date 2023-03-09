@@ -41,6 +41,7 @@ const columns = [
     title: "Adopter's Name",
     dataIndex: "name",
     key: "name",
+    render: (text) => <Link to="/AdoptionDetails">{text}</Link>,
   },
   {
     title: "Date of Application",
@@ -55,8 +56,8 @@ const columns = [
       <>
         {statuses.map((tag) => {
           let color = "green";
-     
-           if (tag === "in progress") {
+
+          if (tag === "in progress") {
             color = "green";
           } else {
             color = "orange";
