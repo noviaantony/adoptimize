@@ -68,7 +68,12 @@ border-top: 1px solid rgba(0, 0, 0, 0.15);
 
 }
 
-
-
-
-
+ #checkbox:checked ~ .bg-white {
+    background-color: #fdede1;
+  }
+  .scale-color::-webkit-slider-thumb {
+    background-color: #f7af7a;
+  }
+  .scale-color::-moz-range-thumb {
+    background-color: #f7af7a;
+  }
