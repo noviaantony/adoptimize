@@ -18,66 +18,6 @@ const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
 
-// const columns = [
-//   {
-//     title: "RowHead",
-//     dataIndex: "key",
-//     rowScope: "row",
-//   },
-//   {
-//     title: "Name",
-//     dataIndex: "name",
-//     render: (text) => <a>{text}</a>,
-//     onCell: (_, index) => ({
-//       colSpan: index === 1 ? 5 : 1,
-//     }),
-//   },
-//   {
-//     title: "Age",
-//     dataIndex: "age",
-//     onCell: sharedOnCell,
-//   },
-//   {
-//     title: "Home phone",
-//     colSpan: 2,
-//     dataIndex: "tel",
-//     onCell: (_, index) => {
-//       if (index === 3) {
-//         return {
-//           rowSpan: 2,
-//         };
-//       }
-//       // These two are merged into above cell
-//       if (index === 4) {
-//         return {
-//           rowSpan: 0,
-//         };
-//       }
-//       if (index === 1) {
-//         return {
-//           colSpan: 0,
-//         };
-//       }
-//       return {};
-//     },
-//   },
-//   {
-//     title: "Phone",
-//     colSpan: 0,
-//     dataIndex: "phone",
-//     onCell: sharedOnCell,
-//   },
-//   {
-//     title: "Address",
-//     dataIndex: "address",
-//     onCell: sharedOnCell,
-//   },
-// ];
-
-
-
-
-
 const columns = [
   {
     title: "Pet Id",
@@ -287,11 +227,31 @@ const AllPets = () => {
         All Pets
       </Typography.Title>
 
-      <div class="w-full md:w-1/2 lg:my-4 lg:w-1/3 font-default">
-        <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30">
-          <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700">
-            <h1 class="text-2xl text-center font-bold"> 300 </h1>
-            <h5 class="text-xs text-center">Currently In-Progres </h5>
+      <div className="flex mx-5">
+        <div class="w-1/6 font-default mr-4">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 10 </h1>
+              <h5 class="text-xs text-center">Currently In-Progres </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-1/6 font-default mr-4">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 27 </h1>
+              <h5 class="text-xs text-center"> Currently In-Shelter </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-1/6 font-default ">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 5 </h1>
+              <h5 class="text-xs text-center"> Currently In-Waitlist </h5>
+            </div>
           </div>
         </div>
       </div>
@@ -357,11 +317,22 @@ const AllPets = () => {
             return val;
           }
         })}
+        components={{
+          header: {
+            cell: (props) => (
+              <th
+                {...props}
+                style={{
+                  backgroundColor: "#FDEDE1",
+                  fontWeight: "bold",
+                  font: "font-nunito",
+                }}
+              />
+            ),
+          },
+        }}
         className="font-nunito text-grey-700 shadow-md rounded-2xl "
       />
-
-     
-
     </Space>
   );
 };

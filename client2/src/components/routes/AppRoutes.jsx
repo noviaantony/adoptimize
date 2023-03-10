@@ -7,6 +7,7 @@ import Contract from '../../screens/Contract';
 import Contract2 from "../../screens/Contract2";
 import PetDetails from '../../screens/PetDetails';
 import AdoptionDetail from '../../screens/AdoptionDetail';
+import Settings from '../../screens/Settings';
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/AdoptionContract" element={<Contract2 />} />
       <Route path="/PetDetails" element={<PetDetails />} />
       <Route path="/AdoptionDetails" element={<AdoptionDetail />} />
+      <Route path="/Settings" element={<Settings />} />
     </Routes>
   );
 }

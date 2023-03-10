@@ -154,30 +154,42 @@ const PetDetails = () => {
 
       {/* waitlist, inprogress, rejected, withdrawn */}
 
-      <div className="grid grid-cols-4 font-nunito justify-center w-4/6">
-        <div className="bg-white mt-2 mb-5 rounded-2xl mx-6">
-          <h1 className="font-bold text-5xl flex justify-center my-4">2</h1>
-          <p className="font-semibold text-xl flex justify-center mb-2 text-[#979aa2]">
-            in progress
-          </p>
+      <div className="flex my-2 mb-5 justify-start">
+
+        <div class="w-1/6 font-default mr-4">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 4 </h1>
+              <h5 class="text-xs text-center">Currently In-Progres </h5>
+            </div>
+          </div>
         </div>
-        <div className="bg-white mt-2 mb-5 rounded-2xl mx-6">
-          <h1 className="font-bold text-5xl flex justify-center my-4">23</h1>
-          <p className="font-semibold text-xl flex justify-center mb-2 text-[#979aa2]">
-            waitlist
-          </p>
+
+        <div class="w-1/6 font-default mr-4">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 2 </h1>
+              <h5 class="text-xs text-center"> Withdrawn </h5>
+            </div>
+          </div>
         </div>
-        <div className="bg-white mt-2 mb-5 rounded-2xl mx-6">
-          <h1 className="font-bold text-5xl flex justify-center my-4">4</h1>
-          <p className="font-semibold text-xl flex justify-center mb-2 text-[#979aa2]">
-            withdrawn
-          </p>
+
+        <div class="w-1/6 font-default mr-4">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 2 </h1>
+              <h5 class="text-xs text-center"> Rejected </h5>
+            </div>
+          </div>
         </div>
-        <div className="bg-white mt-2 mb-5 rounded-2xl mx-6">
-          <h1 className="font-bold text-5xl flex justify-center my-4">8</h1>
-          <p className="font-semibold text-xl flex justify-center mb-2 text-[#979aa2]">
-            rejected
-          </p>
+
+        <div class="w-1/6 font-default ">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> 1 </h1>
+              <h5 class="text-xs text-center"> Cancelled </h5>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -296,7 +308,6 @@ const PetDetails = () => {
         })}
         className="font-nunito text-grey-700 shadow-md rounded-2xl "
       />
-
     </Space>
   );
 };
