@@ -1,0 +1,48 @@
+package com.AdoptEasy.Pet;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.AdoptEasy.Pet.PetService;
+import com.AdoptEasy.Pet.PetRepository;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(path ="api/v1/AdoptEasy/pet")
+public class PetController {
+    @Autowired
+    private PetService petService;
+
+    private PetRepository petRepository;
+
+    @Autowired
+    public PetController(PetRepository petRepository, PetService petService){
+        this.petRepository = petRepository;
+        this.petService = petService;
+    }
+
+    // returns list of all pets
+    @GetMapping("/getAllPets")
+    public List<Pet> getPets(){
+        return petService.listPets();
+    }
+
+    @GetMapping("/{id}")
+    public Pet getPet(@PathVariable Long id){
+        if(!petRepository.existsById(id)){
+            throw new PetNotFoundException(id);
+        }
+        return petService.getPet(id);
+    }
+
+    @DeleteMapping("/deletePet/{id}")
+    public void delete(@PathVariable Long id){
+        if(!petRepository.existsById(id)){
+            throw new PetNotFoundException(id);
+        }
+
+        petRepository.deleteById(id);
+    }
+
+}
