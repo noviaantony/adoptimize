@@ -53,8 +53,8 @@ const columns = [
           let color = "green";
           if (tag === "rejected") {
             color = "red";
-          } else if (tag === "withdrawn") {
-            color = "grey";
+          } else if (tag === "waitlisted") {
+            color = "purple";
           } else if (tag === "in progress") {
             color = "green";
           } else {
@@ -93,19 +93,26 @@ const columns = [
 
 
 const data = [
-  // {
-  //   petId: "0001",
-  //   name: "Sir Meowington",
-  //   breed: "Tabby",
-  //   date: "2021-01-01",
-  //   statuses: ["in progress"],
-  // },
+  {
+    petId: "0001",
+    name: "Sir Meowington",
+    breed: "Orange Tabby",
+    date: "2021-01-01",
+    statuses: ["in shelter"],
+  },
   {
     petId: "0002",
     name: "Timothee",
     breed: "Siamese x Persian",
     date: "12-01-2023",
     statuses: ["in progress"],
+  },
+  {
+    petId: "0003",
+    name: "Catmila Cabello",
+    breed: "British Shorthair",
+    date: "12-01-2023",
+    statuses: ["waitlisted"],
   },
 
 ];
@@ -166,8 +173,8 @@ const AllPets = () => {
         <div class="w-1/6 font-default mr-4">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 10 </h1>
-              <h5 class="text-xs text-center">Currently In-Progres </h5>
+              <h1 class="text-4xl text-center font-bold"> 1 </h1>
+              <h5 class="text-xs text-center">Currently In-Progress</h5>
             </div>
           </div>
         </div>
@@ -175,7 +182,7 @@ const AllPets = () => {
         <div class="w-1/6 font-default mr-4">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 27 </h1>
+              <h1 class="text-4xl text-center font-bold"> 1 </h1>
               <h5 class="text-xs text-center"> Currently In-Shelter </h5>
             </div>
           </div>
@@ -184,8 +191,8 @@ const AllPets = () => {
         <div class="w-1/6 font-default ">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 5 </h1>
-              <h5 class="text-xs text-center"> Currently In-Waitlist </h5>
+              <h1 class="text-4xl text-center font-bold"> 0 </h1>
+              <h5 class="text-xs text-center">Currently In-Waitlist</h5>
             </div>
           </div>
         </div>

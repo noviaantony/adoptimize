@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Adoptions from './screens/Adoptions';
 import AdopterLogIn from "./screens/AdopterLogIn";
 import ShelterLogIn from "./screens/ShelterLogin";
+import PetListing from './screens/PetListing';
+import AdoptionForm from './components/petlisting/AdoptionForm';
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/AdopterLogIn" element={<AdopterLogIn />} />
           <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
+          <Route path="/PetListing" element={<PetListing />} />
+          <Route path="/AdoptionForm" element={<AdoptionForm />} />
         </Routes>
       )}
 

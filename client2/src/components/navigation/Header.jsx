@@ -38,6 +38,12 @@ function Header() {
           alt="AdoptimizeLogo"
           className="mt-5"
         ></Image>
+        <Image
+          width={150}
+          src={require("./Shelter.png")}
+          alt="Logo"
+          className="mt-5"
+        ></Image>
       </div>
 
       <Space>

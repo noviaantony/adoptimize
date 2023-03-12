@@ -7,6 +7,27 @@ import cx from "classnames";
 // Personal questions
 const personalQuestions = [
   {
+    question: 'Name',
+    type: 'shortAns'
+  },
+  {
+    question: 'Age',
+    type: 'shortAns'
+  },
+  {
+    question: 'Email Address',
+    type: 'shortAns'
+  },
+  {
+    question: 'Contact Number',
+    type: 'shortAns'
+  },
+  {
+    question: 'Preffered Contact Days',
+    type: 'multipleChoice',
+    choices: ['Monday', 'Tuesday']
+  },
+  {
     question: 'Have you ever owned a cat before?',
     type: 'multipleChoice',
     choices: ['Yes', 'No']
@@ -79,6 +100,7 @@ const Personal = () => {
                   value="no"
                   className="mr-2"
                 />
+                
               </div>
             )}
 

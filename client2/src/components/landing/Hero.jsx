@@ -25,14 +25,14 @@ const Hero = () => {
               }}
             >
               <h1 className="ext-6xl lg:text-8xl font-extrabold mb-6 font-bold mb-2 lg:mb-5">
-                Making adoption easier for everyone
+                Digitalising & Streamlining Pet Adoption Management
               </h1>
               <p
                 className=" text-2xl text-light font-normal mb-6 mb-5 lg:mb-10"
                 data-aos="fade-down"
                 data-aos-delay="600"
               >
-                streamlining pet adoption for shelters, one pet at a time
+                so that you can focus on what matters more, the pets 
               </p>
               {/* btn & comp text */}
               <div
