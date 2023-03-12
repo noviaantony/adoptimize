@@ -56,11 +56,12 @@ const columns = [
       <>
         {statuses.map((tag) => {
           let color = "green";
+          
 
           if (tag === "in progress") {
             color = "green";
-          } else {
-            color = "orange";
+          } else if (tag === "rejected") {
+            color = "red";
           }
           return (
             <Tag color={color} key={tag}>
@@ -104,7 +105,7 @@ const data = [
     adopterId: "A0002",
     name: "Robert Thomas",
     date: "08-02-2023",
-    statuses: ["waitlist"],
+    statuses: ["rejected"],
   },
 ];
 
@@ -155,7 +156,6 @@ const PetDetails = () => {
       {/* waitlist, inprogress, rejected, withdrawn */}
 
       <div className="flex my-2 mb-5 justify-start">
-
         <div class="w-1/6 font-default mr-4">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
@@ -202,18 +202,19 @@ const PetDetails = () => {
         <div className="w-5/6 bg-white ml-16 rounded-2xl">
           <h1 className="m-5 font-bold">Description</h1>
           <p className="m-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sed
-            error magni at earum nostrum quod incidunt ea? Expedita molestias
-            error sunt dicta adipisci placeat, vitae impedit aliquid nobis
-            temporibus labore doloribus provident eveniet magnam tempore. Alias
-            iure pariatur illum delectus quod eaque cupiditate quia? Esse
-            aspernatur hic dolor facere officia? Libero adipisci quas amet sunt
-            optio exercitationem tempora quis, minus repudiandae! Molestiae
-            voluptatibus dolorum quod consequatur ducimus quas dicta saepe
-            veniam aspernatur voluptatem, suscipit ipsam voluptas amet. Placeat
-            modi repellendus, dignissimos cumque nulla vitae temporibus! Nihil,
-            dolores recusandae quod ea, sequi accusantium odit libero sapiente
-            dolore ipsum necessitatibus totam!
+            Hello, humans! My name is Timothée and I'm a playful cat with PICA.
+            I wanted to introduce myself so you can get to know me a little
+            better. I absolutely love to play! Whether it's chasing a toy or
+            batting around a string, I'm always up for some fun. And even though
+            I have this odd habit of chewing on non-food items, I promise I'm
+            still just as lovable and cuddly as any other cat. I'm a curious
+            little feline who loves to explore my surroundings, but I'm also
+            quite content just curling up next to my favorite human for a good
+            nap. And of course, I always enjoy a good scratch behind the ears or
+            a gentle belly rub. If you're looking for a new furry friend who
+            will keep you on your toes and make you laugh with their playful
+            antics, then look no further than Timothée! Come visit me at the
+            shelter and let's see if we're a purrfect match.
           </p>
 
           {/*  adoption fee, date joined */}

@@ -8,10 +8,12 @@ import Contract2 from "../../screens/Contract2";
 import PetDetails from '../../screens/PetDetails';
 import AdoptionDetail from '../../screens/AdoptionDetail';
 import Settings from '../../screens/Settings';
+import Landing from "../../screens/Landing";
 
 const AppRoutes = () => {
   return (
     <Routes>
+      
       <Route path="/" element={<AllPets />} />
       <Route path="/Adoptions" element={<Adoptions />} />
       <Route path="/PreScreeningQuestions" element={<Prescreening />} />

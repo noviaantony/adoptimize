@@ -151,6 +151,7 @@ const items = [
 ];
 
 const AdoptionDetail = () => {
+  
   const [searchTerm, setSearchTerm] = useState("");
 
   const onChange = (currentSlide) => {

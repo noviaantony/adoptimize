@@ -1,24 +1,36 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from './components/navigation/Sidebar';
 import Footer from './components/navigation/Footer';
 import Header from './components/navigation/Header';
 import PageContent from "./components/content/PageContent";
+import Landing from './screens/Landing';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Adoptions from './screens/Adoptions';
-
-
-
+import AdopterLogIn from "./screens/AdopterLogIn";
+import ShelterLogIn from "./screens/ShelterLogin";
 
 function App() {
+
+  const auth = false;
+
   return (
     <div className="App">
-      <Header />
-      <div className="SideMenuAndPageContent">
-        <Sidebar />
-        <PageContent />
-      </div>
- 
+      {auth ? (
+        <>
+          <Header />
+          <div className="SideMenuAndPageContent">
+            <Sidebar />
+            <PageContent />
+          </div>
+        </>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/AdopterLogIn" element={<AdopterLogIn />} />
+          <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
+        </Routes>
+      )}
 
       {/* <Footer /> */}
     </div>

@@ -1,7 +1,9 @@
-import { BellFilled, MailOutlined } from "@ant-design/icons";
-import { Badge, Drawer, Image, List, Space, Typography } from "antd";
+import { BellFilled, MailOutlined, UserOutlined } from "@ant-design/icons";
+import { Badge, Drawer, Image, List, Space, Typography, Dropdown } from "antd";
 import { useEffect, useState } from "react";
 import { Avatar, Button } from "antd";
+import { Link } from "react-router-dom";
+
 // import { getComments, getOrders } from "../../API";
 
 
@@ -11,14 +13,21 @@ function Header() {
   const [commentsOpen, setCommentsOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
-  // useEffect(() => {
-  //   getComments().then((res) => {
-  //     setComments(res.comments);
-  //   });
-  //   getOrders().then((res) => {
-  //     setOrders(res.products);
-  //   });
-  // }, []);
+  const items = [
+    {
+      key: "1",
+      label: (
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          to ="/"
+        >
+          Logout
+        </Link>
+      ),
+    },
+  
+  ];
 
   return (
     <div className="AppHeader">
@@ -29,15 +38,7 @@ function Header() {
           alt="AdoptimizeLogo"
           className="mt-5"
         ></Image>
-        {/* <Image
-          width={150}
-          src={require("./Shelter.png")}
-          alt="ShelterLogo"
-          className="mt-5"
-        ></Image> */}
       </div>
-
-      {/* <Typography.Title>Novia's Dashboard</Typography.Title> */}
 
       <Space>
         <Badge count={orders.length}>
@@ -49,16 +50,29 @@ function Header() {
           />
         </Badge>
 
-        <Avatar
-          style={{
-            backgroundColor: "blue",
-            fontSize: 30,
-            verticalAlign: "middle",
+        <Dropdown
+          menu={{
+            items,
           }}
-          className="font-nunito"
+          placement="bottom"
+          arrow={{
+            pointAtCenter: true,
+          }}
         >
-          Anna
-        </Avatar>
+          <Button className="border-none focus-none">
+            {/* mou */}
+            <Avatar
+              style={{
+                backgroundColor: "#F7AF7A",
+                fontSize: 10,
+                verticalAlign: "middle",
+              }}
+              className="font-nunito"
+            >
+              Anna
+            </Avatar>
+          </Button>
+        </Dropdown>
       </Space>
       <Drawer
         title="Comments"

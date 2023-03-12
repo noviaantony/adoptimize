@@ -10,6 +10,9 @@ import {
   Dropdown,
   message,
   Button,
+  Form,
+  Radio,
+  Switch,
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
@@ -88,91 +91,23 @@ const columns = [
   },
 ];
 
+
 const data = [
+  // {
+  //   petId: "0001",
+  //   name: "Sir Meowington",
+  //   breed: "Tabby",
+  //   date: "2021-01-01",
+  //   statuses: ["in progress"],
+  // },
   {
-    petId: "0001",
-    name: "Sir Meowington",
-    breed: "Tabby",
-    date: "2021-01-01",
+    petId: "0002",
+    name: "Timothee",
+    breed: "Siamese x Persian",
+    date: "12-01-2023",
     statuses: ["in progress"],
   },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["in shelter"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["rejected"],
-  },
-  {
-    petId: "0001",
-    name: "Sir Meowington",
-    breed: "Tabby",
-    date: "2021-01-01",
-    statuses: ["in progress"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["in shelter"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["rejected"],
-  },
-  {
-    petId: "0001",
-    name: "Sir Meowington",
-    breed: "Tabby",
-    date: "2021-01-01",
-    statuses: ["in progress"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["in shelter"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["rejected"],
-  },
-  {
-    petId: "0001",
-    name: "Sir Meowington",
-    breed: "Tabby",
-    date: "2021-01-01",
-    statuses: ["in progress"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["in shelter"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["rejected"],
-  },
+
 ];
 
 const items = [
