@@ -32,9 +32,10 @@ public class PetService {
             pet.setName(newPet.getName());
             pet.setBreed(newPet.getBreed());
             pet.setAge(newPet.getAge());
-            pet.setDesc(newPet.getDesc());
+            pet.setDateJoined(newPet.getDateJoined());
+            pet.setBirthday(newPet.getBirthday());
             pet.setMedical(newPet.getMedical());
-            pet.setReq(newPet.getReq());
+            pet.setStatus(newPet.getStatus());
             return petRepository.save(pet);
         }).orElse(null);
     }

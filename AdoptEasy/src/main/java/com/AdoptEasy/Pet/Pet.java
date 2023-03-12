@@ -1,5 +1,10 @@
 package com.AdoptEasy.Pet;
 
+import java.time.*;
+import com.AdoptEasy.User.User;
+
+import org.springframework.cglib.core.Local;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,27 +31,38 @@ public class Pet {
     @Column(name="age", nullable=false)
     private int age;
 
-    @Column(name="pet_description")
-    private String desc;
+    @Column(name="date_joined")
+    private LocalDate dateJoined;
+
+    @Column(name="birthday")
+    private LocalDate birthday;
 
     @Column(name="pet_medical")
     private String medical;
 
-    @Column(name="pet_requirements")
-    private String req;
+    @Column(name="pet_status")
+    private String status;
 
     @Column(name="pet_image")
     private byte[] image;
 
-    public Pet(String name, String breed, int age, String desc, String medical, String req) {
+    @Column(name="pet_adoptions")
+    private User[] adoptions;
+
+    @OneToOne
+    @JoinColumn(name="user_sequence", nullable=false)
+    private User user;
+    
+    public Pet(String name, String breed, int age, LocalDate dateJoined, LocalDate birthday, String medical,
+            String status) {
         this.name = name;
         this.breed = breed;
         this.age = age;
-        this.desc = desc;
+        this.dateJoined = dateJoined;
+        this.birthday = birthday;
         this.medical = medical;
-        this.req = req;
+        this.status = status;
     }
-
 
     public Long getId() {
         return this.id;
@@ -80,20 +96,20 @@ public class Pet {
         this.age = age;
     }
 
-    public String getDesc() {
-        return this.desc;
+    public LocalDate getDateJoined() {
+        return this.dateJoined;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDateJoined(LocalDate dateJoined){
+        this.dateJoined = dateJoined;
     }
 
-    public String getReq() {
-        return this.req;
+    public LocalDate getBirthday() {
+        return this.birthday;
     }
 
-    public void setReq(String req) {
-        this.req = req;
+    public void setBirthday(LocalDate birthday){
+        this.birthday = birthday;
     }
 
     public String getMedical() {
@@ -111,4 +127,21 @@ public class Pet {
     public void setImage(byte[] image){
         this.image = image;
     }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User[] getAdoptions() {
+        return this.adoptions;
+    }
+
+    public void setAdoptions(User[] adoptions) {
+        this.adoptions = adoptions;
+    }
+
 }
