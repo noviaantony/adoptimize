@@ -15,7 +15,7 @@ public class PetService {
         return petRepository.findAll();
     }
 
-    public Pet savePet(Pet pet){
+    public Pet addPet(Pet pet){
         return petRepository.save(pet);
     }
 

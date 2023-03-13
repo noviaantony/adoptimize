@@ -36,6 +36,11 @@ public class PetController {
         return petService.getPet(id);
     }
 
+    @PostMapping("/addPet")
+    public Pet addPet(Pet pet) {
+        return petService.addPet(pet);
+    }
+
     @DeleteMapping("/deletePet/{id}")
     public void delete(@PathVariable Long id){
         if(!petRepository.existsById(id)){

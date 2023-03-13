@@ -3,6 +3,7 @@ package com.AdoptEasy.Adoption;
 import com.AdoptEasy.User.User;
 import com.AdoptEasy.Pet.Pet;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,13 +21,15 @@ public class Adoption {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade= CascadeType.DETACH)
+    @ManyToOne(cascade= CascadeType.DETACH)
     @JoinColumn(name="user_id")
+    @JsonBackReference
     private User userId;
 
-    @OneToOne(cascade= CascadeType.DETACH)
+    @ManyToOne(cascade= CascadeType.DETACH)
     @JoinColumn(name="pet_id")
-    private Pet petId;
+    @JsonBackReference
+    private Pet pet;
 
     @Column(name="current_status")
     private String currStatus;
