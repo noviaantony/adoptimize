@@ -20,7 +20,7 @@ public class Adoption {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade= CascadeType.DETACH)
+    @OneToMany(cascade= CascadeType.DETACH)
     @JoinColumn(name="user_id")
     private User userId;
 
