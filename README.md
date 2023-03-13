@@ -5,7 +5,7 @@
 > - [Yuan Sheng](https://github.com/ChongYuanSheng/)
 > - [Novia](http://github.com/noviaantony/)
 > - [Ariff](http://github.com/KimmyChanga/)
-> - [Chloe]
+> - [Chloe](https://github.com/chloekoh2021)
 
 Code submission for [SMU CS206 Product Management]
 
