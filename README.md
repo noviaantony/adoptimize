@@ -1,4 +1,8 @@
-# Adoptsy
+# Adoptimize
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Chen-ZhaoXing/CarbonO/main/adoptimizelog.png" width="50%"/>
+</p>
 
 > Project By: SMU CS203 G2T2
 > - [Zhao Xing](https://github.com/Newbieshine/)
@@ -10,11 +14,15 @@
 Code submission for [SMU CS206 Product Management]
 
 ---
-##  What is Adoptsy?
-...
+##  What is Adoptimize?
+
 
 ---
 ## Core Features
+
+***Digitalized Adoption Management***
+> ...
+
 
 ---
 
@@ -27,13 +35,6 @@ Code submission for [SMU CS206 Product Management]
 - [Axios](https://www.axios.com/)
 - [Docker](https://www.docker.com/)
 
-## **Tools Used**
-- [VSCode](https://code.visualstudio.com/)
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-- [Postman](https://www.postman.com/)
-- [pgAdmin](https://www.pgadmin.org/)
-- [Chart.js](https://www.chartjs.org/)
-- [Figma](https://www.figma.com/)
 ---
 
 ## Local Deployment
