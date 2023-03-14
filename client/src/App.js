@@ -1,65 +1,42 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import Sidebar from './components/navigation/Sidebar';
+import Footer from './components/navigation/Footer';
+import Header from './components/navigation/Header';
+import PageContent from "./components/content/PageContent";
+import Landing from './screens/Landing';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-
-import AuthShelterNavbar from "./components/common/navigation/AuthShelterNavbar";
-import AuthAdopterNavbar from "./components/common/navigation/AuthAdopterNavbar";
-import Navbar from './components/common/navigation/Navbar';
-import Footer from "./components/common/footer/Footer";
-
-import MyPets from "./screens/shelter/MyPets";
-import MyPetsDummy from "./screens/shelter/MyPetsDummy"; // DUMMY
-import DummyScreen from "./screens/shelter/DummyScreen"; // DUMMY
-import Prescreening from './screens/shelter/Prescreening';
-import DocumentUpload from './screens/shelter/DocumentUpload';
-import AdoptionManagement from './screens/shelter/AdoptionManagement'
-import AboutUs from './screens/shelter/AboutUs';
-import PetQuiz from './screens/shelter/PetQuiz';
-import PetCare from './screens/shelter/PetCare';
-import AdopterLogIn from './screens/common/AdopterLogIn';
-import AdopterSignUp from './screens/common/AdopterSignUp';
-import ShelterSignUp from './screens/common/ShelterSignUp'
-import ShelterLogIn from './screens/common/ShelterLogIn';
-import Article from './screens/shelter/Article';
-import Landing from './screens/common/Landing';
-import Tutorial from './screens/shelter/Tutorial';
-
-// import MyApplications from './screens/adopter/MyApplications';
-// import UserProfile from './screens/adopter/UserProfile';
-// import AllPets from './screens/adopter/AllPets'
-// import PetCareHomePage from './screens/adopter/PetCareHomePage';
+import Adoptions from './screens/Adoptions';
+import AdopterLogIn from "./screens/AdopterLogIn";
+import ShelterLogIn from "./screens/ShelterLogin";
+import PetListing from './screens/PetListing';
+import AdoptionForm from './components/petlisting/AdoptionForm';
 
 function App() {
+
+  const auth = true;
+
   return (
     <div className="App">
-      {/* <Navbar/> */}
-      {/* <AuthShelterNavbar /> */}
-      {/* <AuthAdopterNavbar /> */}
+      {auth ? (
+        <>
+          <Header />
+          <div className="SideMenuAndPageContent">
+            <Sidebar />
+            <PageContent />
+          </div>
+        </>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/AdopterLogIn" element={<AdopterLogIn />} />
+          <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
+          <Route path="/PetListing" element={<PetListing />} />
+          <Route path="/AdoptionForm" element={<AdoptionForm />} />
+        </Routes>
+      )}
 
-      <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/OurPets" element={<MyPets />} />
-
-        <Route path="/Prescreening" element={<Prescreening />} />
-        <Route path="/DocumentUpload" element={<DocumentUpload />} />
-        <Route path="/AdoptionManagement" element={<AdoptionManagement />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Quiz" element={<PetQuiz />} />
-        <Route path="/PetCare" element={<PetCare />} />
-        <Route path="/LogIn" element={<AdopterLogIn />} />
-        <Route path="/SignUp" element={<AdopterSignUp />} />
-        <Route path="/ShelterSignUp" element={<ShelterSignUp />} />
-        <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
-        <Route path="/Article" element={<Article />} />
-        <Route path="/WhatIsAdoptsy" element={<Tutorial />} />
-        <Route path="/" element={<Landing />} />
-
-        {/* DUMMY ROUTES */}
-        <Route path="/OurPetss" element={<MyPetsDummy />} />
-        <Route path="/ThankYou" element={<DummyScreen />} />
-        {/* DUMMY ROUTES */}
-      </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
