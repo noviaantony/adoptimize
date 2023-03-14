@@ -1,6 +1,7 @@
 package com.AdoptEasy.User;
 
 
+import com.AdoptEasy.Adoption.Adoption;
 import com.AdoptEasy.Registration.Token.ConfirmationToken;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -51,6 +52,11 @@ public class User implements UserDetails {
 
     @Column(length = 45)
     private String resetPasswordToken;
+
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Adoption> adoptionList;
+
 
     public User(String firstName, String lastName, String email, String password, UserRole userRole) {
         this.firstName = firstName;
