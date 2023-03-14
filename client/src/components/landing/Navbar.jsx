@@ -25,7 +25,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="AppHeader mx-5">
+    <div className="AppHeader bg-white">
       <div>
         <Image
           width={150}

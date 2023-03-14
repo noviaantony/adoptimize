@@ -8,12 +8,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Adoptions from './screens/Adoptions';
 import AdopterLogIn from "./screens/AdopterLogIn";
+import ShelterSignUp from "./screens/ShelterSignUp";
 import ShelterLogIn from "./screens/ShelterLogin";
 import PetListing from './screens/PetListing';
-import AdoptionForm from './components/petlisting/AdoptionForm';
+import AdoptionForm from "./screens/AdoptionForm";
+import CatProfile from "./screens/CatProfile";
 
 function App() {
 
+  // const auth = false;
   const auth = true;
 
   return (
@@ -30,9 +33,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/AdopterLogIn" element={<AdopterLogIn />} />
+          <Route path="/ShelterSignUp" element={<ShelterSignUp />} />
           <Route path="/ShelterLogIn" element={<ShelterLogIn />} />
           <Route path="/PetListing" element={<PetListing />} />
           <Route path="/AdoptionForm" element={<AdoptionForm />} />
+          <Route path="/CatProfile" element={<CatProfile />} />
         </Routes>
       )}
 

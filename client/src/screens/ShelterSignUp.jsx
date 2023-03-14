@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { HiMail, HiLockClosed } from "react-icons/hi";
-import { ReactComponent as SignInSvg } from "./ShelterLogIn.svg";
+import { ReactComponent as ShelterSignUpSvg } from "./ShelterSignUp.svg";
 import { Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../components/landing/Navbar";
 
-const ShelterLogin = () => {
+const ShelterSignUp = () => {
   const userRef = useRef();
   const errRef = useRef();
 
@@ -33,7 +33,7 @@ const ShelterLogin = () => {
         </section>
       ) : (
         <>
-          <Navbar />
+          <Navbar className="bg-white" />
           <motion.div
             className="actions flex flex-col items-center min-h-screen py-2 font-default mt-20"
             animate={{ opacity: 1 }}
@@ -44,7 +44,7 @@ const ShelterLogin = () => {
                 <div className="w-3/5 p-5">
                   <div className="py-10">
                     <h2 className="text-2xl font-bold text-gray-700 mb-2">
-                      Sign in as a shelter
+                      Sign up as a Shelter
                     </h2>
                     <div className="border-2 w-10 border-gray-700 bg-gray-700 inline-block mb-2"></div>
                     <p
@@ -80,49 +80,23 @@ const ShelterLogin = () => {
                       </div>
                       {/* email section */}
 
-                      {/* password section */}
-                      <div className="bg-gray-100 w-64 p-2 flex items-center rounded mb-3">
-                        <div className="bg-gray-100 w-64 p-2">
-                          <HiLockClosed className="text-grey-100 m-2" />
-                        </div>
-                        <input
-                          type="password"
-                          name="password"
-                          placeholder="enter your password"
-                          className="bg-gray-100 outline-none text-m flex-1"
-                          onChange={(e) => setPassword(e.target.value)}
-                          value={password}
-                          required
-                        />
-                      </div>
-                      {/* password section */}
-
-                      <div className="flex justify-between w-64 mb-5">
-                        <Link
-                          to="/ForgetPassword"
-                          className="text-xs font-bold text-gray-700 hover:text-blue-100 transition duration-300"
-                        >
-                          Forgot Password
-                        </Link>
-                      </div>
-
                       <button
                         // href=""
                         className="signIn px-7 py-3 w-64 justify-center rounded-md border border-transparent text-sm focus:outline-none transition duration-300 bg-[#F7AF7A] hover:bg-[#FDEDE1] text-center marker:sm:w-auto font-bold text-gray-700 hover:text-[#F7AF7A] "
                       >
-                        Sign In
+                        Sign Up
                       </button>
                       <Link
-                        to="/ShelterSignUp"
+                        to="/ShelterLogin"
                         className="text-xs font-bold text-gray-700 hover:text-[#F7AF7A] transition duration-300 mt-6 hover:underline-offset-4"
                       >
-                        Don't have an account? Sign up here
+                        Have an account? Sign in here
                       </Link>
                     </div>
                   </form>
                 </div>
                 <div className="w-2/5 bg-[#FDEDE1]  text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-                  <SignInSvg width="16rem" />
+                  <ShelterSignUpSvg width="16rem" />
                 </div>
               </div>
             </main>
@@ -134,5 +108,6 @@ const ShelterLogin = () => {
 };
 
 
-export default ShelterLogin;
+
+export default ShelterSignUp;
 

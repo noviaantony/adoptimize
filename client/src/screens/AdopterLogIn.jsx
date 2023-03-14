@@ -35,7 +35,7 @@ const AdopterLogIn = () => {
         </section>
       ) : (
         <>
-        <Navbar/>
+        <Navbar className= "bg-white"/>
         <motion.div
           className="actions flex flex-col items-center min-h-screen py-2 font-default mt-20"
           animate={{ opacity: 1 }}

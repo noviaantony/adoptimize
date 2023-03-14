@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Badge, Drawer, Image, List, Space, Typography, Dropdown } from "antd";
-import Personal from "../prescreening/Personal"
+import Personal from "../components/prescreening/Personal"
 
 const  AdoptionForm = () => {
 
@@ -50,7 +50,7 @@ const  AdoptionForm = () => {
 
   return (
     <>
-      <div className="AppHeader">
+      <div className="AppHeader bg-white">
         <div>
           <Image
             width={150}

@@ -30,7 +30,7 @@ function Header() {
   ];
 
   return (
-    <div className="AppHeader">
+    <div className="AppHeader bg-white">
       <div>
         <Image
           width={150}

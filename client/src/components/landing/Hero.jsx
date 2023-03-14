@@ -8,7 +8,7 @@ const Hero = () => {
   // destructure hero data
   // const { title, subtitle, btnText, compText, image } = hero;
   return (
-    <section className="min-h-[900px] py-12 font-nunito text-[#354458] ">
+    <section className="min-h-[900px] py-12 font-nunito text-[#354458] bg-white">
       <div className="container mx-auto min-h-[900px] flex justify-center items-center">
         <div className="flex flex-col lg:gap-x-[30px] gap-y-8 lg:gap-y-0 lg:flex-row items-center justify-center text-center lg:text-left">
           {/* text */}
@@ -24,8 +24,8 @@ const Hero = () => {
                 visible: { opacity: 1, x: 0 },
               }}
             >
-              <h1 className="ext-6xl lg:text-8xl font-extrabold mb-6 font-bold mb-2 lg:mb-5">
-                Digitalising & Streamlining Pet Adoption Management
+              <h1 className="ext-6xl lg:text-8xl font-extrabold mb-6 lg:mb-5">
+                Digitalising & Streamlining Pet Adoption
               </h1>
               <p
                 className=" text-2xl text-light font-normal mb-6 mb-5 lg:mb-10"
