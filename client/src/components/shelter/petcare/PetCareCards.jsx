@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'antd/es/typography/Link'
+import { Link } from "react-router-dom";
 
 const PetCareCards = ({Date, Title, Description}) => {
 
@@ -24,7 +24,8 @@ const PetCareCards = ({Date, Title, Description}) => {
             <a rel="noopener noreferrer" href="#" className="flex items-center">
               {/* <img src="https://source.unsplash.com/50x50/?portrait" alt="avatar" className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500" /> */}
               {/* <span className="hover:underline dark:text-gray-400">Leroy Jenkins</span> */}
-              <Link rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-400">Read more</Link>
+              {/* <Link rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-400">Read more</Link> */}
+              <Link  className="hover:underline dark:text-violet-400" to="/Article">Read More</Link>
             </a>
           </div>
         </div>

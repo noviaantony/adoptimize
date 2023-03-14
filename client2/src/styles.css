@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  margin-right: 20px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 50px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-main {
+  padding: 10px;
+}
+
+.App-title {
+  font-size: 1em;
+}
+
+@media (min-width: 728px) {
+  .App-main {
+    margin: 0 calc(50vw - 364px) 0 calc(50vw - 364px);
+    padding: 0;
+  }
+  .App-title {
+    font-size: 1.5em;
+  }
+}
+
+.App-header h1 {
+  padding-top: 7px;
+}
+
+.App-intro {
+  font-size: large;
+}

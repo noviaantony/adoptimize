@@ -146,6 +146,25 @@ const WaitListTable = () => {
               Rejected
             </a>
           </li>
+          <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a
+              className={
+                "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
+                (openTab === 4
+                  ? "text-black bg-blue-100"
+                  : "text-grey-700 bg-white")
+              }
+              onClick={(e) => {
+                e.preventDefault();
+                setOpenTab(4);
+              }}
+              data-toggle="tab"
+              href="#link3"
+              role="tablist"
+            >
+              Zoom Scheduler
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -193,7 +212,6 @@ const WaitListTable = () => {
                 <option value="0">Pawl</option>
                 <option value="2">Catti B</option>
                 <option value="3"></option>
-                
               </select>
 
               <button className=" ml-6 bg-white rounded-xl ">
@@ -229,11 +247,7 @@ const WaitListTable = () => {
           <tbody class="divide-y divide-gray-100 border-t border-gray-100 font-nunito">
             {adoptionData.map((data) => {
               return (
-                <tr
-                  className={
-                    "hover:bg-grey-50"
-                  }
-                >
+                <tr className={"hover:bg-grey-50"}>
                   {/* adopter */}
                   <td class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                     <div class="text-sm">

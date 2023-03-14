@@ -95,7 +95,7 @@ const ShelterSignUp = () => {
                     Sign up as a Shelter
                   </h2>
                   <div className=" w-10  bg-gray-700 inline-block mb-2"></div>
-                  {/* <p className="text-sm font-bold text-green-700 mb-2" >We will email you in a week and get in touch with you!</p> */}
+                  <p className="text-sm font-bold text-green-700 mb-2" >We will email you in a week and get in touch with you!</p>
                   {/* <p className="text-sm font-bold text-red-700 mb-2" >You already have an account with us!</p> */}
                   <p
                     ref={errRef}
@@ -117,7 +117,7 @@ const ShelterSignUp = () => {
                         <HiUserCircle className="text-grey-100 m-2" />
                       </div>
                       <input
-                        type="email"
+                        type="text"
                         name="email"
                         placeholder="enter shelter's name"
                         className="bg-gray-100 text-m flex-1"
@@ -151,7 +151,7 @@ const ShelterSignUp = () => {
                       // href=""
                       className="signIn px-7 py-3 w-64 justify-center rounded-md border border-transparent text-sm focus:outline-none transition duration-300 bg-blue-100 hover:bg-gray-700 text-center marker:sm:w-auto font-bold text-gray-700 hover:text-white"
                     >
-                      Sign In
+                      Sign Up
                     </button>
                     <Link
                       to="/ShelterLogIn"
