@@ -13,11 +13,12 @@ import ShelterLogIn from "./screens/ShelterLogin";
 import PetListing from './screens/PetListing';
 import AdoptionForm from "./screens/AdoptionForm";
 import CatProfile from "./screens/CatProfile";
+import PaymentForm from './screens/PaymentForm';
 
 function App() {
 
-  // const auth = false;
-  const auth = true;
+  const auth = false;
+  // const auth = true;
 
   return (
     <div className="App">
@@ -38,6 +39,7 @@ function App() {
           <Route path="/PetListing" element={<PetListing />} />
           <Route path="/AdoptionForm" element={<AdoptionForm />} />
           <Route path="/CatProfile" element={<CatProfile />} />
+          <Route path="/PaymentForm" element={<PaymentForm />} />
         </Routes>
       )}
 

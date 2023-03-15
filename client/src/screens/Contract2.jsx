@@ -2,15 +2,8 @@ import React, { Component } from "react";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 import { useEffect, useState } from "react";
 import {
-  Avatar,
-  Rate,
   Space,
-  Table,
   Typography,
-  Tag,
-  Dropdown,
-  message,
-  Button,
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";

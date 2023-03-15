@@ -17,7 +17,7 @@ const AppRoutes = () => {
     <Routes>
       
       <Route path="/" element={<AllPets />} />
-      <Route path="/alt" element={<AllPetsAlt />} />
+      <Route path="/AllPetsAlt" element={<AllPetsAlt />} />
       <Route path="/Adoptions" element={<Adoptions />} />
       <Route path="/PreScreeningQuestions" element={<Prescreening />} />
       <Route path="/AdoptionContract" element={<Contract2 />} />

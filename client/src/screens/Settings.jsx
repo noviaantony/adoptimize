@@ -1,125 +1,156 @@
-import React, { useState } from 'react';
-// import { SaveIcon } from '@heroicons/react/solid';
+import { useState } from 'react';
 
-// import { XIcon } from '@heroicons/react/outline';
+function Settings() {
+  const [name, setName] = useState("John Doe");
+  const [email, setEmail] = useState("johndoe@example.com");
+  const [role, setRole] = useState("User");
+  const [password, setPassword] = useState("");
 
-const Settings = () => {
-  const [name, setName] = useState("Adoption Shelter");
-  const [email, setEmail] = useState("contact@adopt.com");
-  const [phone, setPhone] = useState("(555) 555-5555");
-  const [address, setAddress] = useState("123 Main St, Anytown, USA");
-  const [editing, setEditing] = useState(false);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
-  const handleSave = () => {
-    // Save settings to backend
-    setEditing(false);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleRoleChange = (e) => {
+    setRole(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Role:", role);
+    console.log("Password:", password);
   };
 
   return (
-    <div className="flex flex-col w-full max-w-md mx-auto p-4 space-y-4 bg-white rounded shadow">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Settings</h2>
-        {editing ? (
-          <button
-            className="text-gray-500 hover:text-gray-700"
-            onClick={() => setEditing(false)}
-          >
-            <XIcon className="h-6 w-6" />
-          </button>
-        ) : (
-          <button
-            className="text-blue-500 hover:text-blue-700"
-            onClick={() => setEditing(true)}
-          >
-            Edit
-          </button>
-        )}
-      </div>
-      <form>
-        <div className="mb-4">
-          <label className="block font-medium text-gray-700" htmlFor="name">
-            Name
-          </label>
-          {editing ? (
-            <input
-              className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          ) : (
-            <p className="mt-1">{name}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium text-gray-700" htmlFor="email">
-            Email
-          </label>
-          {editing ? (
-            <input
-              className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          ) : (
-            <p className="mt-1">{email}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium text-gray-700" htmlFor="phone">
-            Phone
-          </label>
-          {editing ? (
-            <input
-              className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              type="tel"
-              id="phone"
-              name="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          ) : (
-            <p className="mt-1">{phone}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label
-            className="block font-medium text-gray-700       "
-            htmlFor="address"
-          >
-            Address
-          </label>
-          {editing ? (
-            <textarea
-              className="form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              id="address"
-              name="address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          ) : (
-            <p className="mt-1">{address}</p>
-          )}
-        </div>
-        {editing && (
-          <div className="flex justify-end">
-            <button
-              className="flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              onClick={handleSave}
-            >
-              <SaveIcon className="h-5 w-5 mr-2" />
-              Save
-            </button>
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="w-2/3 bg-white p-8 rounded-lg">
+        <h1 className="text-2xl font-bold mb-6">Settings</h1>
+        <form onSubmit={handleFormSubmit}>
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Name
+              </label>
+              <div className="flex items-center">
+                <span className="mr-2">{name}</span>
+                <button
+                  type="button"
+                  className="text-blue-500"
+                  onClick={() => {
+                    document
+                      .getElementById("name-input")
+                      .classList.remove("hidden");
+                  }}
+                >
+                  Edit
+                </button>
+              </div>
+              <input
+                type="text"
+                id="name-input"
+                className="w-full rounded-lg border-gray-400 border-solid border py-2 px-3 mt-2 hidden"
+                value={name}
+                onChange={handleNameChange}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Email
+              </label>
+              <div className="flex items-center">
+                <span className="mr-2">{email}</span>
+                <button
+                  type="button"
+                  className="text-blue-500"
+                  onClick={() => {
+                    document
+                      .getElementById("email-input")
+                      .classList.remove("hidden");
+                  }}
+                >
+                  Edit
+                </button>
+              </div>
+              <input
+                type="email"
+                id="email-input"
+                className="w-full rounded-lg border-gray-400 border-solid border py-2 px-3 mt-2 hidden"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="role"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Role
+              </label>
+              <div className="flex items-center">
+                <span className="mr-2">{role}</span>
+                <button
+                  type="button"
+                  className="text-blue-500"
+                  onClick={() => {
+                    document
+                      .getElementById("role-input")
+                      .classList.remove("hidden");
+                  }}
+                >
+                  Edit
+                </button>
+              </div>
+              <select
+                id="role-input"
+                className="w-full rounded-lg border-gray-400 border-solid border py-2 px-3 mt-2 hidden"
+                value={role}
+                onChange={handleRoleChange}
+              >
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="w-full rounded-lg border-gray-400 border-solid border py-2 px-3 mt-2"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </div>
           </div>
-        )}
-      </form>
+          <button
+            type="submit"
+            className="mt-6 bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-700"
+          >
+            Save
+          </button>
+        </form>
+      </div>
     </div>
   );
-};
+}
 
 export default Settings;
