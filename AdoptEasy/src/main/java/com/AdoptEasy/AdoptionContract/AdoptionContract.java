@@ -1,12 +1,7 @@
 package com.AdoptEasy.AdoptionContract;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,11 +11,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class AdoptionContract {
     @Id
+    @SequenceGenerator(
+            name = "contract_sequence",
+            sequenceName = "contract_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "contract_sequence"
+    )
     private Long id;
 
     private String name;
+
+    @Lob
+    @Column(name = "contract", length = 10000)
+    private byte[] contract;
 
     public void setId(Long id) {
         this.id = id;
@@ -29,4 +38,6 @@ public class AdoptionContract {
     public Long getId() {
         return id;
     }
+
+
 }
