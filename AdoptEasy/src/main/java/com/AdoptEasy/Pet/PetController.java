@@ -10,11 +10,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path ="api/v1/AdoptEasy/pet")
+@CrossOrigin(origins = "*")
 public class PetController {
     @Autowired
-    private PetService petService;
+    private final PetService petService;
 
-    private PetRepository petRepository;
+    private final PetRepository petRepository;
 
     @Autowired
     public PetController(PetRepository petRepository, PetService petService){

@@ -10,9 +10,11 @@ import com.AdoptEasy.Pet.Pet;
 import java.util.List;
 import java.util.Optional;
 
+
+@Repository
 public interface AdoptionRepository extends JpaRepository <Adoption, Long>{
     Adoption findById(long id);
-    Optional<User> findByUserId(Long userId);
-    Optional<Pet> findByPetId(Long petId);
-    Optional<Adoption> findByIdAndPetId(Long id, Long petId);
+//    Optional<User> findByUserId(Long userId);
+//    Optional<Pet> findByPetId(Long petId);
+    Optional<Adoption> findByIdAndPet(Long id, Pet pet);
 }

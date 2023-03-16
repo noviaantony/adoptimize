@@ -20,7 +20,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Pet {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @SequenceGenerator(name="pet_sequence", sequenceName="pet_sequence", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pet_sequence")
     private Long petId;
 
     @Column(name="pet_name")
@@ -42,13 +43,23 @@ public class Pet {
     private String medical;
 
     @Column(name="pet_status")
-    private String status;
+    private String status; // Adopted, Available, Pending_Adoption
 
     @Column(name="pet_image")
-    private byte[] image;
+    private String imageAddress;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Adoption> adoptionList;
 
+    public Pet (String name, String breed, int age, LocalDate dateJoined, LocalDate birthday, String medical, String status, String imageAddress){
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+        this.dateJoined = dateJoined;
+        this.birthday = birthday;
+        this.medical = medical;
+        this.status = status;
+        this.imageAddress = imageAddress;
+    }
 }

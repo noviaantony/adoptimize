@@ -19,7 +19,6 @@ public class AdoptionController{
     AdoptionService adoptionService;
 
     AdoptionRepository adoptionRepository;
-    UserRepository userRepository;
     PetRepository petRepository;
 
     public AdoptionController(AdoptionRepository adoptionRepository, AdoptionService adoptionService) {
@@ -54,8 +53,8 @@ public class AdoptionController{
         if(!adoptionRepository.existsById(id)) {
             throw new AdoptionNotFoundException(id);
         }
-
-        return adoptionRepository.findByIdAndPetId(id, petId).map(oldAdoption -> {
+        Pet pet = petRepository.findById(petId).get();
+        return adoptionRepository.findByIdAndPet(id, pet).map(oldAdoption -> {
             oldAdoption.setCurrStatus(adoption.getCurrStatus());
             adoptionService.saveAdoption(oldAdoption);
             return ResponseEntity.ok().build();

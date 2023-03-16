@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Configuration
 @EnableWebSecurity
@@ -29,7 +30,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/AdoptEasy/user/authenticate", "/api/v1/AdoptEasy/user/registration")
                 .permitAll()
                 .anyRequest()
-                .authenticated()
+                .permitAll()
+//                .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

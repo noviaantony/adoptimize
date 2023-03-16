@@ -30,7 +30,7 @@ public class AdoptionContractController {
                 .body(uploadContract);
     }
 
-    @GetMapping("/{fileName}")
+    @GetMapping(path="/{fileName}")
     public ResponseEntity<?> downloadContract(@RequestParam("fileName") String fileName) throws IOException{
         byte[] adoptionContractData = adoptionContractService.downloadContract(fileName);
         return ResponseEntity.status(HttpStatus.OK)

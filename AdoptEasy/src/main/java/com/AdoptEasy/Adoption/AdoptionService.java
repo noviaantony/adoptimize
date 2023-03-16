@@ -8,8 +8,13 @@ import java.util.function.Function;
 
 @Service
 public class AdoptionService {
-    @Autowired
+
     AdoptionRepository adoptionRepository;
+
+    @Autowired
+    public AdoptionService(AdoptionRepository adoptionRepository){
+        this.adoptionRepository = adoptionRepository;
+    }
 
     public List<Adoption> listAdoptions(){
         return adoptionRepository.findAll();

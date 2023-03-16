@@ -16,6 +16,7 @@ import {
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
+import petService from "../services/PetService";
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -39,35 +40,46 @@ const columns = [
     key: "breed",
   },
   {
-    title: "Date in Shelter",
-    dataIndex: "date",
-    key: "date",
+    title: "Age",
+    dataIndex: "age",
+    key: "age",
+  },
+  {
+    title: "Medical Details",
+    dataIndex: "medical",
+    key: "medical",
+  },
+  {
+    title: "Date Joined",
+    dataIndex: "dateJoined",
+    key: "dateJoined",
+  },
+  {
+    title: "Date of Birth",
+    dataIndex: "birthday",
+    key: "birthday",
   },
   {
     title: "Status",
     key: "status",
     dataIndex: "status",
-    render: (_, { statuses }) => (
-      <>
-        {statuses.map((tag) => {
-          let color = "green";
-          if (tag === "rejected") {
-            color = "red";
-          } else if (tag === "waitlisted") {
-            color = "purple";
-          } else if (tag === "in progress") {
-            color = "green";
-          } else {
-            color = "blue";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    render: (status) => {
+      let color = "";
+      if (status === "Available") {
+        color = "blue";
+      } else if (status === "Pending") {
+        color = "green";
+      } else if (status === "Adopted") {
+        color = "red";
+      } else {
+        color = "purple";
+      }
+      return (
+          <Tag color={color}>
+            {status.toUpperCase()}
+          </Tag>
+      );
+    }
   },
   {
     title: "",
@@ -157,8 +169,39 @@ const sharedOnCell = (_, index) => {
 const AllPets = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [pets, setPets] = useState([]);
 
+    useEffect(() => {
+        petService.getAllPets().then((res) => {
+            console.log("Retrieving all pets...");
+            // console.log(res)
+            let petsData = [];
+            for (let i = 0; i < res.length; i++) {
+                let pet = res[i];
+                let petData = {
+                    key: i,
+                    petId: pet.petId,
+                    name: pet.name,
+                    breed: pet.breed,
+                    age: pet.age,
+                    medical: pet.medical,
+                    dateJoined: pet.dateJoined,
+                    birthday: pet.birthday,
+                    status: pet.status,
+                    actions: pet.actions,
+                };
 
+                petsData.push(petData);
+            }
+            // console.log(petsData)
+            setPets(petsData);
+            // console.log(pets);
+        });
+    }, []);
+
+  useEffect(() => {
+    console.log(pets);
+  }, [pets]);
 
   return (
     <Space direction="vertical table">
@@ -228,7 +271,7 @@ const AllPets = () => {
               type="search"
               id="default-search"
               className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border"
-              placeholder="Search by Pet Name or Pet ID"
+              placeholder="Search by Pet Name"
               required=""
               onChange={(event) => {
                 setSearchTerm(event.target.value);
@@ -246,15 +289,11 @@ const AllPets = () => {
       </form>
       <Table
         columns={columns}
-        dataSource={data.filter((val) => {
+        dataSource={pets.filter((val) => {
           if (searchTerm == "") {
             return val;
           } else if (
             val.name.toLowerCase().includes(searchTerm.toLowerCase())
-          ) {
-            return val;
-          } else if (
-            val.petId.toLowerCase().includes(searchTerm.toLowerCase())
           ) {
             return val;
           }

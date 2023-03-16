@@ -2,8 +2,6 @@ package com.AdoptEasy.AdoptionContract;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Entity
 @Table(name = "adopteasy_adoptionContract")

@@ -24,7 +24,7 @@ public class PreScreeningQuestionnaireController {
         this.preScreeningQuestionnaireService = preScreeningQuestionnaireService;
     }
 
-    @GetMapping("get/{id}")
+    @GetMapping(path="/{id}")
     public PreScreeningQuestionnaire getQuestion(@PathVariable Long id){
         if(!preScreeningQuestionnaireRepository.existsById(id)){
             throw new AdoptionNotFoundException(id);
@@ -42,7 +42,7 @@ public class PreScreeningQuestionnaireController {
         return preScreeningQuestionnaireService.saveShortQuestion(shortQuestion);
     }
 
-    @PostMapping("/addMCQQuestion")
+    @PostMapping("/addScaleQuestion")
     public PreScreeningQuestionnaire saveScaleQuestion(PreScreeningQuestionnaire scaleQuestion) {
         return preScreeningQuestionnaireService.saveScaleQuestion(scaleQuestion);
     }

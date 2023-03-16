@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "adopteasy_pet")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -33,16 +32,5 @@ public class Adoption {
 
     @Column(name="current_status")
     private String currStatus;
-
-    public Adoption(String currStatus){
-        this.currStatus = currStatus;
-    }
-    public String getCurrStatus() {
-        return this.currStatus;
-    }
-
-    public void setCurrStatus(String currStatus) {
-        this.currStatus = currStatus;
-    }
 
 }
