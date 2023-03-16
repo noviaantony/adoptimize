@@ -132,12 +132,16 @@ const data = [
 
 const items = [
   {
-    label: "Reject Adoption",
+    label: "Start Adoption Process",
     key: "1",
+  },
+  {
+    label: "Reject Adoption",
+    key: "2",
   },
 ];
 
-const InProgress = () => {
+const New = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -184,9 +188,9 @@ const InProgress = () => {
       <Table
         className="font-nunito text-grey-700 shadow-md rounded-2xl "
         columns={columns}
-        style={{ backgroundColor: '#FDEDE1' }}
+        style={{ backgroundColor: "#FDEDE1" }}
         dataSource={data.filter((val) => {
-          if (val.status == "In Progress") {
+          if (val.status == "New") {
             if (searchTerm == "") {
               return val;
             } else if (
@@ -195,25 +199,24 @@ const InProgress = () => {
               return val;
             }
           }
-        })} 
-
-
+        })}
         components={{
           header: {
             cell: (props) => (
               <th
                 {...props}
-                style={{ backgroundColor: '#FDEDE1', fontWeight: "bold", font: "font-nunito" }}
+                style={{
+                  backgroundColor: "#FDEDE1",
+                  fontWeight: "bold",
+                  font: "font-nunito",
+                }}
               />
             ),
           },
         }}
-        
-
       />
-      </>
-
+    </>
   );
 };
 
-export default InProgress;
+export default New;

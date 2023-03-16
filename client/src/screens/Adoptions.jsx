@@ -14,7 +14,10 @@ import {
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import './../App.css';
 import { StyleProvider } from "@ant-design/cssinjs";
+import New from "../components/adoptions/New";
 import InProgress from "../components/adoptions/InProgress";
+import Cancelled from "../components/adoptions/Cancelled";
+import Rejected from "../components/adoptions/Rejected";
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -22,13 +25,18 @@ const onClick = ({ key }) => {
 
 const columns = [
   {
-    title: "Pet Id",
-    dataIndex: "petId",
-    key: "petId",
+    title: "Application Id",
+    dataIndex: "applicationId",
+    key: "applicationId",
     render: (text) => <a>{text}</a>,
   },
   {
-    title: "Name",
+    title: "Pet Name",
+    dataIndex: "name",
+    key: "name",
+  },
+  {
+    title: "Adopter Name",
     dataIndex: "name",
     key: "name",
   },
@@ -38,35 +46,19 @@ const columns = [
     key: "breed",
   },
   {
-    title: "Date in Shelter",
+    title: "Date of Application",
     dataIndex: "date",
     key: "date",
   },
   {
-    title: "Status",
-    key: "status",
-    dataIndex: "status",
-    render: (_, { statuses }) => (
-      <>
-        {statuses.map((tag) => {
-          let color = "green";
-          if (tag === "rejected") {
-            color = "red";
-          } else if (tag === "withdrawn") {
-            color = "grey";
-          } else if (tag === "in progress") {
-            color = "green";
-          } else {
-            color = "blue";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    title: "Start Date",
+    dataIndex: "startDate",
+    key: "startDate",
+  },
+  {
+    title: "End Date",
+    dataIndex: "endDate",
+    key: "endDate",
   },
   {
     title: "",
@@ -92,18 +84,40 @@ const columns = [
 
 const data = [
   {
-    petId: "0001",
-    name: "Sir Meowington",
-    breed: "Tabby",
-    date: "2021-01-01",
-    statuses: ["payment pending", "in progress"],
+    applicationId: "12343",
+    petName: "Meowington",
+    adopterName: "Easter Tan",
+    date: "01-01-2023",
+    startDate: "02-01-2023",
+    endDate: "-",
+    status: "In Progress",
   },
   {
-    petId: "0002",
-    name: "Timothee",
-    breed: "British Shorthair",
-    date: "2020-01-01",
-    statuses: ["contract pending", "in progress"],
+    applicationId: "12343",
+    petName: "Timothee",
+    adopterName: "Kendrik",
+    date: "01-01-2023",
+    startDate: "03-01-2023",
+    endDate: "03-01-2023",
+    status: "Rejected",
+  },
+  {
+    applicationId: "12343",
+    petName: "Timothee",
+    adopterName: "Ed Sheeren",
+    date: "01-01-2023",
+    startDate: "03-01-2023",
+    endDate: "03-01-2023",
+    status: "Cancelled",
+  },
+  {
+    applicationId: "12343",
+    petName: "Catmilla Cabello",
+    adopterName: "Emma Ng",
+    date: "05-01-2023",
+    startDate: "-",
+    endDate: "-",
+    status: "New",
   },
 ];
 
@@ -125,21 +139,31 @@ const InProgressTab = () => {
   );
 };
 
-const WaitListTab = () => {
+const NewTab = () => {
   return (
-    <div>
-      <p>This is the content of Tab B.</p>
-    </div>
+    <>
+      <New />
+    </>
   );
 };
 
 const RejectedTab = () => {
   return (
-    <div>
-      <p>This is the content of Tab C.</p>
-    </div>
+    <>
+      <Rejected />
+    </>
   );
 };
+
+const CancelledTab = () => {
+  return (
+    <>
+      <Cancelled />
+    </>
+  );
+};
+
+
 
 
 const Adoptions = () => {
@@ -155,16 +179,16 @@ const Adoptions = () => {
         Adoption Management
       </Typography.Title>
       <Tabs defaultActiveKey="1" centered className="font-nunito">
+        <TabPane tab="New" key="2">
+          <NewTab />
+        </TabPane>
         <TabPane tab="In Progress" key="1">
           <InProgressTab />
         </TabPane>
-        <TabPane tab="Waitlisted" key="2">
-          <WaitListTab />
+        <TabPane tab="Cancelled" key="3">
+          <CancelledTab />
         </TabPane>
-        <TabPane tab="Rejected" key="3">
-          <RejectedTab />
-        </TabPane>
-        <TabPane tab="Withdrawn" key="4">
+        <TabPane tab="Rejected" key="4">
           <RejectedTab />
         </TabPane>
       </Tabs>
