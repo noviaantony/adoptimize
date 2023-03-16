@@ -1,203 +1,199 @@
-import { useEffect, useState } from "react";
-import {
-  Avatar,
-  Rate,
-  Space,
-  Table,
-  Typography,
-  Tabs,
-  Tag,
-  Dropdown,
-  message,
-  Button,
-} from "antd";
-import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import {useState} from "react";
+import {message, Space, Tabs, Typography,} from "antd";
 import './../App.css';
-import { StyleProvider } from "@ant-design/cssinjs";
 import New from "../components/adoptions/New";
 import InProgress from "../components/adoptions/InProgress";
-import Cancelled from "../components/adoptions/Cancelled";
+import Cancelled from "../components/adoptions/Withdrawn";
 import Rejected from "../components/adoptions/Rejected";
+import PendingCollection from "../components/adoptions/PendingCollection";
 
-const onClick = ({ key }) => {
-  message.info(`Click on item ${key}`);
+const onClick = ({key}) => {
+    message.info(`Click on item ${key}`);
 };
 
-const columns = [
-  {
-    title: "Application Id",
-    dataIndex: "applicationId",
-    key: "applicationId",
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Pet Name",
-    dataIndex: "name",
-    key: "name",
-  },
-  {
-    title: "Adopter Name",
-    dataIndex: "name",
-    key: "name",
-  },
-  {
-    title: "Breed",
-    dataIndex: "breed",
-    key: "breed",
-  },
-  {
-    title: "Date of Application",
-    dataIndex: "date",
-    key: "date",
-  },
-  {
-    title: "Start Date",
-    dataIndex: "startDate",
-    key: "startDate",
-  },
-  {
-    title: "End Date",
-    dataIndex: "endDate",
-    key: "endDate",
-  },
-  {
-    title: "",
-    key: "action",
-    render: (_, actions) => (
-      <Dropdown
-        menu={{
-          items,
-          onClick,
-        }}
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            {/* Actions
-            <DownOutlined /> */}
-            <HolderOutlined />
-          </Space>
-        </a>
-      </Dropdown>
-    ),
-  },
-];
-
-const data = [
-  {
-    applicationId: "12343",
-    petName: "Meowington",
-    adopterName: "Easter Tan",
-    date: "01-01-2023",
-    startDate: "02-01-2023",
-    endDate: "-",
-    status: "In Progress",
-  },
-  {
-    applicationId: "12343",
-    petName: "Timothee",
-    adopterName: "Kendrik",
-    date: "01-01-2023",
-    startDate: "03-01-2023",
-    endDate: "03-01-2023",
-    status: "Rejected",
-  },
-  {
-    applicationId: "12343",
-    petName: "Timothee",
-    adopterName: "Ed Sheeren",
-    date: "01-01-2023",
-    startDate: "03-01-2023",
-    endDate: "03-01-2023",
-    status: "Cancelled",
-  },
-  {
-    applicationId: "12343",
-    petName: "Catmilla Cabello",
-    adopterName: "Emma Ng",
-    date: "05-01-2023",
-    startDate: "-",
-    endDate: "-",
-    status: "New",
-  },
-];
+// const columns = [
+//   {
+//     title: "Application Id",
+//     dataIndex: "applicationId",
+//     key: "applicationId",
+//     render: (text) => <a>{text}</a>,
+//   },
+//   {
+//     title: "Pet Name",
+//     dataIndex: "name",
+//     key: "name",
+//   },
+//   {
+//     title: "Adopter Name",
+//     dataIndex: "name",
+//     key: "name",
+//   },
+//   {
+//     title: "Breed",
+//     dataIndex: "breed",
+//     key: "breed",
+//   },
+//   {
+//     title: "Date of Application",
+//     dataIndex: "date",
+//     key: "date",
+//   },
+//   {
+//     title: "Start Date",
+//     dataIndex: "startDate",
+//     key: "startDate",
+//   },
+//   {
+//     title: "End Date",
+//     dataIndex: "endDate",
+//     key: "endDate",
+//   },
+//   {
+//     title: "",
+//     key: "action",
+//     render: (_, actions) => (
+//       <Dropdown
+//         menu={{
+//           items,
+//           onClick,
+//         }}
+//       >
+//         <a onClick={(e) => e.preventDefault()}>
+//           <Space>
+//             {/* Actions
+//             <DownOutlined /> */}
+//             <HolderOutlined />
+//           </Space>
+//         </a>
+//       </Dropdown>
+//     ),
+//   },
+// ];
+//
+// const data = [
+//   {
+//     applicationId: "12343",
+//     petName: "Meowington",
+//     adopterName: "Easter Tan",
+//     date: "01-01-2023",
+//     startDate: "02-01-2023",
+//     endDate: "-",
+//     status: "In Progress",
+//   },
+//   {
+//     applicationId: "12343",
+//     petName: "Timothee",
+//     adopterName: "Kendrik",
+//     date: "01-01-2023",
+//     startDate: "03-01-2023",
+//     endDate: "03-01-2023",
+//     status: "Rejected",
+//   },
+//   {
+//     applicationId: "12343",
+//     petName: "Timothee",
+//     adopterName: "Ed Sheeren",
+//     date: "01-01-2023",
+//     startDate: "03-01-2023",
+//     endDate: "03-01-2023",
+//     status: "Cancelled",
+//   },
+//   {
+//     applicationId: "12343",
+//     petName: "Catmilla Cabello",
+//     adopterName: "Emma Ng",
+//     date: "05-01-2023",
+//     startDate: "-",
+//     endDate: "-",
+//     status: "New",
+//   },
+// ];
 
 const items = [
-  {
-    label: "Cancel Adoptions",
-    key: "1",
-  },
+    {
+        label: "Cancel Adoptions",
+        key: "1",
+    },
 ];
 
-const { TabPane } = Tabs;
+const {TabPane} = Tabs;
 
 
 const InProgressTab = () => {
-  return (
-    <>
-      <InProgress/>
-    </>
-  );
+    return (
+        <>
+            <InProgress/>
+        </>
+    );
 };
 
 const NewTab = () => {
-  return (
-    <>
-      <New />
-    </>
-  );
+    return (
+        <>
+            <New/>
+        </>
+    );
 };
 
+const PendingCollectionTab = () => {
+    return (
+        <>
+            <PendingCollection/>
+        </>
+    );
+}
+
 const RejectedTab = () => {
-  return (
-    <>
-      <Rejected />
-    </>
-  );
+    return (
+        <>
+            <Rejected/>
+        </>
+    );
 };
 
 const CancelledTab = () => {
-  return (
-    <>
-      <Cancelled />
-    </>
-  );
+    return (
+        <>
+            <Cancelled/>
+        </>
+    );
 };
-
-
 
 
 const Adoptions = () => {
 
-  const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
 
-  return (
-    <Space direction="vertical table">
-      <Typography.Title
-        // level={4}
-        className="font-nunito font-bold font-6x mt-5"
-      >
-        Adoption Management
-      </Typography.Title>
-      <Tabs defaultActiveKey="1" centered className="font-nunito">
-        <TabPane tab="New" key="2">
-          <NewTab />
-        </TabPane>
-        <TabPane tab="In Progress" key="1">
-          <InProgressTab />
-        </TabPane>
-        <TabPane tab="Cancelled" key="3">
-          <CancelledTab />
-        </TabPane>
-        <TabPane tab="Rejected" key="4">
-          <RejectedTab />
-        </TabPane>
-      </Tabs>
-    </Space>
-  );
+    return (
+        <Space direction="vertical table">
+            <Typography.Title
+                // level={4}
+                className="font-nunito font-bold font-6x mt-5"
+            >
+                Adoption Management
+            </Typography.Title>
+            <Tabs defaultActiveKey="1" centered className="font-nunito">
+                <TabPane tab="New" key="2">
+                    <NewTab/>
+                </TabPane>
+                <TabPane tab="In Progress" key="1">
+                    <InProgressTab/>
+                </TabPane>
+                <TabPane tab="Pending Collection" key="5">
+                    <PendingCollectionTab/>
+                </TabPane>
+                <TabPane tab="Withdrawn" key="3">
+                    <CancelledTab/>
+                </TabPane>
+                <TabPane tab="Rejected" key="4">
+                    <RejectedTab/>
+                </TabPane>
+            </Tabs>
+        </Space>
+    );
 };
 
 export default Adoptions;
-
 
 
 //  <form className="m-5 mx-50">
@@ -236,7 +232,7 @@ export default Adoptions;
 //                 setSearchTerm(event.target.value);
 //               }}
 //             />
-            
+
 //           </div>
 //         </div>
 //       </form>

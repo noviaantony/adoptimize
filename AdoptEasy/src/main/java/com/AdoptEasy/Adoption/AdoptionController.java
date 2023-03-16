@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path ="api/v1/AdoptEasy/adoption")
+@CrossOrigin(origins = "*")
 public class AdoptionController{
     @Autowired
     AdoptionService adoptionService;

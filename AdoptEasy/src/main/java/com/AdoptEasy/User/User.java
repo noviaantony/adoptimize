@@ -3,7 +3,9 @@ package com.AdoptEasy.User;
 
 import com.AdoptEasy.Adoption.Adoption;
 import com.AdoptEasy.Registration.Token.ConfirmationToken;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +26,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class User implements UserDetails {
 
     @Id
@@ -53,7 +56,7 @@ public class User implements UserDetails {
     @Column(length = 45)
     private String resetPasswordToken;
 
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Adoption> adoptionList;
 

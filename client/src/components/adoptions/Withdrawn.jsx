@@ -49,6 +49,11 @@ const columns = [
     dataIndex: "startDate",
     key: "startDate",
   },
+  {
+    title: "End Date",
+    dataIndex: "endDate",
+    key: "endDate",
+  },
 
   {
     title: "Status",
@@ -140,7 +145,7 @@ const items = [
   },
 ];
 
-const InProgress = () => {
+const Withdrawn = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [adoptionList, setAdoptionList] = useState([]);
 
@@ -202,7 +207,7 @@ const InProgress = () => {
             columns={columns}
             style={{ backgroundColor: "#FDEDE1" }}
             dataSource={adoptionList.filter((val) => {
-              if (val.currStatus === "In Progress") {
+              if (val.currStatus === "Withdrawn") {
                 if (searchTerm === "") {
                   console.log(val);
                   return val;
@@ -236,4 +241,4 @@ const InProgress = () => {
   );
 };
 
-export default InProgress;
+export default Withdrawn;

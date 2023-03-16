@@ -14,6 +14,8 @@ import {
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 // import "./../App.css";
 import { StyleProvider } from "@ant-design/cssinjs";
+import petService from "../../services/PetService";
+import adoptionService from "../../services/AdoptionService";
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -22,14 +24,15 @@ const onClick = ({ key }) => {
 const columns = [
   {
     title: "Application Id",
-    dataIndex: "applicationId",
-    key: "applicationId",
+    dataIndex: "id",
+    key: "id",
     render: (text) => <a>{text}</a>,
   },
   {
     title: "Pet Name",
-    dataIndex: "petName",
-    key: "petName",
+    dataIndex: "pet",
+    key: "pet",
+    render:(pet) => pet.name,
   },
   {
     title: "Adopter Name",
@@ -38,35 +41,25 @@ const columns = [
   },
   {
     title: "Date of Application",
-    dataIndex: "date",
-    key: "date",
-  },
-  {
-    title: "Start Date",
-    dataIndex: "startDate",
-    key: "startDate",
-  },
-  {
-    title: "End Date",
-    dataIndex: "endDate",
-    key: "endDate",
+    dataIndex: "dateOfApplication",
+    key: "dateOfApplication",
   },
   {
     title: "Status",
-    key: "status",
-    dataIndex: "status",
-    render: (status) => {
+    key: "currStatus",
+    dataIndex: "currStatus",
+    render: (currStatus) => {
       let color = "";
-      if (status === "In Progress") {
+      if (currStatus === "In Progress") {
         color = "green";
-      } else if (status === "New") {
+      } else if (currStatus === "New") {
         color = "blue";
-      } else if (status === "Cancelled") {
+      } else if (currStatus === "Cancelled") {
         color = "grey";
       } else {
         color = "red";
       }
-      return <Tag color={color}>{status.toUpperCase()}</Tag>;
+      return <Tag color={color}>{currStatus.toUpperCase()}</Tag>;
     },
   },
   {
@@ -143,6 +136,19 @@ const items = [
 
 const New = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [adoptionList, setAdoptionList] = useState([]);
+
+    useEffect(() => {
+      adoptionService.getAllAdoptions().then((res) => {
+        console.log("retrieving adoption list");
+        setAdoptionList(res);
+      });
+
+    }, []);
+
+    useEffect(() => {
+        console.log(adoptionList);
+    }, [adoptionList]);
 
   return (
     <>
@@ -189,12 +195,17 @@ const New = () => {
         className="font-nunito text-grey-700 shadow-md rounded-2xl "
         columns={columns}
         style={{ backgroundColor: "#FDEDE1" }}
-        dataSource={data.filter((val) => {
-          if (val.status == "New") {
-            if (searchTerm == "") {
+        dataSource={adoptionList.filter((val) => {
+          if (val.currStatus === "New") {
+            if (searchTerm === "") {
+              console.log(val);
               return val;
             } else if (
               val.petName.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }else if (
+                val.adopterName.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return val;
             }
