@@ -1,6 +1,8 @@
 package com.AdoptEasy.Security.config;
 
 
+import com.AdoptEasy.Adoption.Adoption;
+import com.AdoptEasy.Adoption.AdoptionRepository;
 import com.AdoptEasy.Pet.Pet;
 import com.AdoptEasy.Pet.PetRepository;
 import com.AdoptEasy.User.User;
@@ -54,7 +56,7 @@ public class ApplicationConfig {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository repository, PetRepository petRepository){
+    CommandLineRunner commandLineRunner(UserRepository repository, PetRepository petRepository, AdoptionRepository adoptionRepository){
         //create dummy users
         String encodedPassword = bCryptPasswordEncoder().encode("123");
         return args -> {
@@ -65,6 +67,39 @@ public class ApplicationConfig {
                     encodedPassword,
                     UserRole.ADMIN
             );
+
+            User Jane = new User(
+                    "Jane",
+                    "Doe",
+                    "JaneDoe@example.com",
+                    encodedPassword,
+                    UserRole.ADMIN
+            );
+
+            User John = new User(
+                    "John",
+                    "Doe",
+                    "JohnDoe@example.com",
+                    encodedPassword,
+                    UserRole.ADMIN
+            );
+
+            User Kendrick = new User(
+                    "Kendrick",
+                    "Lemar",
+                    "KendrickLemar@example.com",
+                    encodedPassword,
+                    UserRole.ADMIN
+            );
+
+            User Jack = new User(
+                    "Jack",
+                    "Lee",
+                    "JackLee@example.com",
+                    encodedPassword,
+                    UserRole.ADMIN
+            );
+
 //            User tester = new User(
 //                    "CarbonO",
 //                    "Testing",
@@ -74,7 +109,7 @@ public class ApplicationConfig {
 //                    true
 //            );
             repository.saveAll(
-                    List.of(xz)
+                    List.of(xz,Jane,John,Kendrick,Jack)
             );
 
 
@@ -397,6 +432,133 @@ public class ApplicationConfig {
             petRepository.saveAll(List.of(pet1, pet2, pet3, pet4, pet5, pet6, pet7, pet8, pet9, pet10,
                     pet11, pet12, pet13, pet14, pet15, pet16, pet17, pet18, pet19, pet20, pet21, pet22, pet23, pet24,
                     pet25, pet26, pet27, pet28, pet29, pet30));
+
+            Adoption adoption1 = new Adoption(
+                    xz,
+                    pet1,
+                    "Rejected",
+                    LocalDate.parse("10-02-2023"),
+                    LocalDate.parse("12-02-2023"),
+                    LocalDate.parse("15-02-2023")
+            );
+
+            Adoption adoption2 = new Adoption(
+                    xz,
+                    pet2,
+                    "In Progress",
+                    LocalDate.parse("12-02-2023"),
+                    LocalDate.parse("14-02-2023")
+            );
+
+            Adoption adoption3 = new Adoption(
+                    Jane,
+                    pet3,
+                    "In Progress",
+                    LocalDate.parse("15-02-2023"),
+                    LocalDate.parse("17-02-2023")
+            );
+
+            Adoption adoption4 = new Adoption(
+                    Jane,
+                    pet4,
+                    "Withdrawn",
+                    LocalDate.parse("17-02-2023"),
+                    LocalDate.parse("19-02-2023"),
+                    LocalDate.parse("22-02-2023")
+            );
+
+            Adoption adoption5 = new Adoption(
+                    xz,
+                    pet5,
+                    "Withdrawn",
+                    LocalDate.parse("19-02-2023"),
+                    LocalDate.parse("21-02-2023"),
+                    LocalDate.parse("24-02-2023")
+            );
+
+            Adoption adoption6 = new Adoption(
+                    John,
+                    pet5,
+                    "New",
+                    LocalDate.parse("22-02-2023")
+            );
+
+            Adoption adoption7 = new Adoption(
+                    John,
+                    pet6,
+                    "Pending Collection",
+                    LocalDate.parse("24-02-2023"),
+                    LocalDate.parse("26-02-2023"),
+                    LocalDate.parse("01-03-2023")
+            );
+
+            Adoption adoption8 = new Adoption(
+                    Kendrick,
+                    pet7,
+                    "New",
+                    LocalDate.parse("27-02-2023")
+            );
+
+            Adoption adoption9 = new Adoption(
+                    Kendrick,
+                    pet8,
+                    "In Progress",
+                    LocalDate.parse("01-03-2023"),
+                    LocalDate.parse("03-03-2023")
+            );
+
+            Adoption adoption10 = new Adoption(
+                    Kendrick,
+                    pet9,
+                    "Rejected",
+                    LocalDate.parse("03-03-2023"),
+                    LocalDate.parse("05-03-2023"),
+                    LocalDate.parse("08-03-2023")
+            );
+
+            Adoption adoption11 = new Adoption(
+                    Kendrick,
+                    pet10,
+                    "New",
+                    LocalDate.parse("06-03-2023")
+            );
+
+            Adoption adoption12 = new Adoption(
+                    Kendrick,
+                    pet11,
+                    "In Progress",
+                    LocalDate.parse("08-03-2023"),
+                    LocalDate.parse("10-03-2023"),
+                    LocalDate.parse("13-03-2023")
+            );
+
+            Adoption adoption13 = new Adoption(
+                    Jack,
+                    pet12,
+                    "Pending Collection",
+                    LocalDate.parse("11-03-2023"),
+                    LocalDate.parse("13-03-2023"),
+                    LocalDate.parse("16-03-2023")
+            );
+
+            Adoption adoption14 = new Adoption(
+                    Jack,
+                    pet13,
+                    "New",
+                    LocalDate.parse("13-03-2023")
+            );
+
+            Adoption adoption15 = new Adoption(
+                    Jack,
+                    pet14,
+                    "New",
+                    LocalDate.parse("16-03-2023")
+            );
+
+            adoptionRepository.saveAll(
+                    List.of(adoption1,adoption2,adoption3,adoption4,adoption5,adoption6,adoption7,adoption8,adoption9,
+                            adoption10,adoption11,adoption12,adoption13,adoption14,adoption15)
+            );
 
         };
     }

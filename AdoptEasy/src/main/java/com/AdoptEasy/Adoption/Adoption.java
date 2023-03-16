@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -23,7 +25,7 @@ public class Adoption {
     @ManyToOne(cascade= CascadeType.DETACH)
     @JoinColumn(name="user_id")
     @JsonBackReference
-    private User userId;
+    private User user;
 
     @ManyToOne(cascade= CascadeType.DETACH)
     @JoinColumn(name="pet_id")
@@ -33,4 +35,35 @@ public class Adoption {
     @Column(name="current_status")
     private String currStatus;
 
+    @Column(name = "date_of_application")
+    private LocalDate dateOfApplication;
+
+    @Column(name = "start_date")
+    private LocalDate startDate;
+    @Column(name = "end_date")
+    private LocalDate endDate;
+
+    public Adoption(User user, Pet pet, String currStatus, LocalDate dateOfApplication) {
+        this.user = user;
+        this.pet = pet;
+        this.currStatus = currStatus;
+        this.dateOfApplication = dateOfApplication;
+    }
+
+    public Adoption(User user, Pet pet, String currStatus, LocalDate dateOfApplication, LocalDate startDate) {
+        this.user = user;
+        this.pet = pet;
+        this.currStatus = currStatus;
+        this.dateOfApplication = dateOfApplication;
+        this.startDate = startDate;
+    }
+
+    public Adoption(User user, Pet pet, String currStatus, LocalDate dateOfApplication, LocalDate startDate, LocalDate endDate) {
+        this.user = user;
+        this.pet = pet;
+        this.currStatus = currStatus;
+        this.dateOfApplication = dateOfApplication;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 }
