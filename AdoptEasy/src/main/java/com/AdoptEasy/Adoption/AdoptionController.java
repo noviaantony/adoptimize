@@ -69,4 +69,14 @@ public class AdoptionController{
         }
         adoptionRepository.deleteById(id);
     }
+
+    @PutMapping("setStartDate/{id}")
+    public void setStartDate(@PathVariable Long id) {
+        adoptionService.setStartDate(id);
+    }
+
+    @PutMapping("setEndDate/{id}")
+    public void setEndDate(@PathVariable Long id) {
+        adoptionService.setEndDate(id);
+    }
 }

@@ -3,6 +3,8 @@ package com.AdoptEasy.Adoption;
 import com.AdoptEasy.Adoption.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
 
@@ -37,5 +39,23 @@ public class AdoptionService {
             adoption.setCurrStatus(newAdoption.getCurrStatus());
             return adoptionRepository.save(adoption);
         }).orElse(null);
+    }
+
+    public void setStartDate(Long id) {
+        if (!adoptionRepository.existsById(id)) {
+            throw new AdoptionNotFoundException(id);
+        }
+        Adoption adoption = adoptionRepository.findById(id).get();
+        adoption.setStartDate(LocalDate.now());
+        adoptionRepository.save(adoption);
+    }
+
+    public void setEndDate(Long id) {
+        if (!adoptionRepository.existsById(id)) {
+            throw new AdoptionNotFoundException(id);
+        }
+        Adoption adoption = adoptionRepository.findById(id).get();
+        adoption.setEndDate(LocalDate.now());
+        adoptionRepository.save(adoption);
     }
 }
