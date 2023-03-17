@@ -28,4 +28,5 @@ public class ShelterQuestionaireSettings {
     @JoinColumn(name = "question_id")
     private PreScreeningQuestionnaire question;
 
+    private Boolean isSelected;
 }

@@ -41,6 +41,8 @@ public class PreScreeningQuestionnaire {
 
     private int scaleMin, scaleMax, scaleAnswer;
 
+    private boolean isDefault;
+
     @OneToMany(mappedBy = "question")
     private List<ShelterQuestionaireSettings> shelterQuestionaireSettings;
 

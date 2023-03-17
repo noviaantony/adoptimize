@@ -11,4 +11,12 @@ public class ShelterQuestionaireSettingsService {
     public ShelterQuestionaireSettingsService(ShelterQuestionaireSettingsRepository shelterQuestionaireSettingsRepository) {
         this.shelterQuestionaireSettingsRepository = shelterQuestionaireSettingsRepository;
     }
+
+    public void setDefaultSettings(Long userId){
+        //find all default questions
+        ShelterQuestionaireSettings shelterQuestionaireSettings = new ShelterQuestionaireSettings();
+        shelterQuestionaireSettings.setSettingsId(userId);
+        shelterQuestionaireSettings.setIsSelected(false);
+        shelterQuestionaireSettingsRepository.save(shelterQuestionaireSettings);
+    }
 }
