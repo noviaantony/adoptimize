@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Avatar,
-  Rate,
   Space,
   Table,
   Typography,
   Tag,
   Dropdown,
   message,
-  Button,
-  Form,
-  Radio,
-  Switch,
+  Modal,
+  Input 
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
 import petService from "../services/PetService";
+
+const { TextArea } = Input;
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -166,10 +164,21 @@ const sharedOnCell = (_, index) => {
   return {};
 };
 
+
+
 const AllPets = () => {
+
+  const [open, setOpen] = useState(false);
+  const showModal = () => {
+    setOpen(true);
+  };
+  const hideModal = () => {
+    setOpen(false);
+  };
 
   const [searchTerm, setSearchTerm] = useState("");
   const [pets, setPets] = useState([]);
+  const [value, setValue] = useState('');
 
     useEffect(() => {
         petService.getAllPets().then((res) => {
@@ -280,10 +289,29 @@ const AllPets = () => {
             <button
               className="ml-4 inline-flex items-center py-2 px-3 text-xs font-xs text-center text-[#354458] font-nunito bg-[#FDEDE1] rounded-lg  focus:outline-none transition duration-300 font-bold hover:text-[#FDEDE1] hover:bg-[#F7AF7A] rounded-4xl"
               type="button"
+              onClick={showModal}
             >
               Add Pet
               {/* <PlusCircleOutlined size={80} className="rounded-lg" /> */}
             </button>
+            <Modal
+              title="Add New Pet "
+              open={open}
+              onOk={hideModal}
+              onCancel={hideModal}
+              className="font-nunito"
+              // okText="确认"
+              // cancelText="取消"
+
+            >
+               <TextArea placeholder="Autosize height based on content lines" autoSize className="font-nunito"/>
+                <div
+                  style={{
+                    margin: '24px 0',
+                  }}
+                />
+              
+            </Modal>
           </div>
         </div>
       </form>
