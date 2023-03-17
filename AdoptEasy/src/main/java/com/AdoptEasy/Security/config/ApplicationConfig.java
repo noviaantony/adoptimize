@@ -768,6 +768,65 @@ public class ApplicationConfig {
                     mcq_Qns2
             );
 
+            // Cat Experience Qns
+
+            PreScreeningQuestionnaire questionnaire12 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "What breeds of cats have you owned in the past?"
+            );
+
+            PreScreeningQuestionnaire questionnaire13 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "What challenges have you faced when owning a cat?"
+            );
+
+            PreScreeningQuestionnaire questionnaire14 = new PreScreeningQuestionnaire(
+                    QuestionType.SCALE,
+                    "What is your experience with litter box training? From a scale of 1 to 5, " +
+                            "5 being the most experienced",
+                    1,
+                    5
+            );
+
+            PreScreeningQuestionnaire questionnaire15 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "What type of house do you live in?"
+            );
+
+            List<String> mcq_Qns3 = new ArrayList<String>();
+            mcq_Qns2.add("Rent");
+            mcq_Qns2.add("Own");
+
+            PreScreeningQuestionnaire questionnaire16 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Do you rent or own your home?",
+                    mcq_Qns3
+            );
+
+            PreScreeningQuestionnaire questionnaire17 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Do you have a backyard or outdoor space?",
+                    mcq_Qns2
+            );
+
+            PreScreeningQuestionnaire questionnaire21 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "How would you describe your lifestyle?"
+            );
+
+            PreScreeningQuestionnaire questionnaire22 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "How much time do you typically spend at home?"
+            );
+
+            PreScreeningQuestionnaire questionnaire23 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Do you travel frequently?",
+                    mcq_Qns2
+            );
+
+
+
         };
     }
 }
