@@ -41,13 +41,13 @@ public class PreScreeningQuestionnaire {
 
     private int scaleMin, scaleMax, scaleAnswer;
 
-    private boolean isDefault;
+    private boolean isDefault = true;
 
     @OneToMany(mappedBy = "question")
     private List<ShelterQuestionaireSettings> shelterQuestionaireSettings;
 
     //mcq
-    public PreScreeningQuestionnaire(Long Id, QuestionType questionType, List<String> mcq, String answer) {
+    public PreScreeningQuestionnaire(Long Id, QuestionType questionType, List<String> mcq, String answer){
         this.Id = Id;
         this.questionType = questionType;
         this.mcq = mcq;
