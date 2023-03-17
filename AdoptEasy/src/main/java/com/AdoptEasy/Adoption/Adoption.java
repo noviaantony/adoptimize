@@ -5,6 +5,7 @@ import com.AdoptEasy.Pet.Pet;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,11 +37,14 @@ public class Adoption {
 
     @ManyToOne(cascade= CascadeType.DETACH)
     @JoinColumn(name="pet_id")
-//    @JsonBackReference
+    @JsonManagedReference
     private Pet pet;
 
     @Column(name="current_status")
     private String currStatus;
+
+    @Column(name="phase_of_adoption")
+    private String phaseOfAdoption = PhaseOfAdoption.PRESCREENING.toString();
 
     @Column(name = "date_of_application")
     private LocalDate dateOfApplication;

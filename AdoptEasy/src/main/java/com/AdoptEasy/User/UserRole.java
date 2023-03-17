@@ -1,6 +1,7 @@
 package com.AdoptEasy.User;
 
 public enum UserRole {
-    USER,
+    ADOPTER,
+    SHELTER,
     ADMIN
 }

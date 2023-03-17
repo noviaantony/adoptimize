@@ -100,4 +100,9 @@ public class UserService implements UserDetailsService {
                 new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
         return jwtService.generateToken(user); //generate and return the jwt token to the user
     }
+
+    public User getUserById(Long userId) throws UserNotFoundException {
+        return userRepository.findById(userId).orElseThrow(() ->
+                new UserNotFoundException("User with id " + userId + " was not found"));
+    }
 }

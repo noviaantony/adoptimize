@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {
   Avatar,
   Rate,
@@ -16,6 +16,8 @@ import {
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
+import petService from "../services/PetService";
+import adoptionService from "../services/AdoptionService";
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -33,44 +35,38 @@ const contentStyle = {
 const columns = [
   {
     title: "Adopter ID",
-    dataIndex: "adopterId",
-    key: "adopterId",
+    dataIndex: "id",
+    key: "id",
     render: (text) => <a>{text}</a>,
   },
   {
     title: "Adopter's Name",
-    dataIndex: "name",
-    key: "name",
+    dataIndex: "adopterName",
+    key: "adopterName",
     render: (text) => <Link to="/AdoptionDetails">{text}</Link>,
   },
   {
     title: "Date of Application",
-    dataIndex: "date",
-    key: "date",
+    dataIndex: "dateOfApplication",
+    key: "dateOfApplication",
   },
   {
     title: "Status",
-    key: "status",
-    dataIndex: "status",
-    render: (_, { statuses }) => (
-      <>
-        {statuses.map((tag) => {
-          let color = "green";
-          
-
-          if (tag === "in progress") {
-            color = "green";
-          } else if (tag === "rejected") {
-            color = "red";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    key: "currStatus",
+    dataIndex: "currStatus",
+    render: (currStatus) => {
+      let color = "";
+      if (currStatus === "In Progress") {
+        color = "green";
+      } else if (currStatus === "New") {
+        color = "blue";
+      } else if (currStatus === "Cancelled") {
+        color = "grey";
+      } else {
+        color = "red";
+      }
+      return <Tag color={color}>{currStatus.toUpperCase()}</Tag>;
+    },
   },
   {
     title: "",
@@ -120,11 +116,62 @@ const items = [
 const PetDetails = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
+  const[petDetails, setPetDetails] = useState([]);
+    const[petAdoptions, setPetAdoptions] = useState([]);
+    let statusNew = 0;
+    let statusInProgress = 0;
+    let statusWithdrawn = 0;
+    let statusRejected = 0;
+  const { petId } = useParams();
 
+  function countStatuses() {
+    for (let i = 0; i < petAdoptions.length; i++) {
+
+        if (petAdoptions[i].currStatus === "New") {
+            statusNew++;
+        } else if (petAdoptions[i].currStatus === "In Progress") {
+          console.log(petAdoptions[i].currStatus)
+            statusInProgress++;
+        } else if (petAdoptions[i].currStatus === "Withdrawn") {
+            statusWithdrawn++;
+        } else if (petAdoptions[i].currStatus === "Rejected") {
+          console.log(petAdoptions[i].currStatus)
+            statusRejected++;
+        }
+    }
+  }
+
+
+  useEffect(() => {
+    petService.getPetById(petId).then((res) => {
+        setPetDetails(res);
+      // console.log(res);
+    });
+    }, []);
+
+  useEffect(() => {
+        adoptionService.getPetAdoptions(petId).then((res) => {
+          setPetAdoptions(res);
+          console.log("pet adoptions")
+          console.log(res);
+
+        });
+  }, []);
+
+  useEffect(() => {
+    console.log(petDetails);
+  }, [petDetails]);
+
+  useEffect(() => {
+    // console.log("petAdoptions")
+    console.log(petAdoptions);
+
+  }, [petAdoptions]);
+  countStatuses();
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
-
+  console.log(petId);
 
   return (
     <Space direction="vertical table">
@@ -159,8 +206,8 @@ const PetDetails = () => {
         <div class="w-1/6 font-default mr-4">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 4 </h1>
-              <h5 class="text-xs text-center">Currently In-Progres </h5>
+              <h1 class="text-4xl text-center font-bold"> {statusNew} </h1>
+              <h5 class="text-xs text-center">New Applications </h5>
             </div>
           </div>
         </div>
@@ -168,17 +215,17 @@ const PetDetails = () => {
         <div class="w-1/6 font-default mr-4">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 2 </h1>
+              <h1 class="text-4xl text-center font-bold"> {statusInProgress} </h1>
+              <h5 class="text-xs text-center"> Application In Progress </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-1/6 font-default mr-4">
+          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
+            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
+              <h1 class="text-4xl text-center font-bold"> {statusWithdrawn} </h1>
               <h5 class="text-xs text-center"> Withdrawn </h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-1/6 font-default mr-4">
-          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
-            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 2 </h1>
-              <h5 class="text-xs text-center"> Rejected </h5>
             </div>
           </div>
         </div>
@@ -186,8 +233,8 @@ const PetDetails = () => {
         <div class="w-1/6 font-default ">
           <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
             <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 1 </h1>
-              <h5 class="text-xs text-center"> Cancelled </h5>
+              <h1 class="text-4xl text-center font-bold"> {statusRejected} </h1>
+              <h5 class="text-xs text-center"> Rejected </h5>
             </div>
           </div>
         </div>
@@ -197,24 +244,12 @@ const PetDetails = () => {
         <Image
           width={800}
           className="rounded-xl mr-5"
-          src="https://images.unsplash.com/photo-1592652426689-4e4f12c4aef5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2lhbWVzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          src={petDetails.imageAddress}
         />
         <div className="w-5/6 bg-white ml-16 rounded-2xl">
           <h1 className="m-5 font-bold">Description</h1>
           <p className="m-5">
-            Hello, humans! My name is Timothée and I'm a playful cat with PICA.
-            I wanted to introduce myself so you can get to know me a little
-            better. I absolutely love to play! Whether it's chasing a toy or
-            batting around a string, I'm always up for some fun. And even though
-            I have this odd habit of chewing on non-food items, I promise I'm
-            still just as lovable and cuddly as any other cat. I'm a curious
-            little feline who loves to explore my surroundings, but I'm also
-            quite content just curling up next to my favorite human for a good
-            nap. And of course, I always enjoy a good scratch behind the ears or
-            a gentle belly rub. If you're looking for a new furry friend who
-            will keep you on your toes and make you laugh with their playful
-            antics, then look no further than Timothée! Come visit me at the
-            shelter and let's see if we're a purrfect match.
+            {petDetails.description}
           </p>
 
           {/*  adoption fee, date joined */}
@@ -222,31 +257,30 @@ const PetDetails = () => {
           <div className="grid grid-cols-2">
             <div>
               <h2 className="m-5">
-                <b>Name: </b>Timothee Catlamet
+                <b>Name: </b>{petDetails.name}
               </h2>
               <h2 className="m-5">
-                <b>Id: </b>A1235
+                <b>Id: </b>{petDetails.petId}
               </h2>
               <h2 className="m-5">
-                <b>Breed: </b>Siamese x Persian
+                <b>Breed: </b>{petDetails.breed}
               </h2>
               <h2 className="m-5">
-                <b>Age: </b>1 year(s)
+                <b>Age: </b>{petDetails.age}
               </h2>
             </div>
             <div>
               <h2 className="m-5">
-                <b>Weight: </b>4.5kg
+                <b>Weight: </b>{(petDetails.weight/2.2).toFixed(2)} kg
               </h2>
               <h2 className="m-5">
-                <b>Medical Details: </b>Fully Vaccinated, FIV Negative, Slight
-                PICA Tendency
+                <b>Medical Details: </b>{petDetails.medical}
               </h2>
               <h2 className="m-5">
-                <b>Adoption Fee: </b> 120 SGD
+                <b>Adoption Fee: </b> {petDetails.adoptionFee} SGD
               </h2>
               <h2 className="m-5">
-                <b>Date Joined: </b>12/01/2023
+                <b>Date Joined: </b> {petDetails.dateJoined}
               </h2>
             </div>
           </div>
@@ -294,15 +328,12 @@ const PetDetails = () => {
       </form>
       <Table
         columns={columns}
-        dataSource={data.filter((val) => {
-          if (searchTerm == "") {
+        dataSource={petAdoptions.filter((val) => {
+          if (searchTerm === "") {
+            console.log("this is the value" + val)
             return val;
           } else if (
-            val.name.toLowerCase().includes(searchTerm.toLowerCase())
-          ) {
-            return val;
-          } else if (
-            val.adopterId.toLowerCase().includes(searchTerm.toLowerCase())
+            val.adopterName.toLowerCase().includes(searchTerm.toLowerCase())
           ) {
             return val;
           }

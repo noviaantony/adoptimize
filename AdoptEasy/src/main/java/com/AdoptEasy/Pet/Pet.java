@@ -4,6 +4,7 @@ import java.time.*;
 import java.util.List;
 
 import com.AdoptEasy.Adoption.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -20,9 +21,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "petId")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "petId")
 public class Pet {
     @Id
     @SequenceGenerator(name="pet_sequence", sequenceName="pet_sequence", allocationSize=1)
@@ -60,7 +61,7 @@ public class Pet {
     private Double adoptionFee;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonBackReference
     private List<Adoption> adoptionList;
 
     public Pet (String name, String breed, int age, LocalDate dateJoined, LocalDate birthday, String medical, String status, String imageAddress, String description, Double weight, Double  adoptionFee){

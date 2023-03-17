@@ -45,7 +45,7 @@ const Prescreening = () => {
     {
       tab: `Household Information`,
       key: 2,
-      content: <Homebased/>,
+      content: <Household/>,
     },
     {
       tab: `Lifestyle Information`,

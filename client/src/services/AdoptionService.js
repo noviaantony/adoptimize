@@ -7,5 +7,9 @@ class AdoptionService {
         const response = await axios.get(ADOPTION_API_URL + "getAllAdoptions");
         return response.data;
     }
+    async getPetAdoptions(petId) {
+        const response = await axios.get(ADOPTION_API_URL+"getAdoptionByPet/"+petId);
+        return response.data;
+    }
 }
 export default new AdoptionService();

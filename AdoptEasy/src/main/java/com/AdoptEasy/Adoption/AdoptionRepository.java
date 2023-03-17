@@ -17,4 +17,6 @@ public interface AdoptionRepository extends JpaRepository <Adoption, Long>{
 //    Optional<User> findByUserId(Long userId);
 //    Optional<Pet> findByPetId(Long petId);
     Optional<Adoption> findByIdAndPet(Long id, Pet pet);
+
+    List<Adoption> findAllByPet(Pet pet);
 }

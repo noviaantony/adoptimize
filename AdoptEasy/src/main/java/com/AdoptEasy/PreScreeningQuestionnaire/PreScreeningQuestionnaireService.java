@@ -36,4 +36,9 @@ public class PreScreeningQuestionnaireService {
     public List<PreScreeningQuestionnaire> getAllQuestions() {
         return preScreeningQuestionnaireRepository.findAll();
     }
+
+    public List<PreScreeningQuestionnaire> getDefaultQuestions() {
+        return preScreeningQuestionnaireRepository.findAllByDefaultSettingTrue();
+    }
+
 }

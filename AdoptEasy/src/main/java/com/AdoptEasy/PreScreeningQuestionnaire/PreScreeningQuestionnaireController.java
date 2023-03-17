@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/AdoptEasy/PreScreeningQuestionnaire")
+@CrossOrigin(origins = "*")
 public class PreScreeningQuestionnaireController {
     private final PreScreeningQuestionnaireService preScreeningQuestionnaireService;
 
@@ -37,7 +38,6 @@ public class PreScreeningQuestionnaireController {
         return preScreeningQuestionnaireService.getAllQuestions();
     }
 
-
     @PostMapping("/addMCQQuestion")
     public PreScreeningQuestionnaire saveMCQQuestion(PreScreeningQuestionnaire mcqQuestion) {
         return preScreeningQuestionnaireService.saveMCQQuestion(mcqQuestion);
@@ -60,4 +60,5 @@ public class PreScreeningQuestionnaireController {
         }
         preScreeningQuestionnaireRepository.deleteById(id);
     }
+
 }

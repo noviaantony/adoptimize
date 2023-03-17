@@ -22,9 +22,10 @@ public class AdoptionController{
     AdoptionRepository adoptionRepository;
     PetRepository petRepository;
 
-    public AdoptionController(AdoptionRepository adoptionRepository, AdoptionService adoptionService) {
+    public AdoptionController(AdoptionRepository adoptionRepository, AdoptionService adoptionService, PetRepository petRepository){
         this.adoptionRepository = adoptionRepository;
         this.adoptionService = adoptionService;
+        this.petRepository = petRepository;
     }
 
     // returns list of all adoptions
@@ -40,6 +41,16 @@ public class AdoptionController{
             throw new AdoptionNotFoundException(id);
         }
         return adoptionService.getAdoption(id);
+    }
+
+    // return adoption by petId
+    @GetMapping("getAdoptionByPet/{pet_id}")
+    public ResponseEntity<List<Adoption>> getAdoptionByPet(@PathVariable Long pet_id){
+//        if(!petRepository.existsById(pet_id)){
+//            throw new PetNotFoundException(pet_id);
+//        }
+        Pet pet = petRepository.findPetByPetId(pet_id);
+        return ResponseEntity.ok(adoptionService.getAdoptionByPet(pet));
     }
 
     // updates adoption status by petId and id of the adoption

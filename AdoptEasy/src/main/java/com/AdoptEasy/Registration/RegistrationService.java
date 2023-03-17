@@ -44,7 +44,7 @@ public class RegistrationService {
                         request.getLastName(),
                         request.getEmail(),
                         request.getPassword(),
-                        UserRole.USER
+                        UserRole.SHELTER
                 )
         );
 

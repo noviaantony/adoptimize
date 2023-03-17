@@ -1,31 +1,28 @@
-import React, { useState } from "react";
-import "../../App.css";
+import React, {useEffect, useState} from "react";
+import "../../App.css"
 import { Input } from "antd";
 import cx from "classnames";
-
-// Lifestyle questions
-const lifestyleQuestions = [
-  {
-    question: "How would you describe your lifestyle?",
-    type: "shortAns",
-  },
-  {
-    question: "How much time do you typically spend at home?",
-    type: "scale",
-    min: "Less than 4 hours",
-    max: "More than 12 hours",
-  },
-  {
-    question: "Do you travel frequently?",
-    type: "multipleChoice",
-    choices: ["Yes", "No"],
-  },
-];
+import adoptionService from "../../services/AdoptionService";
+import preScreeningQuestionService from "../../services/PreScreeningQuestionService";
 
 const Lifestyle = () => {
+  const [personalQuestions, setPersonalQuestions] = useState([])
+  useEffect(() => {
+    preScreeningQuestionService.getPreScreeningQuestionnaire().then((res) => {
+      console.log("retrieving personal questions");
+      setPersonalQuestions(res.data);
+    });
+  }, []);
+
+
   const [checkedList, setCheckedList] = useState(
-    new Array(lifestyleQuestions.length).fill(false)
+      new Array(personalQuestions.length).fill(false)
   );
+
+  useEffect(() => {
+    console.log("personal questions: ", personalQuestions)
+    // console.log("filtered questions: ", filteredQuestions);
+  }, [personalQuestions]);
 
   const handleCheckboxChange = (index) => {
     const updatedCheckedList = [...checkedList];
@@ -33,81 +30,84 @@ const Lifestyle = () => {
     setCheckedList(updatedCheckedList);
   };
 
+
   return (
-    <>
-      <div className="font-nunito">
-        {lifestyleQuestions.map((question, index) => (
-          <div
-            key={index}
-            className={cx("rounded-lg shadow-md p-6 mb-4", {
-              "bg-[#fdede1]": checkedList[index],
-              "bg-white": !checkedList[index],
-            })}
-          >
-            <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold mb-4">
-                <label htmlFor={`question-${index}`} className="mr-2">
-                  {question.question}
-                </label>
-              </h2>
-              <input
-                type="checkbox"
-                checked={checkedList[index]}
-                onChange={() => handleCheckboxChange(index)}
-              />
-            </div>
+      <>
+        <div className="font-nunito">
+          {personalQuestions.filter((val)=>val.questionCategory === "LIFESTYLE").map((question, index) => (
+              <div
+                  key={index}
+                  className={cx("rounded-lg shadow-md p-6 mb-4", {
+                    "bg-[#fdede1]": checkedList[index],
+                    "bg-white": !checkedList[index],
+                  })}
+              >
+                <div className="flex justify-between items-center">
+                  <h2 className="text-xl font-bold mb-4">
+                    <label htmlFor={`question-${index}`} className="mr-2">
+                      {question.question}
+                    </label>
+                  </h2>
+                  <input
+                      type="checkbox"
+                      checked={checkedList[index]}
+                      onChange={() => handleCheckboxChange(index)}
+                  />
+                </div>
 
-            {question.type === "multipleChoice" && (
-              <div className="flex justify-between items-center">
-                <div className="text-sm font-medium text-gray-600">
-                  {question.choices[0]}
-                </div>
-                <input
-                  type="radio"
-                  id={`question-${index}-yes`}
-                  name={`question-${index}`}
-                  value="yes"
-                  className="mr-2"
-                />
-                <div className="text-sm font-medium text-gray-600">
-                  {question.choices[1]}
-                </div>
-                <input
-                  type="radio"
-                  id={`question-${index}-no`}
-                  name={`question-${index}`}
-                  value="no"
-                  className="mr-2"
-                />
-              </div>
-            )}
+                {question.questionType === "MCQ" && (
+                    <div className=" items-center">
+                      {(() => {
+                        const elements = [];
+                        for (let i = 0; i < question.mcq.length; i++) {
+                          const option = question.mcq[i];
+                          elements.push(
+                              <div key={i} className="flex items-center">
+                                <input
+                                    type="radio"
+                                    id={`question-${index}-option-${i}`}
+                                    name={`question-${index}`}
+                                    value={option}
+                                    className=" mr-2"
+                                />
+                                <label htmlFor={`question-${index}-option-${i}`} className=" text-sm font-medium text-gray-600">
+                                  {option}
+                                </label>
+                              </div>
+                          );
+                        }
+                        return elements;
+                      })()}
 
-            {question.type === "shortAns" && (
-              <div className="flex justify-between items-center mt-2">
-                {/* <input type="text" id={`question-${index}`} className="w-full" /> */}
-                <Input placeholder="Type your response..." />
-              </div>
-            )}
+                    </div>
+                )}
 
-            {question.type === "scale" && (
-              <div>
-                <div class="flex justify-between items-center">
-                  <div class="text-sm font-medium text-gray-600">
-                    {question.min}
-                  </div>
-                  <div class="text-sm font-medium text-gray-600">
-                    {question.max}
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <input type="range" min="1" max="5" class="w-full mr-2" />
-                </div>
+                {question.questionType === "SHORT_ANSWER" && (
+                    <div className="flex justify-between items-center mt-2">
+                      {/* <input type="text" id={`question-${index}`} className="w-full" /> */}
+                      <Input placeholder="Type your response..." />
+                    </div>
+                )}
+
+                {question.questionType === "SCALE" && (
+                    <div>
+                      <div class="flex justify-between items-center">
+                        <div class="text-sm font-medium text-gray-600">
+                          {question.scaleMin}
+                        </div>
+                        <div class="text-sm font-medium text-gray-600">
+                          {question.scaleMax}
+                        </div>
+                      </div>
+                      <div class="flex justify-between items-center mt-2">
+                        <input type="range" min={question.scaleMin} max={question.scaleMax} className="w-full mr-2"/>
+                      </div>
+                    </div>
+                )}
               </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </>
+          ))}
+        </div>
+      </>
   );
 };
 

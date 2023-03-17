@@ -101,32 +101,6 @@ const columns = [
   },
 ];
 
-
-const data = [
-  {
-    petId: "0001",
-    name: "Sir Meowington",
-    breed: "Orange Tabby",
-    date: "2021-01-01",
-    statuses: ["in shelter"],
-  },
-  {
-    petId: "0002",
-    name: "Timothee",
-    breed: "Siamese x Persian",
-    date: "12-01-2023",
-    statuses: ["in progress"],
-  },
-  {
-    petId: "0003",
-    name: "Catmila Cabello",
-    breed: "British Shorthair",
-    date: "12-01-2023",
-    statuses: ["waitlisted"],
-  },
-
-];
-
 const items = [
   {
     label: "Edit Pet Name",
@@ -178,7 +152,6 @@ const AllPets = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [pets, setPets] = useState([]);
-  const [value, setValue] = useState('');
 
     useEffect(() => {
         petService.getAllPets().then((res) => {
@@ -202,9 +175,7 @@ const AllPets = () => {
 
                 petsData.push(petData);
             }
-            // console.log(petsData)
             setPets(petsData);
-            // console.log(pets);
         });
     }, []);
 
@@ -221,34 +192,7 @@ const AllPets = () => {
         All Pets
       </Typography.Title>
 
-      <div className="flex mx-5">
-        <div class="w-1/6 font-default mr-4">
-          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
-            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 1 </h1>
-              <h5 class="text-xs text-center">Currently In-Progress</h5>
-            </div>
-          </div>
-        </div>
 
-        <div class="w-1/6 font-default mr-4">
-          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
-            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 1 </h1>
-              <h5 class="text-xs text-center"> Currently In-Shelter </h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-1/6 font-default ">
-          <div className="p-4 text-sm text-[#5e938780] bg-white rounded-lg flex items-stretch  drop-shadow-sm font-default cursor-pointer h-30 shadow-md">
-            <div className="ml-12 mt-2 text-xl text-center font-semibold text-gray-700 ">
-              <h1 class="text-4xl text-center font-bold"> 0 </h1>
-              <h5 class="text-xs text-center">Currently In-Waitlist</h5>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <form className="m-5 mx-50">
         <label
@@ -326,6 +270,16 @@ const AllPets = () => {
             return val;
           }
         })}
+        rowKey="id"
+        onRow={(record) => ({
+          onClick: () => {
+            // Redirect to another page with the ID prop
+
+              window.location.href = `/PetDetails/${record.petId}`;
+              // handleRowClick(record.petId)
+          },
+        })}
+
         components={{
           header: {
             cell: (props) => (

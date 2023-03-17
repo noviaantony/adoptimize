@@ -1,6 +1,8 @@
 package com.AdoptEasy.Adoption;
 
 import com.AdoptEasy.Adoption.*;
+import com.AdoptEasy.Pet.Pet;
+import com.AdoptEasy.Pet.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +14,12 @@ import java.util.function.Function;
 public class AdoptionService {
 
     AdoptionRepository adoptionRepository;
+    PetService petService;
 
     @Autowired
-    public AdoptionService(AdoptionRepository adoptionRepository){
+    public AdoptionService(AdoptionRepository adoptionRepository, PetService petService){
         this.adoptionRepository = adoptionRepository;
+        this.petService = petService;
     }
 
     public List<Adoption> listAdoptions(){
@@ -57,5 +61,11 @@ public class AdoptionService {
         Adoption adoption = adoptionRepository.findById(id).get();
         adoption.setEndDate(LocalDate.now());
         adoptionRepository.save(adoption);
+    }
+
+    public List<Adoption> getAdoptionByPet(Pet pet) {
+
+
+        return adoptionRepository.findAllByPet(pet);
     }
 }

@@ -62,8 +62,8 @@ public class User implements UserDetails {
     @JsonManagedReference
     private List<Adoption> adoptionList;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<ShelterQuestionaireSettings> shelterQuestionaireSettingsList;
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+//    private List<ShelterQuestionaireSettings> shelterQuestionaireSettingsList;
 
 
     public User(String firstName, String lastName, String email, String password, UserRole userRole) {

@@ -1,52 +1,28 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "../../App.css"
 import { Input } from "antd";
 import cx from "classnames";
-
-
-// Personal questions
-const personalQuestions = [
-  {
-    question: 'Name',
-    type: 'shortAns'
-  },
-  {
-    question: 'Age',
-    type: 'shortAns'
-  },
-  {
-    question: 'Email Address',
-    type: 'shortAns'
-  },
-  {
-    question: 'Contact Number',
-    type: 'shortAns'
-  },
-  {
-    question: 'Preffered Contact Days',
-    type: 'multipleChoice',
-    choices: ['Monday', 'Tuesday']
-  },
-  {
-    question: 'Have you ever owned a cat before?',
-    type: 'multipleChoice',
-    choices: ['Yes', 'No']
-  },
-  {
-    question: 'Why do you want to adopt a cat?',
-    type: 'shortAns'
-  },
-  {
-    question: 'What qualities are you looking for in a cat?',
-    type: 'shortAns'
-  }
-];
-
+import adoptionService from "../../services/AdoptionService";
+import preScreeningQuestionService from "../../services/PreScreeningQuestionService";
 
 const Personal = () => {
+  const [personalQuestions, setPersonalQuestions] = useState([])
+    const [filteredQuestions, setFilteredQuestions] = useState([])
+  useEffect(() => {
+    preScreeningQuestionService.getPreScreeningQuestionnaire().then((res) => {
+        console.log("retrieving personal questions");
+        setPersonalQuestions(res.data);
+
+    });
+  }, []);
+
   const [checkedList, setCheckedList] = useState(
-    new Array(personalQuestions.length).fill(false)
+      new Array(personalQuestions.length).fill(false)
   );
+
+  useEffect(() => {
+    console.log("personal questions: ", personalQuestions)
+  }, [personalQuestions]);
 
   const handleCheckboxChange = (index) => {
     const updatedCheckedList = [...checkedList];
@@ -54,10 +30,11 @@ const Personal = () => {
     setCheckedList(updatedCheckedList);
   };
 
+
   return (
     <>
       <div className="font-nunito">
-        {personalQuestions.map((question, index) => (
+        {personalQuestions.filter((val)=>val.questionCategory === "PERSONAL").map((question, index) => (
           <div
             key={index}
             className={cx("rounded-lg shadow-md p-6 mb-4", {
@@ -78,51 +55,52 @@ const Personal = () => {
               />
             </div>
 
-            {question.type === "multipleChoice" && (
-              <div className="flex justify-between items-center">
-                <div className="text-sm font-medium text-gray-600">
-                  {question.choices[0]}
-                </div>
-                <input
-                  type="radio"
-                  id={`question-${index}-yes`}
-                  name={`question-${index}`}
-                  value="yes"
-                  className="mr-2"
-                />
-                <div className="text-sm font-medium text-gray-600">
-                  {question.choices[1]}
-                </div>
-                <input
-                  type="radio"
-                  id={`question-${index}-no`}
-                  name={`question-${index}`}
-                  value="no"
-                  className="mr-2"
-                />
-                
+            {question.questionType === "MCQ" && (
+              <div className=" items-center">
+                  {(() => {
+                      const elements = [];
+                      for (let i = 0; i < question.mcq.length; i++) {
+                          const option = question.mcq[i];
+                          elements.push(
+                              <div key={i} className="flex items-center">
+                                  <input
+                                      type="radio"
+                                      id={`question-${index}-option-${i}`}
+                                      name={`question-${index}`}
+                                      value={option}
+                                      className=" mr-2"
+                                  />
+                                  <label htmlFor={`question-${index}-option-${i}`} className=" text-sm font-medium text-gray-600">
+                                      {option}
+                                  </label>
+                              </div>
+                          );
+                      }
+                      return elements;
+                  })()}
+
               </div>
             )}
 
-            {question.type === "shortAns" && (
+            {question.questionType === "SHORT_ANSWER" && (
               <div className="flex justify-between items-center mt-2">
                 {/* <input type="text" id={`question-${index}`} className="w-full" /> */}
                 <Input placeholder="Type your response..." />
               </div>
             )}
 
-            {question.type === "scale" && (
+            {question.questionType === "SCALE" && (
               <div>
                 <div class="flex justify-between items-center">
                   <div class="text-sm font-medium text-gray-600">
-                    {question.min}
+                    {question.scaleMin}
                   </div>
                   <div class="text-sm font-medium text-gray-600">
-                    {question.max}
+                    {question.scaleMax}
                   </div>
                 </div>
                 <div class="flex justify-between items-center mt-2">
-                  <input type="range" min="1" max="5" class="w-full mr-2" />
+                  <input type="range" min={question.scaleMin} max={question.scaleMax} className="w-full mr-2"/>
                 </div>
               </div>
             )}

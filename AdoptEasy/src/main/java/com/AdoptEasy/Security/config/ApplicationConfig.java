@@ -5,9 +5,12 @@ import com.AdoptEasy.Adoption.Adoption;
 import com.AdoptEasy.Adoption.AdoptionRepository;
 import com.AdoptEasy.Pet.Pet;
 import com.AdoptEasy.Pet.PetRepository;
+import com.AdoptEasy.PreScreeningQuestionnaire.*;
 import com.AdoptEasy.PreScreeningQuestionnaire.PreScreeningQuestionnaire;
-import com.AdoptEasy.PreScreeningQuestionnaire.PreScreeningQuestionnaireRepository;
 import com.AdoptEasy.PreScreeningQuestionnaire.QuestionType;
+import com.AdoptEasy.ShelterQuestionaireSettings.ShelterQuestionaireSettings;
+import com.AdoptEasy.ShelterQuestionaireSettings.ShelterQuestionaireSettingsRepository;
+import com.AdoptEasy.ShelterQuestionaireSettings.ShelterQuestionaireSettingsService;
 import com.AdoptEasy.User.User;
 import com.AdoptEasy.User.UserRepository;
 import com.AdoptEasy.User.UserRole;
@@ -60,7 +63,8 @@ public class ApplicationConfig {
 
     @Bean
     CommandLineRunner commandLineRunner(UserRepository repository, PetRepository petRepository,
-                                        AdoptionRepository adoptionRepository, PreScreeningQuestionnaireRepository preScreeningQuestionnaireRepository){
+                                        AdoptionRepository adoptionRepository, PreScreeningQuestionnaireRepository preScreeningQuestionnaireRepository,
+                                        ShelterQuestionaireSettingsService  shelterQuestionaireSettingsService, ShelterQuestionaireSettingsRepository shelterQuestionaireSettingsRepository) {
         //create dummy users
         String encodedPassword = bCryptPasswordEncoder().encode("123");
         return args -> {
@@ -69,7 +73,7 @@ public class ApplicationConfig {
                     "Chen",
                     "chenzhaoxing.98@gmail.com",
                     encodedPassword,
-                    UserRole.ADMIN
+                    UserRole.ADOPTER
             );
 
             User Jane = new User(
@@ -77,7 +81,7 @@ public class ApplicationConfig {
                     "Doe",
                     "JaneDoe@example.com",
                     encodedPassword,
-                    UserRole.ADMIN
+                    UserRole.ADOPTER
             );
 
             User John = new User(
@@ -85,7 +89,7 @@ public class ApplicationConfig {
                     "Doe",
                     "JohnDoe@example.com",
                     encodedPassword,
-                    UserRole.ADMIN
+                    UserRole.ADOPTER
             );
 
             User Kendrick = new User(
@@ -93,7 +97,7 @@ public class ApplicationConfig {
                     "Lemar",
                     "KendrickLemar@example.com",
                     encodedPassword,
-                    UserRole.ADMIN
+                    UserRole.ADOPTER
             );
 
             User Jack = new User(
@@ -101,7 +105,15 @@ public class ApplicationConfig {
                     "Lee",
                     "JackLee@example.com",
                     encodedPassword,
-                    UserRole.ADMIN
+                        UserRole.ADOPTER
+            );
+            // Shelter
+            User shelter = new User(
+                    "Meow",
+                    "Shelter",
+                    "meowshelter@example.com",
+                    encodedPassword,
+                    UserRole.SHELTER
             );
 
 //            User tester = new User(
@@ -113,7 +125,7 @@ public class ApplicationConfig {
 //                    true
 //            );
             repository.saveAll(
-                    List.of(xz,Jane,John,Kendrick,Jack)
+                    List.of(xz,Jane,John,Kendrick,Jack, shelter)
             );
 
 
@@ -562,7 +574,7 @@ public class ApplicationConfig {
             Adoption adoption2 = new Adoption(
                     xz,
                     xz.getFirstName() + " " + xz.getLastName(),
-                    pet2,
+                    pet1,
                     "In Progress",
                     LocalDate.of(2023, 2, 12),
                     LocalDate.of(2023, 2, 14)
@@ -695,22 +707,26 @@ public class ApplicationConfig {
             // Personal Qns
             PreScreeningQuestionnaire questionnaire1 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "Name"
+                    "Name",
+                    QuestionCategory.PERSONAL
             );
 
             PreScreeningQuestionnaire questionnaire2 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "Age"
+                    "Age",
+                    QuestionCategory.PERSONAL
             );
 
             PreScreeningQuestionnaire questionnaire3 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "Email Address"
+                    "Email Address",
+                    QuestionCategory.PERSONAL
             );
 
             PreScreeningQuestionnaire questionnaire4 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "Contact Number"
+                    "Contact Number",
+                    QuestionCategory.PERSONAL
             );
 
             List<String> mcq_Qns1 = new ArrayList<String>();
@@ -725,7 +741,8 @@ public class ApplicationConfig {
             PreScreeningQuestionnaire questionnaire5 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Preferred Contact Days",
-                    mcq_Qns1
+                    mcq_Qns1,
+                    QuestionCategory.PERSONAL
             );
 
             List<String> mcq_Qns2 = new ArrayList<String>();
@@ -735,17 +752,20 @@ public class ApplicationConfig {
             PreScreeningQuestionnaire questionnaire6 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Have you ever owned a cat before?",
-                    mcq_Qns2
+                    mcq_Qns2,
+                    QuestionCategory.PERSONAL
             );
 
             PreScreeningQuestionnaire questionnaire7 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "Why do you want to adopt a cat?"
+                    "Why do you want to adopt a cat?",
+                    QuestionCategory.PERSONAL
             );
 
             PreScreeningQuestionnaire questionnaire8 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "What qualities are you looking for in a cat?"
+                    "What qualities are you looking for in a cat?",
+                    QuestionCategory.PERSONAL
             );
 
             // PetCare Qns
@@ -753,31 +773,36 @@ public class ApplicationConfig {
                     QuestionType.SCALE,
                     "How much time are you willing to spend on cat care? (In hours)",
                     1,
-                    3
+                    3,
+                    QuestionCategory.PETCARE
             );
 
             PreScreeningQuestionnaire questionnaire10 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Are you willing to provide regular veterinary care for your cat?",
-                    mcq_Qns2
+                    mcq_Qns2,
+                    QuestionCategory.PETCARE
             );
 
             PreScreeningQuestionnaire questionnaire11 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Are you willing to provide regular grooming for your cat?",
-                    mcq_Qns2
+                    mcq_Qns2,
+                    QuestionCategory.PETCARE
             );
 
             // Cat Experience Qns
 
             PreScreeningQuestionnaire questionnaire12 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "What breeds of cats have you owned in the past?"
+                    "What breeds of cats have you owned in the past?",
+                    QuestionCategory.CATEXPERIENCE
             );
 
             PreScreeningQuestionnaire questionnaire13 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "What challenges have you faced when owning a cat?"
+                    "What challenges have you faced when owning a cat?",
+                    QuestionCategory.CATEXPERIENCE
             );
 
             PreScreeningQuestionnaire questionnaire14 = new PreScreeningQuestionnaire(
@@ -785,47 +810,79 @@ public class ApplicationConfig {
                     "What is your experience with litter box training? From a scale of 1 to 5, " +
                             "5 being the most experienced",
                     1,
-                    5
+                    5,
+                    QuestionCategory.CATEXPERIENCE
             );
 
             PreScreeningQuestionnaire questionnaire15 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "What type of house do you live in?"
+                    "What type of house do you live in?",
+                    QuestionCategory.HOMEINFORMATION
             );
 
             List<String> mcq_Qns3 = new ArrayList<String>();
-            mcq_Qns2.add("Rent");
-            mcq_Qns2.add("Own");
+            mcq_Qns3.add("Rent");
+            mcq_Qns3.add("Own");
 
             PreScreeningQuestionnaire questionnaire16 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Do you rent or own your home?",
-                    mcq_Qns3
+                    mcq_Qns3,
+                    QuestionCategory.HOMEINFORMATION
             );
 
             PreScreeningQuestionnaire questionnaire17 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Do you have a backyard or outdoor space?",
-                    mcq_Qns2
+                    mcq_Qns2,
+                    QuestionCategory.HOMEINFORMATION
+            );
+
+            // household
+            PreScreeningQuestionnaire questionnaire18 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "How many adults live in your home?",
+                    QuestionCategory.HOUSEHOLD
+            );
+            PreScreeningQuestionnaire questionnaire19 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "How many children live in your home?",
+                    QuestionCategory.HOUSEHOLD
+            );
+
+            PreScreeningQuestionnaire questionnaire20 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Do you have any other pets?",
+                    mcq_Qns2,
+                    QuestionCategory.HOUSEHOLD
             );
 
             PreScreeningQuestionnaire questionnaire21 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "How would you describe your lifestyle?"
+                    "How would you describe your lifestyle?",
+                    QuestionCategory.LIFESTYLE
             );
 
             PreScreeningQuestionnaire questionnaire22 = new PreScreeningQuestionnaire(
                     QuestionType.SHORT_ANSWER,
-                    "How much time do you typically spend at home?"
+                    "How much time do you typically spend at home?",
+                    QuestionCategory.LIFESTYLE
             );
 
             PreScreeningQuestionnaire questionnaire23 = new PreScreeningQuestionnaire(
                     QuestionType.MCQ,
                     "Do you travel frequently?",
-                    mcq_Qns2
+                    mcq_Qns2,
+                    QuestionCategory.LIFESTYLE
             );
 
-
+            // save all questions
+            preScreeningQuestionnaireRepository.saveAll(
+                    List.of(questionnaire1,questionnaire2,questionnaire3,questionnaire4,questionnaire5,questionnaire6,
+                            questionnaire7,questionnaire8,questionnaire9,questionnaire10,questionnaire11,questionnaire12,
+                            questionnaire13,questionnaire14,questionnaire15,questionnaire16,questionnaire17,questionnaire18,
+                            questionnaire19,questionnaire20,questionnaire21,questionnaire22,questionnaire23)
+            );
 
         };
     }
