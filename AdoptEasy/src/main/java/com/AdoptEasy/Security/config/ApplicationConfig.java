@@ -5,6 +5,9 @@ import com.AdoptEasy.Adoption.Adoption;
 import com.AdoptEasy.Adoption.AdoptionRepository;
 import com.AdoptEasy.Pet.Pet;
 import com.AdoptEasy.Pet.PetRepository;
+import com.AdoptEasy.PreScreeningQuestionnaire.PreScreeningQuestionnaire;
+import com.AdoptEasy.PreScreeningQuestionnaire.PreScreeningQuestionnaireRepository;
+import com.AdoptEasy.PreScreeningQuestionnaire.QuestionType;
 import com.AdoptEasy.User.User;
 import com.AdoptEasy.User.UserRepository;
 import com.AdoptEasy.User.UserRole;
@@ -56,7 +59,8 @@ public class ApplicationConfig {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository repository, PetRepository petRepository, AdoptionRepository adoptionRepository){
+    CommandLineRunner commandLineRunner(UserRepository repository, PetRepository petRepository,
+                                        AdoptionRepository adoptionRepository, PreScreeningQuestionnaireRepository preScreeningQuestionnaireRepository){
         //create dummy users
         String encodedPassword = bCryptPasswordEncoder().encode("123");
         return args -> {
@@ -686,6 +690,82 @@ public class ApplicationConfig {
             adoptionRepository.saveAll(
                     List.of(adoption1,adoption2,adoption3,adoption4,adoption5,adoption6,adoption7,adoption8,adoption9,
                             adoption10,adoption11,adoption12,adoption13,adoption14,adoption15)
+            );
+
+            // Personal Qns
+            PreScreeningQuestionnaire questionnaire1 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "Name"
+            );
+
+            PreScreeningQuestionnaire questionnaire2 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "Age"
+            );
+
+            PreScreeningQuestionnaire questionnaire3 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "Email Address"
+            );
+
+            PreScreeningQuestionnaire questionnaire4 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "Contact Number"
+            );
+
+            List<String> mcq_Qns1 = new ArrayList<String>();
+            mcq_Qns1.add("Monday");
+            mcq_Qns1.add("Tuesday");
+            mcq_Qns1.add("Wednesday");
+            mcq_Qns1.add("Thursday");
+            mcq_Qns1.add("Friday");
+            mcq_Qns1.add("Saturday");
+            mcq_Qns1.add("Sunday");
+
+            PreScreeningQuestionnaire questionnaire5 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Preferred Contact Days",
+                    mcq_Qns1
+            );
+
+            List<String> mcq_Qns2 = new ArrayList<String>();
+            mcq_Qns2.add("Yes");
+            mcq_Qns2.add("No");
+
+            PreScreeningQuestionnaire questionnaire6 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Have you ever owned a cat before?",
+                    mcq_Qns2
+            );
+
+            PreScreeningQuestionnaire questionnaire7 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "Why do you want to adopt a cat?"
+            );
+
+            PreScreeningQuestionnaire questionnaire8 = new PreScreeningQuestionnaire(
+                    QuestionType.SHORT_ANSWER,
+                    "What qualities are you looking for in a cat?"
+            );
+
+            // PetCare Qns
+            PreScreeningQuestionnaire questionnaire9 = new PreScreeningQuestionnaire(
+                    QuestionType.SCALE,
+                    "How much time are you willing to spend on cat care? (In hours)",
+                    1,
+                    3
+            );
+
+            PreScreeningQuestionnaire questionnaire10 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Are you willing to provide regular veterinary care for your cat?",
+                    mcq_Qns2
+            );
+
+            PreScreeningQuestionnaire questionnaire11 = new PreScreeningQuestionnaire(
+                    QuestionType.MCQ,
+                    "Are you willing to provide regular grooming for your cat?",
+                    mcq_Qns2
             );
 
         };

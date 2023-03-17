@@ -39,6 +39,8 @@ public class PreScreeningQuestionnaire {
 
     private String answer;
 
+    private List<String> mcqAnswer;
+
     private int scaleMin, scaleMax, scaleAnswer;
 
     private boolean isDefault = true;
@@ -47,28 +49,47 @@ public class PreScreeningQuestionnaire {
     private List<ShelterQuestionaireSettings> shelterQuestionaireSettings;
 
     //mcq
-    public PreScreeningQuestionnaire(Long Id, QuestionType questionType, List<String> mcq, String answer){
-        this.Id = Id;
+    public PreScreeningQuestionnaire(QuestionType questionType, String question, List<String> mcq, List<String> mcqAnswer) {
         this.questionType = questionType;
+        this.question = question;
         this.mcq = mcq;
-        this.answer = answer;
+        this.mcqAnswer = mcqAnswer;
+    }
+
+    // MCQ w/o answers
+    public PreScreeningQuestionnaire(QuestionType questionType, String question, List<String> mcq) {
+        this.questionType = questionType;
+        this.question = question;
+        this.mcq = mcq;
     }
 
     //short answer
-    public PreScreeningQuestionnaire(Long Id, QuestionType questionType, String question, String answer) {
-        this.Id = Id;
+    public PreScreeningQuestionnaire(QuestionType questionType, String question, String answer) {
         this.questionType = questionType;
         this.question = question;
         this.answer = answer;
     }
 
+    // Short answer w/o answer
+    public PreScreeningQuestionnaire(QuestionType questionType, String question) {
+        this.questionType = questionType;
+        this.question = question;
+    }
+
     //scale
-    public PreScreeningQuestionnaire(Long Id, QuestionType questionType, String question, int scaleMin, int scaleMax, int scaleAnswer) {
-        this.Id = Id;
+    public PreScreeningQuestionnaire(QuestionType questionType, String question, int scaleMin, int scaleMax, int scaleAnswer) {
         this.questionType = questionType;
         this.question = question;
         this.scaleMin = scaleMin;
         this.scaleMax = scaleMax;
         this.scaleAnswer = scaleAnswer;
+    }
+
+    // Scale w/o answer
+    public PreScreeningQuestionnaire(QuestionType questionType, String question, int scaleMin, int scaleMax) {
+        this.questionType = questionType;
+        this.question = question;
+        this.scaleMin = scaleMin;
+        this.scaleMax = scaleMax;
     }
 }
