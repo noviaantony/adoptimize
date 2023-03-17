@@ -3,6 +3,8 @@ package com.AdoptEasy.User;
 
 import com.AdoptEasy.Adoption.Adoption;
 import com.AdoptEasy.Registration.Token.ConfirmationToken;
+import com.AdoptEasy.ShelterQuestionaireSettings.ShelterQuestionaireSettings;
+import com.AdoptEasy.ShelterQuestionaireSettings.ShelterQuestionaireSettingsController;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -59,6 +61,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Adoption> adoptionList;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<ShelterQuestionaireSettings> shelterQuestionaireSettingsList;
 
 
     public User(String firstName, String lastName, String email, String password, UserRole userRole) {

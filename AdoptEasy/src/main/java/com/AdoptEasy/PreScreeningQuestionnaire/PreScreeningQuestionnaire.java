@@ -1,5 +1,8 @@
 package com.AdoptEasy.PreScreeningQuestionnaire;
 
+import com.AdoptEasy.ShelterQuestionaireSettings.ShelterQuestionaireSettings;
+import com.AdoptEasy.User.User;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +28,6 @@ public class PreScreeningQuestionnaire {
             strategy = GenerationType.SEQUENCE,
             generator = "question_sequence"
     )
-
     private Long Id;
 
     private String question;
@@ -38,6 +40,9 @@ public class PreScreeningQuestionnaire {
     private String answer;
 
     private int scaleMin, scaleMax, scaleAnswer;
+
+    @OneToMany(mappedBy = "question")
+    private List<ShelterQuestionaireSettings> shelterQuestionaireSettings;
 
     //mcq
     public PreScreeningQuestionnaire(Long Id, QuestionType questionType, List<String> mcq, String answer) {

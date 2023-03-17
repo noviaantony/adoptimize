@@ -32,6 +32,12 @@ public class PreScreeningQuestionnaireController {
         return preScreeningQuestionnaireService.getQuestionById(id);
     }
 
+    @GetMapping(path="/getAllQuestions")
+    public List<PreScreeningQuestionnaire> getAllQuestions(){
+        return preScreeningQuestionnaireService.getAllQuestions();
+    }
+
+
     @PostMapping("/addMCQQuestion")
     public PreScreeningQuestionnaire saveMCQQuestion(PreScreeningQuestionnaire mcqQuestion) {
         return preScreeningQuestionnaireService.saveMCQQuestion(mcqQuestion);

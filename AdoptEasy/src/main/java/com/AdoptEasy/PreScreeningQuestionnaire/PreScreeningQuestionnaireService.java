@@ -32,4 +32,8 @@ public class PreScreeningQuestionnaireService {
     public void deleteQuestion(Long id){
         preScreeningQuestionnaireRepository.deleteById(id);
     }
+
+    public List<PreScreeningQuestionnaire> getAllQuestions() {
+        return preScreeningQuestionnaireRepository.findAll();
+    }
 }
