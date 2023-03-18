@@ -60,10 +60,14 @@ const columns = [
         color = "green";
       } else if (currStatus === "New") {
         color = "blue";
-      } else if (currStatus === "Cancelled") {
-        color = "grey";
-      } else {
+      } else if (currStatus === "Pending Collection") {
+        color = "purple";
+      } else if (currStatus === "Withdrawn"){
+        color = "yellow";
+      } else if (currStatus === "Rejected"){
         color = "red";
+      } else if(currStatus === "Completed"){
+        color = "pink";
       }
       return <Tag color={color}>{currStatus.toUpperCase()}</Tag>;
     },
@@ -216,6 +220,13 @@ const InProgress = () => {
                   return val;
                 }
               }
+            })}
+            rowKey="id"
+            onRow={(record) => ({
+              onClick: () => {
+                // Redirect to another page with the ID prop
+                window.location.href = `/AdoptionDetails/${record.id}`;
+              },
             })}
             components={{
               header: {

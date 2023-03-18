@@ -28,4 +28,10 @@ public class ShelterQuestionaireSettingsController {
         return new ResponseEntity<>(shelterQuestionaireSettingsService.getAllUserSettings(userId), HttpStatus.OK);
     }
 
+    @PutMapping(path="/updateUserSettings")
+    public ResponseEntity<String> updateUserSettings(@RequestParam Long userId, @RequestBody ShelterQuestionaireSettings shelterQuestionaireSettings) throws UserNotFoundException {
+        shelterQuestionaireSettingsService.updateUserSettings(userId, shelterQuestionaireSettings);
+        return new ResponseEntity<>("User settings updated", HttpStatus.OK);
+    }
+
 }

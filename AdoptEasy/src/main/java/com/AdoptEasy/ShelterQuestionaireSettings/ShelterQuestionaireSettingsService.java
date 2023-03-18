@@ -44,4 +44,8 @@ public class ShelterQuestionaireSettingsService {
         List<ShelterQuestionaireSettings> shelterQuestionaireSettings = shelterQuestionaireSettingsRepository.findAllByUserId(userId);
         return shelterQuestionaireSettings;
     }
+
+    public void updateUserSettings(Long userId, ShelterQuestionaireSettings shelterQuestionaireSettings) {
+
+    }
 }

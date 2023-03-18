@@ -22,7 +22,7 @@ const AppRoutes = () => {
       <Route path="/PreScreeningQuestions" element={<Prescreening />} />
       <Route path="/AdoptionContract" element={<Contract2 />} />
       <Route path="/PetDetails/:petId" element={<PetDetails />} />
-      <Route path="/AdoptionDetails" element={<AdoptionDetail />} />
+      <Route path="/AdoptionDetails/:applicationId" element={<AdoptionDetail />} />
       <Route path="/Settings" element={<Settings />} />
     </Routes>
   );
