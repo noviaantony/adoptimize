@@ -4,19 +4,29 @@ import com.AdoptEasy.Pet.Pet;
 import com.AdoptEasy.Pet.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.*;
 
 @Service
 public class PetService {
+
+    private final PetRepository petRepository;
+
     @Autowired
-    private PetRepository petRepository;
+    public PetService(PetRepository petRepository){
+        this.petRepository = petRepository;
+    }
 
     public List<Pet> listPets(){
         return petRepository.findAll();
     }
 
-    public Pet addPet(Pet pet){
-        return petRepository.save(pet);
+    public Pet addPet(PetRequest pet){
+        Pet newPet = new Pet(pet.name(), pet.breed(), pet.age(), LocalDate.parse(pet.dateJoined()),
+                LocalDate.parse(pet.birthday()), pet.medical(), pet.status(),
+                pet.imageAddress(), pet.description(), pet.weight(), pet.adoptionFee());
+        return petRepository.save(newPet);
     }
 
     public Pet getPet(Long id){

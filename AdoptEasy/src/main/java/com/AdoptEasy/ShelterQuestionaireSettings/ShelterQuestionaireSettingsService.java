@@ -41,8 +41,7 @@ public class ShelterQuestionaireSettingsService {
 
     public List<ShelterQuestionaireSettings>getAllUserSettings(Long userId) throws UserNotFoundException {
 //        User user = userService.getUserById(userId);
-        List<ShelterQuestionaireSettings> shelterQuestionaireSettings = shelterQuestionaireSettingsRepository.findAllByUserId(userId);
-        return shelterQuestionaireSettings;
+        return shelterQuestionaireSettingsRepository.findAllByUserId(userId);
     }
 
     public void updateUserSettings(Long userId, ShelterQuestionaireSettings shelterQuestionaireSettings) {

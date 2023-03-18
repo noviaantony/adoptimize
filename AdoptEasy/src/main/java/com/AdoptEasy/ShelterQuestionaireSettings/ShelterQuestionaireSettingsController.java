@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/AdoptEasy/ShelterQuestionaireSettings")
+@CrossOrigin(origins = "*")
 public class ShelterQuestionaireSettingsController {
     private final ShelterQuestionaireSettingsService shelterQuestionaireSettingsService;
 
