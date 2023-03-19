@@ -11,5 +11,17 @@ class AdoptionService {
         const response = await axios.get(ADOPTION_API_URL+"getAdoptionByPet/"+petId);
         return response.data;
     }
+    async getAdoptionById(applicationId) {
+        const response = await axios.get(ADOPTION_API_URL+"getAdoption/"+applicationId);
+        return response.data;
+    }
+    async startAdoptionProcess(applicationId) {
+        const response = await axios.put(ADOPTION_API_URL+"startAdoptionApplication/"+applicationId);
+        return response.data;
+    }
+    async approveAdoptionPhase(applicationId) {
+        const response = await axios.put(ADOPTION_API_URL+"approveAdoptionPhase/"+applicationId);
+        return response.data;
+    }
 }
 export default new AdoptionService();

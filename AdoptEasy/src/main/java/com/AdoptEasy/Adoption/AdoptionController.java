@@ -1,6 +1,7 @@
 package com.AdoptEasy.Adoption;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -82,10 +83,18 @@ public class AdoptionController{
         adoptionRepository.deleteById(id);
     }
 
-    @PutMapping("setStartDate/{id}")
-    public void setStartDate(@PathVariable Long id) {
-        adoptionService.setStartDate(id);
+    @PutMapping("startAdoptionApplication/{id}")
+    public ResponseEntity<String> startAdoptionApplication(@PathVariable Long id) {
+        adoptionService.startAdoptionApplication(id);
+        return new ResponseEntity<>("Application "+ id + "is now in progress." , HttpStatus.OK);
     }
+
+    @PutMapping("approveAdoptionPhase/{id}")
+    public ResponseEntity<String> approveAdoptionPhase(@PathVariable Long id) {
+        PhaseOfAdoption phase =  adoptionService.approveAdoptionPhase(id);
+        return new ResponseEntity<>("Application "+ id + "is now in the phase of " + phase , HttpStatus.OK);
+    }
+
 
     @PutMapping("setEndDate/{id}")
     public void setEndDate(@PathVariable Long id) {

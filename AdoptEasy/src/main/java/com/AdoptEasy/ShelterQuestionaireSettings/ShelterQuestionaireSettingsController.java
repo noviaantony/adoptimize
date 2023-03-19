@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/AdoptEasy/ShelterQuestionaireSettings")
+@CrossOrigin(origins = "*")
 public class ShelterQuestionaireSettingsController {
     private final ShelterQuestionaireSettingsService shelterQuestionaireSettingsService;
 
@@ -26,6 +27,12 @@ public class ShelterQuestionaireSettingsController {
     public ResponseEntity<List<ShelterQuestionaireSettings>> getAllUserSettings(@RequestParam Long userId) throws UserNotFoundException {
 
         return new ResponseEntity<>(shelterQuestionaireSettingsService.getAllUserSettings(userId), HttpStatus.OK);
+    }
+
+    @PutMapping(path="/updateUserSettings")
+    public ResponseEntity<String> updateUserSettings(@RequestParam Long userId, @RequestBody ShelterQuestionaireSettings shelterQuestionaireSettings) throws UserNotFoundException {
+        shelterQuestionaireSettingsService.updateUserSettings(userId, shelterQuestionaireSettings);
+        return new ResponseEntity<>("User settings updated", HttpStatus.OK);
     }
 
 }

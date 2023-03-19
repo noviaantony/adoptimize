@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {
   Avatar,
   Rate,
@@ -34,24 +34,44 @@ import {
   IoIosHome,
   IoIosDocument
 } from "react-icons/io";
+import AdoptionService from "../services/AdoptionService";
+import adoptionService from "../services/AdoptionService";
 
 
 const { confirm } = Modal;
-
-const showConfirm = () => {
-  confirm({
-    title: "Do you Want to delete these items?",
-    icon: <ExclamationCircleFilled />,
-    content: "Some descriptions",
-    onOk() {
-      console.log("OK");
-    },
-    onCancel() {
-      console.log("Cancel");
-    },
-  });
-};
-
+const { Step } = Steps;
+const steps = [
+  {
+    title: "Pre-Screening",
+    status: "wait",
+    icon: <IoMdList />,
+  },
+  {
+    title: "Home Check",
+    status: "wait",
+    icon: <IoIosHome />,
+  },
+  {
+    title: "Approved",
+    status: "wait",
+    icon: <IoMdCheckmarkCircleOutline />,
+  },
+  {
+    title: "Adoption Contract",
+    status: "wait",
+    icon: <IoIosDocument />,
+  },
+  {
+    title: "Payment",
+    status: "wait",
+    icon: <IoIosWallet />,
+  },
+  {
+    title: "Collection",
+    status: "wait",
+    icon: <IoMdPaw />,
+  },
+];
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -128,21 +148,6 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    adopterId: "A0001",
-    name: "Anna Lim",
-    date: "01-01-2023",
-    statuses: ["in progress"],
-  },
-  {
-    adopterId: "A0002",
-    name: "Robert Thomas",
-    date: "08-02-2023",
-    statuses: ["waitlist"],
-  },
-];
-
 const items = [
   {
     label: "View Adoption Details",
@@ -150,15 +155,97 @@ const items = [
   },
 ];
 
+
+
 const AdoptionDetail = () => {
   
   const [searchTerm, setSearchTerm] = useState("");
+  const { applicationId } = useParams();
+  const [adoptionApplication, setAdoptionApplication] = useState({});
+  const [pet, setPet] = useState({});
+  // const [phase, setPhase] = useState({});
 
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
-
   const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+
+
+  const items = steps.map((item) => ({
+    key: item.title,
+    title: item.title,
+    icon: item.icon,
+  }));
+
+  // extract adoption application details
+  useEffect(() => {
+    AdoptionService.getAdoptionById(applicationId).then((res) => {
+      setAdoptionApplication(res);
+        setPet(res.pet);
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(adoptionApplication);
+    setCurrent(adoptionApplication.phaseOfAdoption)
+    // if (current === 0) {
+    //   setPhase("Pre-Screening")
+    // } else if (current === 1) {
+    //   setPhase("Home Check")
+    // } else if (current === 2) {
+    //   setPhase("Approved")
+    // } else if (current === 3) {
+    //   setPhase("Adoption Contract")
+    // } else if (current === 4) {
+    //   setPhase("Payment")
+    // } else if (current === 5){
+    //   setPhase("Collection")
+    // }
+  }, [adoptionApplication]);
+
+  useEffect(() => {
+    console.log(pet);
+
+  }, [pet]);
+
+
+  const showConfirmPhase = () => {
+    confirm({
+      title: "Would you like to approve the current phase of adoption?",
+      icon: <ExclamationCircleFilled />,
+      content: "",
+      onOk() {
+        AdoptionService.approveAdoptionPhase(applicationId).then((res) => {
+          console.log(res);
+            setOpen(false);
+            window.location.href = `/AdoptionDetails/${applicationId}`;
+        });
+        console.log("OK");
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
+  };
+
+  const showConfirmStart = () => {
+    confirm({
+      title: "Do you want to start this adoption application?",
+      icon: <ExclamationCircleFilled />,
+      content: "Once you start the status of the application will be changed to 'in progress'.",
+      onOk() {
+        AdoptionService.startAdoptionProcess(applicationId).then((res) => {
+            console.log(res);
+            setOpen(false);
+            window.location.href = `/AdoptionDetails/${applicationId}`;
+        });
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
+  };
 
   const showModal = () => {
     setOpen(true);
@@ -194,27 +281,50 @@ const AdoptionDetail = () => {
             >
               Adoption Details
             </Typography.Title>
-            <div class="text-xs inline-flex items-center font-bold leading-sm uppercase px-3  bg-green-200 text-green-700 rounded-xl h-10 mt-6">
-              In-Progress
+            <div className={`text-xs inline-flex items-center font-bold leading-sm uppercase px-3 rounded-xl h-10 mt-6 
+            ${adoptionApplication.currStatus === "In Progress" ? 'bg-green-200 text-green-700' :
+                (adoptionApplication.currStatus === "New" ? 'bg-blue-200 text-blue-700' :
+                    (adoptionApplication.currStatus === "Withdrawn" ? 'bg-yellow-200 text-yellow-700':
+                        (adoptionApplication.currStatus === "Pending Collection"?'bg-purple-200 text-purple-700':
+                            (adoptionApplication.currStatus === "Rejected" ? 'bg-red-200 text-red-700':''))))}`}>
+              {adoptionApplication.currStatus}
             </div>
-            <div class="text-xs inline-flex items-center font-bold leading-sm uppercase px-3  bg-pink-200 text-pink-700 rounded-xl ml-3 h-10 mt-6">
-              Anna Lim
-            </div>
+
           </div>
           <Space wrap className="mt-3 ml-96">
-            <button
-              type="button"
-              class="text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-              onClick={showConfirm}
-            >
-              Approve
-            </button>
-            <button
-              type="button"
-              class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg hover:bg-white hover:text-[#F7AF7A]  focus:z-10 focus:ring-4 focus:ring-gray-200 "
-            >
-              Reject
-            </button>
+            {adoptionApplication.currStatus === "In Progress" || adoptionApplication.currStatus === "Pending Collection" ? (
+                <div>
+                  <button
+                      type="button"
+                      className="text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                      onClick={showConfirmPhase}
+                  >
+                    Approve Adoption Phase
+                  </button>
+                  <button
+                      type="button"
+                      className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg hover:bg-white hover:text-[#F7AF7A]  focus:z-10 focus:ring-4 focus:ring-gray-200"
+                  >
+                    Reject
+                  </button>
+                </div>
+            ) : adoptionApplication.currStatus === "New" ? (
+                  <div>
+                    <button
+                        type="button"
+                        className="text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                        onClick={showConfirmStart}
+                    >
+                      Start
+                    </button>
+                    <button
+                        type="button"
+                        className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg hover:bg-white hover:text-[#F7AF7A]  focus:z-10 focus:ring-4 focus:ring-gray-200"
+                    >
+                      Reject
+                    </button>
+                  </div>
+              ): null }
           </Space>
         </div>
 
@@ -225,31 +335,30 @@ const AdoptionDetail = () => {
             <div className="grid grid-cols-2">
               <div>
                 <h2 className="m-5">
-                  <b>Name: </b>Timothee Catlamet
+                  <b>Name: </b>{pet.name}
                 </h2>
                 <h2 className="m-5">
-                  <b>Id: </b>P1235
+                  <b>Id: </b>{pet.petId}
                 </h2>
                 <h2 className="m-5">
-                  <b>Breed: </b>Siamese x Persian
+                  <b>Breed: </b>{pet.breed}
                 </h2>
                 <h2 className="m-5">
-                  <b>Age: </b>1 year(s)
+                  <b>Age: </b>{pet.age} year(s)
                 </h2>
               </div>
               <div>
                 <h2 className="m-5">
-                  <b>Weight: </b>4.5kg
+                  <b>Weight: </b>{(pet.weight/2.2).toFixed(2)} kg
                 </h2>
                 <h2 className="m-5">
-                  <b>Medical Details: </b>Fully Vaccinated, FIV Negative, Slight
-                  PICA Tendency
+                  <b>Medical Details: </b> {pet.medical}
                 </h2>
                 <h2 className="m-5">
-                  <b>Adoption Fee: </b> 120 SGD
+                  <b>Adoption Fee: </b> {pet.adoptionFee} SGD
                 </h2>
                 <h2 className="m-5">
-                  <b>Date Joined: </b>12/01/2023
+                  <b>Date Joined: </b> {pet.dateJoined}
                 </h2>
               </div>
             </div>
@@ -257,17 +366,17 @@ const AdoptionDetail = () => {
           <Image
             width={800}
             className="rounded-xl ml-3"
-            src="https://images.unsplash.com/photo-1592652426689-4e4f12c4aef5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2lhbWVzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            src={pet.imageAddress}
           />
           <div className="w-3/6 bg-orange-200 rounded-2xl ml-8">
             {/*  adoption fee, date joined */}
             <div className="grid grid-cols-2">
               <div>
                 <h2 className="m-5">
-                  <b>Name: </b>Anna Lim
+                  <b>Name: </b>{adoptionApplication.adopterName}
                 </h2>
                 <h2 className="m-5">
-                  <b>Id: </b>A1494
+                  <b>Id: </b>{adoptionApplication.id}
                 </h2>
                 <h2 className="m-5">
                   <b>Contact: </b>+65 1234 5678
@@ -278,57 +387,17 @@ const AdoptionDetail = () => {
               </div>
               <div>
                 <h2 className="m-5">
-                  <b>Email: </b>annalim@gmail.com
+                  <b>Email: </b>{adoptionApplication.adopterName}@example.com
                 </h2>
                 <h2 className="m-5">
-                  <b>Application Date: </b>08-03-2023
-                </h2>
-                <h2 className="m-5">
-                  <b>Adoption Fee: </b> 120 SGD
-                </h2>
-                <h2 className="m-5">
-                  <b>Date Joined: </b>12/01/2023
+                  <b>Application Date: </b>{adoptionApplication.dateOfApplication}
                 </h2>
               </div>
             </div>
           </div>
         </div>
 
-        <Steps
-          className="mt-10 font-nunito"
-          items={[
-            {
-              title: "Pre-Screening",
-              status: "finish",
-              icon: <IoMdList className="text-[#F7AF7A]" />,
-            },
-            {
-              title: "Home Check",
-              status: "wait",
-              icon: <IoIosHome />,
-            },
-            {
-              title: "Approved",
-              status: "wait",
-              icon: <IoMdCheckmarkCircleOutline />,
-            },
-            {
-              title: "Adoption Contract",
-              status: "wait",
-              icon: <IoIosDocument />,
-            },
-            {
-              title: "Payment",
-              status: "wait",
-              icon: <IoIosWallet />,
-            },
-            {
-              title: "Collection",
-              status: "wait",
-              icon: <IoMdPaw />,
-            },
-          ]}
-        />
+        <Steps current={current} items={items} className="mt-10 font-nunito" />
 
         <Typography.Title className="font-nunito font-xl mt-10 ml-4" level={2}>
           Pre-Screening Responses

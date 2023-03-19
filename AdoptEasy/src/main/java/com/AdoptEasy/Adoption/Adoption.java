@@ -44,7 +44,7 @@ public class Adoption {
     private String currStatus;
 
     @Column(name="phase_of_adoption")
-    private String phaseOfAdoption = PhaseOfAdoption.PRESCREENING.toString();
+    private Integer phaseOfAdoption = 0;
 
     @Column(name = "date_of_application")
     private LocalDate dateOfApplication;

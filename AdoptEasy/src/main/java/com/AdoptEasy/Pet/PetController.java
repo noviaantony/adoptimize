@@ -1,6 +1,7 @@
 package com.AdoptEasy.Pet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.AdoptEasy.Pet.PetService;
@@ -38,8 +39,8 @@ public class PetController {
     }
 
     @PostMapping("/addPet")
-    public Pet addPet(Pet pet) {
-        return petService.addPet(pet);
+    public ResponseEntity<Pet> addPet(@RequestBody PetRequest petRequest){
+        return new ResponseEntity<>(petService.addPet(petRequest), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/deletePet/{id}")
@@ -47,7 +48,6 @@ public class PetController {
         if(!petRepository.existsById(id)){
             throw new PetNotFoundException(id);
         }
-
         petRepository.deleteById(id);
     }
 

@@ -3,6 +3,7 @@ package com.AdoptEasy.Security.config;
 
 import com.AdoptEasy.Adoption.Adoption;
 import com.AdoptEasy.Adoption.AdoptionRepository;
+import com.AdoptEasy.Adoption.PhaseOfAdoption;
 import com.AdoptEasy.Pet.Pet;
 import com.AdoptEasy.Pet.PetRepository;
 import com.AdoptEasy.PreScreeningQuestionnaire.*;
@@ -698,6 +699,8 @@ public class ApplicationConfig {
                     "New",
                     LocalDate.of(2023, 3, 16)
             );
+
+            adoption1.setPhaseOfAdoption(4);
 
             adoptionRepository.saveAll(
                     List.of(adoption1,adoption2,adoption3,adoption4,adoption5,adoption6,adoption7,adoption8,adoption9,
