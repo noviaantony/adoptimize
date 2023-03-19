@@ -239,21 +239,92 @@ const AllPets = () => {
               {/* <PlusCircleOutlined size={80} className="rounded-lg" /> */}
             </button>
             <Modal
-              title="Add New Pet "
               open={open}
               onOk={hideModal}
               onCancel={hideModal}
               className="font-nunito"
-              // okText="确认"
-              // cancelText="取消"
+              okText="Add Pet"
+              cancelText="Cancel"
 
-            >
-               <TextArea placeholder="Autosize height based on content lines" autoSize className="font-nunito"/>
-                <div
-                  style={{
-                    margin: '24px 0',
-                  }}
-                />
+            > 
+              <h1 className="text-2xl font-bold mb-2">Add New Pet</h1>
+              <h1>Pet Name:</h1>
+              <TextArea placeholder="Enter pet name" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Breed:</h1>
+              <TextArea placeholder="Enter pet breed" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Age:</h1>
+              <TextArea placeholder="Enter pet breed" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Date Joined:</h1>
+              <TextArea placeholder="Enter date in the format dd-mm-yr" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Birthday:</h1>
+              <TextArea placeholder="Enter birthday in the format dd-mm-yr" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Medical Information:</h1>
+              <TextArea placeholder="Enter all medical details separated by commas (eg: Full vaccinated, FIV Negative)" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Status:</h1>
+              <TextArea placeholder="Enter the status of the pet - AVAILABLE / IN PROGRESS / REJECTED / WITHDRAWN" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Image:</h1>
+              <TextArea placeholder="Enter image address" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Description:</h1>
+              <TextArea placeholder="Enter a short description about the pet's personality to be displayed on the pet listing page" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Weight:</h1>
+              <TextArea placeholder="Enter a pet's weight in kilograms" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
+              <h1>Adoption Fee:</h1>
+              <TextArea placeholder="Enter adoption fee in SGD" autoSize className="font-nunito"/>
+              <div
+                style={{
+                  margin: '24px 0',
+                }}
+              />
               
             </Modal>
           </div>
