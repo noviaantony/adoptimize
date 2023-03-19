@@ -13,6 +13,7 @@ import {
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
 import petService from "../services/PetService";
+import PetService from "../services/PetService";
 
 const { TextArea } = Input;
 
@@ -140,15 +141,50 @@ const sharedOnCell = (_, index) => {
 
 
 
+
 const AllPets = () => {
 
   const [open, setOpen] = useState(false);
+  const [petName, setPetName] = useState("");
+    const [petBreed, setPetBreed] = useState("");
+    const [petAge, setPetAge] = useState("");
+    const [petDateJoined, setPetDateJoined] = useState("");
+    const[petBirthday, setPetBirthday] = useState("");
+    const [petMedical, setPetMedical] = useState("");
+    const [petStatus, setPetStatus] = useState("");
+    const[petImage, setPetImage] = useState("");
+    const[petDescription, setPetDescription] = useState("");
+    const [petWeight, setPetWeight] = useState("");
+    const [petAdoptionFee, setPetAdoptionFee] = useState("");
+
   const showModal = () => {
     setOpen(true);
   };
   const hideModal = () => {
+    //create json object
+
+    let pet = {
+        name: petName,
+        breed: petBreed,
+        age: parseInt(petAge),
+        dateJoined: petDateJoined,
+        birthday: petBirthday,
+        medical: petMedical,
+        status: petStatus,
+        imageAddress: petImage,
+        description: petDescription,
+        weight: parseFloat(petWeight),
+        petAdoptionFee: parseFloat(petAdoptionFee),
+    }
+    PetService.addPet(pet).then((res) => {
+        console.log(res);
+    });
     setOpen(false);
+      window.location.href = "localhost:3000";
   };
+    function hideModalCancel() {
+        setOpen(false);
+    }
 
   const [searchTerm, setSearchTerm] = useState("");
   const [pets, setPets] = useState([]);
@@ -241,7 +277,7 @@ const AllPets = () => {
             <Modal
               open={open}
               onOk={hideModal}
-              onCancel={hideModal}
+              onCancel={hideModalCancel}
               className="font-nunito"
               okText="Add Pet"
               cancelText="Cancel"
@@ -249,77 +285,133 @@ const AllPets = () => {
             > 
               <h1 className="text-2xl font-bold mb-2">Add New Pet</h1>
               <h1>Pet Name:</h1>
-              <TextArea placeholder="Enter pet name" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter pet name"
+                  autoSize className="font-nunito"
+                  value={petName}
+                  onChange={(e) => setPetName(e.target.value)}
+              />
+
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Breed:</h1>
-              <TextArea placeholder="Enter pet breed" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter pet breed"
+                  autoSize className="font-nunito"
+                    value={petBreed}
+                    onChange={(e) => setPetBreed(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Age:</h1>
-              <TextArea placeholder="Enter pet breed" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter age of pet"
+                  autoSize className="font-nunito"
+                    value={petAge}
+                    onChange={(e) => setPetAge(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Date Joined:</h1>
-              <TextArea placeholder="Enter date in the format dd-mm-yr" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter date in the format yyyy-mm-dd, e.g 2023-03-01"
+                  autoSize className="font-nunito"
+                  value={petDateJoined}
+                  onChange={(e) => setPetDateJoined(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Birthday:</h1>
-              <TextArea placeholder="Enter birthday in the format dd-mm-yr" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter birthday in the format yyyy-mm-dd, e.g 2023-03-01"
+                  autoSize className="font-nunito"
+                    value={petBirthday}
+                    onChange={(e) => setPetBirthday(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Medical Information:</h1>
-              <TextArea placeholder="Enter all medical details separated by commas (eg: Full vaccinated, FIV Negative)" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter all medical details separated by commas (eg: Full vaccinated, FIV Negative)"
+                  autoSize className="font-nunito"
+                    value={petMedical}
+                    onChange={(e) => setPetMedical(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Status:</h1>
-              <TextArea placeholder="Enter the status of the pet - AVAILABLE / IN PROGRESS / REJECTED / WITHDRAWN" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter the status of the pet - AVAILABLE / IN PROGRESS / REJECTED / WITHDRAWN"
+                  autoSize className="font-nunito"
+                    value={petStatus}
+                    onChange={(e) => setPetStatus(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Image:</h1>
-              <TextArea placeholder="Enter image address" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter image address"
+                  autoSize className="font-nunito"
+                    value={petImage}
+                    onChange={(e) => setPetImage(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Description:</h1>
-              <TextArea placeholder="Enter a short description about the pet's personality to be displayed on the pet listing page" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter a short description about the pet's personality to be displayed on the pet listing page"
+                  autoSize className="font-nunito"
+                    value={petDescription}
+                    onChange={(e) => setPetDescription(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Weight:</h1>
-              <TextArea placeholder="Enter a pet's weight in kilograms" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter a pet's weight in kilograms"
+                  autoSize className="font-nunito"
+                    value={petWeight}
+                    onChange={(e) => setPetWeight(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
               <h1>Adoption Fee:</h1>
-              <TextArea placeholder="Enter adoption fee in SGD" autoSize className="font-nunito"/>
+              <TextArea
+                  placeholder="Enter adoption fee in SGD"
+                  autoSize className="font-nunito"
+                    value={petAdoptionFee}
+                    onChange={(e) => setPetAdoptionFee(e.target.value)}
+              />
               <div
                 style={{
                   margin: '24px 0',

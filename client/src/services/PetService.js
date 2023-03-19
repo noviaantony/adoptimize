@@ -11,5 +11,9 @@ class PetService {
         const response = await axios.get(PETS_API_URL+petId);
         return response.data;
     }
+    async addPet(pet) {
+        const response = await axios.post(PETS_API_URL+"addPet", pet);
+        return response.data;
+    }
 }
 export default new PetService();
