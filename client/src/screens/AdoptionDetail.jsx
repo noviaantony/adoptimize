@@ -34,6 +34,7 @@ import {
   IoIosHome,
   IoIosDocument
 } from "react-icons/io";
+import { TbVaccine } from "react-icons/tb";
 import AdoptionService from "../services/AdoptionService";
 import adoptionService from "../services/AdoptionService";
 
@@ -70,6 +71,11 @@ const steps = [
     title: "Collection",
     status: "wait",
     icon: <IoMdPaw />,
+  },
+  {
+    title: "Post Adoption",
+    status: "wait",
+    icon: <TbVaccine/>,
   },
 ];
 

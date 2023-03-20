@@ -41,7 +41,7 @@ public class Adoption {
     private Pet pet;
 
     @Column(name="current_status")
-    private String currStatus;
+    private String currStatus; // New, In-progress, Rejected, Withdrawn, Collection, Post-Adoption, Completed
 
     @Column(name="phase_of_adoption")
     private Integer phaseOfAdoption = 0;
