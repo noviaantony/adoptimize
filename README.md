@@ -1,7 +1,7 @@
 # Adoptimize
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Chen-ZhaoXing/CarbonO/main/adoptimizelog.png" width="50%"/>
+    <img src="https://raw.githubusercontent.com/Chen-ZhaoXing/Adoptimize/main/adoptimizelogo.png" width="50%"/>
 </p>
 <div align="center">
     <img class="center" src="./assets/logo.png"/>
