@@ -31,9 +31,8 @@ Code submission for [SMU CS206 Product Management]
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [ReactJs](https://reactjs.org/) 
 - [Tailwind CSS](https://tailwindcss.com/)
-- [MaterialUI](https://mui.com/)
+- [Ant Design](https://ant.design/)
 - [Axios](https://www.axios.com/)
-- [Docker](https://www.docker.com/)
 
 ---
 
