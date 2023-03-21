@@ -1,10 +1,7 @@
 # Adoptimize
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/Chen-ZhaoXing/Adoptimize/main/adoptimizelogo.png" width="50%"/>
-</p>
 <div align="center">
-    <img class="center" src="./assets/logo.png"/>
+    <img src="https://raw.githubusercontent.com/Chen-ZhaoXing/Adoptimize/main/adoptimizelogo.png" width="50%"/>
     <div align="center">
         <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="ReactJs" />
         <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
