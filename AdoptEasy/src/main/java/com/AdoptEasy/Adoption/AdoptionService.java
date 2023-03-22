@@ -98,6 +98,8 @@ public class AdoptionService {
             phaseOfAdoption = PhaseOfAdoption.PAYMENT;
         }else if  (phase == 5){
             phaseOfAdoption = PhaseOfAdoption.COLLECTION;
+        } else if (phase == 6){
+            phaseOfAdoption = PhaseOfAdoption.POSTADOPTION;
         }
         adoption.setPhaseOfAdoption(phase);
         adoptionRepository.save(adoption);

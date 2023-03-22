@@ -6,108 +6,13 @@ import InProgress from "../components/adoptions/InProgress";
 import Cancelled from "../components/adoptions/Withdrawn";
 import Rejected from "../components/adoptions/Rejected";
 import PendingCollection from "../components/adoptions/PendingCollection";
+import PostAdoption from "../components/adoptions/PostAdoption";
+import Completed from "../components/adoptions/Completed";
 
 const onClick = ({key}) => {
     message.info(`Click on item ${key}`);
 };
 
-// const columns = [
-//   {
-//     title: "Application Id",
-//     dataIndex: "applicationId",
-//     key: "applicationId",
-//     render: (text) => <a>{text}</a>,
-//   },
-//   {
-//     title: "Pet Name",
-//     dataIndex: "name",
-//     key: "name",
-//   },
-//   {
-//     title: "Adopter Name",
-//     dataIndex: "name",
-//     key: "name",
-//   },
-//   {
-//     title: "Breed",
-//     dataIndex: "breed",
-//     key: "breed",
-//   },
-//   {
-//     title: "Date of Application",
-//     dataIndex: "date",
-//     key: "date",
-//   },
-//   {
-//     title: "Start Date",
-//     dataIndex: "startDate",
-//     key: "startDate",
-//   },
-//   {
-//     title: "End Date",
-//     dataIndex: "endDate",
-//     key: "endDate",
-//   },
-//   {
-//     title: "",
-//     key: "action",
-//     render: (_, actions) => (
-//       <Dropdown
-//         menu={{
-//           items,
-//           onClick,
-//         }}
-//       >
-//         <a onClick={(e) => e.preventDefault()}>
-//           <Space>
-//             {/* Actions
-//             <DownOutlined /> */}
-//             <HolderOutlined />
-//           </Space>
-//         </a>
-//       </Dropdown>
-//     ),
-//   },
-// ];
-//
-// const data = [
-//   {
-//     applicationId: "12343",
-//     petName: "Meowington",
-//     adopterName: "Easter Tan",
-//     date: "01-01-2023",
-//     startDate: "02-01-2023",
-//     endDate: "-",
-//     status: "In Progress",
-//   },
-//   {
-//     applicationId: "12343",
-//     petName: "Timothee",
-//     adopterName: "Kendrik",
-//     date: "01-01-2023",
-//     startDate: "03-01-2023",
-//     endDate: "03-01-2023",
-//     status: "Rejected",
-//   },
-//   {
-//     applicationId: "12343",
-//     petName: "Timothee",
-//     adopterName: "Ed Sheeren",
-//     date: "01-01-2023",
-//     startDate: "03-01-2023",
-//     endDate: "03-01-2023",
-//     status: "Cancelled",
-//   },
-//   {
-//     applicationId: "12343",
-//     petName: "Catmilla Cabello",
-//     adopterName: "Emma Ng",
-//     date: "05-01-2023",
-//     startDate: "-",
-//     endDate: "-",
-//     status: "New",
-//   },
-// ];
 
 const items = [
     {
@@ -160,6 +65,22 @@ const CancelledTab = () => {
 };
 
 
+function PostAdoptionTab() {
+    return (
+        <>
+            <PostAdoption/>
+        </>
+    );
+};
+
+function CompletedTab() {
+    return (
+        <>
+            <Completed/>
+        </>
+    );
+}
+
 const Adoptions = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -172,22 +93,29 @@ const Adoptions = () => {
             >
                 Adoption Management
             </Typography.Title>
-            <Tabs defaultActiveKey="1" centered className="font-nunito">
-                <TabPane tab="New" key="2">
+            <Tabs defaultActiveKey="2" centered className="font-nunito">
+                <TabPane tab="New" key="1">
                     <NewTab/>
                 </TabPane>
-                <TabPane tab="In Progress" key="1">
+                <TabPane tab="In Progress" key="2">
                     <InProgressTab/>
                 </TabPane>
-                <TabPane tab="Pending Collection" key="5">
+                <TabPane tab="Pending Collection" key="3">
                     <PendingCollectionTab/>
                 </TabPane>
-                <TabPane tab="Withdrawn" key="3">
+                <TabPane tab="Post Adoption" key="4">
+                    <PostAdoptionTab/>
+                </TabPane>
+                <TabPane tab="Completed" key="5">
+                    <CompletedTab/>
+                </TabPane>
+                <TabPane tab="Withdrawn" key="6">
                     <CancelledTab/>
                 </TabPane>
-                <TabPane tab="Rejected" key="4">
+                <TabPane tab="Rejected" key="7">
                     <RejectedTab/>
                 </TabPane>
+
             </Tabs>
         </Space>
     );

@@ -6,5 +6,6 @@ public enum PhaseOfAdoption {
     APPROVED,
     ADOPTIONCONTRACT,
     PAYMENT,
-    COLLECTION
+    COLLECTION,
+    POSTADOPTION
 }
