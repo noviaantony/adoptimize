@@ -135,10 +135,10 @@ public class ApplicationConfig {
                     "Whiskers",
                     "Siamese",
                     2,
-                    LocalDate.of(2023, 3, 1),
+                    LocalDate.of(2022, 3, 1),
                     LocalDate.of(2021, 7, 1),
                     "fully vaccinated, no fleas",
-                    "Available",
+                    "Pending Adoption",
                     "https://images.pexels.com/photos/596590/pexels-photo-596590.jpeg?cs=srgb&dl=pexels-leah-kelley-596590.jpg&fm=jpg",
                     "Hello there, I'm Whiskers and I'm a beautiful Siamese cat. I joined the shelter on 03/01/2023 " +
                             "and so I'm just a young kitten with a lot of energy to spare!" +
@@ -151,7 +151,7 @@ public class ApplicationConfig {
                     "Mittens",
                     "Persian",
                     3,
-                    LocalDate.of(2023, 2, 15),
+                    LocalDate.of(2022, 2, 15),
                     LocalDate.of(2020, 12, 15),
                     "up to date on vaccinations, fleas treated",
                     "Available",
@@ -167,7 +167,7 @@ public class ApplicationConfig {
                     "Simba",
                     "Bengal",
                     1,
-                    LocalDate.of(2023, 3, 5),
+                    LocalDate.of(2022, 3, 5),
                     LocalDate.of(2021, 5, 5),
                     "vaccinated for rabies, fleas treated",
                     "Available",
@@ -182,7 +182,7 @@ public class ApplicationConfig {
                     "Luna",
                     "British Shorthair",
                     2,
-                    LocalDate.of(2023, 2, 20),
+                    LocalDate.of(2022, 2, 20),
                     LocalDate.of(2020, 8, 20),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -197,7 +197,7 @@ public class ApplicationConfig {
                     "Oreo",
                     "American Shorthair",
                     1,
-                    LocalDate.of(2023, 3, 10),
+                    LocalDate.of(2022, 3, 10),
                     LocalDate.of(2021, 9, 10),
                     "vaccinated for rabies and FVRCP, no fleas",
                     "Available",
@@ -212,7 +212,7 @@ public class ApplicationConfig {
                     "Felix",
                     "Scottish Fold",
                     1,
-                    LocalDate.of(2023, 3, 2),
+                    LocalDate.of(2022, 3, 2),
                     LocalDate.of(2021, 7, 2),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -228,7 +228,7 @@ public class ApplicationConfig {
                     "Tiger",
                     "Maine Coon",
                     2,
-                    LocalDate.of(2023, 2, 25),
+                    LocalDate.of(2022, 2, 25),
             LocalDate.of(2020, 8, 25),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -243,7 +243,7 @@ public class ApplicationConfig {
                     "Garfield",
                     "Exotic Shorthair",
                     1,
-                    LocalDate.of(2023, 3, 12),
+                    LocalDate.of(2022, 3, 12),
                     LocalDate.of(2021, 9, 12),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -257,7 +257,7 @@ public class ApplicationConfig {
                     "Tigger",
                     "Abyssinian",
                     2,
-                    LocalDate.of(2023, 2, 18),
+                    LocalDate.of(2022, 2, 18),
                     LocalDate.of(2020, 6, 18),
                     "vaccinated for rabies, fleas treated",
                     "Available",
@@ -272,7 +272,7 @@ public class ApplicationConfig {
                     "Boots",
                     "Manx",
                     1,
-                    LocalDate.of(2023, 3, 8),
+                    LocalDate.of(2022, 3, 8),
                     LocalDate.of(2021, 7, 8),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -287,7 +287,7 @@ public class ApplicationConfig {
                     "Whiskey",
                     "Oriental Shorthair",
                     2,
-                    LocalDate.of(2023, 2, 27),
+                    LocalDate.of(2022, 2, 27),
                     LocalDate.of(2020, 8, 27),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -302,7 +302,7 @@ public class ApplicationConfig {
                     "Pepper",
                     "Sphynx",
                     2,
-                    LocalDate.of(2023, 2, 21),
+                    LocalDate.of(2022, 2, 21),
                     LocalDate.of(2020, 10, 21),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -317,7 +317,7 @@ public class ApplicationConfig {
                     "Gizmo",
                     "Devon Rex",
                     1,
-                    LocalDate.of(2023, 3, 6),
+                    LocalDate.of(2022, 3, 6),
                     LocalDate.of(2021, 5, 6),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -332,7 +332,7 @@ public class ApplicationConfig {
                     "Coco",
                     "Turkish Angora",
                     1,
-                    LocalDate.of(2023, 3, 11),
+                    LocalDate.of(2022, 3, 11),
                     LocalDate.of(2021, 9, 11),
                     "vaccinated for rabies and FVRCP",
                     "Available",
@@ -347,7 +347,7 @@ public class ApplicationConfig {
                     "Smokey",
                     "Norwegian Forest Cat",
                     2,
-                    LocalDate.of(2023, 2, 26),
+                    LocalDate.of(2022, 2, 26),
                     LocalDate.of(2020, 8, 26),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -361,7 +361,7 @@ public class ApplicationConfig {
                     "Midnight",
                     "Bombay",
                     1,
-                    LocalDate.parse("2023-03-04"),
+                    LocalDate.parse("2022-03-04"),
                     LocalDate.parse("2021-09-04"),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -375,7 +375,7 @@ public class ApplicationConfig {
                     "Max",
                     "Burmese",
                     2,
-                    LocalDate.parse("2023-03-13"),
+                    LocalDate.parse("2022-03-13"),
                     LocalDate.parse("2020-09-13"),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -389,7 +389,7 @@ public class ApplicationConfig {
                     "Charlie",
                     "Siamese",
                     3,
-                    LocalDate.parse("2023-02-19"),
+                    LocalDate.parse("2022-02-19"),
                     LocalDate.parse("2019-06-19"),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -403,7 +403,7 @@ public class ApplicationConfig {
                     "Ginger",
                     "Himalayan",
                     5,
-                    LocalDate.parse("2023-03-14"),
+                    LocalDate.parse("2022-03-14"),
                     LocalDate.parse("2018-01-14"),
                     "vaccinated for rabies, fleas treated",
                     "Available",
@@ -416,7 +416,7 @@ public class ApplicationConfig {
                     "Socks",
                     "Balinese",
                     4,
-                    LocalDate.parse("2023-02-22"),
+                    LocalDate.parse("2022-02-22"),
                     LocalDate.parse("2019-02-22"),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -429,7 +429,7 @@ public class ApplicationConfig {
                     "Smudge",
                     "Chartreux",
                     2,
-                    LocalDate.of(2023, 3, 15),
+                    LocalDate.of(2022, 3, 15),
                     LocalDate.of(2020, 9, 15),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -442,7 +442,7 @@ public class ApplicationConfig {
                     "Snowball",
                     "Turkish Van",
                     3,
-                    LocalDate.of(2023, 2, 20),
+                    LocalDate.of(2022, 2, 20),
                     LocalDate.of(2019, 6, 20),
                     "vaccinated for rabies and FVRCP, fleas treated",
                     "Available",
@@ -456,7 +456,7 @@ public class ApplicationConfig {
                     "Jack",
                     "Siamese",
                     4,
-                    LocalDate.of(2023, 2, 23),
+                    LocalDate.of(2022, 2, 23),
                     LocalDate.of(2019, 1, 23),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -469,7 +469,7 @@ public class ApplicationConfig {
                     "Muffin",
                     "Himalayan",
                     2,
-                    LocalDate.of(2023, 3, 2),
+                    LocalDate.of(2022, 3, 2),
                     LocalDate.of(2020, 7, 2),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -483,7 +483,7 @@ public class ApplicationConfig {
                     "Bootsie",
                     "Persian",
                     3,
-                    LocalDate.of(2023, 2, 25),
+                    LocalDate.of(2022, 2, 25),
                     LocalDate.of(2019, 6, 25),
                     "vaccinated for rabies, fleas treated",
                     "Available",
@@ -496,7 +496,7 @@ public class ApplicationConfig {
                     "Bella",
                     "British Shorthair",
                     4,
-                    LocalDate.of(2023, 2, 26),
+                    LocalDate.of(2022, 2, 26),
                     LocalDate.of(2019, 1, 26),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -509,7 +509,7 @@ public class ApplicationConfig {
                     "Oscar",
                     "Birman",
                     2,
-                     LocalDate.of(2023,2,23),
+                     LocalDate.of(2022,2,23),
                     LocalDate.of(2020,8,23),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -522,7 +522,7 @@ public class ApplicationConfig {
                     "Jasper",
                     "Savannah",
                     3,
-                    LocalDate.of(2023,3,7),
+                    LocalDate.of(2022,3,7),
                     LocalDate.of(2019,5,7),
                     "vaccinated for rabies, fleas treated",
                     "Available",
@@ -535,7 +535,7 @@ public class ApplicationConfig {
                     "Lily",
                     "Ragdoll",
                     4,
-                    LocalDate.of(2023,2,20),
+                    LocalDate.of(2022,2,20),
                     LocalDate.of(2019,1,28),
                     "up to date on vaccinations, no fleas",
                     "Available",
@@ -548,7 +548,7 @@ public class ApplicationConfig {
                     "Nala",
                     "Munchkin",
                     1,
-                    LocalDate.of(2023,3,11),
+                    LocalDate.of(2022,3,11),
                     LocalDate.of(2020,9,3),
                     "vaccinated for FVRCP, fleas treated",
                     "Available",
@@ -583,7 +583,7 @@ public class ApplicationConfig {
 
             Adoption adoption3 = new Adoption(
                     Jane,
-                    xz.getFirstName() + " " + xz.getLastName(),
+                    Jane.getFirstName() + " " + Jane.getLastName(),
                     pet3,
                     "In Progress",
                     LocalDate.of(2023, 2, 15),
@@ -592,7 +592,7 @@ public class ApplicationConfig {
 
             Adoption adoption4 = new Adoption(
                     Jane,
-                    xz.getFirstName() + " " + xz.getLastName(),
+                    Jane.getFirstName() + " " + Jane.getLastName(),
                     pet4,
                     "Withdrawn",
                     LocalDate.of(2023, 2, 17),
@@ -626,7 +626,7 @@ public class ApplicationConfig {
                     LocalDate.of(2023, 2, 24),
                     LocalDate.of(2023, 2, 26),
                     LocalDate.of(2023, 3, 1),
-                    LocalDate.of(2023, 3, 3)
+                    LocalDate.of(2023, 4, 3)
             );
 
             Adoption adoption8 = new Adoption(
@@ -668,9 +668,10 @@ public class ApplicationConfig {
                     Kendrick,
                     Kendrick.getFirstName() + " " + Kendrick.getLastName(),
                     pet11,
-                    "In Progress",
+                    "Rejected",
                     LocalDate.of(2023, 3, 8),
-                    LocalDate.of(2023, 3, 10)
+                    LocalDate.of(2023, 3, 10),
+                    LocalDate.of(2023, 3, 12)
             );
 
             Adoption adoption13 = new Adoption(
@@ -681,7 +682,7 @@ public class ApplicationConfig {
                     LocalDate.of(2023, 3, 11),
                     LocalDate.of(2023, 3, 13),
                     LocalDate.of(2023, 3, 16),
-                    LocalDate.of(2023, 3, 18)
+                    LocalDate.of(2023, 3, 28)
             );
 
             Adoption adoption14 = new Adoption(
@@ -700,7 +701,11 @@ public class ApplicationConfig {
                     LocalDate.of(2023, 3, 16)
             );
 
-            adoption1.setPhaseOfAdoption(4);
+            adoption2.setPhaseOfAdoption(4);
+            adoption3.setPhaseOfAdoption(3);
+            adoption7.setPhaseOfAdoption(5);
+            adoption9.setPhaseOfAdoption(1);
+            adoption13.setPhaseOfAdoption(5);
 
             adoptionRepository.saveAll(
                     List.of(adoption1,adoption2,adoption3,adoption4,adoption5,adoption6,adoption7,adoption8,adoption9,

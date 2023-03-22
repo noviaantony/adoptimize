@@ -359,7 +359,7 @@ const AllPets = () => {
               />
               <h1>Status:</h1>
               <TextArea
-                  placeholder="Enter the status of the pet - AVAILABLE / IN PROGRESS / REJECTED / WITHDRAWN"
+                  placeholder="Enter the status of the pet - AVAILABLE / IN PROGRESS / ADOPTED"
                   autoSize className="font-nunito"
                     value={petStatus}
                     onChange={(e) => setPetStatus(e.target.value)}
