@@ -700,6 +700,14 @@ public class ApplicationConfig {
                     "New",
                     LocalDate.of(2023, 3, 16)
             );
+            Adoption adoption16 = new Adoption(
+                    John,
+                    John.getFirstName() + " " + John.getLastName(),
+                    pet26,
+                    "New",
+                    LocalDate.of(2023, 3, 23)
+            );
+
 
             adoption2.setPhaseOfAdoption(4);
             adoption3.setPhaseOfAdoption(3);
@@ -709,7 +717,7 @@ public class ApplicationConfig {
 
             adoptionRepository.saveAll(
                     List.of(adoption1,adoption2,adoption3,adoption4,adoption5,adoption6,adoption7,adoption8,adoption9,
-                            adoption10,adoption11,adoption12,adoption13,adoption14,adoption15)
+                            adoption10,adoption11,adoption12,adoption13,adoption14,adoption15, adoption16)
             );
 
             // Personal Qns

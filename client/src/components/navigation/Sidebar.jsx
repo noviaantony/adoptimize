@@ -27,7 +27,7 @@ const items = [
     null,
     [
       getItem("All Pets", "1", <MdPets/>),
-      getItem("Adoptions", "2", <MdDashboard/>),
+      getItem("Adoptions Management", "2", <MdDashboard/>),
       getItem("Pre-Screening Questions", "3", <MdOutlineEditNote/>),
       getItem("Adoption Contract", "4", <MdEditDocument/>),
       getItem("Settings", "5", <MdSettings/>),
