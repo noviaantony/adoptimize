@@ -1,72 +1,49 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  Avatar,
-  Rate,
   Space,
-  Table,
   Typography,
-  Tag,
-  Dropdown,
-  message,
-  Button,
 } from "antd";
-import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
-import { StyleProvider } from "@ant-design/cssinjs";
 
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-// import Dialog from "@mui/material/Dialog";
-// import DialogActions from "@mui/material/DialogActions";
-// import DialogContent from "@mui/material/DialogContent";
-// import Slide from "@mui/material/Slide";
 
 const Contract = () => {
-  // const [pdfFile, setPdfFile] = useState(null);
-  // const [viewPdf, setViewPdf] = useState(null);
-  // const fileType = ["application/pdf"];
-  // const handleChange = (e) => {
-  //   let selectedFile = e.target.files[0];
-  //   if (selectedFile) {
-  //     if (selectedFile && fileType.includes(selectedFile.type)) {
-  //       let reader = new FileReader();
-  //       reader.readAsDataURL(selectedFile);
-  //       reader.onload = (e) => {
-  //         setPdfFile(e.target.result);
-  //       };
-  //     } else {
-  //       setPdfFile(null);
-  //     }
-  //   } else {
-  //     console.log("please select");
-  //   }
-  // };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (pdfFile !== null) {
-  //     setViewPdf(pdfFile);
-  //   } else {
-  //     setViewPdf(null);
-  //   }
-  // };
-  // const newplugin = defaultLayoutPlugin();
-  // confirmation modal functions & useStates
-  // const Transition = React.forwardRef(function Transition(props, ref) {
-  //   return <Slide direction="up" ref={ref} {...props} />;
-  // });
-  //
-  // const [open, setOpen] = React.useState(false);
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
+  const [pdfFile, setPdfFile] = useState(null);
+  const [viewPdf, setViewPdf] = useState(null);
+  const fileType = ["application/pdf"];
+
+  const handleChange = (e) => {
+    let selectedFile = e.target.files[0];
+    if (selectedFile) {
+      if (selectedFile && fileType.includes(selectedFile.type)) {
+        let reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onload = (e) => {
+          setPdfFile(e.target.result);
+        };
+      } else {
+        setPdfFile(null);
+      }
+    } else {
+      console.log("please select");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (pdfFile !== null) {
+      setViewPdf(pdfFile);
+    } else {
+      setViewPdf(null);
+    }
+  };
+  const newplugin = defaultLayoutPlugin();
 
   return (
     <Space direction="vertical table">
@@ -77,7 +54,7 @@ const Contract = () => {
         Adoption Contract Upload
       </Typography.Title>
 
-      {/* <div>
+      <div>
         <form onSubmit={handleSubmit} className="font-nunito mb-6">
           <input
             class="w-62 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-xl"
@@ -108,7 +85,7 @@ const Contract = () => {
         class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-sm px-10 py-2 text-xl mt-8"
       >
         Save Information
-      </button> */}
+      </button> 
     </Space>
   );
 };
