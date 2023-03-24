@@ -47,17 +47,14 @@ const ShelterLogin = () => {
                       Sign in as a shelter
                     </h2>
                     <div className="border-2 w-10 border-gray-700 bg-gray-700 inline-block mb-2"></div>
-                    <p
-                      ref={errRef}
-                      className={
-                        errMsg
-                          ? "text-red-800 text-sm mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900 font-bold"
-                          : "offscreen"
-                      }
-                      aria-live="assertive"
-                    >
-                      {errMsg}
-                    </p>
+                    {/*<p*/}
+                    {/*  ref={errRef}*/}
+                    {/*  className="text-red-800 text-sm mr-2 px-2.5 py-0.5 rounded font-bold"*/}
+
+                    {/*  aria-live="assertive"*/}
+                    {/*>*/}
+                    {/*  this email does not exist! */}
+                    {/*</p>*/}
                   </div>
                   <form>
                     {/* <form onSubmit={handleSubmit}> */}

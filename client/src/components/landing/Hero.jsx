@@ -32,7 +32,7 @@ const Hero = () => {
                 data-aos="fade-down"
                 data-aos-delay="600"
               >
-                so that you can focus on what matters more, the pets 
+                optimizing pet adoption management one step at a time
               </p>
               {/* btn & comp text */}
               <div

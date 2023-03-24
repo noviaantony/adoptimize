@@ -100,7 +100,7 @@ const Footer = () => {
             </a> */}
           </div>
           <p class="mt-8 text-base leading-6 text-center text-[#354458]">
-            © 2023 Adoptsy, Inc. All rights reserved.
+            © 2023 Adoptimize, Inc. All rights reserved.
           </p>
         </div>
       </footer>

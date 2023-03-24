@@ -47,17 +47,14 @@ const ShelterSignUp = () => {
                       Sign up as a Shelter
                     </h2>
                     <div className="border-2 w-10 border-gray-700 bg-gray-700 inline-block mb-2"></div>
-                    <p
-                      ref={errRef}
-                      className={
-                        errMsg
-                          ? "text-red-800 text-sm mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900 font-bold"
-                          : "offscreen"
-                      }
-                      aria-live="assertive"
-                    >
-                      {errMsg}
-                    </p>
+                    {/*<p*/}
+                    {/*  ref={errRef}*/}
+                    {/*  className="text-green-800 text-sm mr-2 px-2.5 py-0.5 rounded font-bold"*/}
+                    {/*  aria-live="assertive"*/}
+                    {/*>*/}
+                    {/*  we have received your application!*/}
+                    {/*  our team will email you in 2-3 working days and contact you to set up an account with us :)*/}
+                    {/*</p>*/}
                   </div>
                   <form>
                     {/* <form onSubmit={handleSubmit}> */}
