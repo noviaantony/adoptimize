@@ -9,57 +9,71 @@ import { Bar } from 'react-chartjs-2';
 
 const Finances = () => {
 
-
-
-  const [transactions, setTransactions] = useState([]);
-  const [chartData, setChartData] = useState({});
-
-
-  useEffect(() => {
-    // Fetch transactions data from your API or data source
-    // Then update the state with the fetched data
-    const fetchData = async () => {
-      const data = await fetchTransactions();
-      setTransactions(data);
-      updateChartData(data);
-    };
-
-    fetchData();
-  }, []);
-
-  const fetchTransactions = async () => {
-    // Replace this with your actual API call
-    return []; // Fetched data
-  };
-
-  const updateChartData = (data) => {
-    // Process the data to create chart data
-    const chartData = {}; // Processed chart data
-    setChartData(chartData);
-  };
-
   const columns = [
-    {
-      title: 'Transaction ID',
-      dataIndex: 'transactionId',
-      key: 'transactionId',
-    },
-   
 
     {
-      title: 'Pet ID',
-      dataIndex: 'petId',
-      key: 'petId',
+      title: "Transaction ID",
+      dataIndex: "transId",
+      key: "transId",
     },
     {
-      title: 'Adoption Fee',
-      dataIndex: 'adoptionFee',
-      key: 'adoptionFee',
+      title: "Pet ID",
+      dataIndex: "petId",
+      key: "petId",
     },
     {
-      title: 'Date',
-      dataIndex: 'date',
-      key: 'date',
+      title: "Pet Name",
+      dataIndex: "petName",
+      key: "petName",
+    },
+    {
+      title: "Adopter ID",
+      dataIndex: "adopterId",
+      key: "adopterId",
+    },
+    {
+      title: "Adopter Name",
+      dataIndex: "adopterName",
+      key: "adopterName",
+    },
+    {
+      title: "Amount",
+      dataIndex: "amount",
+      key: "amount",
+      render: (text) => `$${text}`,
+    },
+    // {
+    //   title: "Payment Method",
+    //   dataIndex: "paymentMethod",
+    //   key: "paymentMethod",
+    // },
+    {
+      title: "Date",
+      dataIndex: "date",
+      key: "date",
+    },
+  ];
+
+  const data = [
+    {
+      key: "1",
+      transId: 1,
+      petId: 7,
+      petName: "Felix",
+      adopterId: 6,
+      adopterName: "John Doe",
+      amount: 300,
+      date: "2023-03-23",
+    },
+    {
+      key: "2",
+      transId: 2,
+      petId: 12,
+      petName: "Pepper",
+      adopterId: 13,
+      adopterName: "Jack Lee",
+      amount: 300,
+      date: "2023-03-23",
     },
   ];
 
@@ -77,13 +91,27 @@ const Finances = () => {
           Financial Summary
         </Typography.Title>
 
-        <div className="container mx-auto px-4 py-5">
+        <div className="container  px-4 py-5">
           <div className="mb-8">
             <div>
               {/* <Bar /> */}
             </div>
-            {/* <h2 className="text-xl font-semibold mb-3 font-nunito mb-1">Transactions</h2> */}
-            <Table dataSource={transactions} columns={columns} rowKey="transactionId" />
+            <Table columns={columns} dataSource={data}
+                   components={{
+              header: {
+                cell: (props) => (
+                    <th
+                        {...props}
+                        style={{
+                          backgroundColor: "#FDEDE1",
+                          fontWeight: "bold",
+                          font: "font-nunito",
+                        }}
+                    />
+                ),
+              },
+            }}/>
+
           </div>
         </div>
 

@@ -246,7 +246,7 @@ const PetDetails = () => {
           className="rounded-xl mr-5"
           src={petDetails.imageAddress}
         />
-        <div className="w-5/6 bg-white ml-16 rounded-2xl">
+        <div className="w-5/6 bg-[#FDEDE1] ml-16 rounded-2xl">
           <h1 className="m-5 font-bold">Description</h1>
           <p className="m-5">
             {petDetails.description}
@@ -255,7 +255,7 @@ const PetDetails = () => {
           {/*  adoption fee, date joined */}
 
           <div className="grid grid-cols-2">
-            <div>
+            <div className>
               <h2 className="m-5">
                 <b>Name: </b>{petDetails.name}
               </h2>
@@ -338,6 +338,20 @@ const PetDetails = () => {
             return val;
           }
         })}
+        components={{
+          header: {
+            cell: (props) => (
+                <th
+                    {...props}
+                    style={{
+                      backgroundColor: "#FDEDE1",
+                      fontWeight: "bold",
+                      font: "font-nunito",
+                    }}
+                />
+            ),
+          },
+        }}
         className="font-nunito text-grey-700 shadow-md rounded-2xl "
       />
     </Space>

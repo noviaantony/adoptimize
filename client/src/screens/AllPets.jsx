@@ -289,6 +289,8 @@ const AllPets = () => {
               className="font-nunito"
               okText="Add Pet"
               cancelText="Cancel"
+              style={{ color: 'black'}}
+              okButtonProps={{ style: { background: 'F7AF7A', color: 'black' } }}
 
             > 
               <h1 className="text-2xl font-bold mb-2">Add New Pet</h1>

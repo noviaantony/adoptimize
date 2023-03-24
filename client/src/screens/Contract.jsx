@@ -69,11 +69,11 @@ const Contract = () => {
             Upload PDF
           </button>
         </form>
-        <div className="pdf-container mt-20 ml-60">
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+        <div className="pdf-container mt-20 ml-60 h-50">
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js" className = "h-2/6">
             {viewPdf && (
               <>
-                <Viewer fileUrl={viewPdf} plugins={[newplugin]} />
+                <Viewer fileUrl={viewPdf} plugins={[newplugin]}  className = "h-2/6"/>
               </>
             )}
             {!viewPdf && <>No PDF</>}
@@ -82,10 +82,13 @@ const Contract = () => {
       </div>
 
       <button
-        class="bg-gray-700 hover:bg-gray-500 focus:bg-white focus:text-gray-500 transition duration-300 text-white font-bold py-2 px-4 rounded-full font-nunito text-sm px-10 py-2 text-xl mt-8"
+          block
+          type="button"
+          className=" text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 font"
+
       >
-        Save Information
-      </button> 
+        Save Document
+      </button>
     </Space>
   );
 };
