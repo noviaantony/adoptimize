@@ -21,7 +21,7 @@ const AppRoutes = () => {
       <Route path="/AllPetsAlt" element={<AllPetsAlt />} />
       <Route path="/Adoptions" element={<Adoptions />} />
       <Route path="/PreScreeningQuestions" element={<Prescreening />} />
-      <Route path="/AdoptionContract" element={<Contract2 />} />
+      <Route path="/AdoptionContract" element={<Contract />} />
       <Route path="/PetDetails/:petId" element={<PetDetails />} />
       <Route path="/AdoptionDetails/:applicationId" element={<AdoptionDetail />} />
       <Route path="/Finances" element={<Finances />} />
