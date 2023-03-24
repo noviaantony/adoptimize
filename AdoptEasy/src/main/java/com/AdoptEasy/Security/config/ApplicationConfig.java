@@ -132,7 +132,7 @@ public class ApplicationConfig {
 
             // create dummy pets
             Pet pet1 = new Pet(
-                    "Whiskers",
+                    "Whiskers" ,
                     "Siamese",
                     2,
                     LocalDate.of(2022, 3, 1),
