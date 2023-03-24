@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import {
+  Space,
+  Typography,
+  Collapse
+} from "antd";
+import { Dialog, Transition } from '@headlessui/react';
 
 function Settings() {
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("johndoe@example.com");
-  const [role, setRole] = useState("User");
+  const [name, setName] = useState("Wulf's Cat Shelter ");
+  const [email, setEmail] = useState("wulfcatsheltersg@gmail.com");
+  const [role, setRole] = useState("Admin");
   const [password, setPassword] = useState("");
 
   const handleNameChange = (e) => {
@@ -30,11 +36,19 @@ function Settings() {
     console.log("Password:", password);
   };
 
+
+  
+
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-2/3 bg-white p-8 rounded-lg">
-        <h1 className="text-2xl font-bold mb-6">Settings</h1>
-        <form onSubmit={handleFormSubmit}>
+    <Space direction="vertical table">
+       <Typography.Title
+        // level={4}
+        className="font-nunito font-bold font-6x mt-5"
+      >
+        Settings
+      </Typography.Title>
+
+       <form onSubmit={handleFormSubmit} className="font-nunito">
           <div className="grid grid-cols-2 gap-6">
             <div>
               <label
@@ -147,9 +161,8 @@ function Settings() {
           >
             Save
           </button>
-        </form>
-      </div>
-    </div>
+        </form> 
+    </Space>
   );
 }
 

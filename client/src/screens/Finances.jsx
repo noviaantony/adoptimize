@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef} from "react";
 import {
   Space,
   Typography,
-  Table
+  Table,
+  DatePicker
 } from "antd";
-import { Bar } from 'react-chartjs-2';
+
+import Graph from '../components/finances/Graph'
+import Graph2 from '../components/finances/Graph2'
+
 
 
 const Finances = () => {
@@ -93,9 +97,7 @@ const Finances = () => {
 
         <div className="container  px-4 py-5">
           <div className="mb-8">
-            <div>
-              {/* <Bar /> */}
-            </div>
+            <Graph2/>
             <Table columns={columns} dataSource={data}
                    components={{
               header: {

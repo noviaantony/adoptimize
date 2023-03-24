@@ -11,6 +11,7 @@ import AdoptionDetail from '../../screens/AdoptionDetail';
 import Settings from '../../screens/Settings';
 import Landing from "../../screens/Landing";
 import Finances from '../../screens/Finances';
+import Tutorial from '../../screens/Tutorial';
 
 
 const AppRoutes = () => {
@@ -24,6 +25,7 @@ const AppRoutes = () => {
       <Route path="/AdoptionContract" element={<Contract />} />
       <Route path="/PetDetails/:petId" element={<PetDetails />} />
       <Route path="/AdoptionDetails/:applicationId" element={<AdoptionDetail />} />
+      <Route path="/FAQ" element={<Tutorial />} />
       <Route path="/Finances" element={<Finances />} />
       <Route path="/Settings" element={<Settings />} />
     </Routes>

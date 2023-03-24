@@ -7,7 +7,8 @@ import {
   MdEditDocument,
   MdOutlineEditNote,
   MdSettings,
-  MdAttachMoney
+  MdAttachMoney,
+  MdQuestionMark
 } from "react-icons/md";
 
 
@@ -32,8 +33,8 @@ const items = [
       getItem("Pre-Screening Questions", "3", <MdOutlineEditNote/>),
       getItem("Adoption Contract", "4", <MdEditDocument/>),
       getItem("Finances", "5", <MdAttachMoney/>),
-      getItem("Settings", "6", <MdSettings/>),
-      
+      getItem("FAQ", "6", <MdQuestionMark/>),
+      getItem("Settings", "7", <MdSettings/>),  
     ],
     "group"
   ),
@@ -57,6 +58,8 @@ const Sidebar = () => {
     } else if (e.key == "5") {
       navigate("/Finances");
     } else if (e.key == "6") {
+      navigate("/FAQ");
+    } else if (e.key == "7") {
       navigate("/Settings");
     } 
 
