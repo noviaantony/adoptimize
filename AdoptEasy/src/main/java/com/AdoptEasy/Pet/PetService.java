@@ -25,7 +25,7 @@ public class PetService {
     public Pet addPet(PetRequest pet){
         Pet newPet = new Pet(pet.name(), pet.breed(), pet.age(), LocalDate.parse(pet.dateJoined()),
                 LocalDate.parse(pet.birthday()), pet.medical(), pet.status(),
-                pet.imageAddress(), pet.description(), pet.weight(), pet.adoptionFee());
+                pet.imageAddress(), pet.description(), pet.weight(), pet.adoptionFee(), pet.sex());
         return petRepository.save(newPet);
     }
 

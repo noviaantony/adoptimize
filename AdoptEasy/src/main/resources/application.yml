@@ -6,9 +6,9 @@ Spring:
     application:
         name: user
     datasource:
-        password: 123
-        url: jdbc:postgresql://localhost:5433/adopteasy
-        username: postgres
+        password: zhaoxing
+        url: jdbc:postgresql://localhost:5432/adopteasy
+        username: newbieshine
     jpa:
             hibernate:
                 ddl-auto: create-drop

@@ -33,6 +33,11 @@ const columns = [
     dataIndex: "name",
     render: (text) => <Link to = "/PetDetails">{text}</Link>,
   },
+    {
+        title: "Gender",
+        dataIndex: "sex",
+        key: "sex",
+    },
   {
     title: "Breed",
     dataIndex: "breed",
@@ -156,6 +161,7 @@ const AllPets = () => {
     const[petDescription, setPetDescription] = useState("");
     const [petWeight, setPetWeight] = useState("");
     const [petAdoptionFee, setPetAdoptionFee] = useState("");
+    const [petSex, setPetSex] = useState("");
 
   const showModal = () => {
     setOpen(true);
@@ -175,6 +181,7 @@ const AllPets = () => {
         description: petDescription,
         weight: parseFloat(petWeight),
         petAdoptionFee: parseFloat(petAdoptionFee),
+        sex: petSex,
     }
     PetService.addPet(pet).then((res) => {
         console.log(res);
@@ -207,6 +214,7 @@ const AllPets = () => {
                     birthday: pet.birthday,
                     status: pet.status,
                     actions: pet.actions,
+                    sex: pet.sex
                 };
 
                 petsData.push(petData);
@@ -292,11 +300,28 @@ const AllPets = () => {
                   onChange={(e) => setPetName(e.target.value)}
               />
 
+
               <div
                 style={{
                   margin: '24px 0',
                 }}
               />
+
+                <h1>Sex:</h1>
+                <TextArea
+                    placeholder="Enter pet name"
+                    autoSize className="font-nunito"
+                    value={petSex}
+                    onChange={(e) => setPetSex(e.target.value)}
+                />
+
+
+                <div
+                    style={{
+                        margin: '24px 0',
+                    }}
+                />
+
               <h1>Breed:</h1>
               <TextArea
                   placeholder="Enter pet breed"

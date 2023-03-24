@@ -53,11 +53,6 @@ const steps = [
     icon: <IoIosHome />,
   },
   {
-    title: "Approved",
-    status: "wait",
-    icon: <IoMdCheckmarkCircleOutline />,
-  },
-  {
     title: "Adoption Contract",
     status: "wait",
     icon: <IoIosDocument />,
@@ -169,7 +164,7 @@ const AdoptionDetail = () => {
   const { applicationId } = useParams();
   const [adoptionApplication, setAdoptionApplication] = useState({});
   const [pet, setPet] = useState({});
-  // const [phase, setPhase] = useState({});
+  const [phase, setPhase] = useState("");
 
   const onChange = (currentSlide) => {
     console.log(currentSlide);
@@ -189,36 +184,51 @@ const AdoptionDetail = () => {
     AdoptionService.getAdoptionById(applicationId).then((res) => {
       setAdoptionApplication(res);
         setPet(res.pet);
+        setCurrent(adoptionApplication.phaseOfAdoption)
+        if (current === 0) {
+          setPhase("Pre-Screening")
+        } else if (current === 1) {
+          setPhase("Home Check")
+        } else if (current === 2) {
+          setPhase("Adoption Contract")
+        } else if (current === 3) {
+          setPhase("Payment")
+        } else if (current === 4){
+          setPhase("Collection")
+        } else if (current === 5){
+          setPhase("Post Adoption")
+        }
     });
-  }, []);
 
-  useEffect(() => {
-    console.log(adoptionApplication);
-    setCurrent(adoptionApplication.phaseOfAdoption)
-    // if (current === 0) {
-    //   setPhase("Pre-Screening")
-    // } else if (current === 1) {
-    //   setPhase("Home Check")
-    // } else if (current === 2) {
-    //   setPhase("Approved")
-    // } else if (current === 3) {
-    //   setPhase("Adoption Contract")
-    // } else if (current === 4) {
-    //   setPhase("Payment")
-    // } else if (current === 5){
-    //   setPhase("Collection")
-    // }
-  }, [adoptionApplication]);
+  }, [adoptionApplication, current]);
 
-  useEffect(() => {
-    console.log(pet);
+  // useEffect(() => {
+  //   console.log(adoptionApplication);
+  // }, [adoptionApplication]);
 
-  }, [pet]);
+  // useEffect(() => {
+  //   console.log(pet);
+  //
+  // }, [pet]);
 
 
   const showConfirmPhase = () => {
+    if (current === 0) {
+      setPhase("Pre-Screening")
+    } else if (current === 1) {
+      setPhase("Home Check")
+    } else if (current === 2) {
+      setPhase("Adoption Contract")
+    } else if (current === 3) {
+      setPhase("Payment")
+    } else if (current === 4){
+      setPhase("Collection")
+    } else if (current === 5){
+      setPhase("Post Adoption")
+    }
     confirm({
-      title: "Would you like to approve the current phase of adoption?",
+      title: "Would you like to approve the " +
+          "<span style='font-weight: bold'>" + phase + "</span> phase?",
       icon: <ExclamationCircleFilled />,
       content: "",
       onOk() {
@@ -227,7 +237,6 @@ const AdoptionDetail = () => {
             setOpen(false);
             window.location.href = `/AdoptionDetails/${applicationId}`;
         });
-        console.log("OK");
       },
       onCancel() {
         console.log("Cancel");

@@ -1,6 +1,5 @@
 package com.AdoptEasy.Adoption;
 
-import com.AdoptEasy.Adoption.*;
 import com.AdoptEasy.Pet.Pet;
 import com.AdoptEasy.Pet.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.function.Function;
 
 @Service
 public class AdoptionService {
@@ -90,15 +88,13 @@ public class AdoptionService {
 
         if (phase == 1){
             phaseOfAdoption = PhaseOfAdoption.HOMECHECK;
-        } else if (phase == 2){
-            phaseOfAdoption = PhaseOfAdoption.APPROVED;
-        }else if  (phase == 3){
+        }else if  (phase == 2){
             phaseOfAdoption = PhaseOfAdoption.ADOPTIONCONTRACT;
-        }else if  (phase == 4){
+        }else if  (phase == 3){
             phaseOfAdoption = PhaseOfAdoption.PAYMENT;
-        }else if  (phase == 5){
+        }else if  (phase == 4){
             phaseOfAdoption = PhaseOfAdoption.COLLECTION;
-        } else if (phase == 6){
+        } else if (phase == 5){
             phaseOfAdoption = PhaseOfAdoption.POSTADOPTION;
         }
         adoption.setPhaseOfAdoption(phase);

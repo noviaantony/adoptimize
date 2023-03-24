@@ -60,11 +60,15 @@ public class Pet {
 
     private Double adoptionFee;
 
+    private String sex;
+
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Adoption> adoptionList;
 
-    public Pet (String name, String breed, int age, LocalDate dateJoined, LocalDate birthday, String medical, String status, String imageAddress, String description, Double weight, Double  adoptionFee){
+    public Pet (String name, String breed, int age, LocalDate dateJoined, LocalDate birthday, String medical,
+                String status, String imageAddress, String description, Double weight, Double  adoptionFee,
+                String sex){
         this.name = name;
         this.breed = breed;
         this.age = age;
@@ -76,5 +80,6 @@ public class Pet {
         this.description = description;
         this.weight = weight;
         this.adoptionFee = adoptionFee;
+        this.sex = sex;
     }
 }
