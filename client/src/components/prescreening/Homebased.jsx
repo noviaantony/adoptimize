@@ -48,11 +48,11 @@ const Homebased = () => {
                       {question.question}
                     </label>
                   </h2>
-                  {/* <input
+                  <input
                       type="checkbox"
                       checked={checkedList[index]}
                       onChange={() => handleCheckboxChange(index)}
-                  /> */}
+                  />
                 </div>
 
                 {question.questionType === "MCQ" && (
