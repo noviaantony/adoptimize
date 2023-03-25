@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Badge, Drawer, Image, List, Space, Typography, Dropdown } from "antd";
 import Personal from "../components/prescreening/Personal"
+import Lifestyle from "../components/prescreening/Lifestyle"
+import Homebased from "../components/prescreening/Homebased"
+import Household from "../components/prescreening/Household"
+
 
 const  AdoptionForm = () => {
 
@@ -77,6 +81,9 @@ const  AdoptionForm = () => {
           </Typography.Title>
           <form className="p-4 mx-12 bg-blue font-nunito" onSubmit={handleSubmit}>
             <Personal/>
+            <Lifestyle/>
+            <Homebased/>
+            <Household/>
           </form>
         </Space>
       </div>
