@@ -155,6 +155,9 @@ const PetListing = () => {
                                 Age={pet.age}
                                 Breed={pet.breed}
                                 Sex={pet.sex}
+                                Description = {pet.description}
+                                AdoptionFee = {pet.petAdoptionFee}
+                                MedicalDetails = {pet.medical}
                                 Image1={pet.imageAddress}
                                 Image2={pet.imageAddress}
                                 Image3={pet.imageAddress}

@@ -228,7 +228,7 @@ const AdoptionDetail = () => {
     }
     confirm({
       title: "Would you like to approve the " +
-          "<span style='font-weight: bold'>" + phase + "</span> phase?",
+          "" + phase + " phase?",
       icon: <ExclamationCircleFilled />,
       content: "",
       onOk() {

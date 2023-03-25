@@ -175,7 +175,8 @@ const AllPetsAlt = () => {
 
 
   return (
-    <Space direction="vertical table" className="font-nunito">
+      <>
+    <Space direction="vertical" className="font-nunito">
       <Typography.Title
         // level={4}
         className="font-nunito font-bold font-6x mt-5"
@@ -194,11 +195,27 @@ const AllPetsAlt = () => {
           Import your existing shelter data into our system! Ensure that the csv contains the right information in the right order. 
         </p>
       </Dragger>
+      <div className="grid grid-cols-2">
 
-      <button className="ml-86">Upload CSV File</button>
+        <button block
+                type="button"
+                className="text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+          Upload CSV File
+        </button>
+        <button block
+                type="button"
+                className="text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+          Add Pet Manually
+        </button>
+      </div>
+
+
+
 
     </Space>
-  );
+      </>
+
+        );
 };
 
 export default AllPetsAlt;

@@ -22,7 +22,7 @@ const text = `
 
 
 
-const PetCard = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
+const PetCard = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4, Description, AdoptionFee, MedicalDetails}) => {
 
     const [showDishInfo, setshowDishInfo] = React.useState(false);
 
@@ -134,7 +134,7 @@ const PetCard = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
                   {/*header*/}
                   <div className="text-center items-start justify-between p-3 border-b border-solid border-slate-200 rounded-t mt-5">
                     <h3 className="text-3xl font-semibold">
-                      Timothee Catlamet
+                        About {Name}
                     </h3>
                     <button
                       className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -161,44 +161,25 @@ const PetCard = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4}) => {
                         <Panel header="Age" key="3">
                           <p>{Age} </p>
                         </Panel>
-                        <Panel header="Date In Shelter" key="4">
-                          <p>{text} </p>
+                        <Panel header="Gender" key="4">
+                          <p>{Sex} </p>
                         </Panel>
                         <Panel header="Description" key="5">
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Modi eveniet, totam aspernatur nihil, ut
-                            cumque possimus quisquam nemo illo vel commodi
-                            sapiente facere quis? Cum, laborum maxime aperiam
-                            commodi modi fugiat ab eius corrupti! Sunt illum
-                            accusamus debitis, impedit perferendis porro.
-                            Deserunt impedit corporis vitae eaque sapiente cum
-                            minima temporibus?
+                              {Description}
                           </p>
                         </Panel>
                         <Panel header="Medical Details" key="6">
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Corporis odio quisquam expedita commodi,
-                            voluptatem earum. Beatae tenetur fugit officiis!
-                            Dolorem quibusdam rem sit ducimus cupiditate
-                            adipisci voluptatem dolorum inventore perferendis
-                            repellat accusantium facilis, mollitia eaque at
-                            nulla incidunt modi nesciunt eius exercitationem,
-                            voluptate rerum. Dolorum iusto veniam maxime
-                            deserunt corporis.
+
+                              {MedicalDetails}
+
+
                           </p>
                         </Panel>
-                        <Panel header="Adopter Requirement" key="7">
-                          <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Fuga, voluptas iusto! Voluptates facilis vel,
-                            maiores excepturi facere reiciendis corrupti
-                            distinctio.
-                          </p>
-                        </Panel>
+
                         <Panel header="Adoption Fee" key="8">
-                          <p>200 SGD</p>
+                          <p>300 SGD</p>
                         </Panel>
                       </Collapse>
                     </p>

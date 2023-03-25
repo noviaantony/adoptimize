@@ -21,91 +21,6 @@ const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
 
-const columns = [
-  {
-    title: "Pet Id",
-    dataIndex: "petId",
-    key: "petId",
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Name",
-    dataIndex: "name",
-    render: (text) => <Link to = "/PetDetails">{text}</Link>,
-  },
-    {
-        title: "Gender",
-        dataIndex: "sex",
-        key: "sex",
-    },
-  {
-    title: "Breed",
-    dataIndex: "breed",
-    key: "breed",
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Medical Details",
-    dataIndex: "medical",
-    key: "medical",
-  },
-  {
-    title: "Date Joined",
-    dataIndex: "dateJoined",
-    key: "dateJoined",
-  },
-  {
-    title: "Date of Birth",
-    dataIndex: "birthday",
-    key: "birthday",
-  },
-  {
-    title: "Status",
-    key: "status",
-    dataIndex: "status",
-    render: (status) => {
-      let color = "";
-      if (status === "Available") {
-        color = "blue";
-      } else if (status === "Pending") {
-        color = "green";
-      } else if (status === "Adopted") {
-        color = "red";
-      } else {
-        color = "purple";
-      }
-      return (
-          <Tag color={color}>
-            {status.toUpperCase()}
-          </Tag>
-      );
-    }
-  },
-  {
-    title: "",
-    key: "action",
-    render: (_, actions) => (
-      <Dropdown
-        menu={{
-          items,
-          onClick,
-        }}
-      >
-        <a onClick={(e) => e.preventDefault()}>
-          <Space>
-            {/* Actions
-            <DownOutlined /> */}
-            <HolderOutlined />
-          </Space>
-        </a>
-      </Dropdown>
-    ),
-  },
-];
 
 const items = [
   {
@@ -151,7 +66,7 @@ const AllPets = () => {
 
   const [open, setOpen] = useState(false);
   const [petName, setPetName] = useState("");
-    const [petBreed, setPetBreed] = useState("");
+  const [petBreed, setPetBreed] = useState("");
     const [petAge, setPetAge] = useState("");
     const [petDateJoined, setPetDateJoined] = useState("");
     const[petBirthday, setPetBirthday] = useState("");
@@ -196,7 +111,7 @@ const AllPets = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [pets, setPets] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
         petService.getAllPets().then((res) => {
             console.log("Retrieving all pets...");
             // console.log(res)
@@ -227,7 +142,152 @@ const AllPets = () => {
     console.log(pets);
   }, [pets]);
 
-  return (
+
+    const [filteredInfo, setFilteredInfo] = useState({});
+    const [sortedInfo, setSortedInfo] = useState({});
+    const handleChange = (pagination, filters, sorter) => {
+        console.log('Various parameters', pagination, filters, sorter);
+        setFilteredInfo(filters);
+        setSortedInfo(sorter);
+    };
+
+
+    const columns = [
+        {
+            title: "Pet Id",
+            dataIndex: "petId",
+            key: "petId",
+            render: (text) => <a>{text}</a>,
+            sorter: (a, b) => a.petId - b.petId,
+            sortOrder: sortedInfo.columnKey === 'petId' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Name",
+            dataIndex: "name",
+            render: (text) => <Link to = "/PetDetails">{text}</Link>,
+            sorter: (a, b) => a.dateJoined - b.dateJoined,
+            sortOrder: sortedInfo.columnKey === 'dateJoined' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Gender",
+            dataIndex: "sex",
+            key: "sex",
+            filters: [
+                {
+                    text: 'Female',
+                    value: 'Female',
+                },
+                {
+                    text: 'Male',
+                    value: 'Male',
+                },
+            ],
+            filteredValue: filteredInfo.sex || null,
+            onFilter: (value, record) => record.address.includes(value),
+            sorter: (a, b) => a.sex.length - b.sex.length,
+            sortOrder: sortedInfo.columnKey === 'sex' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Breed",
+            dataIndex: "breed",
+            key: "breed",
+            sorter: (a, b) => a.dateJoined - b.dateJoined,
+            sortOrder: sortedInfo.columnKey === 'dateJoined' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Age",
+            dataIndex: "age",
+            key: "age",
+            sorter: (a, b) => a.age - b.age,
+            sortOrder: sortedInfo.columnKey === 'age' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Medical Details",
+            dataIndex: "medical",
+            key: "medical",
+        },
+        {
+            title: "Date Joined",
+            dataIndex: "dateJoined",
+            key: "dateJoined",
+            sorter: (a, b) => a.dateJoined - b.dateJoined,
+            sortOrder: sortedInfo.columnKey === 'dateJoined' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Date of Birth",
+            dataIndex: "birthday",
+            key: "birthday",
+            sorter: (a, b) => a.birthday - b.birthday,
+            sortOrder: sortedInfo.columnKey === 'birthday' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: "Status",
+            key: "status",
+            dataIndex: "status",
+            filters: [
+                {
+                    text: 'Available',
+                    value: 'Available',
+                },
+                {
+                    text: 'Pending Adoption',
+                    value: 'Pending Adoption',
+                },
+            ],
+            filteredValue: filteredInfo.name || null,
+            onFilter: (value, record) => record.name.includes(value),
+            sorter: (a, b) => a.name.length - b.name.length,
+            sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
+            ellipsis: true,
+            render: (status) => {
+                let color = "";
+                if (status === "Available") {
+                    color = "blue";
+                } else if (status === "Pending") {
+                    color = "green";
+                } else if (status === "Adopted") {
+                    color = "red";
+                } else {
+                    color = "purple";
+                }
+                return (
+                    <Tag color={color}>
+                        {status.toUpperCase()}
+                    </Tag>
+                );
+            }
+        },
+        {
+            title: "Actions",
+            key: "action",
+            render: (_, actions) => (
+                <Dropdown
+                    menu={{
+                        items,
+                        onClick,
+                    }}
+                >
+                    <a onClick={(e) => e.preventDefault()}>
+                        <Space>
+                            {/* Actions
+            <DownOutlined /> */}
+                            <HolderOutlined />
+                        </Space>
+                    </a>
+                </Dropdown>
+            ),
+        },
+    ];
+
+
+    return (
     <Space direction="vertical table">
       <Typography.Title
         // level={4}
@@ -469,6 +529,8 @@ const AllPets = () => {
               // handleRowClick(record.petId)
           },
         })}
+
+        onChange={handleChange}
 
         components={{
           header: {
