@@ -155,7 +155,7 @@ const PaymentForm = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-700 font-bold">Adoption Fee:</span>
-                  <span className="font-bold">$200.00</span>
+                  <span className="font-bold">$350.00</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-700 font-bold">Donation:</span>
@@ -172,7 +172,7 @@ const PaymentForm = () => {
                     Total:
                   </span>
                   <span className="font-bold">
-                    ${(processingFee + donation + 200.00).toFixed()}
+                    ${(processingFee + donation + 350.00).toFixed()}
                   </span>
                 </div>
 
@@ -196,38 +196,45 @@ const PaymentForm = () => {
           </Space>
         </div>
         <div className="font-nunito flex content-start h-4/6 mt-24 ">
-          <div className="w-4/6 bg-orange-100 rounded-2xl shadow-md">
+          <div className="w-3/6 bg-orange-100 rounded-2xl shadow-md">
             <Image
-              width={480}
+              // width={470}
               className="rounded-xl"
-              src="https://images.unsplash.com/photo-1592652426689-4e4f12c4aef5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2lhbWVzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+              src="https://i.redd.it/k1z06811fux41.png"
             />
+
+
+            {/*"Bella",
+                    "British Shorthair",
+                    4,
+                    LocalDate.of(2022, 2, 26),
+                    LocalDate.of(2019, 1, 26),
+                    "up to date on vaccinations, no fleas",
+                    "Available",
+                    "https://i.redd.it/k1z06811fux41.png",
+                    "Hello, my name is Bella, and I am a beautiful British Shorthair with a gentle personality and striking green eyes. I am a relaxed and easy-going cat.",
+                    9.0,
+                    350.00,
+                    "Female"*/}
 
             <div className="grid grid-cols-2">
               <div className="text-sm">
                 <h2 className="m-5">
-                  <b>Name: </b>Timothee Catlamet
+                  <b>Name: </b> Bella
                 </h2>
                 <h2 className="m-5">
-                  <b>Id: </b>P1235
+                  <b>Id: </b> 4
                 </h2>
                 <h2 className="m-5">
-                  <b>Breed: </b>Siamese x Persian
-                </h2>
-                <h2 className="m-5">
-                  <b>Age: </b>1 year(s)
+                  <b>Breed: </b> British Shorthair
                 </h2>
               </div>
               <div className="text-sm">
                 <h2 className="m-5">
-                  <b>Weight: </b>4.5kg
+                  <b>Weight: </b>4.08kg
                 </h2>
                 <h2 className="m-5">
-                  <b>Medical Details: </b>Fully Vaccinated, FIV Negative, Slight
-                  PICA Tendency
-                </h2>
-                <h2 className="m-5">
-                  <b>Date Joined: </b>12/01/2023
+                  <b>Medical Details: </b> up to date on vaccinations, no fleas
                 </h2>
               </div>
             </div>

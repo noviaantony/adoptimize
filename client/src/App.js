@@ -17,8 +17,8 @@ import PaymentForm from './screens/PaymentForm';
 
 function App() {
 
-  const auth = false;
-  // const auth = true;
+  // const auth = false;
+  const auth = true;
 
   return (
     <div className="App">
