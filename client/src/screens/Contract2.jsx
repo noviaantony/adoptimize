@@ -8,7 +8,7 @@ import {
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
 import { Document, Page, pdfjs } from "react-pdf";
-import lesson2 from "./lesson2.pdf";
+import signedcontract from "./signedcontract.pdf";
 
 class App extends Component {
   
@@ -28,12 +28,12 @@ class App extends Component {
 
     return (
       <Space direction="vertical table">
-        <Typography.Title
-          // level={4}
-          className="font-nunito font-bold font-6x mt-5"
-        >
-          Adoption Contract Upload
-        </Typography.Title>
+        {/*<Typography.Title*/}
+        {/*  // level={4}*/}
+        {/*  className="font-nunito font-bold font-6x mt-5"*/}
+        {/*>*/}
+        {/*  Adoption Contract Upload*/}
+        {/*</Typography.Title>*/}
 
         <nav>
           <button
@@ -54,7 +54,7 @@ class App extends Component {
         </nav>
 
         <div style={{ width: 600 }}>
-          <Document file={lesson2} onLoadSuccess={this.onDocumentLoadSuccess}>
+          <Document file= {signedcontract} onLoadSuccess={this.onDocumentLoadSuccess}>
             <Page pageNumber={pageNumber} width={600} />
           </Document>
         </div>

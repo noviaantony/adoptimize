@@ -37,6 +37,7 @@ import {
 import { TbVaccine } from "react-icons/tb";
 import AdoptionService from "../services/AdoptionService";
 import adoptionService from "../services/AdoptionService";
+import Contract2 from "../screens/Contract2"
 
 
 const { confirm } = Modal;
@@ -418,33 +419,138 @@ const AdoptionDetail = () => {
           Pre-Screening Responses
         </Typography.Title>
 
-        <div className="w-6/6 bg-white rounded-xl h-30 mt-1">
+
+        {/*why do you want to adopt a cat,
+        how would you describe your lifestyle?, how much time do you typically spend at home,
+        do you frequently travel?, what type house do you live in?, do you rent or own your home?, do you have a backyard or outdoor space.
+        how many adults live in your home?*/}
+
+        <div className="grid grid-cols-3">
+
+
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            Name
+          </h3>
+          <p className="m-5 pb-4">
+            Emma Lim
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            Age
+          </h3>
+          <p className="m-5 pb-4">
+            30
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            Email
+          </h3>
+          <p className="m-5 pb-4">
+            EmmaLim@example.com
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            Preffered Contact Days
+          </h3>
+          <p className="m-5 pb-4">
+            Monday, Tuesday, Wednesday
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            Have you owned a cat before?
+          </h3>
+          <p className="m-5 pb-4">
+            Yes
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
           <h3 className="font-nunito text-sm font-black m-5 pt-5">
             Why do you want to adopt a cat?
           </h3>
           <p className="m-5 pb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur
-            eum labore ea ad impedit quasi officiis consequuntur. Sunt sed,
-            maxime omnis officia modi unde delectus ex distinctio dicta aliquam?
-            Provident est quo, suscipit a rem, nobis quae impedit dicta,
-            obcaecati enim blanditiis? Repudiandae magnam aliquam, commodi
-            distinctio minus quaerat tempore.
+            I want to adopt a cat because I love animals and I think they make great companions.
+            I also enjoy taking care of them and providing them with a loving home.
           </p>
         </div>
-
-        <div className="w-6/6 bg-white rounded-xl h-30">
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
           <h3 className="font-nunito text-sm font-black m-5 pt-5">
-            Have you owned a pet before? If so, what happened to it?
+            How would you describe your lifestyle?
           </h3>
           <p className="m-5 pb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur
-            eum labore ea ad impedit quasi officiis consequuntur. Sunt sed,
-            maxime omnis officia modi unde delectus ex distinctio dicta aliquam?
-            Provident est quo, suscipit a rem, nobis quae impedit dicta,
-            obcaecati enim blanditiis? Repudiandae magnam aliquam, commodi
-            distinctio minus quaerat tempore.
+            I would say that I have a fairly active lifestyle.
+            I enjoy going for walks and spending time outdoors, but I also like to relax at home with a good book or movie.
           </p>
         </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            How much time do you typically spend at home?
+          </h3>
+          <p className="m-5 pb-4">
+            I work from home, so I am typically at home most of the day.
+            However, I do like to go out and run errands or meet up with friends on occasion.
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            Do you frequently travel?
+          </h3>
+          <p className="m-5 pb-4">
+            No, I do not frequently travel. I might take a short trip once or twice a year,
+            but I would always make sure that my cat is well taken care of while I am away.
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            What type of house do you live in?
+          </h3>
+          <p className="m-5 pb-4">
+            I live in a 5 room HDB flat in Jurong West.
+          </p>
+        </div><div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+        <h3 className="font-nunito text-sm font-black m-5 pt-5">
+          Do you rent or own your home?
+        </h3>
+        <p className="m-5 pb-4">
+          I own the house together with my husband
+        </p>
+      </div>
+      <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+        <h3 className="font-nunito text-sm font-black m-5 pt-5">
+          Do you have a backyard or outdoor space?
+        </h3>
+        <p className="m-5 pb-4">
+          No, I do not have a backyard, but there is a park nearby where I can take my cat for walks.
+        </p>
+      </div>
+      <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+        <h3 className="font-nunito text-sm font-black m-5 pt-5">
+          How many adults live in your home?
+        </h3>
+        <p className="m-5 pb-4">
+          2, my husband and myself
+        </p>
+      </div>
+        </div>
+
+
+
+
+
+
+
+        <Typography.Title className="font-nunito font-xl mt-10 ml-4" level={2}>
+          Adoption Contract
+        </Typography.Title>
+        <Contract2/>
+
+
+
+
       </Space>
     </>
   );
