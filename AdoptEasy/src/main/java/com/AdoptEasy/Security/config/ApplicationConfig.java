@@ -86,9 +86,9 @@ public class ApplicationConfig {
             );
 
             User John = new User(
-                    "John",
-                    "Doe",
-                    "JohnDoe@example.com",
+                    "Emma",
+                    "Lim",
+                    "emmalim@example.com",
                     encodedPassword,
                     UserRole.ADOPTER
             );

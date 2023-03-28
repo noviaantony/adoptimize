@@ -398,7 +398,7 @@ const AdoptionDetail = () => {
                   <b>Contact: </b>+65 1234 5678
                 </h2>
                 <h2 className="m-5">
-                  <b>DOB: </b>04/05/1996
+                  <b>DOB: </b>04/05/1993
                 </h2>
               </div>
               <div>
@@ -407,6 +407,9 @@ const AdoptionDetail = () => {
                 </h2>
                 <h2 className="m-5">
                   <b>Application Date: </b>{adoptionApplication.dateOfApplication}
+                </h2>
+                <h2 className="m-5">
+                  <b>Preferred Contact Days: </b> Monday, Tuesday, Wednesday
                 </h2>
               </div>
             </div>

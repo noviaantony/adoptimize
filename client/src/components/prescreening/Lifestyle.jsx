@@ -48,11 +48,11 @@ const Lifestyle = () => {
                       {question.question}
                     </label>
                   </h2>
-                  <input
-                      type="checkbox"
-                      checked={checkedList[index]}
-                      onChange={() => handleCheckboxChange(index)}
-                  />
+                  {/*<input*/}
+                  {/*    type="checkbox"*/}
+                  {/*    checked={checkedList[index]}*/}
+                  {/*    onChange={() => handleCheckboxChange(index)}*/}
+                  {/*/>*/}
                 </div>
 
                 {question.questionType === "MCQ" && (
