@@ -23,7 +23,7 @@ const Graph2 = () => {
       // { date: "2022-12-01", value: 70 },
       { date: "2023-03-23", value: 300 },
       { date: "2023-03-23", value: 300 },
-      { date: "2023-03-28", value: 300 },
+        { date: "2023-03-28", value: 300 },
 
     ]);
   }, []);
@@ -40,7 +40,7 @@ const Graph2 = () => {
     labels: labels,
     datasets: [
       {
-        label: "Amount of Money",
+        label: "Amount of Adoption Fee Collected",
         data: values,
         fill: false,
         tension: 0.4,

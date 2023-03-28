@@ -4,7 +4,6 @@ import {
   Typography,
   Collapse
 } from "antd";
-import { Dialog, Transition } from '@headlessui/react';
 
 function Settings() {
   const [name, setName] = useState("Wulf's Cat Shelter ");

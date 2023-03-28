@@ -1,11 +1,8 @@
-import { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import { useState, useEffect,useRef } from "react";
+import { Chart, registerables } from "chart.js";
 import moment from "moment";
-
-const Graph = () => {
-  const [data, setData] = useState([]);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+import "moment/locale/en-gb";
+import { Line } from "react-chartjs-2";
 
   useEffect(() => {
     setData([
@@ -21,8 +18,8 @@ const Graph = () => {
       // { date: "2022-10-01", value: 60 },
       // { date: "2022-11-01", value: 55 },
       // { date: "2022-12-01", value: 70 },
-      { date: "2023-03-23", value: 20 },
-      { date: "2023-03-23", value: 20 },
+      { date: "2023-03-23", value: 10 },
+      { date: "2023-03-23", value: 10 },
       { date: "2023-03-28", value: 100 },
 
     ]);
@@ -40,12 +37,12 @@ const Graph = () => {
     labels: labels,
     datasets: [
       {
-        label: "Amount of Money",
+        label: "Amount of Donation",
         data: values,
         fill: false,
         tension: 0.4,
-        backgroundColor: "black",
-        borderColor: "black",
+        backgroundColor: "orange",
+        borderColor: "orange",
       },
     ],
   };
@@ -91,7 +88,7 @@ const Graph = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: "Donation Collected",
+                    text: "Adoption Fee Collected",
                   },
                 },
                 scales: {
@@ -108,6 +105,5 @@ const Graph = () => {
         </div>
       </>
   );
-};
 
 export default Graph;
