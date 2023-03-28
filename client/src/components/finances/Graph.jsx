@@ -1,8 +1,12 @@
-import { useState, useEffect,useRef } from "react";
-import { Chart, registerables } from "chart.js";
-import moment from "moment";
-import "moment/locale/en-gb";
+import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import moment from "moment";
+
+const Graph = () => {
+  
+  const [data, setData] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     setData([
@@ -37,7 +41,7 @@ import { Line } from "react-chartjs-2";
     labels: labels,
     datasets: [
       {
-        label: "Amount of Donation",
+        label: "Amount of Adoption Fee Collected",
         data: values,
         fill: false,
         tension: 0.4,
@@ -56,54 +60,55 @@ import { Line } from "react-chartjs-2";
   };
 
   return (
-      <>
-        <div className="my-5">
-          <form className = "font-nunito font-semibold text-xl">
-
-            <label htmlFor="startDate">Start Date: </label>
-            <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={startDate}
-                onChange={handleStartDateChange}
-                className = "mr-5"
-
-            />
-            <label htmlFor="endDate">End Date: </label>
-            <input
-                type="date"
-                id="endDate"
-                name="endDate"
-                value={endDate}
-                onChange={handleEndDateChange}
-            />
-          </form>
-        </div>
-        <div className="my-5">
-          <Line
-              data={chartData}
-              className = "font-nunito"
-              options={{
-                plugins: {
-                  title: {
-                    display: true,
-                    text: "Adoption Fee Collected",
-                  },
-                },
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                  },
-                },
-                height: 200,
-                font: {
-                  family: "nunito",
-                },
-              }}
+    <>
+      <div className="my-5">
+        <form className = "font-nunito font-semibold text-xl">
+          
+          <label htmlFor="startDate">Start Date: </label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            value={startDate}
+            onChange={handleStartDateChange}
+            className = "mr-5"
+            
           />
-        </div>
-      </>
+          <label htmlFor="endDate">End Date: </label>
+          <input
+            type="date"
+            id="endDate"
+            name="endDate"
+            value={endDate}
+            onChange={handleEndDateChange}
+          />
+        </form>
+      </div>
+      <div className="my-5">
+        <Line
+          data={chartData}
+          className = "font-nunito"
+          options={{
+            plugins: {
+              title: {
+                display: true,
+                text: "Donation Amount Collected",
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+            height: 200,
+            font: {
+              family: "nunito",
+            },
+          }}
+        />
+      </div>
+    </>
   );
+};
 
 export default Graph;
