@@ -14,7 +14,7 @@ import {
   Tabs,
   Modal,
   divider,
-  notification
+  notification,
 } from "antd";
 import { HolderOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import "./../App.css";
@@ -84,15 +84,26 @@ const Prescreening = () => {
     });
   };
 
+  // const [api, contextHolder] = notification.useNotification();
+  // const openNotification = (placement) => {
+  //   api.info({
+  //     message: `Notification ${placement}`,
+  //     description:
+  //       "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+  //     placement,
+  //   });
+  // };
+
   const [api, contextHolder] = notification.useNotification();
-  const openNotification = (placement) => {
-    api.info({
-      message: `Notification ${placement}`,
+  const openNotificationWithIcon = (type) => {
+    api[type]({
+      message: 'You have successfully saved your pre-screening questions!',
       description:
-        "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
-      placement,
+          'you can check out your updated adoption form on your pet listing page :)',
     });
   };
+
+
 
 
   return (
@@ -116,11 +127,13 @@ const Prescreening = () => {
             </Tabs.TabPane>
           ))}
         </Tabs>
+        {contextHolder}
         <button
           block
           type="button"
           class=" text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-          onClick={warning}
+          // onClick={warning}
+          onClick={() => openNotificationWithIcon('success')}
         >
           Save Questions
         </button>

@@ -1,82 +1,112 @@
-import { useState, useEffect,useRef } from "react";
-import { Chart, registerables } from "chart.js";
-import moment from "moment";
-import "moment/locale/en-gb";
+import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-
-Chart.register(...registerables);
-
-
-const data = {
-  labels: ["January", "February", "March", "April", "May", "June"],
-  datasets: [
-    {
-      label: "Adoption Fee Collected",
-      data: [300, 500, 200, 600, 400, 700],
-      fill: true,
-      backgroundColor: "rgba(253, 237,225, 0.5)",
-      borderColor: "rgba(253, 237,225, 2)",
-      tension: 0.4,
-    },
-  ],
-};
-
-const options = {
-  scales: {
-    y: {
-      beginAtZero: true,
-      ticks: {
-        callback: function (value, index, values) {
-          return "$" + value;
-        },
-      },
-    },
-  },
-  plugins: {
-    title: {
-      display: true,
-      text: "Adoption Fees",
-      font: {
-        family: "Nunito",
-        weight: "bold",
-        size: 18,
-      },
-    },
-  },
-};
+import moment from "moment";
 
 const Graph = () => {
-
-  const chartContainer = useRef(null);
-  const chartInstance = useRef(null);
+  const [data, setData] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
-    if (chartInstance.current) {
-      chartInstance.current.destroy();
-    }
+    setData([
+      // { date: "2022-01-01", value: 20 },
+      // { date: "2022-02-01", value: 30 },
+      // { date: "2022-03-01", value: 25 },
+      // { date: "2022-04-01", value: 40 },
+      // { date: "2022-05-01", value: 35 },
+      // { date: "2022-06-01", value: 50 },
+      // { date: "2022-07-01", value: 45 },
+      // { date: "2022-08-01", value: 55 },
+      // { date: "2022-09-01", value: 50 },
+      // { date: "2022-10-01", value: 60 },
+      // { date: "2022-11-01", value: 55 },
+      // { date: "2022-12-01", value: 70 },
+      { date: "2023-03-23", value: 20 },
+      { date: "2023-03-23", value: 20 },
+      { date: "2023-03-28", value: 100 },
 
-    chartInstance.current = new Chart(chartContainer.current, {
-      type: "line",
-      data: data,
-      options: options,
-    });
+    ]);
   }, []);
 
-  return (
+  const filteredData = data.filter((d) => {
+    if (startDate === "" || endDate === "") return true;
+    return moment(d.date).isBetween(startDate, endDate);
+  });
 
-    <div>
-      <Line
-        data={data}
-        options={options}
-        height={100}
-        className="font-nunito mb-10"
-      />
-    </div>
-    // <canvas
-    //   className="font-nunito mb-10"
-    //   ref={chartContainer}
-    //   style={{ color: "orange" }}
-    // />
+  const labels = filteredData.map((d) => d.date);
+  const values = filteredData.map((d) => d.value);
+
+  const chartData = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Amount of Money",
+        data: values,
+        fill: false,
+        tension: 0.4,
+        backgroundColor: "black",
+        borderColor: "black",
+      },
+    ],
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  };
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
+  };
+
+  return (
+      <>
+        <div className="my-5">
+          <form className = "font-nunito font-semibold text-xl">
+
+            <label htmlFor="startDate">Start Date: </label>
+            <input
+                type="date"
+                id="startDate"
+                name="startDate"
+                value={startDate}
+                onChange={handleStartDateChange}
+                className = "mr-5"
+
+            />
+            <label htmlFor="endDate">End Date: </label>
+            <input
+                type="date"
+                id="endDate"
+                name="endDate"
+                value={endDate}
+                onChange={handleEndDateChange}
+            />
+          </form>
+        </div>
+        <div className="my-5">
+          <Line
+              data={chartData}
+              className = "font-nunito"
+              options={{
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Donation Collected",
+                  },
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+                height: 200,
+                font: {
+                  family: "nunito",
+                },
+              }}
+          />
+        </div>
+      </>
   );
 };
 

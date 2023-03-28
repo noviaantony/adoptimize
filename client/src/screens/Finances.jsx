@@ -41,9 +41,15 @@ const Finances = () => {
       key: "adopterName",
     },
     {
-      title: "Amount",
+      title: "Adoption Fee",
       dataIndex: "amount",
       key: "amount",
+      render: (text) => `$${text}`,
+    },
+    {
+      title: "Donation",
+      dataIndex: "amount2",
+      key: "amount2",
       render: (text) => `$${text}`,
     },
     // {
@@ -67,6 +73,7 @@ const Finances = () => {
       adopterId: 6,
       adopterName: "John Doe",
       amount: 300,
+      amount2: 20,
       date: "2023-03-23",
     },
     {
@@ -77,7 +84,19 @@ const Finances = () => {
       adopterId: 13,
       adopterName: "Jack Lee",
       amount: 300,
+      amount2: 20,
       date: "2023-03-23",
+    },
+    {
+      key: "3",
+      transId: 3,
+      petId: 16,
+      petName: "Bella",
+      adopterId: 13,
+      adopterName: "Emma Lim",
+      amount: 300,
+      amount2: 100,
+      date: "2023-03-28",
     },
   ];
 
@@ -97,7 +116,12 @@ const Finances = () => {
 
         <div className="container  px-4 py-5">
           <div className="mb-8">
-            <Graph2/>
+
+            <div className="grid grid-cols-2 ">
+              <Graph2/>
+              {/*<Graph/>*/}
+            </div>
+
             <Table columns={columns} dataSource={data}
                    components={{
               header: {

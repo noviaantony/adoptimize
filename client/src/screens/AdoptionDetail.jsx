@@ -278,10 +278,7 @@ const AdoptionDetail = () => {
           className="mt-10"
           items={[
             {
-              title: <Link to="/">All Pets</Link>,
-            },
-            {
-              title: <Link to="/PetDetails">Pet Details</Link>,
+              title: <Link to="/Adoptions">Adoption Management</Link>,
             },
             {
               title: "Adoption Details",
