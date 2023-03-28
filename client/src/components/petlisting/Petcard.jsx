@@ -149,7 +149,7 @@ const PetCard = ({Name, Breed, Sex, Age, Image1, Image2, Image3, Image4, Descrip
                   <div className="relative p-6 flex-auto">
                     <p className="my-4 text-gray-700 text-lg leading-relaxed">
                       <Collapse
-                        defaultActiveKey={["1"]}
+                        defaultActiveKey={["5"]}
                         onChange={onCollapseChange}
                       >
                         <Panel header="Name" key="1">

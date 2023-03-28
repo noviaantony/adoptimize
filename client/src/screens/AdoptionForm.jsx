@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Badge, Drawer, Image, List, Space, Typography, Dropdown } from "antd";
+import React, { useState, useMemo } from 'react';
+import { Badge, Drawer, Image, List, Space, Typography, Dropdown, Button, Divider, notification } from "antd";
 import Personal from "../components/prescreening/Personal"
 import Lifestyle from "../components/prescreening/Lifestyle"
 import Homebased from "../components/prescreening/Homebased"
@@ -52,6 +52,16 @@ const  AdoptionForm = () => {
     // Submit form data to backend here
   };
 
+
+  const [api, contextHolder] = notification.useNotification();
+  const openNotificationWithIcon = (type) => {
+    api[type]({
+      message: 'Adoption Application Submitted!',
+      description:
+        'Do check your email for updates from us :) thank you!',
+    });
+  };
+
   return (
     <>
       <div className="AppHeader bg-white">
@@ -85,8 +95,18 @@ const  AdoptionForm = () => {
             <Homebased/>
             <Household/>
           </form>
+          {/* <Context.Provider value={contextValue}> */}
+            {contextHolder}
+            <Button block
+              type="button"
+              className="text-white bg-[#F7AF7A] hover:bg-white hover:text-[#F7AF7A] font-medium rounded-lg text-sm px-5 py-2.5 ml-16 mb-2 font-nunito"
+              type="primary" onClick={() => openNotificationWithIcon('success')} >
+              Submit Adoption Application
+            </Button>
+        {/* </Context.Provider> */}
         </Space>
       </div>
+      
 
 
       

@@ -409,7 +409,7 @@ const AdoptionDetail = () => {
                   <b>Application Date: </b>{adoptionApplication.dateOfApplication}
                 </h2>
                 <h2 className="m-5">
-                  <b>Preferred Contact Days: </b> Monday, Tuesday, Wednesday
+                  <b>Preferred Contact Days: </b> Wednesday
                 </h2>
               </div>
             </div>
@@ -430,39 +430,6 @@ const AdoptionDetail = () => {
 
         <div className="grid grid-cols-3">
 
-
-        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
-          <h3 className="font-nunito text-sm font-black m-5 pt-5">
-            Name
-          </h3>
-          <p className="m-5 pb-4">
-            Emma Lim
-          </p>
-        </div>
-        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
-          <h3 className="font-nunito text-sm font-black m-5 pt-5">
-            Age
-          </h3>
-          <p className="m-5 pb-4">
-            30
-          </p>
-        </div>
-        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
-          <h3 className="font-nunito text-sm font-black m-5 pt-5">
-            Email
-          </h3>
-          <p className="m-5 pb-4">
-            EmmaLim@example.com
-          </p>
-        </div>
-        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
-          <h3 className="font-nunito text-sm font-black m-5 pt-5">
-            Preffered Contact Days
-          </h3>
-          <p className="m-5 pb-4">
-            Monday, Tuesday, Wednesday
-          </p>
-        </div>
         <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
           <h3 className="font-nunito text-sm font-black m-5 pt-5">
             Have you owned a cat before?
@@ -476,8 +443,7 @@ const AdoptionDetail = () => {
             Why do you want to adopt a cat?
           </h3>
           <p className="m-5 pb-4">
-            I want to adopt a cat because I love animals and I think they make great companions.
-            I also enjoy taking care of them and providing them with a loving home.
+            I want to adopt a cat because I love animals and I think they make great companions. I also enjoy taking care of them and providing them with a loving home.
           </p>
         </div>
         <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
@@ -485,8 +451,7 @@ const AdoptionDetail = () => {
             How would you describe your lifestyle?
           </h3>
           <p className="m-5 pb-4">
-            I would say that I have a fairly active lifestyle.
-            I enjoy going for walks and spending time outdoors, but I also like to relax at home with a good book or movie.
+            I would say that I have a fairly active lifestyle. I enjoy going for walks and spending time outdoors, but I also like to relax at home with a good book or movie.
           </p>
         </div>
         <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
@@ -494,8 +459,7 @@ const AdoptionDetail = () => {
             How much time do you typically spend at home?
           </h3>
           <p className="m-5 pb-4">
-            I work from home, so I am typically at home most of the day.
-            However, I do like to go out and run errands or meet up with friends on occasion.
+            I work from home, so I am typically at home most of the day. However, I do like to go out and run errands or meet up with friends on occasion.
           </p>
         </div>
         <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
@@ -503,8 +467,7 @@ const AdoptionDetail = () => {
             Do you frequently travel?
           </h3>
           <p className="m-5 pb-4">
-            No, I do not frequently travel. I might take a short trip once or twice a year,
-            but I would always make sure that my cat is well taken care of while I am away.
+            No
           </p>
         </div>
         <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
@@ -514,12 +477,21 @@ const AdoptionDetail = () => {
           <p className="m-5 pb-4">
             I live in a 5 room HDB flat in Jurong West.
           </p>
-        </div><div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+          <h3 className="font-nunito text-sm font-black m-5 pt-5">
+            What qualities are you looking for in a cat?
+          </h3>
+          <p className="m-5 pb-4">
+            Nothing much, I just want to care for the pet!
+          </p>
+        </div>
+        <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
         <h3 className="font-nunito text-sm font-black m-5 pt-5">
           Do you rent or own your home?
         </h3>
         <p className="m-5 pb-4">
-          I own the house together with my husband
+          Own
         </p>
       </div>
       <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
@@ -527,7 +499,7 @@ const AdoptionDetail = () => {
           Do you have a backyard or outdoor space?
         </h3>
         <p className="m-5 pb-4">
-          No, I do not have a backyard, but there is a park nearby where I can take my cat for walks.
+          No
         </p>
       </div>
       <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
@@ -535,10 +507,26 @@ const AdoptionDetail = () => {
           How many adults live in your home?
         </h3>
         <p className="m-5 pb-4">
-          2, my husband and myself
+          2 -  My husband and Myself
         </p>
       </div>
-        </div>
+      <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+        <h3 className="font-nunito text-sm font-black m-5 pt-5">
+          How many children live in your home?
+        </h3>
+        <p className="m-5 pb-4">
+          0
+        </p>
+      </div>
+      <div className="w-6/6 bg-white rounded-xl h-30 mt-1 mx-3 my-3">
+        <h3 className="font-nunito text-sm font-black m-5 pt-5">
+          Do you have any other pets?
+        </h3>
+        <p className="m-5 pb-4">
+          No
+        </p>
+      </div>
+      </div>
 
 
 
