@@ -23,7 +23,7 @@ Code submission for [SMU CS206 - Software Product Management]
 
 
 ---
-## 🎥 Demo Video 
+## :cat: Campaign Video
 
 
 
