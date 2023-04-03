@@ -19,27 +19,37 @@
 > - [Ariff](http://github.com/KimmyChanga/)
 > - [Chloe](https://github.com/chloekoh2021)
 
-Code submission for [SMU CS206 - Software Product Management]
-
+MVP Code submission for [SMU CS206 - Software Product Management]
 
 ---
 ## :cat: Campaign Video
 
-
-
+Our campaign video for our final presentation can be viewed [here](https://youtu.be/ZxTJs-y0ZVc)
 
 ---
 ## 🎯 What Is Adoptimize?
-
+Adoptimize is a centralized application that aims to reduce the man-hours spent on pet adoption management at animal shelters.
 
 ---
 ## 🌟 Core Features
 
-***Digitalized Adoption Management***
-> ...
+***Digitalized & Centralized Platform***
+> streamlines pet adoption management by migrating all your adoption and pet data to our system.
+> digital adoption contract signing and payment forms
+> avoids the need to use multiple software systems
+
+***Smart Emails & SMS***
+> automically sends emails & text-messages to your adopters after each stage of the adoption proces
+> emails are accompanied with a URL guiding them to the next action they need to take.
+
+***Free of Charge & Maximize Donations***
+> chargers adopters an affordable fee of $5 per transaction, does not charge animal shelters
+> donation add-on option at payment form to maximize donations  for animal shelters through our platform
 
 ---
 ## 🎥 Demo Video + Project Walk-through
+
+A full walkthrough of our MVP & explanation of our featues can be viewed [here](https://youtu.be/LhXrJisvLss).
 
 ---
 ## 📦 Technologies:
@@ -56,7 +66,7 @@ Code submission for [SMU CS206 - Software Product Management]
 ```base
 $ git clone https://github.com/Chen-ZhaoXing/CS206-Group7-Project.git
 ```
-### React Application
+### Running React Application
 ```base
 $ cd client
 $ npm install
